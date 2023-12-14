@@ -1,0 +1,351 @@
+.overlay {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    cursor: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 5vw;
+  
+    .content {
+      width: 80%;
+      min-height: 106vw;
+      // height: 106vw;
+  
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+  
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  
+    .guide {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .closeBtn {
+        background-image: url("../assets/images/popups/close-btn.png");
+  
+        width: 12vw;
+        height: 12vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        // bottom: -13vw;
+        left: 36vw;
+        top: 100vw;
+      }
+      .title {
+        position: absolute;
+        top: 1vw;
+        left: 3vw;
+        width: 75vw;
+      }
+      .guide-content {
+        width: 93%;
+        overflow-y: auto;
+        height: 87vw;
+        position: relative;
+        left: 3vw;
+  
+        position: absolute;
+        top: 8vw;
+        color: white;
+  
+        .bean-img{
+          width: 3.5vw;
+          position: relative;
+          top: 1vw;
+        }
+  
+        .house-table {
+          border: 1px dotted yellow;
+          border-radius: 2vw;
+          border-collapse: collapse;
+          border-radius: 2vw;
+          color: white;
+          font-size: 3vw;
+          width: 95%;
+          margin-top: 2vw;
+          font-size: 2vw;
+  
+          tr td {
+            padding: 2vw;
+            border: 1px dotted yellow;
+            border-radius: 2vw;
+            text-align: center;
+          }
+  
+          .bean-img{
+            width: 3vw;
+            position: relative;
+            top: 0.7vw;
+       
+            left: 0.4vw;
+          }
+  
+          .fToken{
+            position: relative;
+            left: 1vw;
+            // bottom: 1vw;
+            width: 2vw;
+            top: 0.3vw;
+      
+          }
+        }
+        .heading {
+          font-size: 3vw;
+        }
+        .list-item {
+          padding: 3vw;
+          font-size: 2.5vw;
+          line-height: 1.8;
+        }
+      }
+  
+      .guide-content::-webkit-scrollbar {
+        width: 1vw;
+        background-color: gray;
+      }
+  
+      /* Track */
+      .guide-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 1vw;
+      }
+  
+      /* Handle */
+      .guide-content::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 2vw;
+      }
+  
+      /* Handle on hover */
+      .guide-content::-webkit-scrollbar-thumb:hover {
+        background: #b30000;
+      }
+    }
+  
+    .rewards-history {
+      width: 100%;
+      height: 100%;
+      position: relative;
+  
+      .title-div {
+        width: 77vw;
+        height: 8vw;
+        // background-color: #ce9735;
+  
+        border-radius: 5vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 3vw;
+        color: white;
+        background-image: url("../assets/images/popups/rewards-hist-title.png");
+        background-size: 100% 100%;
+        background-position: center;
+        position: absolute;
+        top: 5vw;
+        left: 2vw;
+    
+  
+        .time-img{
+          width: 15vw;
+        }
+        
+        .rewa-img{
+          width: 18vw;
+        }
+      }
+  
+      .history-content {
+        width: 81vw;
+        height: 74vw;
+        position: relative;
+        top: 14vw;
+        left: 2vw;
+        // display: flex;
+        // flex-direction: column;
+        gap: 1vw;
+        overflow-y: auto;
+        // border: 1px solid yellow;
+  
+  
+        .no-rec-found {
+          position: relative;
+          top: 24vw;
+          font-size: 5vw;
+          font-family: "ROG";
+          color: white;
+  
+          text-align: center;
+        }
+      }
+      .history-content::-webkit-scrollbar {
+        width: 1vw;
+        background-color: gray;
+      }
+  
+      /* Track */
+      .history-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 1vw;
+      }
+  
+      /* Handle */
+      .history-content::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 2vw;
+      }
+  
+      /* Handle on hover */
+      .history-content::-webkit-scrollbar-thumb:hover {
+        background: #b30000;
+      }
+  
+      .closeBtn {
+        //   background-image: url("../images/popups/close-button.png");
+        background-image: url("../assets/images/popups/close-btn.png");
+  
+        width: 12vw;
+        height: 12vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        // bottom: -15vw;
+        left: 36vw;
+        top: 101vw;
+      }
+      .title {
+        position: absolute;
+        top: -3vw;
+        left: 3vw;
+        width: 78vw;
+      }
+  
+      .load-more {
+        width: 19vw;
+        height: 7vw;
+        background-image: url("../assets/images/popups/load-more-btn.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        border: none;
+        background-color: transparent;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 4vw;
+        left: 33vw;
+      }
+  
+      .load-less {
+        width: 19vw;
+        height: 7vw;
+        background-image: url("../assets/images/popups/load-less-btn.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        border: none;
+        background-color: transparent;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 4vw;
+        left: 33vw;
+      }
+    }
+  
+    .game-popup {
+      width: 81vw;
+      height: 83vw;
+      // border: 1px solid red;
+      position: relative;
+      left: 4vw;
+  
+      .text {
+        position: absolute;
+        width: 81vw;
+        height: 19vw;
+        bottom: 0vw;
+        font-size: 4vw;
+        color: white;
+  
+        p {
+          position: relative;
+          top: 2vw;
+          font-size: 2.5vw;
+        }
+      }
+  
+      .decimal-warn {
+        color: white;
+        position: absolute;
+        top: 32vw;
+        left: 18vw;
+        font-size: 3vw;
+      }
+  
+      .closeBtn {
+        //   background-image: url("../images/popups/close-button.png");
+        background-image: url("../assets/images/popups/close-btn.png");
+  
+        width: 12vw;
+        height: 12vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: -5vw;
+        left: 65vw;
+      }
+  
+      .game-rewards {
+        // border: 1px solid green;
+        width: 55vw;
+        height: 43vw;
+        position: absolute;
+        top: 18vw;
+        left: 12vw;
+      }
+  
+      .error-mesg {
+        position: absolute;
+        top: 31vw;
+        left: 26vw;
+        color: white;
+        font-family: "ROG";
+      }
+      .not-enough-points {
+        position: absolute;
+        top: 31vw;
+        left: 10vw;
+        color: white;
+        font-family: "ROG";
+      }
+    }
+  
+
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

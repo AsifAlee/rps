@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+  background-image: url("../src/assets/images/battle/bg.jpg");
+
+  .guideNGifting {
+    top: 87vw;
+    position: absolute;
+    width: 100%;
+  }
+
+  .main-tabs {
+    width: 90%;
+    height: 10vw;
+    background-image: url("./assets/images/battle/tab-bar.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    display: flex;
+
+    .main-tab-button {
+    background-image: url("./assets/images/battle/active-tab.png");
+
+      width: 31vw;
+      height: 17vw;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      font-family: 'EvilEmpire';
+      color: white;
+      font-size: 4vw;
+      position: relative;
+      top: -3vw;
+    }
+    // .rank11-20 {
+    //   width: 31vw;
+    //   height: 11vw;
+    //   background-image: url("../assets//images/diwali-dhamka/rank-11-20.png");
+    //   background-repeat: no-repeat;
+    //   background-size: 100% 100%;
+    // }
+    // .rank21-30 {
+    //   width: 30vw;
+    //   height: 11vw;
+    //   background-image: url("../assets//images/diwali-dhamka/rank21-20.png");
+    //   background-repeat: no-repeat;
+    //   background-size: 100% 100%;
+    // }
+  }
+}

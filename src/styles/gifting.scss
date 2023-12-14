@@ -1,0 +1,56 @@
+.event-gifting{
+    .gift {
+        display: flex;
+        flex-direction: column;
+        .gift-details {
+        //   background-image: url("../assets//images/gift-base.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          width: 25vw;
+          height: 32vw;
+          position: relative;
+    
+          .name {
+            font-size: 3vw;
+            position: absolute;
+            /* left: 4vw; */
+            top: 4vw;
+            // border: 1px solid;
+            width: 100%;
+            text-align: center;
+            color: #3e1608;
+            font-weight: bold;
+          }
+          img {
+            width: 15vw;
+            position: absolute;
+            top: 10vw;
+            left: 5vw;
+          }
+        }
+        .price {
+          // background-color: #5f1b5e;
+        //   background-image: url("../assets//images/gift-price-bg.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          height: 6vw;
+          border-radius: 3vw;
+          width: 22vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5vw;
+          position: relative;
+          left: 1vw;
+          span {
+            font-size: 3vw;
+            color: white;
+          }
+          img {
+            width: 4vw;
+            position: relative;
+            top: 0.3vw;
+          }
+        }
+      }
+}
