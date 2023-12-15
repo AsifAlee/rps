@@ -19,6 +19,7 @@ import rewardsHeading from "../../assets/images/battle/rewards-heading.png";
 import beansPotHeading from "../../assets/images/battle/beand-pot-heading.png";
 import potImg from "../../assets/images/battle/beans-pot.png";
 import beanIcon from "../../assets/images/battle/bean-icon.png";
+import LeaderBoardComponent from "../../components/LeaderBoardComponent";
 
 const BattleTab = () => {
   const leaderboardRewards = [
@@ -138,6 +139,7 @@ const BattleTab = () => {
           <span>99999</span>
         </div>
       </div>
+      <LeaderBoardComponent />
     </div>
   );
 };

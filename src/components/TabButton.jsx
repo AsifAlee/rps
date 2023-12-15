@@ -10,14 +10,14 @@ const TabButton = ({
   height,
 }) => {
   return (
-    <div>
+    <>
       <button
         onClick={() => handleClick(name)}
         className={`tab-button ${btnImg}`}
         style={{ width: width && width, height: height && height }}
       />
       {showArrowImg && <img src={arrowImage} className="arrowImg" />}
-    </div>
+    </>
   );
 };
 

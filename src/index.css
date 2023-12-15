@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -217,4 +226,24 @@ button {
   background-size: 100% 100%;
   border: none;
 
+}
+
+.m-auto{
+  margin: 0 auto;
+}
+.today-sel{
+  background-image: url('./assets//images/battle/today-btn.png');
+}
+.prev-sel{
+  background-image: url('./assets//images/battle/previous-day-btn.png');
+}
+
+.see-more{
+  background-image: url('./assets/images//battle/see-more-btn.png');
+}
+.see-less{
+  background-image: url('./assets/images//battle/see-less.png');
+}
+.scroll{
+  overflow-y: scroll !important;
 }

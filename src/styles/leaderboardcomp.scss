@@ -1,0 +1,88 @@
+.leaderboard-comp {
+  width: 99%;
+  min-height: 207vw;
+  background-image: url("../assets/images/battle/lb-bg.png");
+  background-size: 100% 100%;
+  position: relative;
+  margin-top: 18vw;
+
+  .lb-title {
+    width: 80%;
+    position: absolute;
+    right: 10vw;
+    top: -19vw;
+  }
+
+  .lb-tabs {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 10vw;
+    left: 0;
+    right: 0;
+    gap: 5vw;
+  }
+
+  .topper-sec {
+    position: absolute;
+    width: 100%;
+    top: 21vw;
+    min-height: 50vw;
+    // border: 1px solid red;
+
+    .pos1 {
+      position: absolute;
+      left: 32vw;
+    }
+    .pos2 {
+      position: absolute;
+      top: 4vw;
+      left: 5vw;
+    }
+    .pos3 {
+      position: absolute;
+      right: 5vw;
+      top: 4vw;
+    }
+  }
+  .rest-winners {
+    position: absolute;
+    top: 23vw;
+    width: 95%;
+    margin: 0 auto;
+    left: 2vw;
+    top: 81vw;
+    height: 107vw;
+    overflow-y: hidden;
+  }
+
+
+  .rest-winners::-webkit-scrollbar {
+    width: 1vw;
+    background-color: gray;
+  }
+
+  /* Track */
+  .rest-winners::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 1vw;
+  }
+
+  /* Handle */
+  .rest-winners::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 2vw;
+  }
+
+  /* Handle on hover */
+  .rest-winners::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+  }
+
+  .seeMore{
+    position: absolute;
+    top: 191vw;
+    left: 0;
+    right: 0;
+  }
+}
