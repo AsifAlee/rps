@@ -112,54 +112,15 @@ button {
   position: relative;
   top: 21vw;
 }
-
-/* .diwali-sel {
-  background-image: url("./assets/images/diwali-sel.png");
+.records{
+  background-image: url(./assets/images//battle/record-btn.png);
 }
-.diwali-un {
-  background-image: url("./assets/images/diwali-un.png");
-}
-.decorate-sel {
-  background-image: url("./assets/images/decorate-sel.png");
-}
-.decorate-un {
-  background-image: url("./assets/images/decorate-un.png");
+.details{
+  background-image: url(./assets/images/battle/detail-btn.png);
 }
 
-.gifting-sel {
-  background-image: url("./assets/images/gifting-sel.png");
-}
-.gifting-un {
-  background-image: url("./assets/images/gifting-un.png");
-}
 
-.user-sel {
-  background-image: url("./assets/images/user-sel.png");
-}
-.user-un {
-  background-image: url("./assets/images/user-un.png");
-}
 
-.talent-sel {
-  background-image: url("./assets/images/talent-sel.png");
-}
-.talent-un {
-  background-image: url("./assets/images/talent-un.png");
-}
-
-.overall-sel {
-  background-image: url("./assets/images/overall-sel.png");
-}
-.overall-un {
-  background-image: url("./assets/images/overall-un.png");
-}
-
-.hourly-sel {
-  background-image: url("./assets/images/hourly-sel.png");
-}
-.hourly-un {
-  background-image: url("./assets/images/hourly-un.png");
-} */
 
 .flip {
   transform: scaleX(-1);
@@ -180,17 +141,11 @@ button {
   text-align: center;
   color: white;
   position: relative;
-  top: 3vw;
-  font-size: 2.7vw;
+  font-size: 3.7vw;
+  font-family: 'EvilEmpire';
+
 }
-.footer {
-  width: 100%;
-  height: 22vw;
-  /* background-image: url("./assets/images/footer-design.png"); */
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  border: none;
-}
+
 
 .p-rel {
   position: relative;

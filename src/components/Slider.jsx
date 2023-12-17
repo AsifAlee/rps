@@ -42,7 +42,6 @@ const RewardsSlider = ({
       {!hideArrows && (
         <img className="left-arrow" src={leftArrow} onClick={prevSlide} />
       )}
-      {/* <img src={tag} className="rewards-text" /> */}
       <div className="slider-content">
         {showRanks && (
           <div style={{ fontSize: "3vw" }}>{rewards[currentIndex]?.rank}</div>

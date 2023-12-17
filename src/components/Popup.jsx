@@ -1,27 +1,20 @@
 import React, { useEffect } from "react";
-import "../styles/popups.scss";
+import "../styles/popup.scss";
 const PopUp = (props) => {
   const {
     children,
     bg,
-    title,
-    popUpHandler,
-    isAccPopUp,
-    isRewards,
-    isGame,
-    isMilestone,
-    isCollSold,
     isSendCard,
     isOverflow,
     schedule,
     isRewardHist,
-    planeInfo,
     info,
     game,
     guide,
     isJoin,
     isGuide,
     sure,
+    details,
   } = props;
 
   useEffect(() => {
@@ -62,6 +55,8 @@ const PopUp = (props) => {
               ? "90%"
               : isJoin
               ? "94vw"
+              : details
+              ? "95%"
               : ""
           }`,
           overflowY: isOverflow ? "auto" : "",

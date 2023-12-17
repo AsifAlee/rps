@@ -12,7 +12,8 @@ const CommonButton = ({
     <button
       className={`common-button ${btnImg} ${isFlipped && "flip"}`}
       style={{ width: width && width, height: height && height }}
-      onClick={seeMore ? handleClick : null}
+      // onClick={seeMore ? handleClick : null}
+      onClick={handleClick}
     ></button>
   );
 };

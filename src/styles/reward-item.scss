@@ -1,0 +1,13 @@
+.reward-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .giftImg {
+      width: 9vw;
+    }
+    .text {
+      font-size: 2vw;
+      font-family: "PoppinsMedium";
+      width: 9vw;
+    }
+  }

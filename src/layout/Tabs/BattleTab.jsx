@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import unknown from "../../assets/images/common/unknown-user.png";
 import Marquee from "react-fast-marquee";
 import { gotoProfile } from "../../functions";
@@ -20,7 +20,8 @@ import beansPotHeading from "../../assets/images/battle/beand-pot-heading.png";
 import potImg from "../../assets/images/battle/beans-pot.png";
 import beanIcon from "../../assets/images/battle/bean-icon.png";
 import LeaderBoardComponent from "../../components/LeaderBoardComponent";
-
+import BattleDetails from "../Popups/BattleDetails";
+import RecordsPopup from "../Popups/RecordsPopup";
 const BattleTab = () => {
   const leaderboardRewards = [
     {
@@ -55,6 +56,17 @@ const BattleTab = () => {
       ],
     },
   ];
+
+  const [rewards, setRewards] = useState(leaderboardRewards);
+  const [details, setDetails] = useState(false);
+  const [records, setRecords] = useState(false);
+
+  const toggleDetails = () => {
+    setDetails((prevState) => !prevState);
+  };
+  const toggleRecords = () => {
+    setRecords((prevState) => !prevState);
+  };
   return (
     <div className="battle-tab">
       {/* <div style={{ position: "absolute", top: "-31vw" }}>
@@ -89,8 +101,16 @@ const BattleTab = () => {
       </div> */}
 
       <div className="d-flex j-sb rec-details-btn">
-        <CommonButton btnImg={"guide"} width={"21vw"} />
-        <CommonButton btnImg={"event-gifting"} width={"27vw"} />
+        <CommonButton
+          btnImg={"details"}
+          width={"21vw"}
+          handleClick={toggleDetails}
+        />
+        <CommonButton
+          btnImg={"records"}
+          width={"27vw"}
+          handleClick={toggleRecords}
+        />
       </div>
 
       <div className="battle-game-frame">
@@ -123,7 +143,7 @@ const BattleTab = () => {
         <img src={rewardsHeading} className="rewards-heading" />
         <div style={{ position: "absolute", top: "7vw", left: "8vw" }}>
           <RewardsSlider
-            rewards={leaderboardRewards}
+            rewards={rewards}
             showRanks={true}
             showIndicators={true}
           />
@@ -140,6 +160,8 @@ const BattleTab = () => {
         </div>
       </div>
       <LeaderBoardComponent />
+      {details && <BattleDetails clickHandler={toggleDetails} />}
+      {records && <RecordsPopup clickHandler={toggleRecords} />}
     </div>
   );
 };

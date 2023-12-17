@@ -59,6 +59,14 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/gameMasterRoomSkin.png";
   } else if (rewDesc?.includes("Game Battle Profile frame")) {
     rewImg = baseUrl + "/streamkar/rewards/gameMasterFarme.png";
+  } else if (rewDesc?.includes("Samurai Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/skSamuraiFrame.png";
+  } else if (rewDesc?.includes("Night Shadow room")) {
+    rewImg = baseUrl + "/streamkar/rewards/nightShadow.png";
+  } else if (rewDesc?.includes("Moon Knight Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/moonKnightFrame.png";
+  } else if (rewDesc?.includes("Desert Knight room")) {
+    rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

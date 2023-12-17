@@ -116,3 +116,17 @@ export const talentRewards = [
 ];
 
 export const gifts = {};
+
+export const battleDetailsRewards = [
+  "Samurai Frame x1 day",
+  "Night Shadow room skin x1 day",
+  "Moon Knight Frame x1 day",
+  "Desert Knight room skin x1 day",
+  "Spaceship entrance x1 day",
+  "Rusty Ranger entrance x1 day",
+  "Battle Master room skin x1 day (New)",
+  "Battle Master frame x1 day (New)",
+  "2000 Beans",
+  "1500 Beans",
+  "500 Beans",
+];

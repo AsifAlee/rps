@@ -6,6 +6,7 @@ import CommonButton from "./components/CommonButton";
 import BattleTab from "./layout/Tabs/BattleTab";
 import LuckyPlayer from "./layout/Tabs/LuckyPlayer";
 import TalentTour from "./layout/Tabs/TalentTour";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   const [mainTabs, setMainTabs] = useState({
@@ -76,6 +77,9 @@ function App() {
       ) : (
         <TalentTour />
       )}
+      <p className="rights">All rights reserved by streamkar</p>
+
+      <ScrollToTopButton />
     </div>
   );
 }
