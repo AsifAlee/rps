@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import unknown from "../../assets/images/common/unknown-user.png";
 import Marquee from "react-fast-marquee";
 import { gotoProfile } from "../../functions";
@@ -14,7 +14,6 @@ import RadioButton from "../../components/CustomRadio";
 import CommonButton from "../../components/CommonButton";
 import battleWon from "../../assets/images/battle/battles-won-icon.png";
 import playButton from "../../assets/images/battle/play-btn.png";
-import RewardsSlider from "../../components/Slider";
 import rewardsHeading from "../../assets/images/battle/rewards-heading.png";
 import beansPotHeading from "../../assets/images/battle/beand-pot-heading.png";
 import potImg from "../../assets/images/battle/beans-pot.png";
@@ -22,6 +21,7 @@ import beanIcon from "../../assets/images/battle/bean-icon.png";
 import LeaderBoardComponent from "../../components/LeaderBoardComponent";
 import BattleDetails from "../Popups/BattleDetails";
 import RecordsPopup from "../Popups/RecordsPopup";
+import Slider from "../../components/Slider";
 const BattleTab = () => {
   const leaderboardRewards = [
     {
@@ -57,7 +57,7 @@ const BattleTab = () => {
     },
   ];
 
-  const [rewards, setRewards] = useState(leaderboardRewards);
+  const [rewards, setRewards] = useState([]);
   const [details, setDetails] = useState(false);
   const [records, setRecords] = useState(false);
 
@@ -67,6 +67,9 @@ const BattleTab = () => {
   const toggleRecords = () => {
     setRecords((prevState) => !prevState);
   };
+  useEffect(() => {
+    setRewards(leaderboardRewards);
+  }, []);
   return (
     <div className="battle-tab">
       {/* <div style={{ position: "absolute", top: "-31vw" }}>
@@ -142,11 +145,7 @@ const BattleTab = () => {
       <div className="battle-rewards-sec">
         <img src={rewardsHeading} className="rewards-heading" />
         <div style={{ position: "absolute", top: "7vw", left: "8vw" }}>
-          <RewardsSlider
-            rewards={rewards}
-            showRanks={true}
-            showIndicators={true}
-          />
+          <Slider rewards={rewards} showRanks={true} showIndicators={true} />
         </div>
 
         <div className="beansPot">

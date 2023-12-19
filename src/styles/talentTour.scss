@@ -1,0 +1,103 @@
+.talent-tours {
+  .space-game {
+    width: 90%;
+    min-height: 270vw;
+    position: relative;
+    width: 95%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    background-image: url("../assets//images/tour/main-section-bg.png");
+    margin-top: 7vw;
+
+    .space-ticket-count {
+      height: 17vw;
+      width: 82%;
+      background-size: 100% 100%;
+      position: absolute;
+      left: 9vw;
+      top: -9vw;
+      background-image: url(../assets/images/battle/game-points-counter-bar.png);
+      z-index: 1;
+
+      img {
+        width: 5vw;
+      }
+      span {
+        font-family: "PoppinsMediumItalic";
+        font-size: 2.5vw;
+        color: white;
+      }
+    }
+    .game-sec {
+      position: relative;
+      top: 18vw;
+      color: white;
+      font-family: "PoppinsMedium";
+      p {
+        width: 56%;
+        margin: 0 auto;
+        font-size: 4vw;
+      }
+      .game-bg {
+        width: 80%;
+        min-height: 155vw;
+        background-image: url(../assets/images/tour/game-bg.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        position: relative;
+
+        .bottom-sec {
+          position: absolute;
+          top: 129vw;
+          left: 0;
+          right: 0;
+          .ship-image {
+            width: 11vw;
+            position: relative;
+            left: 9vw;
+          }
+          .travel-btn {
+            width: 21vw;
+            height: 9vw;
+            background-image: url(../assets/images/tour/travel-button.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+  .tour-lb {
+    width: 90%;
+    min-height: 184vw;
+    position: relative;
+    width: 95%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    background-image: url("../assets//images/battle/lb-bg.png");
+    margin-top: 20vw;
+
+    .title {
+      width: 84%;
+      position: absolute;
+      left: 7vw;
+      top: -19vw;
+    }
+
+    .lb-restWinners{
+        overflow: hidden;
+        height: 151vw;
+        position: relative;
+        top: 15vw;
+    }
+    .seeMore{
+        position: relative;
+        top: 14vw;
+
+    }
+  }
+}

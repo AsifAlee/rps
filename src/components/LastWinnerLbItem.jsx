@@ -2,14 +2,14 @@ import React from "react";
 import unknown from "../assets/images/common/unknown-user.png";
 import battleWonIcon from "../assets/images/battle/battles-won-icon.png";
 import { getLevelImage, gotoProfile } from "../functions";
-import "../styles/game-lb-item.scss";
+import "../styles/last-winner-lb-item.scss";
 
-const GameLeaderboartItem = ({ item, index }) => {
+const LastWinnerLbItem = ({ item, index }) => {
   return (
-    <div className="game-board-item">
+    <div className="last-winner-lb-item">
       <div className="leftDiv">
         <div className="index">
-          <span>{`${index + 4}th`}</span>
+          <span>{`Day ${index + 1}`}</span>
         </div>
         <img
           className="user-avatar"
@@ -22,12 +22,14 @@ const GameLeaderboartItem = ({ item, index }) => {
           <img src={getLevelImage(item.userLevel)} />
         </div>
       </div>
-      <div className="rightDiv">
-        <img src={battleWonIcon} />
-        <span>{item?.userScore || 99999}</span>
+      <div className="rightDiv ">
+        <div className="rew-item d-flex f-column al-center">
+          <img src={battleWonIcon} />
+          <span>{item?.userScore || "12 days"}</span>
+        </div>
       </div>
     </div>
   );
 };
 
-export default GameLeaderboartItem;
+export default LastWinnerLbItem;

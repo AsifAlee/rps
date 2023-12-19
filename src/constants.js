@@ -130,3 +130,63 @@ export const battleDetailsRewards = [
   "1500 Beans",
   "500 Beans",
 ];
+
+export const leaderBoardSliderData = [
+  [
+    {
+      count: 1500,
+      desc: "Beans",
+      type: 1,
+    },
+    {
+      count: 2,
+      desc: "Phantom entrance",
+      id: 1635,
+      type: 4,
+    },
+    {
+      count: 4,
+      desc: "Audio broadcast theme DOYEN",
+      id: 112,
+      type: 5,
+    },
+  ],
+  [
+    {
+      count: 4,
+      desc: "Radiance Profile Frame",
+      id: 95,
+      type: 6,
+    },
+    {
+      count: 2,
+      desc: "VIP",
+      id: 100001,
+      type: 8,
+    },
+    {
+      count: 400,
+      desc: "Soldiers",
+      type: 99,
+    },
+  ],
+  [
+    {
+      count: 4,
+      desc: "Radiance Profile Frame",
+      id: 95,
+      type: 6,
+    },
+    {
+      count: 2,
+      desc: "VIP",
+      id: 100001,
+      type: 8,
+    },
+    {
+      count: 400,
+      desc: "Soldiers",
+      type: 99,
+    },
+  ],
+];

@@ -7,6 +7,7 @@ import BattleTab from "./layout/Tabs/BattleTab";
 import LuckyPlayer from "./layout/Tabs/LuckyPlayer";
 import TalentTour from "./layout/Tabs/TalentTour";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import EventGifting from "./layout/Popups/EventGifting";
 
 function App() {
   const [mainTabs, setMainTabs] = useState({
@@ -14,6 +15,12 @@ function App() {
     luckyPlayer: false,
     talentTour: false,
   });
+
+  const [eventGifting, setEventGifting] = useState(false);
+
+  const toggleEventGifitng = () => {
+    setEventGifting((prevState) => !prevState);
+  };
 
   const toggleMainTabs = (name) => {
     if (name === "battle") {
@@ -42,7 +49,11 @@ function App() {
       <Header />
       <div className="d-flex j-sb guideNGifting">
         <CommonButton btnImg={"guide"} width={"21vw"} />
-        <CommonButton btnImg={"event-gifting"} width={"27vw"} />
+        <CommonButton
+          btnImg={"event-gifting"}
+          width={"27vw"}
+          handleClick={toggleEventGifitng}
+        />
       </div>
 
       <div>
@@ -80,6 +91,8 @@ function App() {
       <p className="rights">All rights reserved by streamkar</p>
 
       <ScrollToTopButton />
+
+      {eventGifting && <EventGifting />}
     </div>
   );
 }

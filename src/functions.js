@@ -67,6 +67,8 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/moonKnightFrame.png";
   } else if (rewDesc?.includes("Desert Knight room")) {
     rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
+  } else if (rewDesc?.includes("Follower Card")) {
+    rewImg = baseUrl + "/streamkar/rewards/followerCard.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

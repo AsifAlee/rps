@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-//   background-image: url("../assets/images/rewards-bg.png");
-//   height: 55vw;
+  //   background-image: url("../assets/images/rewards-bg.png");
+  //   height: 55vw;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   margin: 0 auto;
@@ -42,23 +42,105 @@
         flex-direction: column;
         width: 46vw;
         height: 52vw;
-       background-image: url('../assets/images/battle/reward-bg.png');
-       background-size: 100% 100%;
+        background-image: url("../assets/images/battle/reward-bg.png");
+        background-size: 100% 100%;
 
         align-items: center;
 
-      
-          .reward-img {
-            width: 20vw;
-            position: relative;
-            top: 11vw;
-          }
-        
+        .reward-img {
+          width: 20vw;
+          position: relative;
+          top: 11vw;
+        }
 
         p {
           position: relative;
           top: 11vw;
           font-size: 2.6vw;
+        }
+      }
+    }
+  }
+
+  .indicators {
+    display: flex;
+    gap: 1vw;
+    margin-top: 4vw;
+    .slider-dot {
+      width: 2vw;
+      height: 2vw;
+      border-radius: 100%;
+      border: 0.2vw solid yellow;
+      background-color: brown;
+    }
+    .active-dot {
+      background-color: gold !important;
+    }
+  }
+}
+
+.tour-slider {
+  width: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   background-image: url("../assets/images/rewards-bg.png");
+  //   height: 55vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+
+  .rewards-text {
+    width: 30vw;
+    position: absolute;
+    top: 2vw;
+  }
+
+  .left-arrow {
+    width: 9vw;
+  }
+  .right-arrow {
+    width: 9vw;
+  }
+
+  .slider-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 1vw;
+
+    .rew-container {
+      display: flex;
+      justify-content: center;
+      width: 60vw;
+      // border: 2px solid;
+      .reward-item {
+        display: flex;
+        flex-direction: column;
+        width: 46vw;
+        height: 52vw;
+        background-image: url("../assets/images/tour/planet-bg.png");
+        background-size: 100% 100%;
+
+        align-items: center;
+
+        position: relative;
+
+        .reward-image {
+          width: 20vw;
+          position: absolute;
+          top: 17vw;
+        }
+
+        p {
+          position: absolute;
+          top: 52vw;
+          font-size: 6.6vw;
+          font-family: "EvilEmpire";
         }
       }
     }

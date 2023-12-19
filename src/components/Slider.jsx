@@ -5,13 +5,7 @@ import leftArrow from "../assets/images/battle/left-arrow.png";
 import SliderDot from "./SliderDot";
 import { getRewardsImage } from "../functions";
 
-const RewardsSlider = ({
-  rewards,
-  showRanks,
-  hideArrows,
-  showIndicators,
-  tag,
-}) => {
+const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   let intervalId = null;
   const nextSlide = () => {
@@ -25,13 +19,13 @@ const RewardsSlider = ({
     );
   };
 
-  // useEffect(() => {
-  //   intervalId = setInterval(nextSlide, 2000);
+  useEffect(() => {
+    intervalId = setInterval(nextSlide, 2000);
 
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, [currentIndex]);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [currentIndex]);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -77,4 +71,4 @@ const RewardsSlider = ({
   );
 };
 
-export default RewardsSlider;
+export default Slider;

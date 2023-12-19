@@ -1,0 +1,30 @@
+.event-gifting-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    overflow-y: auto;
+
+    .gifting-content{
+        width: 80%;
+        min-height: 106vw;    
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        background-image: url('../assets/images/battle/reward-section-bg.png');
+
+    }
+
+    .lb-content{
+        width: 80%;
+        min-height: 106vw;    
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        background-image: url('../assets/images/battle/reward-section-bg.png');
+
+    }
+}

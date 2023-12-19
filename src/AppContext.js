@@ -1,7 +1,10 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const AppContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  return <AppContext.Provider value={{ a: 1 }}>{children}</AppContext.Provider>;
+  const [info, setInfo] = useState({
+    isScrtached: true,
+  });
+  return <AppContext.Provider value={{ info }}>{children}</AppContext.Provider>;
 };

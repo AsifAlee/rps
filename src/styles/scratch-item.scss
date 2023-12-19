@@ -1,0 +1,67 @@
+.scratch-item{
+    width: 80%;
+    height: 11vw;
+    background-image: url('../assets/images/lucky/number-bar.png');
+    display: flex;
+    align-items: center;
+
+    gap: 25vw;
+    padding: 2vw;
+
+    .index{
+        background-color: blueviolet;
+        padding: 1vw 2vw;
+        font-size: 2vw;
+        font-family: 'PoppinsMediumItalic';
+        color: white;
+        border-radius: 1vw;
+    }
+
+    .revealed-number{
+        font-family: 'PoppinsMediumItalic';
+        color: white;
+        font-size: 3vw;
+    }
+}
+
+.scratch-win-item{
+    width: 80%;
+    height: 16vw;
+    background-image: url('../assets/images/lucky/lucky-number-winner-bar.png');
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    gap: 25vw;
+    padding: 2vw;
+
+    .index{
+    background-color: blueviolet;
+    padding: 1vw 2vw;
+    font-size: 2vw;
+    font-family: 'PoppinsMediumItalic';
+    color: white;
+    border-radius: 1vw;
+    position: absolute;
+    left: 9vw;
+    top: 4vw;
+    }
+
+    .revealed-number{
+        font-family: 'PoppinsMediumItalic';
+        color: white;
+        font-size: 3vw;
+        position: absolute;
+        left: 31vw;
+        top: 4vw;
+    }
+
+    .win-label{
+        width: 14vw;
+        position: absolute;
+        right: 7vw;
+        top: -1vw;
+    }
+    }
+
