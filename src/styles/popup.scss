@@ -27,12 +27,12 @@
     animation: fadeIn 0.3s ease-in-out;
   }
 
-  .guide {
+  .guide-popup {
     position: relative;
     width: 100%;
     height: 100%;
     .closeBtn {
-      background-image: url("../assets/images/common/close-btn.png");
+      background-image: url("../assets/images/event-gifting/cross-btn.png");
 
       width: 12vw;
       height: 12vw;
@@ -41,9 +41,10 @@
       background-color: transparent;
       border: none;
       position: absolute;
-      // bottom: -13vw;
-      left: 36vw;
-      top: 100vw;
+      left: 80vw;
+    top: -13vw;
+
+      
     }
     .title {
       position: absolute;
@@ -53,63 +54,58 @@
     }
     .guide-content {
       width: 93%;
-      overflow-y: auto;
-      height: 87vw;
+      // overflow-y: auto;
+      // height: 87vw;
       position: relative;
       left: 3vw;
-
       position: absolute;
       top: 8vw;
       color: white;
 
-      .bean-img {
-        width: 3.5vw;
-        position: relative;
-        top: 1vw;
+      .guide-gifts{
+        
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 94%;
+          // border: 1px solid wheat;
+          top: -3vw;
+          min-height: 43vw;
+          left: 2vw;
+
+          .gift-title{
+              font-size: 4vw;
+              font-family: 'EvilEmpire';
+              color: white;
+
+          }
+          .gifts-container{
+              display: flex;
+              width: 95%;
+
+          }
+
+      
       }
-
-      .house-table {
-        border: 1px dotted yellow;
-        border-radius: 2vw;
-        border-collapse: collapse;
-        border-radius: 2vw;
-        color: white;
-        font-size: 3vw;
-        width: 95%;
-        margin-top: 2vw;
-        font-size: 2vw;
-
-        tr td {
-          padding: 2vw;
-          border: 1px dotted yellow;
-          border-radius: 2vw;
+     
+      .howToPlaySec{
+        position: relative;
+        // min-height: 20vw;
+        // border: 1px solid red;
+        .howTitle{
+          font-size: 5vw;
+          font-family: 'EvilEmpire';
           text-align: center;
         }
-
-        .bean-img {
-          width: 3vw;
-          position: relative;
-          top: 0.7vw;
-
-          left: 0.4vw;
-        }
-
-        .fToken {
-          position: relative;
-          left: 1vw;
-          // bottom: 1vw;
-          width: 2vw;
-          top: 0.3vw;
+        .acc-section{
+          display: flex;
+          flex-direction: column;
+          gap: 16vw;
         }
       }
-      .heading {
-        font-size: 3vw;
-      }
-      .list-item {
-        padding: 3vw;
-        font-size: 2.5vw;
-        line-height: 1.8;
-      }
+    
     }
 
     .guide-content::-webkit-scrollbar {

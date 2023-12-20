@@ -162,3 +162,84 @@
     }
   }
 }
+
+
+.gift-slider {
+  width: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+  flex-direction: column;
+
+  .arrowsNRank{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    .left-arrow {
+      width: 9vw;
+    }
+    .right-arrow {
+      width: 9vw;
+    }
+
+    .rank{
+      font-size: 4vw;
+      font-family: 'EvilEmpire';
+      color: white;
+    }
+
+  }
+ .rews-content {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 79vw;
+    background-image: url('../assets/images/event-gifting/reward-bg.png');
+
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+
+
+    .target-text{
+      position: absolute !important;
+      top: 16vw !important;
+  
+    }
+      .reward-item {
+        display: flex;
+        flex-direction: column;
+        width: 25vw;
+        height: 29vw;
+        background-image: url("../assets/images/event-gifting/reward-box.png");
+        background-size: 100% 100%;
+
+        align-items: center;
+
+        .reward-img {
+          width: 14vw;
+          position: relative;
+          top: 7vw;
+        }
+
+        .gift-rew-desc {
+          position: relative;
+          top: 14vw;
+          font-size: 2.6vw;
+        }
+      }
+    
+  }
+
+
+}

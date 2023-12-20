@@ -1,0 +1,22 @@
+.gift {
+    width: 24vw;
+    height: 26vw;
+    background-image: url(../assets//images/lucky/reward-box.png);
+    background-size: 100% 100%;
+    position: relative;
+
+    img {
+      position: absolute;
+      width: 12vw;
+      top: 7vw;
+      left: 4vw;
+    }
+    span {
+      position: absolute;
+      font-size: 2.5vw;
+      color: white;
+      top: 24vw;
+      font-family: "PoppinsMedium";
+      left: 3vw;
+    }
+  }

@@ -8,6 +8,7 @@ import LuckyPlayer from "./layout/Tabs/LuckyPlayer";
 import TalentTour from "./layout/Tabs/TalentTour";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import EventGifting from "./layout/Popups/EventGifting";
+import Guide from "./layout/Popups/Guide";
 
 function App() {
   const [mainTabs, setMainTabs] = useState({
@@ -17,9 +18,13 @@ function App() {
   });
 
   const [eventGifting, setEventGifting] = useState(false);
+  const [guide, setGuide] = useState(false);
 
   const toggleEventGifitng = () => {
     setEventGifting((prevState) => !prevState);
+  };
+  const toggleGuide = () => {
+    setGuide((prevState) => !prevState);
   };
 
   const toggleMainTabs = (name) => {
@@ -48,7 +53,11 @@ function App() {
     <div className="App">
       <Header />
       <div className="d-flex j-sb guideNGifting">
-        <CommonButton btnImg={"guide"} width={"21vw"} />
+        <CommonButton
+          btnImg={"guide"}
+          width={"21vw"}
+          handleClick={toggleGuide}
+        />
         <CommonButton
           btnImg={"event-gifting"}
           width={"27vw"}
@@ -92,7 +101,8 @@ function App() {
 
       <ScrollToTopButton />
 
-      {eventGifting && <EventGifting />}
+      {eventGifting && <EventGifting popUpHandler={toggleEventGifitng} />}
+      {guide && <Guide clickHandler={toggleGuide} />}
     </div>
   );
 }

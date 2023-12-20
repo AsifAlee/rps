@@ -69,6 +69,8 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
   } else if (rewDesc?.includes("Follower Card")) {
     rewImg = baseUrl + "/streamkar/rewards/followerCard.png";
+  } else if (rewDesc?.includes("gems")) {
+    rewImg = baseUrl + "/streamkar/rewards/gems.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

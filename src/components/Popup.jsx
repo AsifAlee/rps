@@ -10,7 +10,6 @@ const PopUp = (props) => {
     isRewardHist,
     info,
     game,
-    guide,
     isJoin,
     isGuide,
     sure,
@@ -32,7 +31,7 @@ const PopUp = (props) => {
           backgroundImage: `url(${bg})`,
           minHeight: `${
             isGuide
-              ? "100vw"
+              ? "150vw"
               : sure
               ? "45vw"
               : game
@@ -47,7 +46,7 @@ const PopUp = (props) => {
               ? "100%"
               : game
               ? "73%"
-              : guide
+              : isGuide
               ? "90%"
               : isRewardHist
               ? "85%"

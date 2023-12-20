@@ -1,0 +1,15 @@
+.tour-comp{
+    background-image: url(../assets//images/tour/platform.png);
+    width: 18vw;
+    height: 20vw;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    position: relative;
+    img{
+        width: 10vw;
+        position: absolute;
+        left: 4vw;
+        top: 4vw;
+    }
+
+}

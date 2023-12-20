@@ -214,3 +214,22 @@ button {
   background-repeat: no-repeat;
 
 }
+
+.talent{
+  background-image: url(./assets/images/event-gifting/talent.png);
+
+}
+.gifter{
+  background-image: url(./assets/images/event-gifting/gifter.png);
+
+}
+
+.rps{
+  background-image: url(./assets/images//guide/rps.png);
+}
+.lucky-player{
+  background-image: url(./assets/images//guide/lucky-player.png);
+}
+.talent-tour{
+  background-image: url(./assets/images//guide/talent-tour.png)
+}

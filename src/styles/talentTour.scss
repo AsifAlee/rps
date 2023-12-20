@@ -41,22 +41,55 @@
       }
       .game-bg {
         width: 80%;
-        min-height: 155vw;
+        min-height: 164vw;
         background-image: url(../assets/images/tour/game-bg.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         margin: 0 auto;
         position: relative;
 
+        .game-rewards {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 12vw;
+
+          .left-rewards {
+            display: flex;
+            flex-direction: column;
+            gap: 4vw;
+            position: relative;
+            top: 6vw;
+          }
+          .right-rewards {
+            display: flex;
+            flex-direction: column;
+            gap: 4vw;
+            position: relative;
+            top: 17vw;
+            left: 5vw;
+          }
+        }
+
         .bottom-sec {
+          // position: absolute;
+          // top: 138vw;
+          // left: 0;
+          // right: 0;
+
           position: absolute;
-          top: 129vw;
-          left: 0;
+          top: 138vw;
+          left: 3vw;
           right: 0;
-          .ship-image {
+          display: flex;
+          justify-content: flex-end;
+          gap: 2vw;
+          width: 80%;
+          align-items: center;
+          .moving-ship {
             width: 11vw;
             position: relative;
-            left: 9vw;
+            // left: 9vw;
           }
           .travel-btn {
             width: 21vw;
@@ -65,7 +98,321 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
           }
+          span {
+            font-size: 5vw;
+            font-family: "EvilEmpire";
+            color: white;
+            position: absolute;
+            top: 15vw;
+            left: 52vw;
+          }
         }
+
+        .path1 {
+          width: 17vw;
+          position: absolute;
+          top: 116vw;
+          left: 32vw;
+        }
+        .path2 {
+          width: 17vw;
+          position: absolute;
+          top: 102vw;
+          left: 31vw;
+        }
+        .path3 {
+          width: 17vw;
+          position: absolute;
+          top: 93vw;
+          left: 31vw;
+        }
+        .path4 {
+          width: 17vw;
+          position: absolute;
+          top: 82vw;
+          left: 33vw;
+        }
+        .path5 {
+          width: 17vw;
+          position: absolute;
+          top: 70vw;
+          left: 31vw;
+        }
+
+        .path6 {
+          width: 17vw;
+          position: absolute;
+          top: 58vw;
+          left: 33vw;
+        }
+        .path7 {
+          width: 17vw;
+          position: absolute;
+          top: 45vw;
+          left: 32vw;
+        }
+        .path8 {
+          width: 17vw;
+          position: absolute;
+          top: 30vw;
+          left: 31vw;
+        }
+        .path9 {
+          width: 17vw;
+          position: absolute;
+          top: 20vw;
+          left: 31vw;
+        }
+
+        .from0To1 {
+          animation: zeroTo1Anim;
+          animation-duration: 2s;
+          animation-timing-function: ease-in-out;
+          // animation-iteration-count: 3;
+          // animation-fill-mode: forwards;
+        }
+        .from1To2 {
+          animation: oneTo2Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+        }
+        .from2To3 {
+          animation: twoTo3Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .from3To4 {
+          animation: threeTo4Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .from4To5 {
+          animation: fourTo5Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .from5To6 {
+          animation: fiveTo6Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .from6To7 {
+          animation: sixTo7Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .from7To8 {
+          animation: sevenTo8Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .from8To9 {
+          animation: eightTo9Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .from9To10 {
+          animation: nineTo10Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .onePos {
+          top: -24vw;
+        }
+
+        .twoPos {
+          top: -34vw;
+          left: -26vw;
+
+    //       top: -34vw;
+    // right: 35vw;
+        }
+
+        .threePos {
+          top: -48vw;
+        }
+
+        .fourPos {
+          top: -59vw;
+          left: -26vw;
+        }
+        .fivePos {
+          top: -71vw;
+          left: 10vw;
+        }
+
+        .sixPos {
+          top: -83vw;
+          left: -26vw;
+        }
+        .sevenPos {
+          top: -97vw;
+          left: 9vw;
+        }
+        .eightPos {
+          top: -106vw;
+          left: -26vw;
+        }
+        .ninePos {
+          top: -120vw;
+          left: 10vw;
+        }
+        .tenPos {
+          top: -131vw;
+          left: -26vw;
+        }
+
+        @keyframes zeroTo1Anim {
+          0% {
+            top: 0vw;
+          }
+          100% {
+            top: -24vw;
+          }
+        }
+
+        @keyframes oneTo2Anim {
+          0% {
+            top: -24vw;
+          }
+          100% {
+            left: -25vw ;
+            top: -34vw ;
+
+            // right: 35vw;
+            // top: -34vw;
+          }
+        }
+
+        @keyframes twoTo3Anim {
+          0% {
+            top: -34vw;
+            left: -26vw;
+          }
+          100% {
+            top: -47vw;
+            left: 9vw;
+          }
+        }
+
+        @keyframes threeTo4Anim {
+          0% {
+            top: -48vw;
+          }
+          100% {
+            top: -59vw;
+            left: -26vw;
+          }
+        }
+
+        @keyframes fourTo5Anim {
+          0% {
+            top: -59vw;
+            left: -26vw;
+          }
+          100% {
+            top: -71vw;
+            left: 10vw;
+          }
+        }
+        @keyframes fiveTo6Anim {
+          0% {
+            top: -71vw;
+            left: 10vw;
+          }
+          100% {
+            top: -83vw;
+            left: -26vw;
+          }
+        }
+
+        @keyframes sixTo7Anim {
+          0% {
+            top: -83vw;
+            left: -26vw;
+          }
+          100% {
+            top: -97vw;
+            left: 9vw;
+          }
+        }
+
+        @keyframes sevenTo8Anim {
+          0% {
+            top: -97vw;
+            left: 9vw;
+          }
+          100% {
+            top: -106vw;
+            left: -26vw;
+          }
+        }
+
+        @keyframes eightTo9Anim {
+          0% {
+            top: -106vw;
+            left: -26vw;
+          }
+          100% {
+            top: -120vw;
+            left: 10vw;
+          }
+        }
+
+        @keyframes nineTo10Anim {
+          0% {
+            top: -120vw;
+            left: 10vw;
+          }
+          100% {
+            top: -131vw;
+            left: -26vw;
+          }
+        }
+
+        // .reward1{
+        //   position: absolute;
+        //   top: 113vw;
+        //   right: 9vw;
+        // }
+        // .reward3{
+        //   position: absolute;
+        //   top: 88vw;
+        //   right: 9vw;
+        // }
+
+        // .reward5{
+        //   position: absolute;
+        //   top: 63vw;
+        //   right: 9vw;
+        // }
+
+        // .reward7{
+        //   position: absolute;
+        //   top: 38vw;
+        //   right: 9vw;
+        // }
+
+        // .reward9{
+        //   position: absolute;
+        //   top: 13vw;
+        //   right: 9vw;
+        // }
       }
     }
   }
@@ -88,16 +435,15 @@
       top: -19vw;
     }
 
-    .lb-restWinners{
-        overflow: hidden;
-        height: 151vw;
-        position: relative;
-        top: 15vw;
+    .lb-restWinners {
+      overflow: hidden;
+      height: 151vw;
+      position: relative;
+      top: 15vw;
     }
-    .seeMore{
-        position: relative;
-        top: 14vw;
-
+    .seeMore {
+      position: relative;
+      top: 14vw;
     }
   }
 }

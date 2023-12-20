@@ -7,24 +7,117 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 4;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .closeBtn{
+        background-image: url("../assets/images/event-gifting/cross-btn.png");
+
+        width: 12vw;
+        height: 12vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        left: 36vw;
+    
+    }
 
     .gifting-content{
-        width: 80%;
-        min-height: 106vw;    
+        width: 95%;
+        min-height: 191vw;    
         background-repeat: no-repeat;
         background-size: 100% 100%;
         position: relative;
-        background-image: url('../assets/images/battle/reward-section-bg.png');
+        background-image: url('../assets/images/event-gifting/main-section-bg.png');
+        position: relative;
+    
+
+        .title{
+
+            width: 84%;
+            position: absolute;
+            left: 5vw;
+            top: -16vw;
+        
+        }
+
+        .gifts-sec{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 94%;
+            // border: 1px solid wheat;
+            top: 4vw;
+            min-height: 43vw;
+            left: 2vw;
+
+            .gift-title{
+                font-size: 4vw;
+                font-family: 'EvilEmpire';
+                color: white;
+
+            }
+            .gifts-container{
+                display: flex;
+                width: 95%;
+
+            }
+
+        }
+
+        .rewards-sec{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 94%;
+            // border: 1px solid wheat;
+            top: 52vw;
+            min-height: 43vw;
+            left: 2vw;
+
+            .rew-title{
+                position: relative;
+                width: 75%;
+                top: -8vw;
+            }
+            p{
+                font-size: 3vw;
+                font-family: 'PoppinsMedium';
+                color: white;
+                position: relative;
+                top: -9vw;
+            }
+
+            .rew-tabs{
+                width: 80%;
+                // min-height: 20vw;
+                // border: 1px solid red;
+                position: relative;
+
+            }
+            .slider-cont{
+                width: 100%;
+            }
+
+        }
 
     }
 
     .lb-content{
-        width: 80%;
+        width: 95%;
         min-height: 106vw;    
         background-repeat: no-repeat;
         background-size: 100% 100%;
         position: relative;
-        background-image: url('../assets/images/battle/reward-section-bg.png');
+        background-image: url('../assets/images/event-gifting/lb-bg.png');
 
     }
 }

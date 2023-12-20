@@ -64,6 +64,7 @@ export const userRewards = [
 export const talentRewards = [
   {
     rank: "1st",
+    target: "80m",
     pageRewards: [
       {
         name: "gems",
@@ -81,6 +82,8 @@ export const talentRewards = [
   },
   {
     rank: "2nd",
+    target: "70m",
+
     pageRewards: [
       {
         name: "gems",
@@ -98,6 +101,8 @@ export const talentRewards = [
   },
   {
     rank: "3rd",
+    target: "50m",
+
     pageRewards: [
       {
         name: "gems",
@@ -115,7 +120,28 @@ export const talentRewards = [
   },
 ];
 
-export const gifts = {};
+export const gifts = [
+  {
+    name: "Empower",
+    price: "50,000",
+    desc: "empower",
+  },
+  {
+    name: "Duel Master",
+    price: "30,000",
+    desc: "duel",
+  },
+  {
+    name: "On Fire",
+    price: "10,000",
+    desc: "fire",
+  },
+  {
+    name: "Money Rain",
+    price: "5000",
+    desc: "money rain",
+  },
+];
 
 export const battleDetailsRewards = [
   "Samurai Frame x1 day",
