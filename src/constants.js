@@ -157,6 +157,20 @@ export const battleDetailsRewards = [
   "500 Beans",
 ];
 
+export const luckyDetailsRewards = [
+  "Safari Champion room skin x1 day",
+  "Blessed room skin x1 day",
+  "Peacemaker Frame x1 day",
+  "Maestro Frame x1 day",
+  "Hawk entrance x1 day",
+  "Gold Luxury entrance x1 day",
+  "2000 Beans",
+  "1500 Beans",
+  "2000 Beans",
+  "Fortune room skin x1 day (New)",
+  "Fortune frame x1 (New)",
+];
+
 export const leaderBoardSliderData = [
   [
     {

@@ -31,12 +31,14 @@ const PopUp = (props) => {
           backgroundImage: `url(${bg})`,
           minHeight: `${
             isGuide
-              ? "150vw"
+              ? "171vw"
               : sure
               ? "45vw"
               : game
               ? "90vw"
               : isRewardHist
+              ? "100vw"
+              : details
               ? "100vw"
               : ""
           }`,

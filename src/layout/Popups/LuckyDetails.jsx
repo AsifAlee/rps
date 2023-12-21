@@ -4,9 +4,13 @@ import bg from "../../assets/images/popup/details-bg.png";
 import detailsTitle from "../../assets/images/popup/details-title.png";
 
 import closeBtn from "../../assets/images/common/close-btn.png";
-import { baseUrl, battleDetailsRewards } from "../../constants";
+import {
+  baseUrl,
+  battleDetailsRewards,
+  luckyDetailsRewards,
+} from "../../constants";
 import RewardItem from "../../components/RewardItem";
-const BattleDetails = ({ clickHandler }) => {
+const LuckyDetails = ({ clickHandler }) => {
   return (
     <PopUp bg={bg} details={true}>
       <div className="battle-details">
@@ -21,7 +25,7 @@ const BattleDetails = ({ clickHandler }) => {
             </tr>
             <tr className="reward-row">
               <td>Play</td>
-              <td>15,000</td>
+              <td>50,000</td>
               <td rowSpan={3}>
                 <div
                   style={{
@@ -33,7 +37,7 @@ const BattleDetails = ({ clickHandler }) => {
                     alignContent: "center",
                   }}
                 >
-                  {battleDetailsRewards.map((item) => (
+                  {luckyDetailsRewards.map((item) => (
                     <RewardItem item={item} />
                   ))}
                 </div>
@@ -46,4 +50,4 @@ const BattleDetails = ({ clickHandler }) => {
   );
 };
 
-export default BattleDetails;
+export default LuckyDetails;

@@ -10,12 +10,17 @@ import CommonButton from "../../components/CommonButton";
 import TourComponent from "../../components/TourComponent";
 import pathFromRight from "../../assets/images/tour/path1.png";
 import pathFromLeft from "../../assets/images/tour/path2.png";
+import TalentRecords from "../Popups/TalentRecords";
 
 const TalentTour = () => {
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
   const [currentPos, setCurrentPos] = useState(1);
+  const [records, setRecords] = useState(false);
 
+  const toggleRecords = () => {
+    setRecords((prevState) => !prevState);
+  };
   const talentSliderData = [
     {
       name: "Neptune",
@@ -49,6 +54,13 @@ const TalentTour = () => {
   };
   return (
     <div className="talent-tours">
+      <div className="tour-rec-btn">
+        <CommonButton
+          btnImg={"records"}
+          width={"21vw"}
+          handleClick={toggleRecords}
+        />
+      </div>
       <div className="space-game">
         <div className="space-ticket-count d-flex j-center al-center">
           <img src={shipIcon} />
@@ -227,6 +239,7 @@ const TalentTour = () => {
           />
         </div>
       </div>
+      {records && <TalentRecords clickHandler={toggleRecords} />}
     </div>
   );
 };

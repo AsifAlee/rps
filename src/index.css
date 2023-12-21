@@ -227,9 +227,13 @@ button {
 .rps{
   background-image: url(./assets/images//guide/rps.png);
 }
-.lucky-player{
+.lucky-player-acc{
   background-image: url(./assets/images//guide/lucky-player.png);
 }
 .talent-tour{
   background-image: url(./assets/images//guide/talent-tour.png)
+}
+
+.text-left{
+  text-align: left !important;
 }

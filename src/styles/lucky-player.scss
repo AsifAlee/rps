@@ -1,5 +1,12 @@
 .lucky-player {
   margin-top: 13vw;
+
+  .player-details-btn{
+    position: relative;
+    top: 16vw;
+    z-index: 1;
+    right: 39vw;
+  }
   .lucky-game-frame {
     background-image: url(../assets/images/battle/reward-section-bg.png);
     min-height: 153vw;

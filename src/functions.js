@@ -71,6 +71,26 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/followerCard.png";
   } else if (rewDesc?.includes("gems")) {
     rewImg = baseUrl + "/streamkar/rewards/gems.png";
+  } else if (rewDesc?.includes("Safari Champion room skin x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/safariChampionRoomSkin.png";
+  } else if (rewDesc?.includes("Blessed room skin x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/blessedRoomSkin2k23.png";
+  } else if (rewDesc?.includes("Peacemaker Frame x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/peaceMakerRoomSkin.png";
+  } else if (rewDesc?.includes("Maestro Frame x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/maestro.png";
+  } else if (rewDesc?.includes("Hawk entrance x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/hawk.png";
+  } else if (rewDesc?.includes("Gold Luxury entrance x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+  } else if (rewDesc?.includes("Fortune room skin x1 day")) {
+    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+  } else if (rewDesc?.includes("Fortune room skin x1 day (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+  } else if (rewDesc?.includes("Fortune frame x1 (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+  } else if (rewDesc?.includes("Fortune frame x1")) {
+    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

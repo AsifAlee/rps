@@ -22,6 +22,7 @@ import LeaderBoardComponent from "../../components/LeaderBoardComponent";
 import BattleDetails from "../Popups/BattleDetails";
 import RecordsPopup from "../Popups/RecordsPopup";
 import Slider from "../../components/Slider";
+import BattleRecords from "../Popups/BattleRecords";
 const BattleTab = () => {
   const leaderboardRewards = [
     {
@@ -160,7 +161,7 @@ const BattleTab = () => {
       </div>
       <LeaderBoardComponent />
       {details && <BattleDetails clickHandler={toggleDetails} />}
-      {records && <RecordsPopup clickHandler={toggleRecords} />}
+      {records && <BattleRecords clickHandler={toggleRecords} />}
     </div>
   );
 };

@@ -42,70 +42,80 @@
       border: none;
       position: absolute;
       left: 80vw;
-    top: -13vw;
-
-      
+      top: -13vw;
     }
-    .title {
+    .guide-title {
       position: absolute;
-      top: 1vw;
-      left: 3vw;
-      width: 75vw;
+      width: 69vw;
+      left: 12vw;
+      top: -17vw;
     }
     .guide-content {
       width: 93%;
-      // overflow-y: auto;
-      // height: 87vw;
+      overflow-y: auto;
+      height: 158vw;
       position: relative;
       left: 3vw;
       position: absolute;
       top: 8vw;
       color: white;
+      // border: 1px solid;
 
-      .guide-gifts{
-        
-          position: relative;
+      .guide-gifts {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 94%;
+        // border: 1px solid wheat;
+        top: -3vw;
+        min-height: 43vw;
+        left: 2vw;
+
+        .gift-title {
+          font-size: 4vw;
+          font-family: "EvilEmpire";
+          color: white;
+        }
+        .gifts-container {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          width: 94%;
-          // border: 1px solid wheat;
-          top: -3vw;
-          min-height: 43vw;
-          left: 2vw;
-
-          .gift-title{
-              font-size: 4vw;
-              font-family: 'EvilEmpire';
-              color: white;
-
-          }
-          .gifts-container{
-              display: flex;
-              width: 95%;
-
-          }
-
-      
+          width: 95%;
+        }
       }
-     
-      .howToPlaySec{
+
+      .howToPlaySec {
         position: relative;
         // min-height: 20vw;
         // border: 1px solid red;
-        .howTitle{
+        .howTitle {
           font-size: 5vw;
-          font-family: 'EvilEmpire';
+          font-family: "EvilEmpire";
           text-align: center;
         }
-        .acc-section{
+        .acc-section {
           display: flex;
           flex-direction: column;
           gap: 16vw;
         }
+        .event-gft-cont {
+          // border: 1px solid;
+          position: relative;
+          top: 11vw;
+          padding: 3vw;
+          font-family: "PoppinsMedium";
+
+          .e-title {
+            font-size: 3vw;
+            text-align: center;
+            color: white;
+          }
+          ol {
+            padding-left: 6vw;
+            font-size: 2.5vw;
+          }
+        }
       }
-    
     }
 
     .guide-content::-webkit-scrollbar {
@@ -314,14 +324,13 @@
       position: absolute;
       // bottom: -13vw;
       left: 85vw;
-    top: -12vw;
-
+      top: -12vw;
     }
     .title {
+      width: 67vw;
       position: absolute;
-      top: 1vw;
-      left: 3vw;
-      width: 75vw;
+      left: 14vw;
+      top: -21vw;
     }
     .details-content {
       width: 100%;
@@ -372,92 +381,119 @@
 
         .reward-row {
           // height: 41vw;
-
-  
         }
       }
-
     }
   }
 
-  .battle-rec {
+  .battle-records {
     position: relative;
     width: 100%;
     height: 100%;
     .closeBtn {
-      background-image: url("../assets/images/common/close-btn.png");
-
-      width: 12vw;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-color: transparent;
-      border: none;
+      width: 9vw;
       position: absolute;
       // bottom: -13vw;
       left: 85vw;
-    top: -12vw;
-
+      top: -12vw;
     }
     .title {
       position: absolute;
-      top: 1vw;
-      left: 3vw;
-      width: 75vw;
+      top: -15vw;
+      left: 14vw;
+      width: 68vw;
     }
-    .rec-content {
-      width: 100%;
-      // height: 62vw;
-      margin: 4vw auto 0 auto;
+    .records-content {
+      font-family: "PoppinsMedium";
+      width: 95%;
+      height: 72vw;
+      // margin: 4vw auto 0 auto;
       overflow-y: auto;
       // height: 92vw;
       padding: 4vw;
+      position: relative;
+      top: 14vw;
+      color: white;
+
       table {
-        border: 0.4vw solid white;
-
-        font-family: "PoppinsMedium";
-        margin: 0 auto;
         width: 95%;
-        font-size: 3vw;
+        border: 1vw solid #fae8bb;
+        border-collapse: collapse;
+        border-radius: 0.2vw;
 
-        border-collapse: separate !important;
-        border-spacing: 0;
-        border-radius: 2vw;
-
-        table,
-        th,
-        td {
-          border: 0.4vw solid white;
+        .head td {
+          background-color: #645194;
+          padding: 5vw;
+          border: 1vw solid #fae8bb;
+          font-size: 3vw;
         }
 
-        .head {
-          background-color: #b579bc;
-        }
-        tr th {
-          color: white;
-          border-right: 0.4vw solid white;
-          padding: 1vw;
-        }
-        tr th:last-child {
-          border-right: none;
-        }
         tr td {
-          color: white;
-          border-right: 0.4vw solid white;
-          padding: 1vw;
-          text-align: center;
+          // padding: 1vw;
+          border: 1vw solid #fae8bb;
+          font-size: 2.5vw;
         }
-
-        tr td:last-child {
-          border-right: none;
-        }
-
-        .reward-row {
-          // height: 41vw;
-
-  
+        .bat-rec-rows {
+          height: 26vw;
         }
       }
+    }
+  }
 
+  .talent-records {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .closeBtn {
+      width: 9vw;
+      position: absolute;
+      // bottom: -13vw;
+      left: 85vw;
+      top: -12vw;
+    }
+    .title {
+      position: absolute;
+      top: -15vw;
+      left: 14vw;
+      width: 68vw;
+    }
+    .records-content {
+      font-family: "PoppinsMedium";
+      width: 95%;
+      height: 72vw;
+      // margin: 4vw auto 0 auto;
+      overflow-y: auto;
+      // height: 92vw;
+      padding: 4vw;
+      position: relative;
+      top: 14vw;
+      color: white;
+      overflow-x: hidden;
+
+      table {
+        width: 100%;
+        border: 1vw solid #fae8bb;
+        border-collapse: collapse;
+        border-radius: 0.2vw;
+        table-layout: fixed;
+
+        .head td {
+          background-color: #645194;
+          padding: 3vw;
+          border: 1vw solid #fae8bb;
+          font-size: 2vw;
+        }
+
+        tr td {
+          // padding: 1vw;
+          border: 1vw solid #fae8bb;
+          font-size: 2.5vw;
+        }
+
+        .tal-rec-row {
+          height: 26vw;
+        }
+      }
     }
   }
 }

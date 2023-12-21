@@ -6,7 +6,7 @@ import Topper from "./Topper";
 import { userOverallData } from "../testData";
 import GameLeaderboartItem from "./GameLbItem";
 import CommonButton from "./CommonButton";
-const LeaderBoardComponent = () => {
+const LeaderBoardComponent = ({ isPopup }) => {
   const [lbTabs, setLbTabs] = useState({
     today: true,
     prev: false,
@@ -44,7 +44,7 @@ const LeaderBoardComponent = () => {
     }
   }, [seeMore]);
   return (
-    <div className="leaderboard-comp m-auto">
+    <div className="leaderboard-comp " style={{ width: isPopup && "95%" }}>
       <img src={title} className="lb-title" />
       <div className="lb-tabs m-auto">
         <TabButton

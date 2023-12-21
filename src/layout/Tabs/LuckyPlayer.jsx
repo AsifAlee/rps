@@ -17,10 +17,15 @@ import lastLuckyWinner from "../../assets/images/lucky/last-lucky-winner-title.p
 import loadingMascot from "../../assets/images/lucky/loading-mascot.png";
 import LastWinnerLbItem from "../../components/LastWinnerLbItem";
 import { userOverallData } from "../../testData";
+import LuckyDetails from "../Popups/LuckyDetails";
+import InfoPopUp from "../Popups/InfoPopUp";
 
 const LuckyPlayer = () => {
   const { info } = useContext(AppContext);
   const divRef = useRef(null);
+  const [details, setDetails] = useState(false);
+  const [luckyInfo, setLuckyInfo] = useState(false);
+
   const { isScrtached } = info;
   const [lbTabs, setLbTabs] = useState({
     today: true,
@@ -30,11 +35,18 @@ const LuckyPlayer = () => {
   const toggleSeeMore = () => {
     setSeeMore((prevState) => !prevState);
   };
+  const toggleInfo = () => {
+    debugger;
+    setLuckyInfo((prevState) => !prevState);
+  };
 
   const scrollToTop = () => {
     if (divRef.current) {
       divRef.current.scrollTop = 0;
     }
+  };
+  const toggleDetails = () => {
+    setDetails((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -57,6 +69,13 @@ const LuckyPlayer = () => {
   };
   return (
     <div className="lucky-player">
+      <div className="player-details-btn">
+        <CommonButton
+          btnImg={"details"}
+          width={"21vw"}
+          handleClick={toggleDetails}
+        />
+      </div>
       <div className="lucky-game-frame">
         <div className="lucky-game-points-count d-flex j-center al-center">
           <img src={gamePoints} />
@@ -73,7 +92,7 @@ const LuckyPlayer = () => {
         </div>
 
         <div className="info-btn">
-          <img src={infoBtn} />
+          <img src={infoBtn} onClick={toggleInfo} />
         </div>
 
         <div className="lucky-game">
@@ -234,8 +253,8 @@ const LuckyPlayer = () => {
           </div>
         </div>
       </div>
-
-      <div></div>
+      {details && <LuckyDetails clickHandler={toggleDetails} />}
+      {luckyInfo && <InfoPopUp />}
     </div>
   );
 };

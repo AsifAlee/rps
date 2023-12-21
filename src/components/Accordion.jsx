@@ -18,7 +18,7 @@ function Accordion(props) {
             headerTxt === 1
               ? "rps"
               : headerTxt === 2
-              ? "lucky-player"
+              ? "lucky-player-acc"
               : "talent-tour"
           }`}
         >

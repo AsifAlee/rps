@@ -6,5 +6,15 @@ export const DataProvider = ({ children }) => {
   const [info, setInfo] = useState({
     isScrtached: true,
   });
-  return <AppContext.Provider value={{ info }}>{children}</AppContext.Provider>;
+  const [selectedLng, setSelectedLng] = useState(1);
+
+  const changeLanguage = (index) => {
+    setSelectedLng(index);
+  };
+
+  return (
+    <AppContext.Provider value={{ info, changeLanguage, selectedLng }}>
+      {children}
+    </AppContext.Provider>
+  );
 };

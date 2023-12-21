@@ -78,7 +78,7 @@ const EventGifting = ({ popUpHandler }) => {
       {/* <div className="lb-content">
         <LeaderBoardComponent />
       </div> */}
-      <LeaderBoardComponent />
+      <LeaderBoardComponent isPopup={true} />
     </div>
   );
 };
