@@ -25,6 +25,7 @@
       align-items: center;
       padding-top: 1vw;
       padding-bottom: 1vw;
+      min-height: 9vw;
 
       .marquee-images {
         position: relative;
@@ -99,7 +100,7 @@
     }
 
     .battle-game {
-      background-image: url(../assets/images/battle//game-frame.png);
+      background-image: url(../assets/images/battle/battle-game-bg.png);
       min-height: 70vw;
 
       position: relative;

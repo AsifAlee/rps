@@ -123,23 +123,27 @@ export const talentRewards = [
 export const gifts = [
   {
     name: "Empower",
-    price: "50,000",
+    price: "50k",
     desc: "empower",
+    id: "40001665",
   },
   {
     name: "Duel Master",
-    price: "30,000",
+    price: "30k",
     desc: "duel",
+    id: "40001665",
   },
   {
     name: "On Fire",
-    price: "10,000",
+    price: "10k",
     desc: "fire",
+    id: "40001533",
   },
   {
     name: "Money Rain",
-    price: "5000",
+    price: "5k",
     desc: "money rain",
+    id: "40001330",
   },
 ];
 

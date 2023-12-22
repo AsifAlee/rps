@@ -9,6 +9,7 @@ import TalentTour from "./layout/Tabs/TalentTour";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import EventGifting from "./layout/Popups/EventGifting";
 import Guide from "./layout/Popups/Guide";
+import GuidePopup from "./layout/Popups/GuidePopup";
 
 function App() {
   const [mainTabs, setMainTabs] = useState({
@@ -102,7 +103,8 @@ function App() {
       <ScrollToTopButton />
 
       {eventGifting && <EventGifting popUpHandler={toggleEventGifitng} />}
-      {guide && <Guide clickHandler={toggleGuide} />}
+      {/* {guide && <Guide clickHandler={toggleGuide} />} */}
+      {guide && <GuidePopup clickHandler={toggleGuide} />}
     </div>
   );
 }

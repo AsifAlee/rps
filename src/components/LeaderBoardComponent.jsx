@@ -44,7 +44,14 @@ const LeaderBoardComponent = ({ isPopup }) => {
     }
   }, [seeMore]);
   return (
-    <div className="leaderboard-comp " style={{ width: isPopup && "95%" }}>
+    <div
+      className="leaderboard-comp  "
+      style={{
+        width: isPopup && "95%",
+        marginLeft: isPopup && "auto",
+        marginRight: isPopup && "auto",
+      }}
+    >
       <img src={title} className="lb-title" />
       <div className="lb-tabs m-auto">
         <TabButton

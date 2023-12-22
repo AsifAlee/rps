@@ -44,6 +44,7 @@
         top: 44vw;
         width: 9vw;
         right: 12vw;
+        z-index: 2;
       }
     }
 
@@ -67,7 +68,7 @@
     }
 
     .lucky-game {
-      background-image: url(../assets/images/lucky/card-box.png);
+      background-image: url(../assets/images/lucky/scratch-game-bg.png);
       min-height: 70vw;
 
       position: relative;

@@ -81,7 +81,7 @@ const Guide = ({ clickHandler }) => {
                     </div>
                   </Accordion>
                 </div>
-                <div style={{ position: "relative", top: "-7vw" }}>
+                <div style={{ position: "relative", top: "-1vw" }}>
                   <Accordion headerTxt={2}>
                     <div className="body-item">
                       <ol>
@@ -307,7 +307,7 @@ const Guide = ({ clickHandler }) => {
                     </div>
                   </Accordion>
                 </div>
-                <div style={{ position: "relative", top: "-7vw" }}>
+                <div style={{ position: "relative", top: "-1vw" }}>
                   <Accordion headerTxt={2}>
                     <div className="body-item">
                       <ol>

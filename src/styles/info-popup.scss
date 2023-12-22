@@ -1,50 +1,200 @@
-.info-popup{
-    position: fixed;
-    top: 0;
-    left: 4vw;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 4;
-    overflow-y: auto;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    padding: 6vw 0vw;
+.info-popup {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  overflow-y: auto;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // padding: 6vw 0vw;
 
-    .closeBtn{
-        background-image: url("../assets/images/event-gifting/cross-btn.png");
+  .closeBtn {
+    background-image: url("../assets/images/event-gifting/cross-btn.png");
 
-        width: 12vw;
-        height: 12vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-color: transparent;
-        border: none;
+    width: 12vw;
+    height: 12vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    position: relative;
+  
+
+    left: 83vw;
+    top: 19vw;
+  }
+
+  .title-wrap {
+    position: relative;
+    top: 13vw;
+    z-index: 1;
+    .title {
+      width: 73vw;
+    }
+  }
+
+  .info-content {
+    width: 95%;
+    min-height: 347vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    background-image: url("../assets/images/popup/info-bg.png");
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    // margin-top: 17vw;
+
+    .step1 {
+      //   border: 1px solid;
+      position: relative;
+      top: 15vw;
+      width: 80%;
+      margin: 0 auto;
+      .step-info {
+        // display: flex;
+        // align-items: center;
+        .step-tag {
+          font-family: "EvilEmpire";
+          font-size: 5vw;
+        }
+        .step-desc {
+          font-family: "PoppinsMediumItalic";
+          font-size: 3.5vw;
+          margin-left: 4vw;
+        }
+      }
+
+      .step-bg {
+        background-image: url("../assets/images/popup/scratch.PNG");
+        background-size: 100% 100%;
+
         position: relative;
-        left: 36vw;
-    
+        width: 88%;
+        height: 57vw;
+        margin: 0 auto;
+        border: 1vw solid #fae8bb;
+        border-radius: 1vw;
+        margin: 2vw auto 0;
+        left: 1vw;
+      }
     }
 
-    .info-content{
-        width: 95%;
-        min-height: 191vw;    
-        background-repeat: no-repeat;
+    .step2 {
+      //   border: 1px solid;
+      position: relative;
+      top: 15vw;
+      width: 80%;
+      margin: 0 auto;
+      .step-info {
+        // display: flex;
+        // align-items: center;
+        .step-tag {
+          font-family: "EvilEmpire";
+          font-size: 5vw;
+        }
+        .step-desc {
+          font-family: "PoppinsMediumItalic";
+          font-size: 3.5vw;
+          margin-left: 4vw;
+        }
+      }
+
+      .step-bg {
+        background-image: url("../assets/images/popup/lucky-popup.png");
         background-size: 100% 100%;
-        position: relative;
-        background-image: url('../assets/images/popup/info.png');
-        position: relative;
-    
 
-        .title{
+        position: relative;
+        width: 88%;
+        height: 93vw;
+        margin: 0 auto;
+        border: 1vw solid #fae8bb;
+        border-radius: 1vw;
+        margin: 2vw auto 0;
+        left: 1vw;
+      }
+    }
 
-            width: 84%;
-            position: absolute;
-            left: 5vw;
-            top: -16vw;
-        
+    .step3 {
+      //   border: 1px solid;
+      position: relative;
+      top: 15vw;
+      width: 80%;
+      margin: 0 auto;
+      .step-info {
+        // display: flex;
+        // align-items: center;
+        .step-tag {
+          font-family: "EvilEmpire";
+          font-size: 5vw;
+        }
+        .step-desc {
+          font-family: "PoppinsMediumItalic";
+          font-size: 3.5vw;
+          margin-left: 4vw;
+        }
+      }
+
+      .step-bg {
+        background-image: url("../assets/images/popup/lucky-numbers-bg.PNG");
+        background-size: 100% 100%;
+
+        position: relative;
+        width: 88%;
+        height: 38vw;
+        margin: 0 auto;
+        border: 1vw solid #fae8bb;
+        border-radius: 1vw;
+        margin: 2vw auto 0;
+        left: 1vw;
+      }
+    }
+    .step4 {
+        //   border: 1px solid;
+        position: relative;
+        top: 15vw;
+        width: 80%;
+        margin: 0 auto;
+        .step-info {
+        //   display: flex;
+        //   align-items: center;
+          .step-tag {
+            font-family: "EvilEmpire";
+            font-size: 5vw;
+          }
+          .step-desc {
+            font-family: "PoppinsMediumItalic";
+            font-size: 3.5vw;
+            margin-left: 4vw;
+          }
         }
   
-    }
+        .step-bg {
+          background-image: url("../assets/images/popup/quest-bg.PNG");
+          background-size: 100% 100%;
+  
+          position: relative;
+          width: 88%;
+          height: 46vw;
+          margin: 0 auto;
+          border: 1vw solid #fae8bb;
+          border-radius: 1vw;
+          margin: 2vw auto 0;
+          left: 1vw;
+        }
+      }
+
+      .last-p{
+        font-size: 3.5vw;
+        font-family: 'PoppinsMedium';
+        position: relative;
+        top: 21vw;
+        width: 80%;
+        margin: 0 auto;
+      }
+  }
 }

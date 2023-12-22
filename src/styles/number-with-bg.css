@@ -1,0 +1,17 @@
+.number-with-bg{
+    width: 6vw;
+    height: 6vw;
+    background-color: #2b286c;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.3vw solid white;
+    border-radius: 0.7vw;
+
+
+}
+.number-with-bg > span{
+    text-transform: uppercase;
+    color: white;
+    font-size: 3vw;
+}

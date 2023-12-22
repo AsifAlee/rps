@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/custom-radio.css";
+import "../styles/custom-radio.scss";
 
 const RadioButton = ({ options }) => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -11,22 +11,17 @@ const RadioButton = ({ options }) => {
   return (
     <>
       {options.map((option, index) => (
-        <div key={index}>
+        <>
           <div
             onClick={() => handleOptionClick(option)}
-            style={
-              {
-                //   backgroundColor: selectedOption === option ? "#ddd" : "#fff",
-              }
-            }
             className={`custom-radio-btn ${
               selectedOption === option && "animate-btn"
             }`}
           >
-            <img src={option.pic} />
+            <img src={option.pic} className="radio-img" />
             <span>{option.name}</span>
           </div>
-        </div>
+        </>
       ))}
     </>
   );

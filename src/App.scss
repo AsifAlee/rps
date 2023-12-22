@@ -20,6 +20,10 @@
     margin: 0 auto;
     display: flex;
 
+    position: relative;
+    top: 6vw;
+    z-index: 2;
+
     .main-tab-button {
     background-image: url("./assets/images/battle/active-tab.png");
 

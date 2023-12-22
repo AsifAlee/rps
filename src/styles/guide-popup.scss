@@ -1,0 +1,115 @@
+.guide-popup {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    overflow-y: auto;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // padding: 6vw 0vw;
+  
+    .closeBtn {
+      background-image: url("../assets/images/event-gifting/cross-btn.png");
+  
+      width: 12vw;
+      height: 12vw;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      border: none;
+      position: relative;
+    
+  
+      left: 38vw;
+      top: 25vw;
+      z-index: 2;
+    }
+  
+    .title-wrap {
+      position: relative;
+      top: 13vw;
+      z-index: 1;
+      .title {
+        width: 73vw;
+      }
+    }
+  
+    .guide-content {
+      width: 95%;
+      min-height: 298vw;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+      background-image: url("../assets/images/guide/bg.png");
+      position: relative;
+      margin: 0 auto;
+      color: white;
+      // margin-top: 17vw;
+
+      .guide-gifts {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 94%;
+        // border: 1px solid wheat;
+        top: 8vw;
+        min-height: 43vw;
+        left: 2vw;
+
+        .gift-title {
+          font-size: 7vw;
+          font-family: "EvilEmpire";
+          color: white;
+        }
+        .gifts-container {
+          display: flex;
+          width: 95%;
+        }
+      }
+
+      .howToPlaySec {
+        position: relative;
+        // min-height: 20vw;
+        // border: 1px solid red;
+        top: 11vw;
+        .howTitle {
+          font-size: 7vw;
+          font-family: "EvilEmpire";
+          text-align: center;
+        }
+        .acc-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16vw;
+        }
+        .event-gft-cont {
+          // border: 1px solid;
+          position: relative;
+          top: 11vw;
+          padding: 3vw;
+          font-family: "PoppinsMedium";
+          width: 82%;
+        //   margin: 0 auto;
+        left: 4vw;
+
+          .e-title {
+            font-size: 3vw;
+            text-align: center;
+            color: white;
+          }
+          ol {
+            padding-left: 6vw;
+            font-size: 2.5vw;
+          }
+        }
+      }
+
+    }
+  }
+  

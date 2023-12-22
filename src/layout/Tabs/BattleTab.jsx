@@ -73,7 +73,7 @@ const BattleTab = () => {
   }, []);
   return (
     <div className="battle-tab">
-      {/* <div style={{ position: "absolute", top: "-31vw" }}>
+      <div style={{ position: "relative", top: "-21vw" }}>
         <Marquee play={true}>
           {["asif", "arif", "atif", "akif", "kashif", "misbah"].map((item) => {
             return (
@@ -102,7 +102,7 @@ const BattleTab = () => {
             );
           })}
         </Marquee>
-      </div> */}
+      </div>
 
       <div className="d-flex j-sb rec-details-btn">
         <CommonButton
@@ -122,9 +122,7 @@ const BattleTab = () => {
           <img src={gamePoints} />
           <span>My Game Points:99999</span>
         </div>
-        <div className="battle-game">
-          <img src={gameBg} />
-        </div>
+        <div className="battle-game">{/* <img src={gameBg} /> */}</div>
 
         <div className="play-btns">
           <RadioButton

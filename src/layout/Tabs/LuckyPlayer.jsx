@@ -95,9 +95,7 @@ const LuckyPlayer = () => {
           <img src={infoBtn} onClick={toggleInfo} />
         </div>
 
-        <div className="lucky-game">
-          <img src={cards} />
-        </div>
+        <div className="lucky-game">{/* <img src={cards} /> */}</div>
         <div
           style={{
             position: "relative",
@@ -152,7 +150,7 @@ const LuckyPlayer = () => {
             <div className="numbers-container">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
                 return index != 6 ? (
-                  <ScratchItem index={item} revealedNum={"a56yx"} />
+                  <ScratchItem index={item} revealedNum={"12345"} />
                 ) : (
                   <ScratchWinItem index={item} revealedNum={"a56yx"} />
                 );
@@ -254,7 +252,7 @@ const LuckyPlayer = () => {
         </div>
       </div>
       {details && <LuckyDetails clickHandler={toggleDetails} />}
-      {luckyInfo && <InfoPopUp />}
+      {luckyInfo && <InfoPopUp clickHandler={toggleInfo} />}
     </div>
   );
 };
