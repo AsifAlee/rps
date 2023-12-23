@@ -18,32 +18,31 @@ const TalentRecords = ({ clickHandler }) => {
       <div className="talent-records">
         <img src={closeBtn} className="closeBtn" onClick={clickHandler} />
         <img src={recordsTitle} className="title" />
+
         <div className="records-content m-auto">
-          <table>
-            <tr className="head m-auto">
-              <td colSpan={1} style={{ width: "30%" }}>
+          <table className="m-auto">
+            <tr className="head ">
+              <td colSpan={1} style={{ width: "25%" }}>
                 {" "}
                 Time(GMT)
               </td>
-              <td colSpan={1} style={{ width: "15%" }}>
-                Element{" "}
+              <td colSpan={1} style={{ width: "20%" }}>
+                Planet{" "}
               </td>
-              <td colSpan={1} style={{ width: "15%" }}>
-                Result
-              </td>
-              <td colSpan={1} style={{ width: "40%" }}>
-                Rewards
+              <td colSpan={1} style={{ width: "55%" }}>
+                Rewards Claimed
               </td>
             </tr>
-            <tr className="tal-rec-row">
+            <tr className="tal-rec-rows">
               <td>2023/08/04-08:37AM</td>
               <td>Saturn</td>
-              <td>Won</td>
               <td>
-                <LeaderBoardSlider
-                  rewards={leaderBoardSliderData}
-                  isHistory={true}
-                />
+                <div style={{ position: "relative", top: "-6vw", left: "4vw" }}>
+                  <LeaderBoardSlider
+                    rewards={leaderBoardSliderData}
+                    isHistory={true}
+                  />
+                </div>
               </td>
             </tr>
           </table>

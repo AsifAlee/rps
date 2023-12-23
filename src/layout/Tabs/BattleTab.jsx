@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import unknown from "../../assets/images/common/unknown-user.png";
 import Marquee from "react-fast-marquee";
 import { gotoProfile } from "../../functions";
@@ -23,44 +23,27 @@ import BattleDetails from "../Popups/BattleDetails";
 import RecordsPopup from "../Popups/RecordsPopup";
 import Slider from "../../components/Slider";
 import BattleRecords from "../Popups/BattleRecords";
+import { AppContext } from "../../AppContext";
+import {
+  baseUrl,
+  battleLbRewards,
+  testToken,
+  testUserId,
+} from "../../constants";
 const BattleTab = () => {
-  const leaderboardRewards = [
-    {
-      rank: "Top 1st",
-
-      pageRewards: [
-        {
-          name: "beansbag",
-          desc: "50% of beanspot",
-        },
-      ],
-    },
-    {
-      rank: "Top 2nd",
-
-      pageRewards: [
-        {
-          name: "beansbag",
-          desc: "30% of beanspot",
-        },
-      ],
-    },
-    ,
-    {
-      rank: "Top 3rd",
-
-      pageRewards: [
-        {
-          name: "beansbag",
-          desc: "20% of beanspot",
-        },
-      ],
-    },
-  ];
-
+  const { info, user, getInfo } = useContext(AppContext);
+  // debugger;
   const [rewards, setRewards] = useState([]);
   const [details, setDetails] = useState(false);
   const [records, setRecords] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [gameErrCode, setGameErrCode] = useState(null);
+  const [gamePopUp, setGamePopUp] = useState(false);
+  const [gameMsg, setGameMsg] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [rewardData, setRewardData] = useState([]);
+  const [inputValue, setInputValue] = useState(1);
+  const [selectedChar, setSelectedChar] = useState("");
 
   const toggleDetails = () => {
     setDetails((prevState) => !prevState);
@@ -69,8 +52,58 @@ const BattleTab = () => {
     setRecords((prevState) => !prevState);
   };
   useEffect(() => {
-    setRewards(leaderboardRewards);
+    setRewards(battleLbRewards);
   }, []);
+
+  const handleRadioSelect = (name) => {
+    // debugger;
+    if (name === "Rock") setSelectedChar("R");
+    else if (name === "Paper") setSelectedChar("P");
+    else setSelectedChar("S");
+  };
+
+  const playGame = () => {
+    setIsDisabled(true);
+    fetch(`${baseUrl}/api/activity/rps/rpsBattle?character=${selectedChar}`, {
+      method: "POST",
+      headers: {
+        // userId: testUserId,
+        // token: testToken,
+        userId: testUserId,
+        token: testToken,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        debugger;
+        if (response.errorCode === 10000004) {
+          setGameErrCode(response.errorCode);
+          setIsPlaying(false);
+          setGamePopUp(true);
+          setIsDisabled(false);
+        } else {
+          setRewardData(response?.data);
+          setIsPlaying(true);
+          setGameMsg(response?.msg);
+          setTimeout(() => {
+            setIsPlaying(false);
+            setGameErrCode(response.errorCode);
+            setGamePopUp(true);
+            getInfo(false);
+            // getFoosballLeaderBoardData();
+            // getRecords(2);
+            setIsDisabled(false);
+          }, 3300);
+        }
+      })
+      .catch((error) => {
+        console.error("Api error:", error.message);
+        setIsPlaying(false);
+        setGamePopUp(false);
+      });
+  };
+
   return (
     <div className="battle-tab">
       <div style={{ position: "relative", top: "-21vw" }}>
@@ -120,7 +153,7 @@ const BattleTab = () => {
       <div className="battle-game-frame">
         <div className="battle-game-points-count d-flex j-center al-center">
           <img src={gamePoints} />
-          <span>My Game Points:99999</span>
+          <span>My Game Points:{info?.gamePoints}</span>
         </div>
         <div className="battle-game">{/* <img src={gameBg} /> */}</div>
 
@@ -131,10 +164,15 @@ const BattleTab = () => {
               { pic: paper, name: "Paper" },
               { pic: scissor, name: "Scissor" },
             ]}
+            handleRadioSelect={handleRadioSelect}
           />
         </div>
-
-        <CommonButton btnImg={"playBtn"} />
+        <button
+          className={`play-btn ${isDisabled && "blackNWhite"}`}
+          onClick={isDisabled ? () => {} : playGame}
+          disabled={isPlaying || isDisabled}
+        />
+        {/* <CommonButton btnImg={"playBtn"} /> */}
         <div className="battles-won-count d-flex j-center al-center">
           <img src={battleWon} />
           <span>Battle Won:99999</span>

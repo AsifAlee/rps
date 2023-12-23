@@ -12,7 +12,7 @@ const Gift = ({ item }) => {
       <div className="priceNText">
         <span className="name">{item.name}</span>
         <div className="price d-flex j-center al-center">
-          <img src={beanImg} />
+          <img src={beanImg} className="bean-img" />
           <span className="price-text">{item.price}</span>
         </div>
       </div>

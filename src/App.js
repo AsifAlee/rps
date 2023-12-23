@@ -1,7 +1,7 @@
 import "./App.scss";
 import Header from "./components/Header";
 import TabButton from "./components/TabButton";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CommonButton from "./components/CommonButton";
 import BattleTab from "./layout/Tabs/BattleTab";
 import LuckyPlayer from "./layout/Tabs/LuckyPlayer";
@@ -10,13 +10,21 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 import EventGifting from "./layout/Popups/EventGifting";
 import Guide from "./layout/Popups/Guide";
 import GuidePopup from "./layout/Popups/GuidePopup";
+import { AppContext } from "./AppContext";
 
 function App() {
+  const { user } = useContext(AppContext);
   const [mainTabs, setMainTabs] = useState({
     battle: true,
     luckyPlayer: false,
     talentTour: false,
   });
+
+  useEffect(() => {
+    if (user.token) {
+      alert(user.token);
+    }
+  }, [user]);
 
   const [eventGifting, setEventGifting] = useState(false);
   const [guide, setGuide] = useState(false);
@@ -71,6 +79,7 @@ function App() {
           <button
             className={`main-tab-button ${!mainTabs.battle && "hide"}`}
             onClick={() => toggleMainTabs("battle")}
+            style={{ left: "-3vw" }}
           >
             RPS BATTLE
           </button>
@@ -78,6 +87,7 @@ function App() {
           <button
             className={`main-tab-button ${!mainTabs.luckyPlayer && "hide"}`}
             onClick={() => toggleMainTabs("lucky-player")}
+            style={{ left: "2vw" }}
           >
             LUCKY PLAYER
           </button>
@@ -85,6 +95,7 @@ function App() {
           <button
             className={`main-tab-button ${!mainTabs.talentTour && "hide"}`}
             onClick={() => toggleMainTabs("talent-tour")}
+            style={{ left: "3vw" }}
           >
             TALENT TOUR
           </button>

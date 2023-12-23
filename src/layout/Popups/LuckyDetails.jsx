@@ -3,7 +3,7 @@ import PopUp from "../../components/Popup";
 import bg from "../../assets/images/popup/details-bg.png";
 import detailsTitle from "../../assets/images/popup/details-title.png";
 
-import closeBtn from "../../assets/images/common/close-btn.png";
+import closeBtn from "../../assets/images/event-gifting/cross-btn.png";
 import {
   baseUrl,
   battleDetailsRewards,
@@ -19,14 +19,20 @@ const LuckyDetails = ({ clickHandler }) => {
         <div className="details-content">
           <table>
             <tr className="head">
-              <th>Button Name</th>
-              <th>Gaming Points Required </th>
-              <th>Rewards</th>
+              <td colSpan={1} style={{ width: "10%" }}>
+                Button Name
+              </td>
+              <td colSpan={1} style={{ width: "10%" }}>
+                Gaming Points Required{" "}
+              </td>
+              <td colSpan={1} style={{ width: "80%" }}>
+                Rewards
+              </td>
             </tr>
             <tr className="reward-row">
               <td>Play</td>
               <td>50,000</td>
-              <td rowSpan={3}>
+              <td>
                 <div
                   style={{
                     display: "flex",

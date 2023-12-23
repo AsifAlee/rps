@@ -39,7 +39,7 @@ const PopUp = (props) => {
               : isRewardHist
               ? "100vw"
               : details
-              ? "100vw"
+              ? "106vw"
               : ""
           }`,
           height: isSendCard && "117vw",

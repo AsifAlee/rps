@@ -316,15 +316,15 @@
     .closeBtn {
       background-image: url("../assets/images/common/close-btn.png");
 
-      width: 12vw;
+      width: 10vw;
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
       border: none;
       position: absolute;
       // bottom: -13vw;
-      left: 85vw;
-      top: -12vw;
+      left: 84vw;
+      top: -15vw;
     }
     .title {
       width: 67vw;
@@ -344,12 +344,15 @@
 
         font-family: "PoppinsMedium";
         margin: 0 auto;
-        width: 95%;
+        width: 86%;
         font-size: 3vw;
 
-        border-collapse: separate !important;
+        border-collapse: collapse;
         border-spacing: 0;
         border-radius: 2vw;
+
+        position: relative;
+        top: 3vw;
 
         table,
         th,
@@ -360,19 +363,19 @@
         .head {
           background-color: #b579bc;
         }
-        tr th {
-          color: white;
-          border-right: 0.4vw solid white;
-          padding: 1vw;
-        }
+  
         tr th:last-child {
           border-right: none;
         }
         tr td {
           color: white;
           border-right: 0.4vw solid white;
-          padding: 1vw;
+          padding: 0.7vw;
           text-align: center;
+
+          border-bottom: none;
+          border-left: none;
+          border-top: none;
         }
 
         tr td:last-child {
@@ -420,23 +423,28 @@
         border: 1vw solid #fae8bb;
         border-collapse: collapse;
         border-radius: 0.2vw;
+        border-spacing: 0;
 
         .head td {
           background-color: #645194;
-          padding: 5vw;
+          padding: 1vw;
           border: 1vw solid #fae8bb;
           font-size: 3vw;
         }
 
         tr td {
-          // padding: 1vw;
+    
           border: 1vw solid #fae8bb;
           font-size: 2.5vw;
+
+       
         }
         .bat-rec-rows {
-          height: 26vw;
+          height: 35vw;
         }
       }
+
+
     }
   }
 
@@ -488,9 +496,13 @@
           // padding: 1vw;
           border: 1vw solid #fae8bb;
           font-size: 2.5vw;
+
+          // border-bottom: none;
+          // border-left: none;
+          // border-top: none;
         }
 
-        .tal-rec-row {
+        .tal-rec-rows {
           height: 26vw;
         }
       }

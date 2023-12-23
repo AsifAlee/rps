@@ -3,10 +3,6 @@ import frame1 from "../assets/images/battle/1st-frame.png";
 import frame2 from "../assets/images/battle/2nd-frame.png";
 import frame3 from "../assets/images/battle/3rd-frame.png";
 
-import rank1 from "../assets/images/battle/1st-rank.png";
-import rank2 from "../assets/images/battle/2nd-rank.png";
-import rank3 from "../assets/images/battle/3rd rank.png";
-
 import unknown from "../assets/images/common/unknown-user.png";
 import battleWonIcon from "../assets/images/battle/battles-won-icon.png";
 
@@ -37,7 +33,13 @@ const Topper = ({ index, user }) => {
         <p className="name">Pery Jackson</p>
         <img src={getLevelImage(user.userLevel, false)} className="levelImg" />
 
-        <div className="battle-count-div d-flex j-center al-center">
+        <div
+          className="battle-count-div d-flex j-center al-center"
+          style={{
+            backgroundColor:
+              index === 1 ? "#161c40" : index === 2 ? "#2a1d1f" : "#561f0a",
+          }}
+        >
           <img src={battleWonIcon} />
           <span>12345</span>
         </div>

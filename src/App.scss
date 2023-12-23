@@ -24,6 +24,7 @@
     top: 6vw;
     z-index: 2;
 
+
     .main-tab-button {
     background-image: url("./assets/images/battle/active-tab.png");
 
@@ -35,7 +36,11 @@
       color: white;
       font-size: 4vw;
       position: relative;
-      top: -3vw;
+    
+
+      top: -4vw;
+      // left: -3vw;
+  
     }
     // .rank11-20 {
     //   width: 31vw;

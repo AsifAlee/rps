@@ -1,7 +1,7 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
 export const testUserId = 596492373;
-export const testToken = "A1E04AABA356204050B1B60A5BE7571F07";
+export const testToken = "A152EC81F959874B6089781846BB1A5DB1";
 
 export const errorCodes = {
   succes: 0,
@@ -233,4 +233,38 @@ export const leaderBoardSliderData = [
       type: 99,
     },
   ],
+];
+
+export const battleLbRewards = [
+  {
+    rank: "Top 1st",
+
+    pageRewards: [
+      {
+        name: "beansbag",
+        desc: "50% of beanspot",
+      },
+    ],
+  },
+  {
+    rank: "Top 2nd",
+
+    pageRewards: [
+      {
+        name: "beansbag",
+        desc: "30% of beanspot",
+      },
+    ],
+  },
+  ,
+  {
+    rank: "Top 3rd",
+
+    pageRewards: [
+      {
+        name: "beansbag",
+        desc: "20% of beanspot",
+      },
+    ],
+  },
 ];

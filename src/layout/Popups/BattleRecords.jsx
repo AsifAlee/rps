@@ -18,15 +18,22 @@ const BattleRecords = ({ clickHandler }) => {
       <div className="battle-records">
         <img src={closeBtn} className="closeBtn" onClick={clickHandler} />
         <img src={recordsTitle} className="title" />
-        <div className="records-content m-auto">
-          <table>
-            <tr className="head m-auto">
-              <td> Time(GMT)</td>
-              <td>Planet </td>
-              <td>Rewards Claimed</td>
+        {/* <div className="records-content m-auto">
+          <table className="m-auto">
+            <tr className="head ">
+              <td colSpan={1} style={{ width: "20%" }}>
+                {" "}
+                Time(GMT)
+              </td>
+              <td colSpan={1} style={{ width: "10%" }}>
+                Planet{" "}
+              </td>
+              <td colSpan={1} style={{ width: "70%" }}>
+                Rewards Claimed
+              </td>
             </tr>
             <tr className="bat-rec-rows">
-              <td>9999999999999999</td>
+              <td>2023/08/04-08:37AM</td>
               <td>Saturn</td>
               <td>
                 <LeaderBoardSlider
@@ -35,24 +42,37 @@ const BattleRecords = ({ clickHandler }) => {
                 />
               </td>
             </tr>
-            <tr>
-              <td>9999999999999999</td>
-              <td>Saturn</td>
-              <td>
-                <LeaderBoardSlider
-                  rewards={leaderBoardSliderData}
-                  isHistory={true}
-                />
+          </table>
+        </div> */}
+
+        <div className="records-content m-auto">
+          <table className="m-auto">
+            <tr className="head">
+              <td colSpan={1} style={{ width: "25%" }}>
+                {" "}
+                Time(GMT)
+              </td>
+              <td colSpan={1} style={{ width: "10%" }}>
+                Element{" "}
+              </td>
+              <td colSpan={1} style={{ width: "10%" }}>
+                Result
+              </td>
+              <td colSpan={1} style={{ width: "55%" }}>
+                Rewards
               </td>
             </tr>
-            <tr>
-              <td>9999999999999999</td>
+            <tr className="bat-rec-rows">
+              <td>2023/08/04-08:37AM</td>
               <td>Saturn</td>
+              <td>Won</td>
               <td>
-                <LeaderBoardSlider
-                  rewards={leaderBoardSliderData}
-                  isHistory={true}
-                />
+                <div style={{ position: "relative", top: "-6vw" }}>
+                  <LeaderBoardSlider
+                    rewards={leaderBoardSliderData}
+                    isHistory={true}
+                  />
+                </div>
               </td>
             </tr>
           </table>
