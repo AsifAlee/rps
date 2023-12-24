@@ -73,7 +73,7 @@
 
   .battle-game-frame {
     background-image: url(../assets/images/battle/reward-section-bg.png);
-    min-height: 136vw;
+    min-height: 145vw;
     position: relative;
     width: 95%;
     background-size: 100% 100%;
@@ -110,6 +110,15 @@
       margin: 0 auto;
       top: 12vw;
 
+      .rpsSvga-wrap {
+        width: 75vw;
+        height: 69vw;
+        position: absolute;
+        overflow: hidden;
+        // border: 1px solid red;
+        // left: 3vw;
+      }
+
       img {
         display: block;
         width: 92%;
@@ -145,20 +154,16 @@
       justify-content: space-around;
       color: white;
     }
-    .play-btn{
+    .play-btn {
       background-size: 100% 100%;
-    background-repeat: no-repeat;
-    border: none;
-    background-color: transparent;
-    width: 30vw;
-    height: 10vw;
-    background-image: url(../assets/images/battle/play-btn.png);
-    position: relative;
-    top: 19vw;
-
-
-
-
+      background-repeat: no-repeat;
+      border: none;
+      background-color: transparent;
+      width: 30vw;
+      height: 10vw;
+      background-image: url(../assets/images/battle/play-btn.png);
+      position: relative;
+      top: 24vw;
     }
     .battles-won-count {
       background-image: url(../assets/images/battle/battles-won-bar.png);
@@ -167,7 +172,7 @@
       background-repeat: no-repeat;
       background-size: 100% 100%;
       position: relative;
-      top: 21vw;
+      top: 26vw;
       margin: 0 auto;
       color: white;
       img {
@@ -189,48 +194,45 @@
   .battle-rewards-sec {
     width: 95%;
     min-height: 140vw;
-    background-image: url('../assets/images/battle/reward-section-bg.png');
+    background-image: url("../assets/images/battle/reward-section-bg.png");
     background-size: 100% 100%;
     margin: 0 auto;
     padding-top: 5vw;
-    font-family: 'PoppinsMedium';
+    font-family: "PoppinsMedium";
     position: relative;
     // top: 20vw;
     margin-top: 20vw;
-    
-    .rewards-heading{
+
+    .rewards-heading {
       left: 12vw;
       width: 71vw;
       position: absolute;
       top: -17vw;
-  
     }
 
-    .beansPot{
+    .beansPot {
       width: 68%;
-      background-image: url('../assets/images/battle/beans-pot-bg.png');
+      background-image: url("../assets/images/battle/beans-pot-bg.png");
       min-height: 50vw;
       background-size: 100% 100%;
       margin: 0 auto;
       position: relative;
       top: 66vw;
-    
 
-      .beans-pot-heading{
-          width: 100%;
-          position: relative;
-          top: -4vw;
-          
+      .beans-pot-heading {
+        width: 100%;
+        position: relative;
+        top: -4vw;
       }
 
-      .pot-img{
+      .pot-img {
         width: 39vw;
         position: relative;
         top: -8vw;
       }
     }
-    .beans-pot-count{
-      background-image: url('../assets/images/battle/beans-pot-counter.png');
+    .beans-pot-count {
+      background-image: url("../assets/images/battle/beans-pot-counter.png");
       width: 60vw;
       height: 15vw;
       background-size: 100% 100%;
@@ -239,17 +241,14 @@
       margin: 0 auto;
       color: white;
       gap: 1vw;
-      
-      img{
-      width: 5vw;
-      }
-      span{
-          font-size: 4vw;
-      font-family: 'PoppinsMediumItalic';
 
+      img {
+        width: 5vw;
+      }
+      span {
+        font-size: 4vw;
+        font-family: "PoppinsMediumItalic";
       }
     }
   }
-
-
 }

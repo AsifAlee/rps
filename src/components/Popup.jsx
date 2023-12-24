@@ -14,6 +14,8 @@ const PopUp = (props) => {
     isGuide,
     sure,
     details,
+
+    scratchGame,
   } = props;
 
   useEffect(() => {
@@ -35,11 +37,13 @@ const PopUp = (props) => {
               : sure
               ? "45vw"
               : game
-              ? "90vw"
+              ? "89vw"
               : isRewardHist
               ? "100vw"
               : details
               ? "106vw"
+              : scratchGame
+              ? "95vw"
               : ""
           }`,
           height: isSendCard && "117vw",
@@ -47,7 +51,7 @@ const PopUp = (props) => {
             schedule
               ? "100%"
               : game
-              ? "73%"
+              ? "80%"
               : isGuide
               ? "90%"
               : isRewardHist

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { getRewardDetails, getRewardsImage } from "../functions";
-// import "../styles/leaderboard-slider.scss";
+import "../styles/record-reward-item.scss";
 
-const HistorySliderItem = ({ item, index }) => {
+const RecordRewardItem = ({ item, index }) => {
   return (
-    <div className="history-slider-item">
+    <div className="record-rewards-item">
       <div className="img-with-bg">
         <img src={getRewardsImage(item?.desc)} />
       </div>
@@ -13,4 +13,4 @@ const HistorySliderItem = ({ item, index }) => {
   );
 };
 
-export default HistorySliderItem;
+export default RecordRewardItem;

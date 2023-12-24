@@ -5,7 +5,7 @@ const RadioButton = ({ options, handleRadioSelect }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option);
+    setSelectedOption(option.name);
   };
 
   return (
@@ -18,7 +18,7 @@ const RadioButton = ({ options, handleRadioSelect }) => {
               handleRadioSelect(option.name);
             }}
             className={`custom-radio-btn ${
-              selectedOption === option && "animate-btn"
+              selectedOption === option.name && "animate-btn"
             }`}
             key={index}
           >

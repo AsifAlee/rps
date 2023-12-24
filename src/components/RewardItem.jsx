@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/reward-item.scss";
 import { getRewardsImage } from "../functions";
 
-const RewardItem = ({ item }) => {
+const RewardItem = ({ item, width }) => {
   return (
     <div className="reward-item">
       <img

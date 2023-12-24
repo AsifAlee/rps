@@ -89,22 +89,7 @@
       }
     }
 
-    .lucky-game::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; /* Cover the entire container */
-      height: 100%; /* Cover the entire container */
 
-      z-index: 1; /* Ensure the overlay is behind the content */
-    }
-
-    .content {
-      position: relative;
-      z-index: 2; /* Set a higher z-index to place it above the overlay */
-      /* Other styles for your content */
-    }
 
     .play-btns {
       display: flex;
@@ -112,6 +97,18 @@
       top: 15vw;
       justify-content: space-around;
       color: white;
+    }
+
+    .play-btn {
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      border: none;
+      background-color: transparent;
+      width: 30vw;
+      height: 10vw;
+      background-image: url(../assets/images/battle/play-btn.png);
+      position: relative;
+      // top: 24vw;
     }
     .scratch-rem {
       background-image: url(../assets/images/battle/battles-won-bar.png);

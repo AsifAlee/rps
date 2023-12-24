@@ -19,24 +19,35 @@ import LastWinnerLbItem from "../../components/LastWinnerLbItem";
 import { userOverallData } from "../../testData";
 import LuckyDetails from "../Popups/LuckyDetails";
 import InfoPopUp from "../Popups/InfoPopUp";
+import { baseUrl, testToken, testUserId } from "../../constants";
+import ScratchGamePopup from "../Popups/ScratchGamePopup";
 
 const LuckyPlayer = () => {
-  const { info } = useContext(AppContext);
+  const { info, getInfo, getScratchRecords } = useContext(AppContext);
   const divRef = useRef(null);
   const [details, setDetails] = useState(false);
   const [luckyInfo, setLuckyInfo] = useState(false);
 
-  const { isScrtached } = info;
+  const { isScrtached, dailyScratchRemaining } = info;
   const [lbTabs, setLbTabs] = useState({
     today: true,
     prev: false,
   });
   const [seeMore, setSeeMore] = useState(true);
+
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [gameErrCode, setGameErrCode] = useState(null);
+  const [gamePopUp, setGamePopUp] = useState(false);
+  const [gameMsg, setGameMsg] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [rewardData, setRewardData] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [luckyNumber, setLuckyNumber] = useState("");
+
   const toggleSeeMore = () => {
     setSeeMore((prevState) => !prevState);
   };
   const toggleInfo = () => {
-    debugger;
     setLuckyInfo((prevState) => !prevState);
   };
 
@@ -49,6 +60,9 @@ const LuckyPlayer = () => {
     setDetails((prevState) => !prevState);
   };
 
+  const toggleGamepopup = () => {
+    setGamePopUp((prevState) => !prevState);
+  };
   useEffect(() => {
     if (seeMore === true) {
       scrollToTop();
@@ -66,6 +80,49 @@ const LuckyPlayer = () => {
         prev: true,
       });
     }
+  };
+
+  const playGame = () => {
+    setIsDisabled(true);
+    fetch(`${baseUrl}/api/activity/rps/luckyTicket`, {
+      method: "POST",
+      headers: {
+        // userId: user.userId,
+        // token: user.token,
+        userId: testUserId,
+        token: testToken,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        // debugger;
+        if (response.errorCode !== 0) {
+          setGameErrCode(response.errorCode);
+          setIsPlaying(false);
+          setGamePopUp(true);
+          setIsDisabled(false);
+          setErrorMsg(response?.msg);
+        } else {
+          setRewardData(response?.data?.rewardContent);
+          setIsPlaying(true);
+          setGameMsg(response?.msg);
+          setLuckyNumber(response?.data?.luckyCard);
+          setTimeout(() => {
+            setIsPlaying(false);
+            setGameErrCode(response.errorCode);
+            setGamePopUp(true);
+            getInfo(false);
+            getScratchRecords();
+            setIsDisabled(false);
+          }, 3300);
+        }
+      })
+      .catch((error) => {
+        console.error("Api error:", error.message);
+        setIsPlaying(false);
+        setGamePopUp(false);
+      });
   };
   return (
     <div className="lucky-player">
@@ -95,21 +152,35 @@ const LuckyPlayer = () => {
           <img src={infoBtn} onClick={toggleInfo} />
         </div>
 
-        <div className="lucky-game">{/* <img src={cards} /> */}</div>
+        <div className="lucky-game">
+          {isPlaying && (
+            <div
+              className="d-flex j-center al-center"
+              style={{ position: "relative", top: "40vw", color: "white" }}
+            >
+              Animation Playing
+            </div>
+          )}
+        </div>
         <div
           style={{
             position: "relative",
-            top: "39vw",
+            top: "43vw",
             color: "white",
             fontSize: "3vw",
           }}
         >
-          <CommonButton btnImg={"scratch"} />
+          {/* <CommonButton btnImg={"scratch"} /> */}
+          <button
+            className={`play-btn ${isDisabled && "blackNWhite"}`}
+            onClick={isDisabled ? () => {} : playGame}
+            disabled={isPlaying || isDisabled}
+          />
           <p>50k game points required</p>
         </div>
         <div className="scratch-rem d-flex j-center al-center">
           {/* <img src={battleWon} /> */}
-          <span>Daily Scratch Remaining:99999</span>
+          <span>Daily Scratch Remaining:{dailyScratchRemaining}</span>
         </div>
       </div>
       <div
@@ -253,6 +324,22 @@ const LuckyPlayer = () => {
       </div>
       {details && <LuckyDetails clickHandler={toggleDetails} />}
       {luckyInfo && <InfoPopUp clickHandler={toggleInfo} />}
+
+      {gamePopUp && (
+        <ScratchGamePopup
+          clickHandler={toggleGamepopup}
+          errorCode={gameErrCode}
+          errorMsg={errorMsg}
+          rewardData={rewardData}
+          luckyNumber={luckyNumber}
+        />
+      )}
+      {/* <ScratchGamePopup
+        clickHandler={toggleGamepopup}
+        errorCode={10000004}
+        errorMsg={errorMsg}
+        rewardData={"Desert Knight room skin x 1 day"}
+      /> */}
     </div>
   );
 };

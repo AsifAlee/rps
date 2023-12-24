@@ -1,0 +1,31 @@
+.record-rewards-item {
+    width: 16vw;
+    height: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // .img-with-bg {
+    //   width: 13vw;
+    //   height: 80%;
+      
+    //   // background-image: url("../images/game-area/leaderboard-reward-bg.png");
+    //   background-size: 100% 100%;
+    //   background-repeat: no-repeat;
+    //   border: none;
+    //   background-color: transparent;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    
+    // }
+    img {
+        width: 16vw;
+      }
+    span{
+        width: 90%;
+        height: 20%;
+        font-size: 1.8vw;
+        text-align: center;
+    }
+  }

@@ -24,14 +24,18 @@ import RecordsPopup from "../Popups/RecordsPopup";
 import Slider from "../../components/Slider";
 import BattleRecords from "../Popups/BattleRecords";
 import { AppContext } from "../../AppContext";
+
 import {
   baseUrl,
   battleLbRewards,
   testToken,
   testUserId,
 } from "../../constants";
+import rpsSvga from "../../assets/animations/rpsmovement.svga";
+import SvgaPlayer from "../../components/SvgaPlayer";
+import RpsGamePopup from "../Popups/RpsGamePopup.";
 const BattleTab = () => {
-  const { info, user, getInfo } = useContext(AppContext);
+  const { info, user, getInfo, getBattleRecords } = useContext(AppContext);
   // debugger;
   const [rewards, setRewards] = useState([]);
   const [details, setDetails] = useState(false);
@@ -44,6 +48,8 @@ const BattleTab = () => {
   const [rewardData, setRewardData] = useState([]);
   const [inputValue, setInputValue] = useState(1);
   const [selectedChar, setSelectedChar] = useState("");
+  const [rpsResult, setRpsResult] = useState(null);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const toggleDetails = () => {
     setDetails((prevState) => !prevState);
@@ -54,6 +60,10 @@ const BattleTab = () => {
   useEffect(() => {
     setRewards(battleLbRewards);
   }, []);
+
+  const toggleGamepopup = () => {
+    setGamePopUp((prevState) => !prevState);
+  };
 
   const handleRadioSelect = (name) => {
     // debugger;
@@ -67,32 +77,34 @@ const BattleTab = () => {
     fetch(`${baseUrl}/api/activity/rps/rpsBattle?character=${selectedChar}`, {
       method: "POST",
       headers: {
+        userId: user.userId,
+        token: user.token,
         // userId: testUserId,
         // token: testToken,
-        userId: testUserId,
-        token: testToken,
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
       .then((response) => {
-        debugger;
-        if (response.errorCode === 10000004) {
+        // debugger;
+        if (response.errorCode !== 0) {
           setGameErrCode(response.errorCode);
           setIsPlaying(false);
           setGamePopUp(true);
           setIsDisabled(false);
+          setErrorMsg(response?.msg);
         } else {
-          setRewardData(response?.data);
+          setRewardData(response?.data?.rewardContent);
           setIsPlaying(true);
           setGameMsg(response?.msg);
           setTimeout(() => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
+            setRpsResult(response?.data?.rpsResult);
             setGamePopUp(true);
             getInfo(false);
-            // getFoosballLeaderBoardData();
-            // getRecords(2);
+
+            getBattleRecords();
             setIsDisabled(false);
           }, 3300);
         }
@@ -155,7 +167,10 @@ const BattleTab = () => {
           <img src={gamePoints} />
           <span>My Game Points:{info?.gamePoints}</span>
         </div>
-        <div className="battle-game">{/* <img src={gameBg} /> */}</div>
+        <div className="battle-game">
+          {/* <img src={gameBg} /> */}
+          <SvgaPlayer src={rpsSvga} start={isPlaying} rps={true} />
+        </div>
 
         <div className="play-btns">
           <RadioButton
@@ -175,7 +190,7 @@ const BattleTab = () => {
         {/* <CommonButton btnImg={"playBtn"} /> */}
         <div className="battles-won-count d-flex j-center al-center">
           <img src={battleWon} />
-          <span>Battle Won:99999</span>
+          <span>Battle Won:{info?.battlesCount}</span>
         </div>
       </div>
 
@@ -198,6 +213,17 @@ const BattleTab = () => {
       <LeaderBoardComponent />
       {details && <BattleDetails clickHandler={toggleDetails} />}
       {records && <BattleRecords clickHandler={toggleRecords} />}
+
+      {gamePopUp && (
+        <RpsGamePopup
+          clickHandler={toggleGamepopup}
+          errorCode={gameErrCode}
+          rpsResult={rpsResult}
+          notSelected={selectedChar === "" ? true : false}
+          errorMsg={errorMsg}
+          rewardData={rewardData}
+        />
+      )}
     </div>
   );
 };
