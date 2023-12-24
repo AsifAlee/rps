@@ -1,10 +1,11 @@
 .talent-tours {
-
-  .tour-rec-btn{
+  .tour-rec-btn {
     position: relative;
     top: 28vw;
     z-index: 1;
     right: -40vw;
+    width: 21vw;
+    left: 78.5vw;
   }
   .space-game {
     width: 90%;
@@ -182,7 +183,7 @@
           animation: oneTo2Anim;
           animation-duration: 5s;
           animation-timing-function: ease-in-out;
-          animation-fill-mode: forwards;
+          // animation-fill-mode: forwards;
         }
         .from2To3 {
           animation: twoTo3Anim;
@@ -244,10 +245,7 @@
 
         .twoPos {
           top: -34vw;
-          left: -26vw;
-
-    //       top: -34vw;
-    // right: 35vw;
+          left: -35vw;
         }
 
         .threePos {
@@ -256,32 +254,35 @@
 
         .fourPos {
           top: -59vw;
-          left: -26vw;
+          left: -35vw;
         }
         .fivePos {
           top: -71vw;
-          left: 10vw;
+          left: 0vw;
         }
 
         .sixPos {
           top: -83vw;
-          left: -26vw;
+          left: -36vw;
         }
         .sevenPos {
+          // top: -97vw;
+          // left: 9vw;
+
           top: -97vw;
-          left: 9vw;
+          left: -1vw;
         }
         .eightPos {
           top: -106vw;
-          left: -26vw;
+          left: -35vw;
         }
         .ninePos {
           top: -120vw;
-          left: 10vw;
+          left: -1vw;
         }
         .tenPos {
           top: -131vw;
-          left: -26vw;
+          left: -35vw;
         }
 
         @keyframes zeroTo1Anim {
@@ -296,13 +297,14 @@
         @keyframes oneTo2Anim {
           0% {
             top: -24vw;
+            left: 0vw;
+            transform: rotate(-78deg);
           }
-          100% {
-            left: -25vw ;
-            top: -34vw ;
 
-            // right: 35vw;
-            // top: -34vw;
+          100% {
+            top: -34vw;
+            left: -35vw;
+            transform: rotate(0deg);
           }
         }
 
@@ -310,85 +312,113 @@
           0% {
             top: -34vw;
             left: -26vw;
+            transform: rotate(-78deg);
           }
           100% {
             top: -47vw;
             left: 9vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes threeTo4Anim {
           0% {
             top: -48vw;
+            left: 0vw;
+            transform: rotate(-64deg);
           }
           100% {
             top: -59vw;
-            left: -26vw;
+            left: -35vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes fourTo5Anim {
           0% {
             top: -59vw;
-            left: -26vw;
+            left: -35vw;
+            transform: rotate(78deg);
           }
           100% {
             top: -71vw;
-            left: 10vw;
+            left: 0vw;
+            transform: rotate(0deg);
           }
         }
         @keyframes fiveTo6Anim {
           0% {
             top: -71vw;
-            left: 10vw;
+            left: 0vw;
+            // transform: rotate(78deg);
+            transform: rotate(-61deg);
           }
+
           100% {
             top: -83vw;
-            left: -26vw;
+            left: -36vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes sixTo7Anim {
           0% {
             top: -83vw;
-            left: -26vw;
+            left: -36vw;
+            transform: rotate(61deg);
           }
           100% {
             top: -97vw;
-            left: 9vw;
+            left: -1vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes sevenTo8Anim {
           0% {
             top: -97vw;
-            left: 9vw;
+            left: -1vw;
+            transform: rotate(-61deg);
+          }
+          80% {
+            transform: rotate(-61deg);
           }
           100% {
             top: -106vw;
-            left: -26vw;
+            left: -35vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes eightTo9Anim {
           0% {
             top: -106vw;
-            left: -26vw;
+            left: -35vw;
+            transform: rotate(61deg);
+          }
+          80% {
+            transform: rotate(61deg);
           }
           100% {
             top: -120vw;
-            left: 10vw;
+            left: -1vw;
+            transform: rotate(0deg);
           }
         }
 
         @keyframes nineTo10Anim {
           0% {
             top: -120vw;
-            left: 10vw;
+            left: -1vw;
+            transform: rotate(-61deg);
+          }
+          80% {
+            transform: rotate(-61deg);
           }
           100% {
             top: -131vw;
-            left: -26vw;
+            left: -35vw;
+            transform: rotate(0deg);
           }
         }
 
@@ -451,24 +481,23 @@
       left: 3vw;
     }
 
-    
     .lb-restWinners::-webkit-scrollbar {
       width: 1vw;
       background-color: gray;
     }
-  
+
     /* Track */
     .lb-restWinners::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px grey;
       border-radius: 1vw;
     }
-  
+
     /* Handle */
     .lb-restWinners::-webkit-scrollbar-thumb {
       background: white;
       border-radius: 2vw;
     }
-  
+
     /* Handle on hover */
     .lb-restWinners::-webkit-scrollbar-thumb:hover {
       background: #b30000;

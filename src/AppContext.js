@@ -21,6 +21,7 @@ export const DataProvider = ({ children }) => {
     userId: 0,
     token: "",
   });
+  const [tickerData, setTickerData] = useState([]);
 
   const [giftingLbData, setGiftingLbData] = useState({
     user: [],
@@ -28,7 +29,7 @@ export const DataProvider = ({ children }) => {
   });
   const [records, setRecords] = useState({
     rps: [],
-    sratch: [],
+    scratch: [],
     tour: [],
   });
   const [selectedLng, setSelectedLng] = useState(1);
@@ -145,7 +146,7 @@ export const DataProvider = ({ children }) => {
         response.json().then((response) => {
           setRecords((prevState) => ({
             ...prevState,
-            sratch: response?.data?.list || [],
+            scratch: response?.data?.list || [],
           }));
         })
       )
@@ -171,6 +172,23 @@ export const DataProvider = ({ children }) => {
       });
   };
 
+  const getTickerData = () => {
+    fetch(
+      `${baseUrl}/api/activity/eidF/getWinnerRankInfo?eventDesc=20240109_rps&rankIndex=1&pageNum=1&pageSize=20`
+    )
+      .then((response) =>
+        response.json().then((response) => {
+          setRecords((prevState) => ({
+            ...prevState,
+            tickerData: response?.data?.list || [],
+          }));
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -184,6 +202,7 @@ export const DataProvider = ({ children }) => {
         getBattleRecords,
         getScratchRecords,
         getTourRecords,
+        tickerData,
       }}
     >
       {children}

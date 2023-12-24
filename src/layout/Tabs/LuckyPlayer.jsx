@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import gamePoints from "../../assets/images/battle/game-points-counter-bar.png";
+import gamePoints from "../../assets/images/battle/game-points-icon.png";
 import beanIcon from "../../assets/images/common/bean-icon.png";
 // import infoBtn from "../../assets/images/lucky/in";
 import cards from "../../assets/images/lucky/cards.png";
@@ -28,7 +28,7 @@ const LuckyPlayer = () => {
   const [details, setDetails] = useState(false);
   const [luckyInfo, setLuckyInfo] = useState(false);
 
-  const { isScrtached, dailyScratchRemaining } = info;
+  const { isScrtached, dailyScratchRemaining, lastLuckyCard } = info;
   const [lbTabs, setLbTabs] = useState({
     today: true,
     prev: false,
@@ -136,7 +136,7 @@ const LuckyPlayer = () => {
       <div className="lucky-game-frame">
         <div className="lucky-game-points-count d-flex j-center al-center">
           <img src={gamePoints} />
-          <span>My Game Points:99999</span>
+          <span>My Game Points:{info?.gamePoints}</span>
         </div>
 
         <div className="lucky-info d-flex j-center al-center">
@@ -272,10 +272,25 @@ const LuckyPlayer = () => {
             </div>
 
             <div className="lucky-number-appear">
-              <p>The Lucky Number will be revealed at 00:00:00 GMT</p>
-              <div className="scratch-bg d-flex j-center al-center">
-                <span>??????</span>
-              </div>
+              {lbTabs.today ? (
+                <>
+                  <p style={{ marginTop: "7vw" }}>
+                    The Lucky Number will be revealed at 00:00:00 GMT
+                  </p>
+                  <div className="scratch-bg d-flex j-center al-center">
+                    <span style={{ fontSize: "7vw" }}>??????</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p style={{ marginTop: "7vw" }}>
+                    The Lucky Number will be revealed
+                  </p>
+                  <div className="scratch-bg d-flex j-center al-center">
+                    <span style={{ fontSize: "7vw" }}>{lastLuckyCard}</span>
+                  </div>
+                </>
+              )}
             </div>
 
             <div

@@ -15,7 +15,7 @@ import TalentRecords from "../Popups/TalentRecords";
 const TalentTour = () => {
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
-  const [currentPos, setCurrentPos] = useState(1);
+  const [currentPos, setCurrentPos] = useState(9);
   const [records, setRecords] = useState(false);
 
   const toggleRecords = () => {
@@ -50,7 +50,7 @@ const TalentTour = () => {
   }, [seeMore]);
 
   const travel = () => {
-    setDestination(2);
+    setDestination(10);
   };
   return (
     <div className="talent-tours">
@@ -123,37 +123,6 @@ const TalentTour = () => {
               <img src={pathFromRight} className="path9" />
             </div>
 
-            {/* <div className="reward1">
-              <TourComponent />
-            </div>
-            <div className="reward2">
-              <TourComponent />
-            </div>
-            <div className="reward3">
-              <TourComponent />
-            </div>
-            <div className="reward4">
-              <TourComponent />
-            </div>
-            <div className="reward5">
-              <TourComponent />
-            </div>
-            <div className="reward6">
-              <TourComponent />
-            </div>
-            <div className="reward7">
-              <TourComponent />
-            </div>
-            <div className="reward8">
-              <TourComponent />
-            </div>
-            <div className="reward9">
-              <TourComponent />
-            </div>
-            <div className="reward10">
-              <TourComponent />
-            </div> */}
-
             <div className="bottom-sec">
               <button className="travel-btn" onClick={travel} />
               <img
@@ -211,15 +180,11 @@ const TalentTour = () => {
                 `}
                 src={ship}
               />
+
               <span>START</span>
             </div>
           </div>
         </div>
-        {/* destination === "from0To1"
-                    ? "from0To1"
-                    : destination === "from1To2"
-                    ? "from1To2"
-                    : "" */}
       </div>
       <div className="tour-lb">
         <img src={lbTitle} className="title" />
