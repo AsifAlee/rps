@@ -104,6 +104,22 @@
             font-family: 'PoppinsMediumItalic';
         }
       }
+
+      .beans-gems-div{
+        width: 21vw;
+        height: 4.5vw;
+        border: .2vw solid white;
+        border-radius: 12vw;
+        background-color: red;
+        gap: 1vw;
+        img{
+            width: 4vw;
+        }
+        span{
+            font-size: 2vw;
+            font-family: 'PoppinsMediumItalic';
+        }
+      }
       .estimatedBeans {
         width: 80%;
         display: flex;

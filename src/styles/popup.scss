@@ -666,6 +666,89 @@
       }
     }
   }
+
+
+  .tour-game-popup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .closeBtn {
+      position: absolute;
+      left: 66vw;
+      top: -13vw;
+      width: 8vw;
+      z-index: 1;
+    }
+    .title {
+      width: 60vw;
+      position: absolute;
+      left: 11vw;
+      top: -14vw;
+    }
+    .rps-content {
+      position: relative;
+      color: white;
+      font-family: "PoppinsMedium";
+      top: 1vw;
+      font-size: 3vw;
+      height: 66vw;
+      // border: 1px solid;
+      width: 90%;
+      left: 3vw;
+
+      .success {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .p1 {
+          font-size: 4vw;
+          width: 80%;
+          // border: 1px solid;
+          margin-top: 7vw;
+
+          .battle-icon {
+            width: 7vw;
+            display: inline-block;
+
+            vertical-align: middle;
+          }
+        }
+        .lucky-numbers {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1vw;
+          position: relative;
+          top: 2vw;
+        }
+        .rew-section {
+          margin-top: 3vw;
+        }
+        .bottom-text {
+          position: relative;
+          top: 11vw;
+          font-size: 4vw;
+        }
+      }
+
+      .enough-points {
+        width: 100%;
+        height: 100%;
+        font-size: 5vw;
+
+        position: relative;
+        top: 11vw;
+        div {
+          img {
+            width: 7vw;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 @keyframes fadeIn {

@@ -113,4 +113,27 @@
 
     }
   }
+
+  .giftingRightDiv {
+    width: 20vw;
+    height: 7vw;
+    background-color: #0f0c30;
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 6vw;
+    border-radius: 2vw;
+    border: 1px solid;
+    justify-content: space-between;
+    padding: 1vw;
+
+    img {
+      width: 6vw;
+    }
+    span {
+      font-size: 3vw;
+      font-family: 'PoppinsMediumItalic';
+
+    }
+  }
 }

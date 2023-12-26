@@ -27,9 +27,6 @@ const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
     };
   }, [currentIndex]);
 
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [rewards]);
   console.log("current index:", currentIndex);
   return (
     <div className={`slider2`}>

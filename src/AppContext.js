@@ -4,6 +4,17 @@ import { baseUrl, testUserId } from "./constants";
 export const AppContext = createContext();
 
 export const DataProvider = ({ children }) => {
+  let day, months, years, dateStr, dateStrPrev;
+  const date = new Date();
+
+  day = date.getUTCDate();
+
+  months = date.getUTCMonth() + 1;
+  years = date.getUTCFullYear();
+
+  day = day < 10 ? `0${day}` : day;
+  dateStr = years + "-" + months + "-" + day;
+  dateStrPrev = years + "-" + months + "-" + (day - 1);
   const [info, setInfo] = useState({
     isScrtached: true,
     gamePoints: 0,
@@ -14,6 +25,7 @@ export const DataProvider = ({ children }) => {
     dailyScratchRemaining: 0,
     saturnUnlockRewardInfoList: [],
     neptuneUnlockRewardInfoList: [],
+    travelPlanetIndex: 0,
     travelPlanetIndex: 0,
   });
 
@@ -26,6 +38,8 @@ export const DataProvider = ({ children }) => {
   const [giftingLbData, setGiftingLbData] = useState({
     user: [],
     talent: [],
+    battle: [],
+    battlePrev: [],
   });
   const [records, setRecords] = useState({
     rps: [],
@@ -33,6 +47,10 @@ export const DataProvider = ({ children }) => {
     tour: [],
   });
   const [selectedLng, setSelectedLng] = useState(1);
+  const [lastLuckyWinners, setLastLuckyWinners] = useState([]);
+  const [talentTourLbData, setTalentTourLbData] = useState([]);
+  const [todayLuckyTickets, setTodayLuckyTickets] = useState([]);
+  const [yestLuckyTickets, setYestLuckyTickets] = useState([]);
 
   const changeLanguage = (index) => {
     setSelectedLng(index);
@@ -58,9 +76,13 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     getInfo();
-    getBattleRecords();
-    getScratchRecords();
-    getTourRecords();
+    // getBattleRecords();
+    // getScratchRecords();
+    // getTourRecords();
+    getBattleLbData();
+    getBattleLbDataPrev();
+    getLastLuckyWinners();
+    geTalentTourLbData();
   }, []);
 
   const getUserOverall = () => {
@@ -97,10 +119,47 @@ export const DataProvider = ({ children }) => {
       });
   };
 
-  const getInfo = () => {
-    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${testUserId}`)
+  const getBattleLbData = () => {
+    fetch(
+      `${baseUrl}/api/activity/eidF/getLeaderboardInfoV2?eventDesc=20240109_rps&rankIndex=13&pageNum=1&pageSize=20&dayIndex=${dateStr}`
+    )
       .then((response) =>
         response.json().then((response) => {
+          // debugger;
+          setGiftingLbData((prevState) => ({
+            ...prevState,
+            battle: response?.data?.list || [],
+          }));
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const getBattleLbDataPrev = () => {
+    fetch(
+      `${baseUrl}/api/activity/eidF/getLeaderboardInfoV2?eventDesc=20240109_rps&rankIndex=13&pageNum=1&pageSize=20&dayIndex=${dateStrPrev}`
+    )
+      .then((response) =>
+        response.json().then((response) => {
+          // debugger;
+          setGiftingLbData((prevState) => ({
+            ...prevState,
+            battlePrev: response?.data?.list || [],
+          }));
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const getInfo = () => {
+    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${user.userId}`)
+      .then((response) =>
+        response.json().then((response) => {
+          // debugger;
           setInfo({
             ...info,
             gamePoints: response?.data?.gamePoints,
@@ -108,12 +167,16 @@ export const DataProvider = ({ children }) => {
 
             battlesCount: response?.data?.battlesCount,
             potInfo: response?.data?.potInfo,
-            lastLuckyCard: response?.data?.lastLuckyCard,
+            lastLuckyCard: response?.data?.lastLuckyNumber,
             dailyScratchRemaining: response?.data?.dailyScratchRemaining,
             saturnUnlockRewardInfoList:
               response?.data?.saturnUnlockRewardInfoList,
             neptuneUnlockRewardInfoList:
               response?.data?.neptuneUnlockRewardInfoList,
+            travelPlanetIndex: response?.data?.travelPlanetIndex,
+            todayLuckyTickets: response?.data?.todayLuckyTickets,
+            yestLuckyTickets: response?.data?.yesterdayLuckyTickets,
+            talentPoints: Math.floor(response?.data?.talentPoints / 25000),
             travelPlanetIndex: response?.data?.travelPlanetIndex,
           });
         })
@@ -189,6 +252,34 @@ export const DataProvider = ({ children }) => {
       });
   };
 
+  const getLastLuckyWinners = () => {
+    fetch(
+      `${baseUrl}/api/activity/eidF/getWinnerRankInfo?eventDesc=20240109_rps&rankIndex=1&pageNum=1&pageSize=20`
+    )
+      .then((response) =>
+        response.json().then((response) => {
+          setLastLuckyWinners(response?.data?.list || []);
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const geTalentTourLbData = () => {
+    fetch(
+      `${baseUrl}/api/activity/eidF/getWinnerRankInfo?eventDesc=20240109_rps&rankIndex=2&pageNum=1&pageSize=20`
+    )
+      .then((response) =>
+        response.json().then((response) => {
+          setTalentTourLbData(response?.data?.list || []);
+        })
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -203,6 +294,9 @@ export const DataProvider = ({ children }) => {
         getScratchRecords,
         getTourRecords,
         tickerData,
+        lastLuckyWinners,
+        talentTourLbData,
+        geTalentTourLbData,
       }}
     >
       {children}

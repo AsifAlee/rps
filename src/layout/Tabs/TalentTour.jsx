@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../../styles/talentTour.scss";
 import TourSlider from "../../components/TourSlider";
 import shipIcon from "../../assets/images/tour/sapceship-icon.png";
@@ -11,24 +11,52 @@ import TourComponent from "../../components/TourComponent";
 import pathFromRight from "../../assets/images/tour/path1.png";
 import pathFromLeft from "../../assets/images/tour/path2.png";
 import TalentRecords from "../Popups/TalentRecords";
+import { AppContext } from "../../AppContext";
+import {
+  baseUrl,
+  neptuneRewards,
+  saturnRewards,
+  testToken,
+  testUserId,
+} from "../../constants";
+import TourGamePopup from "../Popups/TourGamePopup";
 
 const TalentTour = () => {
+  const { info, getInfo, talentTourLbData, geTalentTourLbData, user } =
+    useContext(AppContext);
+  // debugger;
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
   const [currentPos, setCurrentPos] = useState(9);
   const [records, setRecords] = useState(false);
 
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [gameErrCode, setGameErrCode] = useState(null);
+  const [gamePopUp, setGamePopUp] = useState(false);
+  const [gameMsg, setGameMsg] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [rewardData, setRewardData] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [selectedPlanet, setSelectedPlanet] = useState(0);
+
+  const {
+    talentPoints,
+    travelPlanetIndex,
+    saturnUnlockRewardInfoList,
+    neptuneUnlockRewardInfoList,
+  } = info;
+  // debugger;
   const toggleRecords = () => {
     setRecords((prevState) => !prevState);
   };
   const talentSliderData = [
     {
-      name: "Neptune",
-      desc: "Neptune",
-    },
-    {
       name: "Saturn",
       desc: "Saturn",
+    },
+    {
+      name: "Neptune",
+      desc: "Neptune",
     },
   ];
 
@@ -49,9 +77,77 @@ const TalentTour = () => {
     }
   }, [seeMore]);
 
+  useEffect(() => {
+    if (travelPlanetIndex === 1) {
+      setCurrentPos(saturnUnlockRewardInfoList?.length);
+    } else if (travelPlanetIndex === 2) {
+      setCurrentPos(neptuneUnlockRewardInfoList?.length);
+    } else {
+      setCurrentPos(0);
+    }
+  }, [info]);
+
   const travel = () => {
     setDestination(10);
   };
+
+  const toggleGamePopup = () => {
+    setGamePopUp((prevState) => !prevState);
+  };
+
+  const changePlanetIndex = () => {
+    if (selectedPlanet === 0) {
+      setSelectedPlanet(1);
+    } else {
+      setSelectedPlanet(0);
+    }
+  };
+  const playGame = () => {
+    setIsDisabled(true);
+    fetch(
+      `${baseUrl}/api/activity/rps/talentTour?planetIndex=${travelPlanetIndex}`,
+      {
+        method: "POST",
+        headers: {
+          userId: user.userId,
+          token: user.token,
+          // userId: testUserId,
+          // token: testToken,
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        // debugger;
+        if (response.errorCode !== 0) {
+          setGameErrCode(response.errorCode);
+          setIsPlaying(false);
+          setGamePopUp(true);
+          setIsDisabled(false);
+          setErrorMsg(response?.msg);
+        } else {
+          setRewardData(response?.data?.rewardContent);
+          setDestination(currentPos + 1);
+          setIsPlaying(true);
+          setGameMsg(response?.msg);
+          geTalentTourLbData();
+          setTimeout(() => {
+            setIsPlaying(false);
+            setGameErrCode(response.errorCode);
+            setGamePopUp(true);
+            getInfo();
+            setIsDisabled(false);
+          }, 3300);
+        }
+      })
+      .catch((error) => {
+        console.error("Api error:", error.message);
+        setIsPlaying(false);
+        setGamePopUp(false);
+      });
+  };
+
   return (
     <div className="talent-tours">
       <div className="tour-rec-btn">
@@ -64,10 +160,13 @@ const TalentTour = () => {
       <div className="space-game">
         <div className="space-ticket-count d-flex j-center al-center">
           <img src={shipIcon} />
-          <span>{`My Spaceship tickets:99999`}</span>
+          <span>{`My Spaceship tickets:${talentPoints}`}</span>
         </div>
         <div style={{ position: "relative", top: "9vw" }}>
-          <TourSlider rewards={talentSliderData} />
+          <TourSlider
+            rewards={talentSliderData}
+            changePlanetIndex={changePlanetIndex}
+          />
         </div>
         <div className="game-sec">
           <p>1 Spaceship Ticket Required for each Travel</p>
@@ -75,40 +174,100 @@ const TalentTour = () => {
             <div className="game-rewards">
               <div className="left-rewards">
                 <div className="reward10">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.ten
+                        : neptuneRewards.ten
+                    }
+                  />
                 </div>
                 <div className="reward8">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.eight
+                        : neptuneRewards.eight
+                    }
+                  />
                 </div>
                 <div className="reward6">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.six
+                        : neptuneRewards.six
+                    }
+                  />
                 </div>
                 <div className="reward4">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.four
+                        : neptuneRewards.four
+                    }
+                  />
                 </div>
                 <div className="reward2">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.two
+                        : neptuneRewards.two
+                    }
+                  />
                 </div>
               </div>
 
               <div className="right-rewards">
                 <div className="reward9">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.nine
+                        : neptuneRewards.nine
+                    }
+                  />
                 </div>
 
                 <div className="reward7">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.seven
+                        : neptuneRewards.seven
+                    }
+                  />
                 </div>
 
                 <div className="reward5">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.five
+                        : neptuneRewards.five
+                    }
+                  />
                 </div>
                 <div className="reward3">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.three
+                        : neptuneRewards.three
+                    }
+                  />
                 </div>
 
                 <div className="reward1">
-                  <TourComponent />
+                  <TourComponent
+                    rew={
+                      selectedPlanet === 0
+                        ? saturnRewards.one
+                        : neptuneRewards.one
+                    }
+                  />
                 </div>
               </div>
 
@@ -124,7 +283,7 @@ const TalentTour = () => {
             </div>
 
             <div className="bottom-sec">
-              <button className="travel-btn" onClick={travel} />
+              <button className="travel-btn" onClick={playGame} />
               <img
                 className={` moving-ship ${
                   currentPos === 0
@@ -192,9 +351,23 @@ const TalentTour = () => {
           className={`lb-restWinners  ${seeMore === false ? "scroll" : ""}`}
           ref={divRef}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, index) => (
-            <LastWinnerLbItem item={userOverallData[0]} index={index + 1} />
-          ))}
+          {talentTourLbData?.length ? (
+            talentTourLbData?.map((item, index) => (
+              <LastWinnerLbItem item={item} index={index + 1} />
+            ))
+          ) : (
+            <div
+              style={{
+                position: "relative",
+                color: "white",
+                fontFamily: "PoppinsMedium",
+                position: "relative",
+                top: "10vw",
+              }}
+            >
+              No Data Found
+            </div>
+          )}
         </div>
         <div className="seeMore">
           <CommonButton
@@ -205,6 +378,14 @@ const TalentTour = () => {
         </div>
       </div>
       {records && <TalentRecords clickHandler={toggleRecords} />}
+      {gamePopUp && (
+        <TourGamePopup
+          errorCode={gameErrCode}
+          errorMsg={errorMsg}
+          rewardData={rewardData}
+          clickHandler={toggleGamePopup}
+        />
+      )}
     </div>
   );
 };

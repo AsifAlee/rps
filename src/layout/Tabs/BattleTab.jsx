@@ -35,9 +35,12 @@ import rpsSvga from "../../assets/animations/rpsmovement.svga";
 import SvgaPlayer from "../../components/SvgaPlayer";
 import RpsGamePopup from "../Popups/RpsGamePopup.";
 const BattleTab = () => {
-  const { info, user, getInfo, getBattleRecords } = useContext(AppContext);
+  const { info, user, getInfo, getBattleRecords, giftingLbData } =
+    useContext(AppContext);
+  const { battle, battlePrev } = giftingLbData;
+
   // debugger;
-  const [rewards, setRewards] = useState([]);
+  const [rewards, setRewards] = useState(battleLbRewards);
   const [details, setDetails] = useState(false);
   const [records, setRecords] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -120,7 +123,7 @@ const BattleTab = () => {
     <div className="battle-tab">
       <div style={{ position: "relative", top: "-21vw" }}>
         <Marquee play={true}>
-          {["asif", "arif", "atif", "akif", "kashif", "misbah"].map((item) => {
+          {battle?.slice(0, 3).map((item) => {
             return (
               <div className="battle-marquee">
                 <div className="marquee-item">
@@ -135,11 +138,12 @@ const BattleTab = () => {
 
                   <div className="marq-user-details">
                     <p>
-                      <span className="name">{`${item?.slice(
+                      <span className="name">{`${item?.nickname?.slice(
                         0,
                         6
                       )} has won `}</span>
-                      have won 1000 battles and ranked 6th in RPS Battle game.
+                      have won {item.userScore} battles and ranked{" "}
+                      {`${item.ranking}th`} in RPS Battle game.
                     </p>
                   </div>
                 </div>
@@ -197,7 +201,7 @@ const BattleTab = () => {
       <div className="battle-rewards-sec">
         <img src={rewardsHeading} className="rewards-heading" />
         <div style={{ position: "absolute", top: "7vw", left: "8vw" }}>
-          <Slider rewards={rewards} showRanks={true} showIndicators={true} />
+          <Slider rewards={rewards} showRanks={true} showIndicators={false} />
         </div>
 
         <div className="beansPot">
@@ -210,7 +214,7 @@ const BattleTab = () => {
           <span>99999</span>
         </div>
       </div>
-      <LeaderBoardComponent />
+      <LeaderBoardComponent data={[battle, battlePrev]} />
       {details && <BattleDetails clickHandler={toggleDetails} />}
       {records && <BattleRecords clickHandler={toggleRecords} />}
 

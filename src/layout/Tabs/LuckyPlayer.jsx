@@ -13,7 +13,7 @@ import { getRewardsImage } from "../../functions";
 import TabButton from "../../components/TabButton";
 import ScratchItem from "../../components/ScratchItem";
 import ScratchWinItem from "../../components/ScratchWinItem";
-import lastLuckyWinner from "../../assets/images/lucky/last-lucky-winner-title.png";
+import lastLuckyWinnerTitle from "../../assets/images/lucky/last-lucky-winner-title.png";
 import loadingMascot from "../../assets/images/lucky/loading-mascot.png";
 import LastWinnerLbItem from "../../components/LastWinnerLbItem";
 import { userOverallData } from "../../testData";
@@ -21,18 +21,35 @@ import LuckyDetails from "../Popups/LuckyDetails";
 import InfoPopUp from "../Popups/InfoPopUp";
 import { baseUrl, testToken, testUserId } from "../../constants";
 import ScratchGamePopup from "../Popups/ScratchGamePopup";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const LuckyPlayer = () => {
-  const { info, getInfo, getScratchRecords } = useContext(AppContext);
+  const { info, getInfo, getScratchRecords, lastLuckyWinners, user } =
+    useContext(AppContext);
+  // debugger;
   const divRef = useRef(null);
+
   const [details, setDetails] = useState(false);
   const [luckyInfo, setLuckyInfo] = useState(false);
 
-  const { isScrtached, dailyScratchRemaining, lastLuckyCard } = info;
+  const {
+    isScrtached,
+    dailyScratchRemaining,
+    lastLuckyCard,
+    todayLuckyTickets,
+    yestLuckyTickets,
+  } = info;
+  // debugger;
   const [lbTabs, setLbTabs] = useState({
     today: true,
     prev: false,
   });
+
+  const [numberTabs, setNumberTabs] = useState({
+    today: true,
+    prev: false,
+  });
+
   const [seeMore, setSeeMore] = useState(true);
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -43,6 +60,7 @@ const LuckyPlayer = () => {
   const [rewardData, setRewardData] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [luckyNumber, setLuckyNumber] = useState("");
+  const [currentLuckyTickets, setCurrentLuckyTickets] = useState([]);
 
   const toggleSeeMore = () => {
     setSeeMore((prevState) => !prevState);
@@ -68,6 +86,20 @@ const LuckyPlayer = () => {
       scrollToTop();
     }
   }, [seeMore]);
+  const toggleNumberTabs = (name) => {
+    if (name === "today") {
+      setNumberTabs({
+        today: true,
+        prev: false,
+      });
+    } else {
+      setNumberTabs({
+        today: false,
+        prev: true,
+      });
+    }
+  };
+
   const toggleTabs = (name) => {
     if (name === "today") {
       setLbTabs({
@@ -82,15 +114,20 @@ const LuckyPlayer = () => {
     }
   };
 
+  useEffect(() => {
+    if (numberTabs.today) setCurrentLuckyTickets(todayLuckyTickets);
+    else setCurrentLuckyTickets(yestLuckyTickets);
+  }, [numberTabs, yestLuckyTickets, todayLuckyTickets]);
+
   const playGame = () => {
     setIsDisabled(true);
     fetch(`${baseUrl}/api/activity/rps/luckyTicket`, {
       method: "POST",
       headers: {
-        // userId: user.userId,
-        // token: user.token,
-        userId: testUserId,
-        token: testToken,
+        userId: user.userId,
+        token: user.token,
+        // userId: testUserId,
+        // token: testToken,
         "Content-Type": "application/json",
       },
     })
@@ -112,7 +149,7 @@ const LuckyPlayer = () => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
             setGamePopUp(true);
-            getInfo(false);
+            getInfo();
             getScratchRecords();
             setIsDisabled(false);
           }, 3300);
@@ -203,29 +240,45 @@ const LuckyPlayer = () => {
           >
             <div className="tabs d-flex j-center">
               <TabButton
-                handleClick={toggleTabs}
+                handleClick={toggleNumberTabs}
                 name="today"
-                btnImg={lbTabs.today ? "today-sel" : "today-sel blackNWhite"}
+                btnImg={
+                  numberTabs.today ? "today-sel" : "today-sel blackNWhite"
+                }
                 arrowImage={false}
                 showArrowImg={false}
               />
 
               <TabButton
-                handleClick={toggleTabs}
+                handleClick={toggleNumberTabs}
                 name="prev"
-                btnImg={lbTabs.prev ? "prev-sel" : "prev-sel blackNWhite"}
+                btnImg={numberTabs.prev ? "prev-sel" : "prev-sel blackNWhite"}
                 arrowImage={false}
                 showArrowImg={false}
               />
             </div>
             <div className="numbers-container">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
-                return index != 6 ? (
-                  <ScratchItem index={item} revealedNum={"12345"} />
-                ) : (
-                  <ScratchWinItem index={item} revealedNum={"a56yx"} />
-                );
-              })}
+              {currentLuckyTickets?.length ? (
+                currentLuckyTickets?.map((item, index) => {
+                  return item !== lastLuckyCard ? (
+                    <ScratchItem index={index + 1} revealedNum={item} />
+                  ) : (
+                    <ScratchWinItem index={item} revealedNum={item} />
+                  );
+                })
+              ) : (
+                <div
+                  style={{
+                    fontFamily: "PoppinsMedium",
+                    fontSize: "4vw",
+                    color: "white",
+                    position: "relative",
+                    top: "3vw",
+                  }}
+                >
+                  No Data Found
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -301,7 +354,7 @@ const LuckyPlayer = () => {
             >
               {isScrtached === false ? (
                 <>
-                  <img className="title" src={lastLuckyWinner} />
+                  <img className="title" src={lastLuckyWinnerTitle} />
                   <img src={loadingMascot} className="mascot-img" />
                   <p>Lucky winner will be announed at 00:00:00 GMT</p>
                 </>
@@ -313,24 +366,27 @@ const LuckyPlayer = () => {
                     }`}
                     ref={divRef}
                   >
-                    <img src={lastLuckyWinner} className="title" />
+                    <img src={lastLuckyWinnerTitle} className="title" />
 
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
-                      (item, index) => (
-                        <LastWinnerLbItem
-                          item={userOverallData[0]}
-                          index={index + 1}
-                        />
-                      )
+                    {!lastLuckyWinners?.length ? (
+                      <div>No Data Found</div>
+                    ) : (
+                      lastLuckyWinners?.map((item, index) => (
+                        <LastWinnerLbItem item={item} index={index + 1} />
+                      ))
                     )}
                   </div>
-                  <div className="seeMore">
-                    <CommonButton
-                      btnImg={seeMore ? "see-more" : "see-less"}
-                      seeMore={true}
-                      handleClick={toggleSeeMore}
-                    />
-                  </div>
+                  {lastLuckyWinners?.length > 10 ? (
+                    <div className="seeMore">
+                      <CommonButton
+                        btnImg={seeMore ? "see-more" : "see-less"}
+                        seeMore={true}
+                        handleClick={toggleSeeMore}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </>
               )}
             </div>

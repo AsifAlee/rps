@@ -1,7 +1,9 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
-export const testUserId = 596492373;
-export const testToken = "A1990D37E83F814944A91439055628BB1B";
+// export const testUserId = 596492373;
+export const testUserId = 502184260;
+
+export const testToken = "A105113F53023A4CFF9081E33F065D270E";
 
 export const errorCodes = {
   succes: 0,
@@ -268,3 +270,29 @@ export const battleLbRewards = [
     ],
   },
 ];
+
+export const saturnRewards = {
+  one: "Flaming Candle room skin",
+  two: "Safari Champion Frame",
+  three: "SVIP",
+  four: "Boss Frame",
+  five: "Victorious room skin",
+  six: "Monarch room skin",
+  seven: "Desert Knight frame",
+  eight: "gems",
+  nine: "Battle Master room skin",
+  ten: "Battle Master frame",
+};
+
+export const neptuneRewards = {
+  one: "Kingpin entrance",
+  two: "Luminary Room Skin",
+  three: "SVIP",
+  four: "Game Battle frame",
+  five: "Game Master room skin",
+  six: "Phoenix entrance",
+  seven: "Fortune room skin",
+  eight: "Fortune frame",
+  nine: "gems",
+  ten: "Topliner frame",
+};

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import giftingTitle from "../../assets/images/event-gifting/title.png";
 import rewTitle from "../../assets/images/event-gifting/gifting-reward-title.png";
 
@@ -8,8 +8,12 @@ import Gift from "../../components/Gift";
 import TabButton from "../../components/TabButton";
 import GiftSlider from "../../components/GiftSlider";
 import LeaderBoardComponent from "../../components/LeaderBoardComponent";
+import { AppContext } from "../../AppContext";
+import { userOverallData } from "../../testData";
 
 const EventGifting = ({ popUpHandler }) => {
+  const { giftingLbData } = useContext(AppContext);
+  // debugger;
   const [rewTabs, setRewTabs] = useState({
     gifter: true,
     talent: false,
@@ -78,7 +82,12 @@ const EventGifting = ({ popUpHandler }) => {
       {/* <div className="lb-content">
         <LeaderBoardComponent />
       </div> */}
-      <LeaderBoardComponent isPopup={true} />
+      <LeaderBoardComponent
+        isPopup={true}
+        data={[giftingLbData?.talent, giftingLbData?.user]}
+        // data={userOverallData}
+        isGifting={true}
+      />
     </div>
   );
 };

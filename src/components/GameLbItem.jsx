@@ -1,10 +1,12 @@
 import React from "react";
 import unknown from "../assets/images/common/unknown-user.png";
 import battleWonIcon from "../assets/images/battle/battles-won-icon.png";
+import bean from "../assets/images/common/bean-icon.png";
+import gems from "../assets/images/common/gems.png";
 import { getLevelImage, gotoProfile } from "../functions";
 import "../styles/game-lb-item.scss";
 
-const GameLeaderboartItem = ({ item, index }) => {
+const GameLeaderboartItem = ({ item, index, isGifting, isTalent }) => {
   return (
     <div className="game-board-item">
       <div className="leftDiv">
@@ -14,18 +16,25 @@ const GameLeaderboartItem = ({ item, index }) => {
         <img
           className="user-avatar"
           src={item?.portrait ? item?.portrait : unknown}
-          onClick={() => gotoProfile(item.userId)}
+          onClick={() => gotoProfile(item?.userId)}
         />
 
         <div className="user-details">
-          <span className="name">{item.nickname}</span>
-          <img src={getLevelImage(item.userLevel)} />
+          <span className="name">{item?.nickname}</span>
+          <img src={getLevelImage(item?.userLevel)} />
         </div>
       </div>
-      <div className="rightDiv">
-        <img src={battleWonIcon} />
-        <span>{item?.userScore || 99999}</span>
-      </div>
+      {isGifting ? (
+        <div className="giftingRightDiv">
+          <img src={isTalent ? gems : bean} />
+          <span>{item?.userScore || 99999}</span>
+        </div>
+      ) : (
+        <div className="rightDiv">
+          <img src={battleWonIcon} />
+          <span>{item?.userScore || 99999}</span>
+        </div>
+      )}
     </div>
   );
 };

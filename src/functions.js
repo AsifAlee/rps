@@ -71,26 +71,58 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/followerCard.png";
   } else if (rewDesc?.includes("gems")) {
     rewImg = baseUrl + "/streamkar/rewards/gems.png";
-  } else if (rewDesc?.includes("Safari Champion room skin x1 day")) {
+  } else if (rewDesc?.includes("Safari Champion room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/safariChampionRoomSkin.png";
-  } else if (rewDesc?.includes("Blessed room skin x1 day")) {
+  } else if (rewDesc?.includes("Blessed room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/blessedRoomSkin2k23.png";
-  } else if (rewDesc?.includes("Peacemaker Frame x1 day")) {
+  } else if (rewDesc?.includes("Peacemaker Frame")) {
     rewImg = baseUrl + "/streamkar/rewards/peaceMakerRoomSkin.png";
-  } else if (rewDesc?.includes("Maestro Frame x1 day")) {
+  } else if (rewDesc?.includes("Maestro Frame")) {
     rewImg = baseUrl + "/streamkar/rewards/maestro.png";
-  } else if (rewDesc?.includes("Hawk entrance x1 day")) {
+  } else if (rewDesc?.includes("Hawk entrance")) {
     rewImg = baseUrl + "/streamkar/rewards/hawk.png";
-  } else if (rewDesc?.includes("Gold Luxury entrance x1 day")) {
+  } else if (rewDesc?.includes("Gold Luxury entrance")) {
     rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
-  } else if (rewDesc?.includes("Fortune room skin x1 day")) {
+  } else if (rewDesc?.includes("Fortune room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
-  } else if (rewDesc?.includes("Fortune room skin x1 day (New)")) {
+  } else if (rewDesc?.includes("Fortune room skin (New)")) {
     rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
-  } else if (rewDesc?.includes("Fortune frame x1 (New)")) {
-    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
-  } else if (rewDesc?.includes("Fortune frame x1")) {
-    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+  } else if (rewDesc?.includes("Fortune frame (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Fortune frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Flaming Candle room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/flamingCandleRoomskin.png";
+  } else if (rewDesc?.includes("Boss Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/bossFrame.png";
+  } else if (rewDesc?.includes("Victorious room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/victoriousRoomSkin.png";
+  } else if (rewDesc?.includes("Monarch room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/monarchRoom.png";
+  } else if (rewDesc?.includes("Desert Knight frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
+  } else if (rewDesc?.includes("Battle Master room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/noRew.png";
+  } else if (rewDesc?.includes("Battle Master frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/noRew.png";
+  } else if (rewDesc?.includes("Kingpin entrance")) {
+    rewImg = baseUrl + "/streamkar/rewards/kingspin.png";
+  } else if (rewDesc?.includes("Luminary Room Skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/luminarSkin.png";
+  } else if (rewDesc?.includes("Game Battle frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/noRew.png";
+  } else if (rewDesc?.includes("Game Master room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/gameMasterRoomSkin.png";
+  } else if (rewDesc?.includes("Phoenix entrance")) {
+    rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
+  } else if (rewDesc?.includes("Phoenix entrance")) {
+    rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
+  } else if (rewDesc?.includes("Phoenix entrance")) {
+    rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
+  } else if (rewDesc?.includes("Phoenix entrance")) {
+    rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
+  } else if (rewDesc?.includes("Topliner frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }
@@ -115,6 +147,18 @@ export const getRewardDetails = (desc, count) => {
     : desc === "Festive Token"
     ? (text = `${count} Festive Tokens`)
     : (text = `${desc}  x${count > 1 ? `${count} days` : `${count} day`}`);
+
+  return text;
+};
+
+export const getRewardDetails2 = (desc, count) => {
+  let text = "";
+
+  desc === "Beans"
+    ? (text = `${count}`)
+    : desc === "gems"
+    ? (text = `${count}`)
+    : (text = `${count > 1 ? `${count} days` : `${count} day`}`);
 
   return text;
 };
