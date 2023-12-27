@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../styles/leaderboardcomp.scss";
 import title from "../assets/images/battle/lb-title.png";
 import TabButton from "./TabButton";
@@ -6,8 +6,11 @@ import Topper from "./Topper";
 import { userOverallData } from "../testData";
 import GameLeaderboartItem from "./GameLbItem";
 import CommonButton from "./CommonButton";
-const LeaderBoardComponent = ({ isPopup, data, isGifting }) => {
+import { userOverallPot } from "../constants";
+import { AppContext } from "../AppContext";
+const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
   // debugger;
+
   const [selectedData, setSelectedData] = useState(data[0]);
 
   const [lbTabs, setLbTabs] = useState({
@@ -149,6 +152,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting }) => {
                   index={1}
                   isGifting={isGifting}
                   isTalent={giftingLbTabs.user ? false : true}
+                  showEstRewards={showEstRewards}
                 />
               )}
             </div>
@@ -160,6 +164,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting }) => {
                   index={2}
                   isGifting={isGifting}
                   isTalent={giftingLbTabs.user ? false : true}
+                  showEstRewards={showEstRewards}
                 />
               )}
             </div>
@@ -171,6 +176,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting }) => {
                   index={3}
                   isGifting={isGifting}
                   isTalent={giftingLbTabs.user ? false : true}
+                  showEstRewards={showEstRewards}
                 />
               )}
             </div>

@@ -27,7 +27,7 @@ const TalentTour = () => {
   // debugger;
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
-  const [currentPos, setCurrentPos] = useState(9);
+  const [currentPos, setCurrentPos] = useState(6);
   const [records, setRecords] = useState(false);
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -124,7 +124,7 @@ const TalentTour = () => {
   }, [selectedPlanet]);
 
   const travel = () => {
-    setDestination(10);
+    setDestination(7);
   };
 
   const toggleGamePopup = () => {
@@ -205,7 +205,7 @@ const TalentTour = () => {
           <TourSlider
             rewards={talentSliderData}
             changePlanetIndex={changePlanetIndex}
-            disableSlide={travelPlanetIndex !== 0}
+            // disableSlide={travelPlanetIndex !== 0}
           />
         </div>
         <div className="game-sec">
@@ -326,6 +326,7 @@ const TalentTour = () => {
               <button
                 className={`travel-btn ${isDisabled && "blackNWhite"}`}
                 onClick={playGame}
+                // onClick={travel}
               />
               <img
                 className={` moving-ship ${

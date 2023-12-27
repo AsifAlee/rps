@@ -123,6 +123,22 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
   } else if (rewDesc?.includes("Topliner frame")) {
     rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Fortune room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Fortune room skin (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Fortune frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Fortune frame (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Battle Master room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Battle Master room skin (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Battle Master frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/battleMaster.png";
+  } else if (rewDesc?.includes("Battle Master frame (New)")) {
+    rewImg = baseUrl + "/streamkar/rewards/battleMaster.png";
   } else {
     rewImg = baseUrl + "/streamkar/rewards/noRew.png";
   }

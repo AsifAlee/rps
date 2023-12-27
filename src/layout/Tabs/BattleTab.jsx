@@ -30,14 +30,24 @@ import {
   battleLbRewards,
   testToken,
   testUserId,
+  userOverallPot,
 } from "../../constants";
 import rpsSvga from "../../assets/animations/rpsmovement.svga";
 import SvgaPlayer from "../../components/SvgaPlayer";
 import RpsGamePopup from "../Popups/RpsGamePopup.";
 const BattleTab = () => {
-  const { info, user, getInfo, getBattleRecords, giftingLbData } =
-    useContext(AppContext);
+  const {
+    info,
+    user,
+    getInfo,
+    getBattleRecords,
+    giftingLbData,
+    dateStr,
+    getBattleLbData,
+  } = useContext(AppContext);
+
   const { battle, battlePrev } = giftingLbData;
+  const { potInfo } = info;
 
   // debugger;
   const [rewards, setRewards] = useState(battleLbRewards);
@@ -105,7 +115,8 @@ const BattleTab = () => {
             setGameErrCode(response.errorCode);
             setRpsResult(response?.data?.rpsResult);
             setGamePopUp(true);
-            getInfo(false);
+            getInfo();
+            getBattleLbData();
 
             getBattleRecords();
             setIsDisabled(false);
@@ -143,7 +154,14 @@ const BattleTab = () => {
                         6
                       )} has won `}</span>
                       have won {item.userScore} battles and ranked{" "}
-                      {`${item.ranking}th`} in RPS Battle game.
+                      {`${
+                        item.ranking === 1
+                          ? "1st"
+                          : item.ranking === 2
+                          ? "2nd"
+                          : "3rd"
+                      }`}{" "}
+                      in RPS Battle game.
                     </p>
                   </div>
                 </div>
@@ -211,10 +229,10 @@ const BattleTab = () => {
 
         <div className="beans-pot-count d-flex j-center al-center">
           <img src={beanIcon} />
-          <span>99999</span>
+          <span>{potInfo[dateStr]}</span>
         </div>
       </div>
-      <LeaderBoardComponent data={[battle, battlePrev]} />
+      <LeaderBoardComponent data={[battle, battlePrev]} showEstRewards={true} />
       {details && <BattleDetails clickHandler={toggleDetails} />}
       {records && <BattleRecords clickHandler={toggleRecords} />}
 

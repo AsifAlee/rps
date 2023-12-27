@@ -21,19 +21,28 @@ import LuckyDetails from "../Popups/LuckyDetails";
 import InfoPopUp from "../Popups/InfoPopUp";
 import { baseUrl, testToken, testUserId } from "../../constants";
 import ScratchGamePopup from "../Popups/ScratchGamePopup";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
-
+import scratchSvga from "../../assets/animations/scratch-gold.svga";
+import SvgaPlayer from "../../components/SvgaPlayer";
+import scratchWinText from "../../assets/images/lucky/scratch-win-text.png";
 const LuckyPlayer = () => {
-  const { info, getInfo, getScratchRecords, lastLuckyWinners, user } =
-    useContext(AppContext);
+  const {
+    info,
+    getInfo,
+    getScratchRecords,
+    lastLuckyWinners,
+    user,
+    getLastLuckyWinners,
+  } = useContext(AppContext);
   // debugger;
   const divRef = useRef(null);
 
   const [details, setDetails] = useState(false);
   const [luckyInfo, setLuckyInfo] = useState(false);
+  const [isScrtached, setIsScratched] = useState(false);
+  const [scratchingFinished, setScratchingFinished] = useState(false);
+  let a = 2;
 
   const {
-    isScrtached,
     dailyScratchRemaining,
     lastLuckyCard,
     todayLuckyTickets,
@@ -119,8 +128,15 @@ const LuckyPlayer = () => {
     else setCurrentLuckyTickets(yestLuckyTickets);
   }, [numberTabs, yestLuckyTickets, todayLuckyTickets]);
 
+  useEffect(() => {
+    if (todayLuckyTickets?.length || yestLuckyTickets?.length) {
+      setIsScratched(true);
+    }
+  }, [info, todayLuckyTickets, yestLuckyTickets]);
+
   const playGame = () => {
     setIsDisabled(true);
+
     fetch(`${baseUrl}/api/activity/rps/luckyTicket`, {
       method: "POST",
       headers: {
@@ -134,6 +150,7 @@ const LuckyPlayer = () => {
       .then((response) => response.json())
       .then((response) => {
         // debugger;
+        setLuckyNumber("");
         if (response.errorCode !== 0) {
           setGameErrCode(response.errorCode);
           setIsPlaying(false);
@@ -145,12 +162,15 @@ const LuckyPlayer = () => {
           setIsPlaying(true);
           setGameMsg(response?.msg);
           setLuckyNumber(response?.data?.luckyCard);
+
+          // setScratchingFinished(true);
           setTimeout(() => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
             setGamePopUp(true);
             getInfo();
             getScratchRecords();
+            getLastLuckyWinners();
             setIsDisabled(false);
           }, 3300);
         }
@@ -190,14 +210,19 @@ const LuckyPlayer = () => {
         </div>
 
         <div className="lucky-game">
-          {isPlaying && (
-            <div
-              className="d-flex j-center al-center"
-              style={{ position: "relative", top: "40vw", color: "white" }}
-            >
-              Animation Playing
-            </div>
-          )}
+          <div
+            className="d-flex j-center al-center"
+            style={{ position: "relative", top: "40vw", color: "white" }}
+          >
+            {/* Animation Playing */}
+
+            <SvgaPlayer start={isPlaying} src={scratchSvga} lucky={true} />
+            {!luckyNumber ? (
+              <img src={scratchWinText} />
+            ) : (
+              <span className="lucky-text">{luckyNumber}</span>
+            )}
+          </div>
         </div>
         <div
           style={{
@@ -263,7 +288,7 @@ const LuckyPlayer = () => {
                   return item !== lastLuckyCard ? (
                     <ScratchItem index={index + 1} revealedNum={item} />
                   ) : (
-                    <ScratchWinItem index={item} revealedNum={item} />
+                    <ScratchWinItem index={index + 1} revealedNum={item} />
                   );
                 })
               ) : (

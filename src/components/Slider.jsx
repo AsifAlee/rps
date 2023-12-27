@@ -27,7 +27,7 @@ const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
     };
   }, [currentIndex]);
 
-  console.log("current index:", currentIndex);
+  // console.log("current index:", currentIndex);
   return (
     <div className={`slider2`}>
       {!hideArrows && (

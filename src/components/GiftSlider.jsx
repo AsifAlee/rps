@@ -28,7 +28,7 @@ const GiftSlider = ({ rewards }) => {
   useEffect(() => {
     setCurrentIndex(0);
   }, [rewards]);
-  console.log("current index:", currentIndex);
+  // console.log("current index:", currentIndex);
   return (
     <div className={`gift-slider`}>
       <div className="arrowsNRank">

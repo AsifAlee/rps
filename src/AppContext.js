@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { baseUrl, testUserId } from "./constants";
+import { baseUrl, testUserId, userOverallPot } from "./constants";
 
 export const AppContext = createContext();
 
@@ -87,6 +87,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     getInfo();
+    if (user.userId) getInfo();
   }, [user]);
 
   const getUserOverall = () => {
@@ -284,6 +285,16 @@ export const DataProvider = ({ children }) => {
       });
   };
 
+  const calculateEstRewards = (index) => {
+    console.log("the est index is:", index);
+    // const potCount = info.potInfo[dateStr];
+    // debugger;
+    const percent = userOverallPot.find((item) => item.rank === index).percent;
+    const result = Math.floor((percent / 100) * info.potInfo[dateStr]);
+
+    return result;
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -301,6 +312,10 @@ export const DataProvider = ({ children }) => {
         lastLuckyWinners,
         talentTourLbData,
         geTalentTourLbData,
+        getLastLuckyWinners,
+        dateStr,
+        getBattleLbData,
+        calculateEstRewards,
       }}
     >
       {children}

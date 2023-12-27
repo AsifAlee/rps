@@ -1,9 +1,9 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
-// export const testUserId = 596492373;
-export const testUserId = 502184260;
+export const testUserId = 502184258;
+// export const testUserId = 502184260;
 
-export const testToken = "A1A1EDD7E57A9F478C8E69E0CD16728809";
+export const testToken = "A1D28A44E4714243309DE2109FC1C424A3";
 
 export const errorCodes = {
   succes: 0,
@@ -296,3 +296,18 @@ export const neptuneRewards = {
   nine: "gems",
   ten: "Topliner frame",
 };
+
+export const userOverallPot = [
+  {
+    rank: 1,
+    percent: 50,
+  },
+  {
+    rank: 2,
+    percent: 30,
+  },
+  {
+    rank: 3,
+    percent: 20,
+  },
+];

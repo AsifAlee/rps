@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import frame1 from "../assets/images/battle/1st-frame.png";
 import frame2 from "../assets/images/battle/2nd-frame.png";
 import frame3 from "../assets/images/battle/3rd-frame.png";
@@ -10,7 +10,9 @@ import gems from "../assets/images/common/gems.png";
 
 import "../styles/topper.scss";
 import { getLevelImage } from "../functions";
-const Topper = ({ index, user, isGifting, isTalent }) => {
+import { AppContext } from "../AppContext";
+const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
+  const { calculateEstRewards } = useContext(AppContext);
   return (
     <div className="topper">
       <div className="topper-images">
@@ -63,8 +65,13 @@ const Topper = ({ index, user, isGifting, isTalent }) => {
             <span>12345</span>
           </div>
         )}
-
-        <div className="estimatedBeans">{`Est Beans:99999`}</div>
+        {showEstRewards ? (
+          <div className="estimatedBeans">{`Est Beans ${calculateEstRewards(
+            index
+          )}`}</div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

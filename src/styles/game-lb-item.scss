@@ -115,7 +115,7 @@
   }
 
   .giftingRightDiv {
-    width: 20vw;
+    width: 25vw;
     height: 7vw;
     background-color: #0f0c30;
     display: flex;
@@ -124,14 +124,15 @@
     right: 6vw;
     border-radius: 2vw;
     border: 1px solid;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1vw;
+    gap: 1vw;
 
     img {
-      width: 6vw;
+      width: 5vw;
     }
     span {
-      font-size: 3vw;
+      font-size: 2.5vw;
       font-family: 'PoppinsMediumItalic';
 
     }

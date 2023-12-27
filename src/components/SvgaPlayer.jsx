@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import SVGA from "svgaplayerweb";
 
-const SvgaPlayer = ({ src, start, rps }) => {
+const SvgaPlayer = ({ src, start, rps, lucky }) => {
   const playerRef = useRef(null);
   var player, parser;
   useEffect(() => {
@@ -49,8 +49,11 @@ const SvgaPlayer = ({ src, start, rps }) => {
         //   (crane && "crane") ||
         //   (foosball && "foosball-svg")
         // }
-        className={rps ? "rpsSvga-wrap" : ""}
+        className={rps ? "rpsSvga-wrap" : lucky ? "lucky-game-wrap" : ""}
         id="rpsSvga"
+        style={{
+          display: lucky && !start && "none",
+        }}
       ></div>
     </>
   );
