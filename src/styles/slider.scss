@@ -100,9 +100,19 @@
 
   .left-arrow {
     width: 9vw;
+    height: 9vw;
+    background-image: url('../assets/images/battle/left-arrow.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
   }
   .right-arrow {
     width: 9vw;
+    height: 9vw;
+    background-image: url('../assets/images/battle/left-arrow.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
   }
 
   .slider-content {

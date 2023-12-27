@@ -4,7 +4,7 @@ import leftArrow from "../assets/images/battle/left-arrow.png";
 import saturn from "../assets/images/tour/saturn.png";
 import neptune from "../assets/images/tour/neptune.png";
 
-const TourSlider = ({ rewards, tag, changePlanetIndex }) => {
+const TourSlider = ({ rewards, tag, changePlanetIndex, disableSlide }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextSlide = () => {
     changePlanetIndex();
@@ -21,7 +21,11 @@ const TourSlider = ({ rewards, tag, changePlanetIndex }) => {
 
   return (
     <div className={`tour-slider`}>
-      <img className="left-arrow" src={leftArrow} onClick={prevSlide} />
+      <button
+        className={`left-arrow ${disableSlide && "blackNWhite"}`}
+        onClick={prevSlide}
+        disabled={disableSlide}
+      />
 
       <div className="slider-content">
         <div className="rew-container">
@@ -37,7 +41,11 @@ const TourSlider = ({ rewards, tag, changePlanetIndex }) => {
         <span>{tag}</span>
       </div>
 
-      <img className="right-arrow flip" src={leftArrow} onClick={nextSlide} />
+      <button
+        className={`right-arrow flip ${disableSlide && "blackNWhite"}`}
+        onClick={nextSlide}
+        disabled={disableSlide}
+      />
     </div>
   );
 };

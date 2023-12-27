@@ -75,7 +75,7 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    getInfo();
+    // getInfo();
     // getBattleRecords();
     // getScratchRecords();
     // getTourRecords();
@@ -84,6 +84,10 @@ export const DataProvider = ({ children }) => {
     getLastLuckyWinners();
     geTalentTourLbData();
   }, []);
+
+  useEffect(() => {
+    getInfo();
+  }, [user]);
 
   const getUserOverall = () => {
     fetch(

@@ -37,7 +37,7 @@ const TalentTour = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [rewardData, setRewardData] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
-  const [selectedPlanet, setSelectedPlanet] = useState(0);
+  const [selectedPlanet, setSelectedPlanet] = useState(1);
 
   const {
     talentPoints,
@@ -79,13 +79,49 @@ const TalentTour = () => {
 
   useEffect(() => {
     if (travelPlanetIndex === 1) {
-      setCurrentPos(saturnUnlockRewardInfoList?.length);
+      if (saturnUnlockRewardInfoList?.length === 10) {
+        setCurrentPos(0);
+      } else {
+        setCurrentPos(saturnUnlockRewardInfoList?.length);
+      }
     } else if (travelPlanetIndex === 2) {
-      setCurrentPos(neptuneUnlockRewardInfoList?.length);
+      if (neptuneUnlockRewardInfoList?.length === 10) {
+        setCurrentPos(0);
+      } else {
+        setCurrentPos(neptuneUnlockRewardInfoList?.length);
+      }
     } else {
-      setCurrentPos(0);
+      if (selectedPlanet === 1) {
+        if (saturnUnlockRewardInfoList?.length === 10) {
+          setCurrentPos(0);
+        } else {
+          setCurrentPos(saturnUnlockRewardInfoList?.length);
+        }
+      } else {
+        if (neptuneUnlockRewardInfoList?.length === 10) {
+          setCurrentPos(0);
+        } else {
+          setCurrentPos(neptuneUnlockRewardInfoList?.length);
+        }
+      }
     }
   }, [info]);
+
+  useEffect(() => {
+    if (selectedPlanet === 1) {
+      if (saturnUnlockRewardInfoList?.length === 10) {
+        setCurrentPos(0);
+      } else {
+        setCurrentPos(saturnUnlockRewardInfoList?.length);
+      }
+    } else if (selectedPlanet === 2) {
+      if (neptuneUnlockRewardInfoList?.length === 10) {
+        setCurrentPos(0);
+      } else {
+        setCurrentPos(neptuneUnlockRewardInfoList?.length);
+      }
+    }
+  }, [selectedPlanet]);
 
   const travel = () => {
     setDestination(10);
@@ -95,17 +131,20 @@ const TalentTour = () => {
     setGamePopUp((prevState) => !prevState);
   };
 
-  const changePlanetIndex = () => {
-    if (selectedPlanet === 0) {
+  const changePlanetIndex = (index) => {
+    if (selectedPlanet === 2) {
       setSelectedPlanet(1);
     } else {
-      setSelectedPlanet(0);
+      setSelectedPlanet(2);
     }
+    // console.log("index is :", index);
   };
   const playGame = () => {
     setIsDisabled(true);
     fetch(
-      `${baseUrl}/api/activity/rps/talentTour?planetIndex=${travelPlanetIndex}`,
+      `${baseUrl}/api/activity/rps/talentTour?planetIndex=${
+        travelPlanetIndex === 0 ? selectedPlanet : travelPlanetIndex
+      }`,
       {
         method: "POST",
         headers: {
@@ -138,7 +177,7 @@ const TalentTour = () => {
             setGamePopUp(true);
             getInfo();
             setIsDisabled(false);
-          }, 3300);
+          }, 5000);
         }
       })
       .catch((error) => {
@@ -166,6 +205,7 @@ const TalentTour = () => {
           <TourSlider
             rewards={talentSliderData}
             changePlanetIndex={changePlanetIndex}
+            disableSlide={travelPlanetIndex !== 0}
           />
         </div>
         <div className="game-sec">
@@ -283,7 +323,10 @@ const TalentTour = () => {
             </div>
 
             <div className="bottom-sec">
-              <button className="travel-btn" onClick={playGame} />
+              <button
+                className={`travel-btn ${isDisabled && "blackNWhite"}`}
+                onClick={playGame}
+              />
               <img
                 className={` moving-ship ${
                   currentPos === 0

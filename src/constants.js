@@ -3,7 +3,7 @@ export const baseUrl = "http://test.streamkar.tv";
 // export const testUserId = 596492373;
 export const testUserId = 502184260;
 
-export const testToken = "A105113F53023A4CFF9081E33F065D270E";
+export const testToken = "A1A1EDD7E57A9F478C8E69E0CD16728809";
 
 export const errorCodes = {
   succes: 0,
