@@ -66,7 +66,8 @@ const LuckyPlayer = () => {
   const [gamePopUp, setGamePopUp] = useState(false);
   const [gameMsg, setGameMsg] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
-  const [rewardData, setRewardData] = useState([]);
+  const [rewardData, setRewardData] = useState("");
+  const [rewardsList, setRewardsList] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [luckyNumber, setLuckyNumber] = useState("");
   const [currentLuckyTickets, setCurrentLuckyTickets] = useState([]);
@@ -159,6 +160,7 @@ const LuckyPlayer = () => {
           setErrorMsg(response?.msg);
         } else {
           setRewardData(response?.data?.rewardContent);
+          setRewardsList(response?.data?.rewardDTOList);
           setIsPlaying(true);
           setGameMsg(response?.msg);
           setLuckyNumber(response?.data?.luckyCard);
@@ -193,15 +195,18 @@ const LuckyPlayer = () => {
       <div className="lucky-game-frame">
         <div className="lucky-game-points-count d-flex j-center al-center">
           <img src={gamePoints} />
-          <span>My Game Points:{info?.gamePoints}</span>
+          <span>My Game Points : {info?.gamePoints}</span>
         </div>
 
         <div className="lucky-info d-flex j-center al-center">
           <p>
-            Only 1 lucky winner will get
+            Only 1 lucky winner will get &nbsp;
             <img src={beanIcon} />
-            <span>100$</span> reward.First 200 users will get free scratch for
-            the first time of the day,Hurry up!
+            <span className="golden-text" style={{ fontSize: "3.7vw" }}>
+              100$
+            </span>{" "}
+            reward. First 200 users will get free scratch for the first time of
+            the day, Hurry up!
           </p>
         </div>
 
@@ -255,7 +260,7 @@ const LuckyPlayer = () => {
           <div className="not-scratched">
             <img src={loadingMascot} />
             <p style={{ color: "white" }}>
-              Scratch Cards tog get your lucky Number
+              Scratch Cards to get your lucky Number
             </p>
           </div>
         ) : (
@@ -321,7 +326,7 @@ const LuckyPlayer = () => {
                 <span>100$ Beans</span>
               </div>
               <div className="reward-item">
-                <img src={getRewardsImage("Follower Card")} />
+                <img src={getRewardsImage("Followers Card")} />
                 <span>Followers Card x1 day</span>
               </div>
               <div className="reward-item">
@@ -361,9 +366,7 @@ const LuckyPlayer = () => {
                 </>
               ) : (
                 <>
-                  <p style={{ marginTop: "7vw" }}>
-                    The Lucky Number will be revealed
-                  </p>
+                  <p style={{ marginTop: "7vw" }}>Last Lucky Number revealed</p>
                   <div className="scratch-bg d-flex j-center al-center">
                     <span style={{ fontSize: "7vw" }}>{lastLuckyCard}</span>
                   </div>
@@ -396,9 +399,15 @@ const LuckyPlayer = () => {
                     {!lastLuckyWinners?.length ? (
                       <div>No Data Found</div>
                     ) : (
-                      lastLuckyWinners?.map((item, index) => (
-                        <LastWinnerLbItem item={item} index={index + 1} />
-                      ))
+                      lastLuckyWinners
+                        .sort((a, b) => a.day - b.day)
+                        ?.map((item, index) => (
+                          <LastWinnerLbItem
+                            item={item}
+                            index={index + 1}
+                            isLucky={true}
+                          />
+                        ))
                     )}
                   </div>
                   {lastLuckyWinners?.length > 10 ? (
@@ -428,6 +437,7 @@ const LuckyPlayer = () => {
           errorMsg={errorMsg}
           rewardData={rewardData}
           luckyNumber={luckyNumber}
+          rewardsList={rewardsList}
         />
       )}
       {/* <ScratchGamePopup

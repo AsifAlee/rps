@@ -249,7 +249,7 @@ const GuidePopup = ({ clickHandler }) => {
           <div className="howToPlaySec">
             <p className="howTitle"> HOW TO PLAY?</p>
             <div className="acc-section">
-              <div style={{}}>
+              <div>
                 <Accordion headerTxt={1}>
                   <div className="body-item">
                     <ol>
@@ -440,32 +440,43 @@ const GuidePopup = ({ clickHandler }) => {
                   </div>
                 </Accordion>
               </div>
-            </div>
-            <div className="event-gft-cont">
-              <h2 className="e-title">Event Gifting</h2>
-              <div className="d-flex f-column text-left">
-                <span className="e-title text-left"> For Users:</span>
-                <ol>
-                  <li>
-                    In the total ranking, the top 3 users will be rewarded.
-                  </li>
-                  <li>
-                    Rewards will be sent after 7 working days of the event end
-                    date.
-                  </li>
-                </ol>
-              </div>
-              <div className="d-flex f-column text-left">
-                <span className="e-title text-left"> For Talents:</span>
-                <ol>
-                  <li>
-                    In the total ranking, the top 3 talents will be rewarded.
-                  </li>
-                  <li>
-                    Rewards will be sent after 7 working days of the event end
-                    date.
-                  </li>
-                </ol>
+              <div>
+                <Accordion headerTxt={4}>
+                  <div className="body-item">
+                    <div className="d-flex f-column text-left">
+                      <span className="e-title text-left highlight">
+                        {" "}
+                        For Users:
+                      </span>
+                      <ol>
+                        <li>
+                          In the total ranking, the top 3 users will be
+                          rewarded.
+                        </li>
+                        <li>
+                          Rewards will be sent after 7 working days of the event
+                          end date.
+                        </li>
+                      </ol>
+                    </div>
+                    <div className="d-flex f-column text-left">
+                      <span className="e-title text-left highlight">
+                        {" "}
+                        For Talents:
+                      </span>
+                      <ol>
+                        <li>
+                          In the total ranking, the top 3 talents will be
+                          rewarded.
+                        </li>
+                        <li>
+                          Rewards will be sent after 7 working days of the event
+                          end date.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </Accordion>
               </div>
             </div>
           </div>
@@ -473,7 +484,7 @@ const GuidePopup = ({ clickHandler }) => {
           <div className="howToPlaySec">
             <p className="howTitle"> HOW TO PLAY?</p>
             <div className="acc-section">
-              <div style={{}}>
+              <div>
                 <Accordion headerTxt={1}>
                   <div className="body-item">
                     <ol>
@@ -660,32 +671,43 @@ const GuidePopup = ({ clickHandler }) => {
                   </div>
                 </Accordion>
               </div>
-            </div>
-            <div className="event-gft-cont">
-              <h2 className="e-title">Event Gifting</h2>
-              <div className="d-flex f-column text-left">
-                <span className="e-title text-left"> For Users:</span>
-                <ol>
-                  <li>
-                    Total ranking mein, top 3 users ko rewards milein gay.
-                  </li>
-                  <li>
-                    Rewards event khatam honay k 7 din baad tak send kiye jayen
-                    gay.
-                  </li>
-                </ol>
-              </div>
-              <div className="d-flex f-column text-left">
-                <span className="e-title text-left"> For Talents:</span>
-                <ol>
-                  <li>
-                    Total ranking mein, top 3 talents ko rewards milein gay.
-                  </li>
-                  <li>
-                    Rewards event khatam honay k 7 din baad tak send kiye jayen
-                    gay.
-                  </li>
-                </ol>
+
+              <div>
+                <Accordion headerTxt={4}>
+                  <div className="body-item">
+                    <div className="d-flex f-column text-left">
+                      <span className="e-title text-left highlight">
+                        {" "}
+                        For Users:
+                      </span>
+                      <ol>
+                        <li>
+                          Total ranking mein, top 3 users ko rewards milein gay.
+                        </li>
+                        <li>
+                          Rewards event khatam honay k 7 din baad tak send kiye
+                          jayen gay.
+                        </li>
+                      </ol>
+                    </div>
+                    <div className="d-flex f-column text-left">
+                      <span className="e-title text-left highlight">
+                        {" "}
+                        For Talents:
+                      </span>
+                      <ol>
+                        <li>
+                          Total ranking mein, top 3 talents ko rewards milein
+                          gay.
+                        </li>
+                        <li>
+                          Rewards event khatam honay k 7 din baad tak send kiye
+                          jayen gay.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </Accordion>
               </div>
             </div>
           </div>

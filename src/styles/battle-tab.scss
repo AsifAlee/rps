@@ -30,6 +30,7 @@
       .marquee-images {
         position: relative;
         top: -5vw;
+        z-index: 2;
         .marq-frame {
           width: 15vw;
           border-radius: 100%;
@@ -95,7 +96,7 @@
       }
       span {
         font-family: "PoppinsMediumItalic";
-        font-size: 2.5vw;
+        font-size: 2.8vw;
         color: white;
       }
     }
@@ -112,22 +113,28 @@
       top: 12vw;
 
       .rpsSvga-wrap {
-        width: 75vw;
-        height: 69vw;
-        position: absolute;
-        overflow: hidden;
-        // border: 1px solid red;
+        // width: 75vw;
+        // height: 69vw;
+        // position: absolute;
+        // overflow: hidden;
         // left: 3vw;
+
+        // border: 1px solid red;
+        width: 68vw;
+        height: 45vw;
+        position: absolute;
+        top: 8vw;
+        left: 6vw;
+        overflow: hidden;
       }
 
       img {
         display: block;
-        width: 92%;
-        height: 61vw;
-        /* height: auto; */
+        width: 59%;
+
         position: relative;
-        left: 3vw;
-        top: 3vw;
+        left: 16vw;
+        top: 7vw;
       }
     }
 
@@ -165,6 +172,7 @@
       background-image: url(../assets/images/battle/play-btn.png);
       position: relative;
       top: 24vw;
+      left: 8vw;
     }
     .battles-won-count {
       background-image: url(../assets/images/battle/battles-won-bar.png);
@@ -173,7 +181,7 @@
       background-repeat: no-repeat;
       background-size: 100% 100%;
       position: relative;
-      top: 26vw;
+      top: 30vw;
       margin: 0 auto;
       color: white;
       img {
@@ -183,6 +191,15 @@
         font-size: 3vw;
         font-family: "PoppinsMediumItalic";
       }
+    }
+
+    .points-text{
+      position: relative;
+      color: white;
+      top: 28vw;
+      left: -14vw;
+      font-size: 3vw;
+  
     }
   }
   .rec-details-btn {

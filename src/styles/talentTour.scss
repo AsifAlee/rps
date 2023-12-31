@@ -33,7 +33,7 @@
       }
       span {
         font-family: "PoppinsMediumItalic";
-        font-size: 2.5vw;
+        font-size: 2.8vw;
         color: white;
       }
     }
@@ -176,7 +176,6 @@
           animation: zeroTo1Anim;
           animation-duration: 5s;
           animation-timing-function: ease-in-out;
-          // animation-iteration-count: 3;
           // animation-fill-mode: forwards;
         }
         .from1To2 {

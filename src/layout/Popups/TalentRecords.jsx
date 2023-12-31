@@ -17,7 +17,6 @@ import RecordRewardItem from "../../components/RecordRewardItem";
 const TalentRecords = ({ clickHandler }) => {
   const { records } = useContext(AppContext);
   const { tour } = records;
-  debugger;
   return (
     <PopUp bg={bg} details={true}>
       <div className="talent-records">
@@ -30,18 +29,18 @@ const TalentRecords = ({ clickHandler }) => {
           ) : (
             <table className="m-auto">
               <tr className="head ">
-                <td colSpan={1} style={{ width: "25%" }}>
+                <td colSpan={1} style={{ width: "40%" }}>
                   {" "}
                   Time(GMT)
                 </td>
                 <td colSpan={1} style={{ width: "20%" }}>
                   Planet{" "}
                 </td>
-                <td colSpan={1} style={{ width: "55%" }}>
+                <td colSpan={1} style={{ width: "30%" }}>
                   Rewards Claimed
                 </td>
               </tr>
-              {tour.map((record) => (
+              {tour?.map((record) => (
                 <tr className="tal-rec-rows">
                   <td>{record?.time}</td>
                   <td>Saturn</td>
@@ -55,7 +54,7 @@ const TalentRecords = ({ clickHandler }) => {
                       />
                     </div> */}
                     <div
-                      style={{ position: "relative", top: "-6vw" }}
+                      style={{ position: "relative", top: "-3vw" }}
                       className="d-flex j-center al-center"
                     >
                       {/* <LeaderBoardSlider

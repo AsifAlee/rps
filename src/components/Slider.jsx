@@ -6,6 +6,7 @@ import SliderDot from "./SliderDot";
 import { getRewardsImage } from "../functions";
 
 const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
+  // debugger;
   const [currentIndex, setCurrentIndex] = useState(0);
   let intervalId = null;
   const nextSlide = () => {
@@ -28,6 +29,7 @@ const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
   }, [currentIndex]);
 
   // console.log("current index:", currentIndex);
+  // console.log("rew length:", rewards);
   return (
     <div className={`slider2`}>
       {!hideArrows && (

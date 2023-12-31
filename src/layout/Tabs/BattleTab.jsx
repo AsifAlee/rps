@@ -8,6 +8,17 @@ import gamePoints from "../../assets/images/battle/game-points-icon.png";
 import paper from "../../assets/images/battle/paper-icon.png";
 import scissor from "../../assets/images/battle/scissors-icon.png";
 import rock from "../../assets/images/battle/rock-icon.png";
+import rock0 from "../../assets/images/battle/rock0.png";
+import rock1 from "../../assets/images/battle/rock1.png";
+import rock2 from "../../assets/images/battle/rock2.png";
+
+import paper0 from "../../assets/images/battle/paper0.png";
+import paper1 from "../../assets/images/battle/paper1.png";
+import paper2 from "../../assets/images/battle/paper2.png";
+
+import scissors0 from "../../assets/images/battle/scissors0.png";
+import scissors1 from "../../assets/images/battle/scissors1.png";
+import scissors2 from "../../assets/images/battle/scissors2.png";
 
 import "../../styles/battle-tab.scss";
 import RadioButton from "../../components/CustomRadio";
@@ -64,6 +75,9 @@ const BattleTab = () => {
   const [rpsResult, setRpsResult] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
 
+  const [resultImage, setResultImage] = useState("");
+  const [animFinished, setAnimFinished] = useState(false);
+
   const toggleDetails = () => {
     setDetails((prevState) => !prevState);
   };
@@ -74,12 +88,87 @@ const BattleTab = () => {
     setRewards(battleLbRewards);
   }, []);
 
+  useEffect(() => {
+    if (animFinished) {
+      if (selectedChar === "R" && rpsResult === 0) {
+        console.log("rps 1");
+        setResultImage(rock0);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "R" && rpsResult === 1) {
+        console.log("rps 2");
+
+        setResultImage(rock1);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "R" && rpsResult === 2) {
+        console.log("rps 3");
+
+        setResultImage(rock2);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      }
+
+      // P
+      else if (selectedChar === "P" && rpsResult === 0) {
+        console.log("rps 3");
+
+        setResultImage(paper0);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "P" && rpsResult === 1) {
+        console.log("rps 3");
+
+        setResultImage(paper1);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "P" && rpsResult === 2) {
+        console.log("rps 3");
+
+        setResultImage(paper2);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      }
+
+      //S
+      else if (selectedChar === "S" && rpsResult === 0) {
+        console.log("rps 3");
+
+        setResultImage(scissors0);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "S" && rpsResult === 1) {
+        console.log("rps 3");
+
+        setResultImage(scissors1);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "S" && rpsResult === 2) {
+        console.log("rps 3");
+
+        setResultImage(scissors2);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      }
+    }
+  }, [animFinished]);
+
   const toggleGamepopup = () => {
     setGamePopUp((prevState) => !prevState);
+    setResultImage("");
+    setAnimFinished(false);
   };
 
   const handleRadioSelect = (name) => {
-    // debugger;
     if (name === "Rock") setSelectedChar("R");
     else if (name === "Paper") setSelectedChar("P");
     else setSelectedChar("S");
@@ -99,6 +188,7 @@ const BattleTab = () => {
     })
       .then((response) => response.json())
       .then((response) => {
+        let rpsRes;
         // debugger;
         if (response.errorCode !== 0) {
           setGameErrCode(response.errorCode);
@@ -107,19 +197,23 @@ const BattleTab = () => {
           setIsDisabled(false);
           setErrorMsg(response?.msg);
         } else {
+          rpsRes = response?.data?.rpsResult;
+
           setRewardData(response?.data?.rewardContent);
           setIsPlaying(true);
           setGameMsg(response?.msg);
           setTimeout(() => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
-            setRpsResult(response?.data?.rpsResult);
-            setGamePopUp(true);
+            // setRpsResult(response?.data?.rpsResult);
+            setRpsResult(rpsRes);
+            // setGamePopUp(true);
             getInfo();
             getBattleLbData();
 
             getBattleRecords();
             setIsDisabled(false);
+            setAnimFinished(true);
           }, 3300);
         }
       })
@@ -138,12 +232,14 @@ const BattleTab = () => {
             return (
               <div className="battle-marquee">
                 <div className="marquee-item">
-                  <div className="marquee-images">
+                  <div
+                    className="marquee-images"
+                    onClick={() => gotoProfile(item?.userId)}
+                  >
                     <img src={marqFrame} className="marq-frame" />
                     <img
                       src={item.portrait ? item.portrait : unknown}
                       className="marq-user-img"
-                      onClick={() => gotoProfile(item?.userId)}
                     />
                   </div>
 
@@ -152,8 +248,10 @@ const BattleTab = () => {
                       <span className="name">{`${item?.nickname?.slice(
                         0,
                         6
-                      )} has won `}</span>
-                      have won {item.userScore} battles and ranked{" "}
+                      )} have won `}</span>
+                      {item.userScore}{" "}
+                      {`${item.userScore <= 1 ? "battle" : "battles"}`} and
+                      ranked{" "}
                       {`${
                         item.ranking === 1
                           ? "1st"
@@ -187,11 +285,18 @@ const BattleTab = () => {
       <div className="battle-game-frame">
         <div className="battle-game-points-count d-flex j-center al-center">
           <img src={gamePoints} />
-          <span>My Game Points:{info?.gamePoints}</span>
+          <span>My Game Points : {info?.gamePoints}</span>
         </div>
         <div className="battle-game">
           {/* <img src={gameBg} /> */}
-          <SvgaPlayer src={rpsSvga} start={isPlaying} rps={true} />
+          <SvgaPlayer
+            src={rpsSvga}
+            start={isPlaying}
+            rps={true}
+            lucky={resultImage ? true : false}
+          />
+          {resultImage ? <img src={resultImage} /> : ""}
+          {/* <img src={rock0} /> */}
         </div>
 
         <div className="play-btns">
@@ -202,6 +307,7 @@ const BattleTab = () => {
               { pic: scissor, name: "Scissor" },
             ]}
             handleRadioSelect={handleRadioSelect}
+            selectedChar={selectedChar}
           />
         </div>
         <button
@@ -209,10 +315,10 @@ const BattleTab = () => {
           onClick={isDisabled ? () => {} : playGame}
           disabled={isPlaying || isDisabled}
         />
-        {/* <CommonButton btnImg={"playBtn"} /> */}
+        <span className="points-text">15K Pts Req</span>
         <div className="battles-won-count d-flex j-center al-center">
           <img src={battleWon} />
-          <span>Battle Won:{info?.battlesCount}</span>
+          <span>Battles Won : {info?.battlesCount}</span>
         </div>
       </div>
 

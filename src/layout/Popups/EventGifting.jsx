@@ -75,13 +75,12 @@ const EventGifting = ({ popUpHandler }) => {
           <div className="slider-cont">
             <GiftSlider
               rewards={rewTabs.talent ? talentRewards : userRewards}
+              showTarget={rewTabs.talent ? true : false}
             />
           </div>
         </div>
       </div>
-      {/* <div className="lb-content">
-        <LeaderBoardComponent />
-      </div> */}
+
       <LeaderBoardComponent
         isPopup={true}
         data={[giftingLbData?.talent, giftingLbData?.user]}

@@ -1,12 +1,14 @@
 .number-with-bg{
     width: 6vw;
     height: 6vw;
-    background-color: #2b286c;
+    /* background-color: #2b286c; */
     display:flex;
     justify-content: center;
     align-items: center;
-    border: 0.3vw solid white;
-    border-radius: 0.7vw;
+    /* border: 0.3vw solid white; */
+    /* border-radius: 0.7vw; */
+    background: url('../assets/images/popup/number-box.png');
+    background-size: 100% 100%;
 
 
 }

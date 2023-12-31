@@ -36,10 +36,10 @@ const RpsGamePopup = ({
           src={
             errorCode === 0
               ? rpsResult === 0
-                ? oops
+                ? unlucky
                 : rpsResult === 2
                 ? tie
-                : congrats
+                : victory
               : errorCode === 10000004
               ? oops
               : notSelected === true
@@ -73,7 +73,11 @@ const RpsGamePopup = ({
                 <GameRewardItem reward={rewardData} />
               </div>
               <p className="bottom-text">
-                Play again to win more amazing rewards.
+                {rpsResult === 1
+                  ? "Play again to win more amazing rewards."
+                  : rpsResult === 2
+                  ? "Play again to win this time & get amazing rewards."
+                  : "Play again to win this time & get amazing rewards."}
               </p>
             </div>
           ) : errorCode === 10000004 ? (

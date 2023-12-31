@@ -144,56 +144,113 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
         </div>
       ) : (
         <>
-          <div className="topper-sec">
-            <div className="pos1">
-              {selectedData[0] && (
-                <Topper
-                  user={selectedData[0]}
-                  index={1}
-                  isGifting={isGifting}
-                  isTalent={giftingLbTabs.user ? false : true}
-                  showEstRewards={showEstRewards}
-                />
-              )}
-            </div>
+          {isGifting ? (
+            <>
+              <div className="topper-sec">
+                <div className="pos1">
+                  {selectedData[0] && (
+                    <Topper
+                      user={selectedData[0]}
+                      index={1}
+                      isGifting={isGifting}
+                      isTalent={giftingLbTabs.user ? false : true}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
 
-            <div className="pos2">
-              {selectedData[1] && (
-                <Topper
-                  user={selectedData[1]}
-                  index={2}
-                  isGifting={isGifting}
-                  isTalent={giftingLbTabs.user ? false : true}
-                  showEstRewards={showEstRewards}
-                />
-              )}
-            </div>
+                <div className="pos2">
+                  {selectedData[1] && (
+                    <Topper
+                      user={selectedData[1]}
+                      index={2}
+                      isGifting={isGifting}
+                      isTalent={giftingLbTabs.user ? false : true}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
 
-            <div className="pos3">
-              {selectedData[2] && (
-                <Topper
-                  user={selectedData[2]}
-                  index={3}
-                  isGifting={isGifting}
-                  isTalent={giftingLbTabs.user ? false : true}
-                  showEstRewards={showEstRewards}
-                />
-              )}
-            </div>
-          </div>
-          <div
-            className={`rest-winners ${seeMore === false ? "scroll" : ""}`}
-            ref={divRef}
-          >
-            {selectedData?.slice(3).map((item, index) => (
-              <GameLeaderboartItem
-                index={index}
-                item={item}
-                isTalent={giftingLbTabs.user ? false : true}
-                isGifting={isGifting}
-              />
-            ))}
-          </div>
+                <div className="pos3">
+                  {selectedData[2] && (
+                    <Topper
+                      user={selectedData[2]}
+                      index={3}
+                      isGifting={isGifting}
+                      isTalent={giftingLbTabs.user ? false : true}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
+              </div>
+              <div
+                className={`rest-winners ${seeMore === false ? "scroll" : ""}`}
+                ref={divRef}
+              >
+                {selectedData?.slice(3).map((item, index) => (
+                  <GameLeaderboartItem
+                    index={index}
+                    item={item}
+                    isTalent={giftingLbTabs.user ? false : true}
+                    isGifting={isGifting}
+                  />
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="topper-sec">
+                <div className="pos1">
+                  {selectedData[0] && (
+                    <Topper
+                      user={selectedData[0]}
+                      index={1}
+                      isGifting={isGifting}
+                      isTalent={false}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
+
+                <div className="pos2">
+                  {selectedData[1] && (
+                    <Topper
+                      user={selectedData[1]}
+                      index={2}
+                      isGifting={isGifting}
+                      isTalent={false}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
+
+                <div className="pos3">
+                  {selectedData[2] && (
+                    <Topper
+                      user={selectedData[2]}
+                      index={3}
+                      isGifting={isGifting}
+                      isTalent={false}
+                      showEstRewards={showEstRewards}
+                    />
+                  )}
+                </div>
+              </div>
+              <div
+                className={`rest-winners ${seeMore === false ? "scroll" : ""}`}
+                ref={divRef}
+              >
+                {selectedData?.slice(3).map((item, index) => (
+                  <GameLeaderboartItem
+                    index={index}
+                    item={item}
+                    isTalent={false}
+                    isGifting={isGifting}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </>
       )}
       {selectedData?.length > 10 ? (

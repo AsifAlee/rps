@@ -20,7 +20,6 @@ import RecordRewardItem from "../../components/RecordRewardItem";
 const BattleRecords = ({ clickHandler }) => {
   const { records } = useContext(AppContext);
   const { rps } = records;
-  // debugger;
   return (
     <PopUp bg={bg} details={true}>
       <div className="battle-records">
@@ -54,43 +53,54 @@ const BattleRecords = ({ clickHandler }) => {
         </div> */}
 
         <div className="records-content m-auto">
-          <table className="m-auto">
-            <tr className="head">
-              <td colSpan={1} style={{ width: "40%" }}>
-                {" "}
-                Time(GMT)
-              </td>
-              <td colSpan={1} style={{ width: "15%" }}>
-                Element{" "}
-              </td>
-              <td colSpan={1} style={{ width: "15%" }}>
-                Result
-              </td>
-              <td colSpan={1} style={{ width: "30%" }}>
-                Rewards
-              </td>
-            </tr>
-            {rps.map((rec) => (
-              <tr className="bat-rec-rows">
-                <td>{rec?.time}</td>
-                <td>Saturn</td>
-                <td>Won</td>
-                <td>
-                  <div
-                    style={{ position: "relative", top: "-6vw" }}
-                    className="d-flex j-center al-center"
-                  >
-                    {/* <LeaderBoardSlider
+          {!rps?.length ? (
+            <div>No Records Found</div>
+          ) : (
+            <table className="m-auto">
+              <tr className="head">
+                <td colSpan={1} style={{ width: "40%" }}>
+                  Time(GMT)
+                </td>
+                <td colSpan={1} style={{ width: "15%" }}>
+                  <span style={{ position: "relative", right: "1vw" }}>
+                    Element
+                  </span>
+                </td>
+                <td colSpan={1} style={{ width: "15%" }}>
+                  Result
+                </td>
+                <td colSpan={1} style={{ width: "30%" }}>
+                  Rewards
+                </td>
+              </tr>
+              {rps.map((rec) => (
+                <tr className="bat-rec-rows">
+                  <td>{rec?.time}</td>
+                  <td>
+                    {rec?.type === 1
+                      ? "Rock"
+                      : rec?.type === 2
+                      ? "Paper"
+                      : "Scissor"}
+                  </td>
+                  <td>Won</td>
+                  <td>
+                    <div
+                      style={{ position: "relative", top: "-3vw" }}
+                      className="d-flex j-center al-center"
+                    >
+                      {/* <LeaderBoardSlider
                           rewards={leaderBoardSliderData}
                           isHistory={true}
                         /> */}
-                    {/* <HistorySliderItem item={rec?.rewardDTOList[0]} /> */}
-                    <RecordRewardItem item={rec?.rewardDTOList[0]} />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </table>
+                      {/* <HistorySliderItem item={rec?.rewardDTOList[0]} /> */}
+                      <RecordRewardItem item={rec?.rewardDTOList[0]} />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </table>
+          )}
         </div>
       </div>
     </PopUp>

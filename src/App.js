@@ -68,7 +68,7 @@ function App() {
           handleClick={toggleGuide}
         />
         <CommonButton
-          btnImg={"event-gifting"}
+          btnImg={"event-gifting-btn"}
           width={"27vw"}
           handleClick={toggleEventGifitng}
         />

@@ -3,7 +3,7 @@ import leftArrow from "../assets/images/battle/left-arrow.png";
 import { getRewardsImage } from "../functions";
 import "../styles/slider.scss";
 
-const GiftSlider = ({ rewards }) => {
+const GiftSlider = ({ rewards, showTarget }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   let intervalId = null;
   const nextSlide = () => {
@@ -33,14 +33,18 @@ const GiftSlider = ({ rewards }) => {
     <div className={`gift-slider`}>
       <div className="arrowsNRank">
         <img className="left-arrow" src={leftArrow} onClick={prevSlide} />
-        <span className="rank">TOP 1ST</span>
+        <span className="rank">{`TOP ${rewards[currentIndex].rank}`}</span>
         <img className="right-arrow flip" src={leftArrow} onClick={nextSlide} />
       </div>
 
       <div className="rews-content">
-        <p className="target-text">
-          Talent Target:{rewards[currentIndex]?.target}
-        </p>
+        {showTarget ? (
+          <p className="target-text">
+            Talent Target:{rewards[currentIndex]?.target}
+          </p>
+        ) : (
+          ""
+        )}
 
         {rewards[currentIndex]?.pageRewards?.map((singleRew, index) => {
           return (

@@ -92,12 +92,12 @@
 
       .battle-count-div{
         width: 19vw;
-        height: 5vw;
-        border: .5vw solid white;
+        height: 4vw;
+        border: .1vw solid white;
         border-radius: 12vw;
         background-color: red;
         img{
-            width: 4vw;
+            width: 3vw;
         }
         span{
             font-size: 2vw;
@@ -128,11 +128,8 @@
         color: white;
         align-items: center;
         font-size: 2.2vw;
-        // height: 5vw;
         flex-direction: column;
-        // position: relative;
-        // top: 1vw;
-        padding-top: 0.5vw;
+       
         img {
           width: 2.5vw;
         }
@@ -163,14 +160,18 @@
     }
     .rank1-detail-bg{
         background-image: url('../assets//images/battle/1st-rank.png');
-        width: 92%;
+        width: 100%;
       }
       .rank2-detail-bg{
         background-image: url('../assets//images/battle/2nd-rank.png');
+        width: 90%;
+
       }
 
       .rank3-detail-bg{
         background-image: url('../assets//images/battle/3rd-rank.png');
+        width: 90%;
+
       }
 
   }

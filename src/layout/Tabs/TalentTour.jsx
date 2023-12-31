@@ -22,8 +22,15 @@ import {
 import TourGamePopup from "../Popups/TourGamePopup";
 
 const TalentTour = () => {
-  const { info, getInfo, talentTourLbData, geTalentTourLbData, user } =
-    useContext(AppContext);
+  const {
+    info,
+    getInfo,
+    talentTourLbData,
+    geTalentTourLbData,
+    user,
+    infoCalled,
+  } = useContext(AppContext);
+  console.log("info callled:", infoCalled);
   // debugger;
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
@@ -137,7 +144,7 @@ const TalentTour = () => {
     } else {
       setSelectedPlanet(2);
     }
-    // console.log("index is :", index);
+    console.log("index is :", index);
   };
   const playGame = () => {
     setIsDisabled(true);
@@ -199,13 +206,13 @@ const TalentTour = () => {
       <div className="space-game">
         <div className="space-ticket-count d-flex j-center al-center">
           <img src={shipIcon} />
-          <span>{`My Spaceship tickets:${talentPoints}`}</span>
+          <span>{`My Spaceship tickets : ${talentPoints}`}</span>
         </div>
         <div style={{ position: "relative", top: "9vw" }}>
           <TourSlider
             rewards={talentSliderData}
             changePlanetIndex={changePlanetIndex}
-            // disableSlide={travelPlanetIndex !== 0}
+            disableSlide={travelPlanetIndex === 1}
           />
         </div>
         <div className="game-sec">
@@ -216,7 +223,7 @@ const TalentTour = () => {
                 <div className="reward10">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.ten
                         : neptuneRewards.ten
                     }
@@ -225,7 +232,7 @@ const TalentTour = () => {
                 <div className="reward8">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.eight
                         : neptuneRewards.eight
                     }
@@ -234,7 +241,7 @@ const TalentTour = () => {
                 <div className="reward6">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.six
                         : neptuneRewards.six
                     }
@@ -243,7 +250,7 @@ const TalentTour = () => {
                 <div className="reward4">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.four
                         : neptuneRewards.four
                     }
@@ -252,7 +259,7 @@ const TalentTour = () => {
                 <div className="reward2">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.two
                         : neptuneRewards.two
                     }
@@ -264,7 +271,7 @@ const TalentTour = () => {
                 <div className="reward9">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.nine
                         : neptuneRewards.nine
                     }
@@ -274,7 +281,7 @@ const TalentTour = () => {
                 <div className="reward7">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.seven
                         : neptuneRewards.seven
                     }
@@ -284,7 +291,7 @@ const TalentTour = () => {
                 <div className="reward5">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.five
                         : neptuneRewards.five
                     }
@@ -293,7 +300,7 @@ const TalentTour = () => {
                 <div className="reward3">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.three
                         : neptuneRewards.three
                     }
@@ -303,7 +310,7 @@ const TalentTour = () => {
                 <div className="reward1">
                   <TourComponent
                     rew={
-                      selectedPlanet === 0
+                      selectedPlanet === 1
                         ? saturnRewards.one
                         : neptuneRewards.one
                     }
@@ -324,14 +331,19 @@ const TalentTour = () => {
 
             <div className="bottom-sec">
               <button
-                className={`travel-btn ${isDisabled && "blackNWhite"}`}
-                onClick={playGame}
+                className={`travel-btn ${
+                  isDisabled || infoCalled === false ? "blackNWhite" : ""
+                }`}
                 // onClick={travel}
+                onClick={
+                  isDisabled || infoCalled === false ? () => {} : playGame
+                }
+                disabled={isPlaying || isDisabled || infoCalled === false}
               />
               <img
                 className={` moving-ship ${
                   currentPos === 0
-                    ? ""
+                    ? "zeroPos"
                     : currentPos === 1
                     ? "onePos "
                     : currentPos === 2

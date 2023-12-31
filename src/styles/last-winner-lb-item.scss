@@ -92,22 +92,22 @@
       }
     }
     .rightDiv {
-      width: 20vw;
+      width: 25vw;
       height: 7vw;
       display: flex;
       align-items: center;
       position: relative;
-      right: 6vw;
+      // right: 6vw;
   
-      justify-content: space-between;
+      justify-content: center;
       padding: 1vw;
       
      .rew-item{
         img {
-            width: 8vw;
+            width: 7vw;
           }
           span {
-            font-size: 1.5vw;
+            font-size: 1vw;
             font-family: 'PoppinsMediumItalic';
       
           }

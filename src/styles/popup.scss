@@ -408,7 +408,7 @@
     }
     .records-content {
       font-family: "PoppinsMedium";
-      width: 95%;
+      width: 91%;
       height: 72vw;
       // margin: 4vw auto 0 auto;
       overflow-y: auto;
@@ -420,25 +420,28 @@
 
       table {
         width: 95%;
-        border: 1vw solid #fae8bb;
-        border-collapse: collapse;
+        // border: 1vw solid #fae8bb;
         border-radius: 0.2vw;
         border-spacing: 0;
         table-layout: fixed;
 
+        border-collapse: collapse;
+        border-radius: 4vw;
+        overflow: hidden;
+
         .head td {
           background-color: #645194;
-          padding: 1vw;
-          border: 1vw solid #fae8bb;
-          font-size: 3vw;
+          padding: 2vw;
+          border: 0.5vw solid #fae8bb;
+          font-size: 2vw;
         }
 
         tr td {
-          border: 1vw solid #fae8bb;
+          border: 0.5vw solid #fae8bb;
           font-size: 2.5vw;
         }
         .bat-rec-rows {
-          height: 35vw;
+          height: 22vw;
         }
       }
     }
@@ -476,21 +479,29 @@
 
       table {
         width: 100%;
-        border: 1vw solid #fae8bb;
-        border-collapse: collapse;
-        border-radius: 0.2vw;
+        // border: 1vw solid #fae8bb;
+        // border-collapse: collapse;
+        // border-radius: 0.2vw;
         table-layout: fixed;
+
+        border-radius: 0.2vw;
+        border-spacing: 0;
+        table-layout: fixed;
+
+        border-collapse: collapse;
+        border-radius: 4vw;
+        overflow: hidden;
 
         .head td {
           background-color: #645194;
           padding: 3vw;
-          border: 1vw solid #fae8bb;
+          border: 0.5vw solid #fae8bb;
           font-size: 2vw;
         }
 
         tr td {
           // padding: 1vw;
-          border: 1vw solid #fae8bb;
+          border: 0.5vw solid #fae8bb;
           font-size: 2.5vw;
 
           // border-bottom: none;
@@ -499,7 +510,7 @@
         }
 
         .tal-rec-rows {
-          height: 26vw;
+          height: 22vw;
         }
       }
     }
@@ -557,7 +568,7 @@
         }
         .bottom-text {
           position: relative;
-          top: 6vw;
+          top: 9vw;
           font-size: 4vw;
         }
       }
@@ -667,7 +678,6 @@
     }
   }
 
-
   .tour-game-popup {
     position: relative;
     width: 100%;
@@ -748,7 +758,6 @@
       }
     }
   }
-
 }
 
 @keyframes fadeIn {

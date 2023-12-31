@@ -10,6 +10,7 @@ import { AppContext } from "../../AppContext";
 
 const Guide = ({ clickHandler }) => {
   const { selectedLng } = useContext(AppContext);
+  debugger;
   return (
     <PopUp bg={bg} isGuide={true}>
       <div className="guide-popup">
@@ -223,7 +224,7 @@ const Guide = ({ clickHandler }) => {
                   </Accordion>
                 </div>
               </div>
-              <div className="event-gft-cont">
+              {/* <div className="event-gft-cont">
                 <h2 className="e-title">Event Gifting</h2>
                 <div className="d-flex f-column text-left">
                   <span className="e-title text-left"> For Users:</span>
@@ -249,13 +250,13 @@ const Guide = ({ clickHandler }) => {
                     </li>
                   </ol>
                 </div>
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="howToPlaySec">
               <p className="howTitle"> HOW TO PLAY?</p>
               <div className="acc-section">
-                <div style={{}}>
+                <div>
                   <Accordion headerTxt={1}>
                     <div className="body-item">
                       <ol>
@@ -443,8 +444,71 @@ const Guide = ({ clickHandler }) => {
                     </div>
                   </Accordion>
                 </div>
+
+                <div>
+                  <Accordion headerTxt={3}>
+                    <div className="body-item">
+                      <ol>
+                        <li>
+                          Jab aap 20,000 beans kay event gifts haasil karte
+                          hain, tou aap ko 1 spaceship ticket mile ga.
+                          <span className="highlight">
+                            Event gifts of 20,000 beans = 1 Spaceship Ticket.
+                          </span>
+                        </li>
+                        <li>
+                          Webpage par “My Spaceship Tickets” ka counter hai.
+                        </li>
+                        <li>
+                          Event kay is hissay mein aap do alag alag planets par
+                          safar karne ka mouqa payenge aur inaam hasil karen gy.
+                        </li>
+                        <li>Webpage par 2 planets (Saturn aur Neptune) hain</li>
+                        <li>
+                          Saturn planet unlock hai aur Neptune planet lock hai.
+                        </li>
+                        <li>
+                          Dono Saturn aur Neptune mein 10 inaam grid ki surat
+                          mein majood hain.
+                        </li>
+                        <li> Webpage par aik "Travel" button hai.</li>
+                        <li>
+                          <p className="highlight">
+                            Har bar safar karne ke liye aapko 1 Spaceship Ticket
+                            ki zarurat hogi.
+                          </p>
+                        </li>
+                        <li>
+                          Jab aap "Travel" button par kamiyabi se tap karte
+                          hain, tou aap ko inaam mile ga
+                        </li>
+
+                        <li>
+                          Jab aap tamam 10 inaam kamiyabi se hasil karte hain,
+                          tou agla planet yani Neptune unlock ho jayega.
+                        </li>
+
+                        <li>
+                          Aapko pehle planet Saturn ka safar pura karna zaruri
+                          hai phir aap agle planet Neptune ka safar shuru kar
+                          sakte hain
+                        </li>
+                        <li>
+                          Agar tamam safar kamiyabi se mukammal hote hain, tou
+                          aap dono planets mein se kisi bhi aik par dobara inaam
+                          hasil karne ja sakte hain.
+                        </li>
+                        <li>
+                          <p className="highlight">
+                            Dono planets mein safar k alag alag inaam hain
+                          </p>
+                        </li>
+                      </ol>
+                    </div>
+                  </Accordion>
+                </div>
               </div>
-              <div className="event-gft-cont">
+              {/* <div className="event-gft-cont">
                 <h2 className="e-title">Event Gifting</h2>
                 <div className="d-flex f-column text-left">
                   <span className="e-title text-left"> For Users:</span>
@@ -470,7 +534,7 @@ const Guide = ({ clickHandler }) => {
                     </li>
                   </ol>
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

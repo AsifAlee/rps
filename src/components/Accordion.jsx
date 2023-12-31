@@ -19,7 +19,9 @@ function Accordion(props) {
               ? "rps"
               : headerTxt === 2
               ? "lucky-player-acc"
-              : "talent-tour"
+              : headerTxt === 3
+              ? "talent-tour"
+              : "event-gifting"
           }`}
         >
           <img src={arrow} className={isOpen ? "down-arrow" : "right-arrow"} />

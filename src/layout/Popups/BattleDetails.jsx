@@ -35,8 +35,8 @@ const BattleDetails = ({ clickHandler }) => {
                     flexWrap: "wrap",
                     gap: "0.5vw",
                     paddingLeft: "1vw",
-                    justifyContent: "center",
-                    alignContent: "center",
+                    justifyContent: "space-around",
+                    alignItems: "center",
                   }}
                 >
                   {battleDetailsRewards.map((item) => (

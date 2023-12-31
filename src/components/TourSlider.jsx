@@ -7,13 +7,13 @@ import neptune from "../assets/images/tour/neptune.png";
 const TourSlider = ({ rewards, tag, changePlanetIndex, disableSlide }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextSlide = () => {
-    changePlanetIndex();
+    changePlanetIndex(currentIndex + 1);
     setCurrentIndex((prevState) =>
       prevState === rewards?.length - 1 ? 0 : prevState + 1
     );
   };
   const prevSlide = () => {
-    changePlanetIndex();
+    changePlanetIndex(currentIndex - 1);
     setCurrentIndex((prevState) =>
       prevState === 0 ? rewards?.length - 1 : prevState - 1
     );

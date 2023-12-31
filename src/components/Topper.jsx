@@ -12,6 +12,7 @@ import "../styles/topper.scss";
 import { getLevelImage } from "../functions";
 import { AppContext } from "../AppContext";
 const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
+  // debugger;
   const { calculateEstRewards } = useContext(AppContext);
   return (
     <div className="topper">
@@ -34,44 +35,49 @@ const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
             : "rank3-detail-bg"
         }`}
       >
-        <p className="name">{user?.nickname}</p>
-        <img
-          src={getLevelImage(
-            isTalent ? user?.actorLevel : user?.userLevel,
-            isTalent
+        <div
+          className="d-flex j-center al-center f-column"
+          style={{ gap: "1vw" }}
+        >
+          <p className="name">{user?.nickname}</p>
+          <img
+            src={getLevelImage(
+              isTalent ? user?.actorLevel : user?.userLevel,
+              isTalent
+            )}
+            className="levelImg"
+          />
+          {isGifting ? (
+            <div
+              className="beans-gems-div d-flex j-center al-center"
+              style={{
+                backgroundColor:
+                  index === 1 ? "#161c40" : index === 2 ? "#2a1d1f" : "#561f0a",
+              }}
+            >
+              <img src={isTalent ? gems : bean} />
+              <span>{user?.userScore}</span>
+            </div>
+          ) : (
+            <div
+              className="battle-count-div d-flex j-center al-center"
+              style={{
+                backgroundColor:
+                  index === 1 ? "#161c40" : index === 2 ? "#2a1d1f" : "#561f0a",
+              }}
+            >
+              <img src={battleWonIcon} />
+              <span>{user?.userScore}</span>
+            </div>
           )}
-          className="levelImg"
-        />
-        {isGifting ? (
-          <div
-            className="beans-gems-div d-flex j-center al-center"
-            style={{
-              backgroundColor:
-                index === 1 ? "#161c40" : index === 2 ? "#2a1d1f" : "#561f0a",
-            }}
-          >
-            <img src={isTalent ? gems : bean} />
-            <span>12345</span>
-          </div>
-        ) : (
-          <div
-            className="battle-count-div d-flex j-center al-center"
-            style={{
-              backgroundColor:
-                index === 1 ? "#161c40" : index === 2 ? "#2a1d1f" : "#561f0a",
-            }}
-          >
-            <img src={battleWonIcon} />
-            <span>12345</span>
-          </div>
-        )}
-        {showEstRewards ? (
-          <div className="estimatedBeans">{`Est Beans ${calculateEstRewards(
-            index
-          )}`}</div>
-        ) : (
-          ""
-        )}
+          {showEstRewards ? (
+            <div className="estimatedBeans">{`Est Beans ${calculateEstRewards(
+              index
+            )}`}</div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
+// export const testUserId = 596492373;
 export const testUserId = 502184258;
-// export const testUserId = 502184260;
 
-export const testToken = "A1D28A44E4714243309DE2109FC1C424A3";
+export const testToken = "A11930D78C1BD146548625D4196DEA830F";
 
 export const errorCodes = {
   succes: 0,
@@ -22,8 +22,8 @@ export const userRewards = [
         desc: "Fortune room skin x 5 days (New)",
       },
       {
-        name: "Fortune room skin",
-        desc: "Fortune room skin x 5 days (New)",
+        name: "Fortune frame",
+        desc: "Fortune frame x5 days (New)",
       },
     ],
   },
@@ -40,7 +40,7 @@ export const userRewards = [
       },
       {
         name: "Fortune frame",
-        desc: "Fortune frame x3 days",
+        desc: "Fortune frame x3 days (New)",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const userRewards = [
         desc: "Fortune room skin x1 day (New)",
       },
       {
-        name: "Fortune frame x1 day",
+        name: "Fortune frame x1",
         desc: "Fortune frame x1 day (New)",
       },
     ],
@@ -258,7 +258,6 @@ export const battleLbRewards = [
       },
     ],
   },
-  ,
   {
     rank: "Top 3rd",
 
@@ -310,4 +309,10 @@ export const userOverallPot = [
     rank: 3,
     percent: 20,
   },
+];
+
+export const lastLuckyWinnerRewards = [
+  "100$ Beans",
+  "Followers Card",
+  "Fortune room skin(New)",
 ];

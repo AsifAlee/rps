@@ -59,20 +59,26 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/gameMasterRoomSkin.png";
   } else if (rewDesc?.includes("Game Battle Profile frame")) {
     rewImg = baseUrl + "/streamkar/rewards/gameMasterFarme.png";
+  } else if (rewDesc?.includes("Game Battle frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/gameMasterFarme.png";
   } else if (rewDesc?.includes("Samurai Frame")) {
     rewImg = baseUrl + "/streamkar/rewards/skSamuraiFrame.png";
   } else if (rewDesc?.includes("Night Shadow room")) {
     rewImg = baseUrl + "/streamkar/rewards/nightShadow.png";
   } else if (rewDesc?.includes("Moon Knight Frame")) {
     rewImg = baseUrl + "/streamkar/rewards/moonKnightFrame.png";
-  } else if (rewDesc?.includes("Desert Knight room")) {
-    rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
-  } else if (rewDesc?.includes("Follower Card")) {
+  } else if (rewDesc?.includes("Desert Knight room skin")) {
+    rewImg = baseUrl + "/streamkar/rewards/desertNight.png";
+  } else if (rewDesc?.includes("Followers Card")) {
     rewImg = baseUrl + "/streamkar/rewards/followerCard.png";
   } else if (rewDesc?.includes("gems")) {
     rewImg = baseUrl + "/streamkar/rewards/gems.png";
+  } else if (rewDesc?.includes("Gems")) {
+    rewImg = baseUrl + "/streamkar/rewards/gems.png";
   } else if (rewDesc?.includes("Safari Champion room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/safariChampionRoomSkin.png";
+  } else if (rewDesc?.includes("Safari Champion Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/safariDesertframe.png";
   } else if (rewDesc?.includes("Blessed room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/blessedRoomSkin2k23.png";
   } else if (rewDesc?.includes("Peacemaker Frame")) {
@@ -84,9 +90,9 @@ export function getRewardsImage(rewDesc) {
   } else if (rewDesc?.includes("Gold Luxury entrance")) {
     rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
   } else if (rewDesc?.includes("Fortune room skin")) {
-    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+    rewImg = baseUrl + "/streamkar/rewards/fortuneRoomSkin.png";
   } else if (rewDesc?.includes("Fortune room skin (New)")) {
-    rewImg = baseUrl + "/streamkar/rewards/goldLuxury.png";
+    rewImg = baseUrl + "/streamkar/rewards/fortuneRoomSkin.png";
   } else if (rewDesc?.includes("Fortune frame (New)")) {
     rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
   } else if (rewDesc?.includes("Fortune frame")) {
@@ -101,10 +107,8 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/monarchRoom.png";
   } else if (rewDesc?.includes("Desert Knight frame")) {
     rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
-  } else if (rewDesc?.includes("Battle Master room skin")) {
-    rewImg = baseUrl + "/streamkar/rewards/noRew.png";
-  } else if (rewDesc?.includes("Battle Master frame")) {
-    rewImg = baseUrl + "/streamkar/rewards/noRew.png";
+  } else if (rewDesc?.includes("Desert Knight Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/desertnightFrame.png";
   } else if (rewDesc?.includes("Kingpin entrance")) {
     rewImg = baseUrl + "/streamkar/rewards/kingspin.png";
   } else if (rewDesc?.includes("Luminary Room Skin")) {
@@ -123,6 +127,8 @@ export function getRewardsImage(rewDesc) {
     rewImg = baseUrl + "/streamkar/rewards/phoenix.png";
   } else if (rewDesc?.includes("Topliner frame")) {
     rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+  } else if (rewDesc?.includes("Topliner Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
   } else if (rewDesc?.includes("Fortune room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
   } else if (rewDesc?.includes("Fortune room skin (New)")) {
@@ -132,9 +138,11 @@ export function getRewardsImage(rewDesc) {
   } else if (rewDesc?.includes("Fortune frame (New)")) {
     rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
   } else if (rewDesc?.includes("Battle Master room skin")) {
-    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+    rewImg = baseUrl + "/streamkar/rewards/battleMasterRoomSkin.png";
   } else if (rewDesc?.includes("Battle Master room skin (New)")) {
-    rewImg = baseUrl + "/streamkar/rewards/toplinerFrame.png";
+    rewImg = baseUrl + "/streamkar/rewards/battleMasterRoomSkin.png";
+  } else if (rewDesc?.includes("Battle Master Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/battleMaster.png";
   } else if (rewDesc?.includes("Battle Master frame")) {
     rewImg = baseUrl + "/streamkar/rewards/battleMaster.png";
   } else if (rewDesc?.includes("Battle Master frame (New)")) {

@@ -49,9 +49,7 @@ export const DataProvider = ({ children }) => {
   const [selectedLng, setSelectedLng] = useState(1);
   const [lastLuckyWinners, setLastLuckyWinners] = useState([]);
   const [talentTourLbData, setTalentTourLbData] = useState([]);
-  const [todayLuckyTickets, setTodayLuckyTickets] = useState([]);
-  const [yestLuckyTickets, setYestLuckyTickets] = useState([]);
-
+  const [infoCalled, setInfoCalled] = useState(false);
   const changeLanguage = (index) => {
     setSelectedLng(index);
   };
@@ -87,6 +85,9 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     getInfo();
+    getBattleRecords();
+    getScratchRecords();
+    getTourRecords();
     if (user.userId) getInfo();
   }, [user]);
 
@@ -165,6 +166,7 @@ export const DataProvider = ({ children }) => {
       .then((response) =>
         response.json().then((response) => {
           // debugger;
+
           setInfo({
             ...info,
             gamePoints: response?.data?.gamePoints,
@@ -181,9 +183,10 @@ export const DataProvider = ({ children }) => {
             travelPlanetIndex: response?.data?.travelPlanetIndex,
             todayLuckyTickets: response?.data?.todayLuckyTickets,
             yestLuckyTickets: response?.data?.yesterdayLuckyTickets,
-            talentPoints: Math.floor(response?.data?.talentPoints / 25000),
+            talentPoints: Math.floor(response?.data?.talentPoints / 20000),
             travelPlanetIndex: response?.data?.travelPlanetIndex,
           });
+          setInfoCalled(true);
         })
       )
       .catch((error) => {});
@@ -191,7 +194,7 @@ export const DataProvider = ({ children }) => {
 
   const getBattleRecords = () => {
     fetch(
-      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=1&userId=596492373`
+      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=1&userId=${user.userId}`
     )
       .then((response) =>
         response.json().then((response) => {
@@ -208,7 +211,7 @@ export const DataProvider = ({ children }) => {
 
   const getScratchRecords = () => {
     fetch(
-      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=2&userId=596492373`
+      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=2&userId=${user.userId}`
     )
       .then((response) =>
         response.json().then((response) => {
@@ -225,7 +228,7 @@ export const DataProvider = ({ children }) => {
 
   const getTourRecords = () => {
     fetch(
-      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=3&userId=596492373`
+      `${baseUrl}/api/activity/eidF/getRecordInfo?eventDesc=20240109_rps&rankIndex=21&pageNum=1&pageSize=20&type=3&userId=${user.userId}`
     )
       .then((response) =>
         response.json().then((response) => {
@@ -258,12 +261,10 @@ export const DataProvider = ({ children }) => {
   };
 
   const getLastLuckyWinners = () => {
-    fetch(
-      `${baseUrl}/api/activity/eidF/getWinnerRankInfo?eventDesc=20240109_rps&rankIndex=1&pageNum=1&pageSize=20`
-    )
+    fetch(`${baseUrl}/api/activity/rps/getWinnerInfo`)
       .then((response) =>
         response.json().then((response) => {
-          setLastLuckyWinners(response?.data?.list || []);
+          setLastLuckyWinners(response?.data || []);
         })
       )
       .catch((error) => {
@@ -286,7 +287,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const calculateEstRewards = (index) => {
-    console.log("the est index is:", index);
+    // console.log("the est index is:", index);
     // const potCount = info.potInfo[dateStr];
     // debugger;
     const percent = userOverallPot.find((item) => item.rank === index).percent;
@@ -316,6 +317,7 @@ export const DataProvider = ({ children }) => {
         dateStr,
         getBattleLbData,
         calculateEstRewards,
+        infoCalled,
       }}
     >
       {children}
