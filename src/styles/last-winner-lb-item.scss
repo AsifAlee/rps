@@ -101,13 +101,14 @@
   
       justify-content: center;
       padding: 1vw;
+      gap: 2vw;
       
      .rew-item{
         img {
             width: 7vw;
           }
-          span {
-            font-size: 1vw;
+          .span-text {
+            font-size: 1.8vw;
             font-family: 'PoppinsMediumItalic';
       
           }

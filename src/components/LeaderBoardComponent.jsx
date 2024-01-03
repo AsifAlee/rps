@@ -200,7 +200,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
           ) : (
             <>
               <div className="topper-sec">
-                <div className="pos1">
+                <div className="pos1" style={{ left: !isGifting && "35vw" }}>
                   {selectedData[0] && (
                     <Topper
                       user={selectedData[0]}

@@ -29,12 +29,15 @@ const TalentTour = () => {
     geTalentTourLbData,
     user,
     infoCalled,
+    getTourRecords,
   } = useContext(AppContext);
   console.log("info callled:", infoCalled);
   // debugger;
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
-  const [currentPos, setCurrentPos] = useState(6);
+  const [nepDestination, setNepDestination] = useState(0);
+  const [currentPos, setCurrentPos] = useState(0);
+  const [currentPosNep, setCurrentPosNep] = useState(0);
   const [records, setRecords] = useState(false);
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -93,9 +96,9 @@ const TalentTour = () => {
       }
     } else if (travelPlanetIndex === 2) {
       if (neptuneUnlockRewardInfoList?.length === 10) {
-        setCurrentPos(0);
+        setCurrentPosNep(0);
       } else {
-        setCurrentPos(neptuneUnlockRewardInfoList?.length);
+        setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
       }
     } else {
       if (selectedPlanet === 1) {
@@ -106,9 +109,9 @@ const TalentTour = () => {
         }
       } else {
         if (neptuneUnlockRewardInfoList?.length === 10) {
-          setCurrentPos(0);
+          setCurrentPosNep(0);
         } else {
-          setCurrentPos(neptuneUnlockRewardInfoList?.length);
+          setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
         }
       }
     }
@@ -123,9 +126,9 @@ const TalentTour = () => {
       }
     } else if (selectedPlanet === 2) {
       if (neptuneUnlockRewardInfoList?.length === 10) {
-        setCurrentPos(0);
+        setCurrentPosNep(0);
       } else {
-        setCurrentPos(neptuneUnlockRewardInfoList?.length);
+        setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
       }
     }
   }, [selectedPlanet]);
@@ -173,11 +176,17 @@ const TalentTour = () => {
           setIsDisabled(false);
           setErrorMsg(response?.msg);
         } else {
-          setRewardData(response?.data?.rewardContent);
-          setDestination(currentPos + 1);
           setIsPlaying(true);
+          setRewardData(response?.data?.rewardContent);
+          if (selectedPlanet === 1) {
+            setDestination(currentPos + 1);
+          } else if (selectedPlanet === 2) {
+            setNepDestination(currentPosNep + 1);
+          }
+
           setGameMsg(response?.msg);
           geTalentTourLbData();
+          getTourRecords();
           setTimeout(() => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
@@ -212,194 +221,262 @@ const TalentTour = () => {
           <TourSlider
             rewards={talentSliderData}
             changePlanetIndex={changePlanetIndex}
-            disableSlide={travelPlanetIndex === 1}
+            disableSlide={travelPlanetIndex === 1 || isDisabled}
           />
         </div>
-        <div className="game-sec">
-          <p>1 Spaceship Ticket Required for each Travel</p>
-          <div className="game-bg">
-            <div className="game-rewards">
-              <div className="left-rewards">
-                <div className="reward10">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.ten
-                        : neptuneRewards.ten
-                    }
-                  />
+        {selectedPlanet === 1 ? (
+          <div className="sat-game-sec">
+            <p>1 Spaceship Ticket Required for each Travel</p>
+            <div className="game-bg">
+              <div className="game-rewards">
+                <div className="left-rewards">
+                  <div className="reward10">
+                    <TourComponent rew={saturnRewards.ten} />
+                  </div>
+                  <div className="reward8">
+                    <TourComponent rew={saturnRewards.eight} />
+                  </div>
+                  <div className="reward6">
+                    <TourComponent rew={saturnRewards.six} />
+                  </div>
+                  <div className="reward4">
+                    <TourComponent rew={saturnRewards.four} />
+                  </div>
+                  <div className="reward2">
+                    <TourComponent rew={saturnRewards.two} />
+                  </div>
                 </div>
-                <div className="reward8">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.eight
-                        : neptuneRewards.eight
-                    }
-                  />
+
+                <div className="right-rewards">
+                  <div className="reward9">
+                    <TourComponent rew={saturnRewards.nine} />
+                  </div>
+
+                  <div className="reward7">
+                    <TourComponent rew={saturnRewards.seven} />
+                  </div>
+
+                  <div className="reward5">
+                    <TourComponent rew={saturnRewards.five} />
+                  </div>
+                  <div className="reward3">
+                    <TourComponent rew={saturnRewards.three} />
+                  </div>
+
+                  <div className="reward1">
+                    <TourComponent rew={saturnRewards.one} />
+                  </div>
                 </div>
-                <div className="reward6">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.six
-                        : neptuneRewards.six
-                    }
-                  />
-                </div>
-                <div className="reward4">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.four
-                        : neptuneRewards.four
-                    }
-                  />
-                </div>
-                <div className="reward2">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.two
-                        : neptuneRewards.two
-                    }
-                  />
-                </div>
+
+                <img src={pathFromRight} className="path1" />
+                <img src={pathFromLeft} className="path2" />
+                <img src={pathFromRight} className="path3" />
+                <img src={pathFromLeft} className="path4" />
+                <img src={pathFromRight} className="path5" />
+                <img src={pathFromLeft} className="path6" />
+                <img src={pathFromRight} className="path7" />
+                <img src={pathFromLeft} className="path8" />
+                <img src={pathFromRight} className="path9" />
               </div>
 
-              <div className="right-rewards">
-                <div className="reward9">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.nine
-                        : neptuneRewards.nine
-                    }
-                  />
-                </div>
-
-                <div className="reward7">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.seven
-                        : neptuneRewards.seven
-                    }
-                  />
-                </div>
-
-                <div className="reward5">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.five
-                        : neptuneRewards.five
-                    }
-                  />
-                </div>
-                <div className="reward3">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.three
-                        : neptuneRewards.three
-                    }
-                  />
-                </div>
-
-                <div className="reward1">
-                  <TourComponent
-                    rew={
-                      selectedPlanet === 1
-                        ? saturnRewards.one
-                        : neptuneRewards.one
-                    }
-                  />
-                </div>
-              </div>
-
-              <img src={pathFromRight} className="path1" />
-              <img src={pathFromLeft} className="path2" />
-              <img src={pathFromRight} className="path3" />
-              <img src={pathFromLeft} className="path4" />
-              <img src={pathFromRight} className="path5" />
-              <img src={pathFromLeft} className="path6" />
-              <img src={pathFromRight} className="path7" />
-              <img src={pathFromLeft} className="path8" />
-              <img src={pathFromRight} className="path9" />
-            </div>
-
-            <div className="bottom-sec">
-              <button
-                className={`travel-btn ${
-                  isDisabled || infoCalled === false ? "blackNWhite" : ""
-                }`}
-                // onClick={travel}
-                onClick={
-                  isDisabled || infoCalled === false ? () => {} : playGame
-                }
-                disabled={isPlaying || isDisabled || infoCalled === false}
-              />
-              <img
-                className={` moving-ship ${
-                  currentPos === 0
-                    ? "zeroPos"
-                    : currentPos === 1
-                    ? "onePos "
-                    : currentPos === 2
-                    ? "twoPos "
-                    : currentPos === 3
-                    ? "threePos "
-                    : currentPos === 4
-                    ? "fourPos "
-                    : currentPos === 5
-                    ? "fivePos "
-                    : currentPos === 6
-                    ? "sixPos "
-                    : currentPos === 7
-                    ? "sevenPos "
-                    : currentPos === 8
-                    ? "eightPos "
-                    : currentPos === 9
-                    ? "ninePos "
-                    : currentPos === 10
-                    ? "tenPos "
-                    : ""
-                }
+              <div className="bottom-sec">
+                <button
+                  className={`travel-btn ${
+                    isDisabled || infoCalled === false ? "blackNWhite" : ""
+                  }`}
+                  // onClick={travel}
+                  onClick={
+                    isDisabled || infoCalled === false ? () => {} : playGame
+                  }
+                  disabled={isPlaying || isDisabled || infoCalled === false}
+                />
+                <img
+                  className={` moving-ship ${
+                    currentPos === 0
+                      ? "zeroPos"
+                      : currentPos === 1
+                      ? "onePos "
+                      : currentPos === 2
+                      ? "twoPos "
+                      : currentPos === 3
+                      ? "threePos "
+                      : currentPos === 4
+                      ? "fourPos "
+                      : currentPos === 5
+                      ? "fivePos "
+                      : currentPos === 6
+                      ? "sixPos "
+                      : currentPos === 7
+                      ? "sevenPos "
+                      : currentPos === 8
+                      ? "eightPos "
+                      : currentPos === 9
+                      ? "ninePos "
+                      : currentPos === 10
+                      ? "tenPos "
+                      : ""
+                  }
                 ${
-                  destination === 1
+                  destination === 1 && isPlaying
                     ? "from0To1"
-                    : destination === 2
+                    : destination === 2 && isPlaying
                     ? "from1To2"
-                    : destination === 3
+                    : destination === 3 && isPlaying
                     ? "from2To3"
-                    : destination === 4
+                    : destination === 4 && isPlaying
                     ? "from3To4"
-                    : destination === 5
+                    : destination === 5 && isPlaying
                     ? "from4To5"
-                    : destination === 6
+                    : destination === 6 && isPlaying
                     ? "from5To6"
-                    : destination === 7
+                    : destination === 7 && isPlaying
                     ? "from6To7"
-                    : destination === 8
+                    : destination === 8 && isPlaying
                     ? "from7To8"
-                    : destination === 9
+                    : destination === 9 && isPlaying
                     ? "from8To9"
-                    : destination === 10
+                    : destination === 10 && isPlaying
                     ? "from9To10"
-                    : ""
+                    : "zeroDes"
                 }
                 
                 
                 
                 `}
-                src={ship}
-              />
+                  src={ship}
+                />
 
-              <span>START</span>
+                <span>START</span>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="nep-game-sec">
+            <p>1 Spaceship Ticket Required for each Travel</p>
+            <div className="game-bg">
+              <div className="game-rewards">
+                <div className="left-rewards">
+                  <div className="reward10">
+                    <TourComponent rew={neptuneRewards.ten} />
+                  </div>
+                  <div className="reward8">
+                    <TourComponent rew={neptuneRewards.eight} />
+                  </div>
+                  <div className="reward6">
+                    <TourComponent rew={neptuneRewards.six} />
+                  </div>
+                  <div className="reward4">
+                    <TourComponent rew={neptuneRewards.four} />
+                  </div>
+                  <div className="reward2">
+                    <TourComponent rew={neptuneRewards.two} />
+                  </div>
+                </div>
+
+                <div className="right-rewards">
+                  <div className="reward9">
+                    <TourComponent rew={neptuneRewards.nine} />
+                  </div>
+
+                  <div className="reward7">
+                    <TourComponent rew={neptuneRewards.seven} />
+                  </div>
+
+                  <div className="reward5">
+                    <TourComponent rew={neptuneRewards.five} />
+                  </div>
+                  <div className="reward3">
+                    <TourComponent rew={neptuneRewards.three} />
+                  </div>
+
+                  <div className="reward1">
+                    <TourComponent rew={neptuneRewards.one} />
+                  </div>
+                </div>
+
+                <img src={pathFromRight} className="path1" />
+                <img src={pathFromLeft} className="path2" />
+                <img src={pathFromRight} className="path3" />
+                <img src={pathFromLeft} className="path4" />
+                <img src={pathFromRight} className="path5" />
+                <img src={pathFromLeft} className="path6" />
+                <img src={pathFromRight} className="path7" />
+                <img src={pathFromLeft} className="path8" />
+                <img src={pathFromRight} className="path9" />
+              </div>
+
+              <div className="bottom-sec">
+                <button
+                  className={`travel-btn ${
+                    isDisabled || infoCalled === false ? "blackNWhite" : ""
+                  }`}
+                  // onClick={travel}
+                  onClick={
+                    isDisabled || infoCalled === false ? () => {} : playGame
+                  }
+                  disabled={isPlaying || isDisabled || infoCalled === false}
+                />
+                <img
+                  className={`moving-ship-nep ${
+                    currentPosNep === 0
+                      ? "zeroPos"
+                      : currentPosNep === 1
+                      ? "onePos "
+                      : currentPosNep === 2
+                      ? "twoPos "
+                      : currentPosNep === 3
+                      ? "threePos "
+                      : currentPosNep === 4
+                      ? "fourPos "
+                      : currentPosNep === 5
+                      ? "fivePos "
+                      : currentPosNep === 6
+                      ? "sixPos "
+                      : currentPosNep === 7
+                      ? "sevenPos "
+                      : currentPosNep === 8
+                      ? "eightPos "
+                      : currentPosNep === 9
+                      ? "ninePos "
+                      : currentPosNep === 10
+                      ? "tenPos "
+                      : ""
+                  }
+                      ${
+                        nepDestination === 1 && isPlaying
+                          ? "nepfrom0To1"
+                          : nepDestination === 2 && isPlaying
+                          ? "nepfrom1To2"
+                          : nepDestination === 3 && isPlaying
+                          ? "nepfrom2To3"
+                          : nepDestination === 4 && isPlaying
+                          ? "nepfrom3To4"
+                          : nepDestination === 5 && isPlaying
+                          ? "nepfrom4To5"
+                          : nepDestination === 6 && isPlaying
+                          ? "nepfrom5To6"
+                          : nepDestination === 7 && isPlaying
+                          ? "nepfrom6To7"
+                          : nepDestination === 8 && isPlaying
+                          ? "nepfrom7To8"
+                          : nepDestination === 9 && isPlaying
+                          ? "nepfrom8To9"
+                          : nepDestination === 10 && isPlaying
+                          ? "nepfrom9To10"
+                          : "zeroDes"
+                      }
+                      
+                      
+                      
+                      `}
+                  src={ship}
+                />
+
+                <span>START</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="tour-lb">
         <img src={lbTitle} className="title" />
@@ -409,7 +486,7 @@ const TalentTour = () => {
         >
           {talentTourLbData?.length ? (
             talentTourLbData?.map((item, index) => (
-              <LastWinnerLbItem item={item} index={index + 1} />
+              <LastWinnerLbItem item={item} index={index + 1} isTalent={true} />
             ))
           ) : (
             <div

@@ -1,6 +1,6 @@
 .gift {
   width: 24vw;
-  height: 26vw;
+  height: 20vw;
   background-image: url(../assets//images/lucky/reward-box.png);
   background-size: 100% 100%;
   position: relative;
@@ -8,18 +8,18 @@
   .gift-img {
     position: absolute;
     width: 12vw;
-    top: 7vw;
+    top: 4vw;
     left: 4vw;
   }
 
   .priceNText {
-    left: 1vw;
+    // left: 1vw;
     // border: 1px solid;
     width: 20vw;
     position: absolute;
     font-size: 2.5vw;
     color: white;
-    top: 24vw;
+    top: 19vw;
     font-family: "PoppinsMedium";
     .name {
       font-size: 2.8vw;

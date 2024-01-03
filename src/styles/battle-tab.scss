@@ -80,7 +80,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     margin: 0 auto;
-    top: 4vw;
+    top: -4vw;
 
     .battle-game-points-count {
       background-image: url(../assets/images/battle/game-points-counter-bar.png);
@@ -128,13 +128,19 @@
         overflow: hidden;
       }
 
-      img {
+      .result-img {
         display: block;
-        width: 59%;
-
+        width: 74%;
         position: relative;
-        left: 16vw;
+        left: 9vw;
         top: 7vw;
+      }
+      .mascot-img{
+        width: 20vw;
+        position: absolute;
+        top: 42vw;
+        right: 2vw;
+    
       }
     }
 
@@ -159,8 +165,13 @@
       display: flex;
       position: relative;
       top: 15vw;
-      justify-content: space-around;
+      justify-content: center;
       color: white;
+      width: 80%;
+      // border: 2px solid;
+      align-items: center;
+      left: 11vw;
+      gap: 5vw;
     }
     .play-btn {
       background-size: 100% 100%;

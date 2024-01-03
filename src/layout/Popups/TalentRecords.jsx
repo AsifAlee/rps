@@ -40,12 +40,26 @@ const TalentRecords = ({ clickHandler }) => {
                   Rewards Claimed
                 </td>
               </tr>
-              {tour?.map((record) => (
-                <tr className="tal-rec-rows">
-                  <td>{record?.time}</td>
-                  <td>Saturn</td>
-                  <td>
-                    {/* <div
+              {tour?.map((record) => {
+                const dateArr = new Date(record?.time)
+                  ?.toLocaleString()
+                  ?.split(",");
+                return (
+                  <tr className="tal-rec-rows">
+                    <td>
+                      {
+                        <div>
+                          <p style={{ fontSize: "2.5vw" }}>{dateArr[0]}</p>
+                          <p style={{ fontSize: "2.5vw" }}>{dateArr[1]}</p>
+                        </div>
+                      }
+                    </td>
+                    <td>{record?.score === 1 ? "Saturn" : "Neptune"}</td>
+                    <td
+                      className="d-flex j-center al-center"
+                      style={{ padding: "2vw" }}
+                    >
+                      {/* <div
                       style={{ position: "relative", top: "-6vw", left: "4vw" }}
                     >
                       <LeaderBoardSlider
@@ -53,20 +67,21 @@ const TalentRecords = ({ clickHandler }) => {
                         isHistory={true}
                       />
                     </div> */}
-                    <div
-                      style={{ position: "relative", top: "-3vw" }}
-                      className="d-flex j-center al-center"
-                    >
-                      {/* <LeaderBoardSlider
+                      <div
+                        // style={{ position: "relative", top: "-3vw" }}
+                        className="d-flex j-center al-center"
+                      >
+                        {/* <LeaderBoardSlider
                           rewards={leaderBoardSliderData}
                           isHistory={true}
                         /> */}
-                      {/* <HistorySliderItem item={rec?.rewardDTOList[0]} /> */}
-                      <RecordRewardItem item={record?.rewardDTOList[0]} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                        {/* <HistorySliderItem item={rec?.rewardDTOList[0]} /> */}
+                        <RecordRewardItem item={record?.rewardDTOList[0]} />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </table>
           )}
         </div>

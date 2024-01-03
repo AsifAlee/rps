@@ -16,6 +16,7 @@ import HistorySliderItem from "../../components/HistorySliderItem";
 import SliderItem from "../../components/LeaderboardSliderItem";
 import "../../styles/leaderboard-slider.scss";
 import RecordRewardItem from "../../components/RecordRewardItem";
+import { RpsWinLoss } from "../../functions";
 
 const BattleRecords = ({ clickHandler }) => {
   const { records } = useContext(AppContext);
@@ -73,32 +74,41 @@ const BattleRecords = ({ clickHandler }) => {
                   Rewards
                 </td>
               </tr>
-              {rps.map((rec) => (
-                <tr className="bat-rec-rows">
-                  <td>{rec?.time}</td>
-                  <td>
-                    {rec?.type === 1
-                      ? "Rock"
-                      : rec?.type === 2
-                      ? "Paper"
-                      : "Scissor"}
-                  </td>
-                  <td>Won</td>
-                  <td>
-                    <div
-                      style={{ position: "relative", top: "-3vw" }}
-                      className="d-flex j-center al-center"
-                    >
-                      {/* <LeaderBoardSlider
-                          rewards={leaderBoardSliderData}
-                          isHistory={true}
-                        /> */}
-                      {/* <HistorySliderItem item={rec?.rewardDTOList[0]} /> */}
-                      <RecordRewardItem item={rec?.rewardDTOList[0]} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {rps.map((rec) => {
+                const dateArr = new Date(rec?.time)
+                  ?.toLocaleString()
+                  ?.split(",");
+                return (
+                  <tr className="bat-rec-rows">
+                    <td>
+                      {
+                        <div>
+                          <p style={{ fontSize: "2.5vw" }}>{dateArr[0]}</p>
+                          <p style={{ fontSize: "2.5vw" }}>{dateArr[1]}</p>
+                        </div>
+                      }
+                    </td>
+                    <td>
+                      {rec?.score >= 20 && rec?.score <= 22
+                        ? "Rock"
+                        : rec?.score >= 30 && rec?.score <= 32
+                        ? "Paper"
+                        : rec?.score >= 10 && rec?.score <= 12
+                        ? "Scissor"
+                        : ""}
+                    </td>
+                    <td>{RpsWinLoss(rec?.score)}</td>
+                    <td>
+                      <div
+                        // style={{ position: "relative", top: "-3vw" }}
+                        className="d-flex j-center al-center"
+                      >
+                        <RecordRewardItem item={rec?.rewardDTOList[0]} />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </table>
           )}
         </div>

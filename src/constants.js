@@ -1,9 +1,10 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
 // export const testUserId = 596492373;
+
 export const testUserId = 502184258;
 
-export const testToken = "A11930D78C1BD146548625D4196DEA830F";
+export const testToken = "A1792F68B8A7D74BD0A75C5A35D6461110";
 
 export const errorCodes = {
   succes: 0,
@@ -312,7 +313,16 @@ export const userOverallPot = [
 ];
 
 export const lastLuckyWinnerRewards = [
-  "100$ Beans",
-  "Followers Card",
-  "Fortune room skin(New)",
+  {
+    name: "Beans",
+    count: "100$",
+  },
+  {
+    name: "Followers Card",
+    count: "1day",
+  },
+  {
+    name: "Fortune room skin(New)",
+    count: "2 days",
+  },
 ];

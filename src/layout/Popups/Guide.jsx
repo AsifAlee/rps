@@ -10,7 +10,7 @@ import { AppContext } from "../../AppContext";
 
 const Guide = ({ clickHandler }) => {
   const { selectedLng } = useContext(AppContext);
-  debugger;
+  // debugger;
   return (
     <PopUp bg={bg} isGuide={true}>
       <div className="guide-popup">
@@ -19,7 +19,7 @@ const Guide = ({ clickHandler }) => {
 
         <div className="guide-content">
           <div className="guide-gifts">
-            <p className="gift-title"> GIFTS</p>
+            <p className="gift-title golden-text">EVENT GIFTS</p>
 
             <div className="gifts-container">
               {gifts.map((item) => (
@@ -27,9 +27,10 @@ const Guide = ({ clickHandler }) => {
               ))}
             </div>
           </div>
+          <p className="howTitle golden-text"> HOW TO PLAY?</p>
           {selectedLng === 1 ? (
             <div className="howToPlaySec">
-              <p className="howTitle"> HOW TO PLAY?</p>
+              {/* <p className="howTitle golden-text"> HOW TO PLAY?</p> */}
               <div className="acc-section">
                 <div style={{}}>
                   <Accordion headerTxt={1}>
@@ -220,6 +221,44 @@ const Guide = ({ clickHandler }) => {
                           </p>
                         </li>
                       </ol>
+                    </div>
+                  </Accordion>
+                </div>
+                <div>
+                  <Accordion headerTxt={4}>
+                    <div className="body-item">
+                      <div className="d-flex f-column text-left">
+                        <span className="e-title text-left highlight">
+                          {" "}
+                          For Users:
+                        </span>
+                        <ol>
+                          <li>
+                            In the total ranking, the top 3 users will be
+                            rewarded.
+                          </li>
+                          <li>
+                            Rewards will be sent after 7 working days of the
+                            event end date.
+                          </li>
+                        </ol>
+                      </div>
+                      <div className="d-flex f-column text-left">
+                        <span className="e-title text-left highlight">
+                          {" "}
+                          For Talents:
+                        </span>
+                        <ol>
+                          <li>
+                            In the total ranking, the top 3 talents will be
+                            rewarded.
+                          </li>
+                          <li>
+                            Rewards will be sent after 7 working days of the
+                            event end date.
+                          </li>
+                        </ol>
+                      </div>
                     </div>
                   </Accordion>
                 </div>
@@ -504,6 +543,45 @@ const Guide = ({ clickHandler }) => {
                           </p>
                         </li>
                       </ol>
+                    </div>
+                  </Accordion>
+                </div>
+
+                <div>
+                  <Accordion headerTxt={4}>
+                    <div className="body-item">
+                      <div className="d-flex f-column text-left">
+                        <span className="e-title text-left highlight">
+                          {" "}
+                          For Users:
+                        </span>
+                        <ol>
+                          <li>
+                            Total ranking mein, top 3 users ko rewards milein
+                            gay.
+                          </li>
+                          <li>
+                            Rewards event khatam honay k 7 din baad tak send
+                            kiye jayen gay.
+                          </li>
+                        </ol>
+                      </div>
+                      <div className="d-flex f-column text-left">
+                        <span className="e-title text-left highlight">
+                          {" "}
+                          For Talents:
+                        </span>
+                        <ol>
+                          <li>
+                            Total ranking mein, top 3 talents ko rewards milein
+                            gay.
+                          </li>
+                          <li>
+                            Rewards event khatam honay k 7 din baad tak send
+                            kiye jayen gay.
+                          </li>
+                        </ol>
+                      </div>
                     </div>
                   </Accordion>
                 </div>

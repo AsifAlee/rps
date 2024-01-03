@@ -103,14 +103,17 @@
     border-radius: 2vw;
     border: 1px solid;
     justify-content: center;
+ 
 
 
     img {
-      width: 6vw;
+      width: 5vw;
     }
     span {
       font-size: 3vw;
       font-family: 'PoppinsMediumItalic';
+      position: relative;
+      left: 1vw;
 
     }
   }

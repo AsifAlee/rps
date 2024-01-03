@@ -57,7 +57,11 @@ const InfoPopUp = ({ clickHandler }) => {
         </div>
         <p className="last-p">
           The user whose Lucky Number matches with the revealed number on the
-          golden card will get 100$ reward.
+          golden card will get{" "}
+          <span className="" style={{ fontWeight: "bold", color: "#e7cb69" }}>
+            100$
+          </span>{" "}
+          reward.
         </p>
       </div>
     </div>

@@ -32,6 +32,11 @@
     color: white;
     gap: 1vw;
 
+    .rank-text{
+      font-family: 'EvilEmpire';
+      font-size: 5vw;
+    }
+
     .rew-container {
       display: flex;
       justify-content: center;
@@ -65,16 +70,18 @@
   .indicators {
     display: flex;
     gap: 1vw;
-    margin-top: 4vw;
-    .slider-dot {
+    // margin-top: 4vw;
+    position: relative;
+    top: -2vw;
+      .slider-dot {
       width: 2vw;
       height: 2vw;
       border-radius: 100%;
-      border: 0.2vw solid yellow;
-      background-color: brown;
+      // border: 0.2vw solid yellow;
+      background-color: gray;
     }
     .active-dot {
-      background-color: gold !important;
+      background-color: white !important;
     }
   }
 }
@@ -249,6 +256,24 @@
         }
       }
     
+  }
+
+  .indicators {
+    display: flex;
+    gap: 1vw;
+    // margin-top: 4vw;
+    position: relative;
+    top: -2vw;
+      .slider-dot {
+      width: 2vw;
+      height: 2vw;
+      border-radius: 100%;
+      // border: 0.2vw solid yellow;
+      background-color: gray;
+    }
+    .active-dot {
+      background-color: white !important;
+    }
   }
 
 

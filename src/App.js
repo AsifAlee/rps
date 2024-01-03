@@ -11,9 +11,10 @@ import EventGifting from "./layout/Popups/EventGifting";
 import Guide from "./layout/Popups/Guide";
 import GuidePopup from "./layout/Popups/GuidePopup";
 import { AppContext } from "./AppContext";
+import ToastMessage from "./components/ToastMessage";
 
 function App() {
-  const { user } = useContext(AppContext);
+  const { user, toast, close } = useContext(AppContext);
   const [mainTabs, setMainTabs] = useState({
     battle: true,
     luckyPlayer: false,
@@ -61,12 +62,26 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="d-flex j-sb guideNGifting">
+      {/* <div className="d-flex j-sb guideNGifting">
         <CommonButton
           btnImg={"guide"}
           width={"21vw"}
           handleClick={toggleGuide}
         />
+        <CommonButton
+          btnImg={"event-gifting-btn"}
+          width={"27vw"}
+          handleClick={toggleEventGifitng}
+        />
+      </div> */}
+      <div className="guide-btn-wrap">
+        <CommonButton
+          btnImg={"guide"}
+          width={"21vw"}
+          handleClick={toggleGuide}
+        />
+      </div>
+      <div className="event-gifting-wrap">
         <CommonButton
           btnImg={"event-gifting-btn"}
           width={"27vw"}
@@ -109,13 +124,19 @@ function App() {
       ) : (
         <TalentTour />
       )}
-      <p className="rights">All rights reserved by streamkar</p>
+      <p className="rights golden-text">All rights reserved by streamkar</p>
 
       <ScrollToTopButton />
 
       {eventGifting && <EventGifting popUpHandler={toggleEventGifitng} />}
-      {/* {guide && <Guide clickHandler={toggleGuide} />} */}
-      {guide && <GuidePopup clickHandler={toggleGuide} />}
+      {guide && <Guide clickHandler={toggleGuide} />}
+      {/* {guide && <GuidePopup clickHandler={toggleGuide} />} */}
+
+      <ToastMessage
+        isVisible={toast}
+        message={"Info Api Error"}
+        close={close}
+      />
     </div>
   );
 }

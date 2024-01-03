@@ -3,22 +3,21 @@ import unknown from "../../assets/images/common/unknown-user.png";
 import Marquee from "react-fast-marquee";
 import { gotoProfile } from "../../functions";
 import marqFrame from "../../assets/images/battle/ticker-tape-img-frame.png";
-import gameBg from "../../assets/images/battle/game-bg.png";
 import gamePoints from "../../assets/images/battle/game-points-icon.png";
 import paper from "../../assets/images/battle/paper-icon.png";
 import scissor from "../../assets/images/battle/scissors-icon.png";
 import rock from "../../assets/images/battle/rock-icon.png";
-import rock0 from "../../assets/images/battle/rock0.png";
-import rock1 from "../../assets/images/battle/rock1.png";
-import rock2 from "../../assets/images/battle/rock2.png";
+import rockWin from "../../assets/images/battle/rockWin.png";
+import rockTie from "../../assets/images/battle/rockTie.png";
+import rockLost from "../../assets/images/battle/rockLost.png";
 
-import paper0 from "../../assets/images/battle/paper0.png";
-import paper1 from "../../assets/images/battle/paper1.png";
-import paper2 from "../../assets/images/battle/paper2.png";
+import paperWin from "../../assets/images/battle/paperWin.png";
+import paperLost from "../../assets/images/battle/paperLost.png";
+import paperTie from "../../assets/images/battle/papertie.png";
 
-import scissors0 from "../../assets/images/battle/scissors0.png";
-import scissors1 from "../../assets/images/battle/scissors1.png";
-import scissors2 from "../../assets/images/battle/scissors2.png";
+import scissorsWin from "../../assets/images/battle/scissorsWin.png";
+import scissorsLost from "../../assets/images/battle/scissorsLost.png";
+import scissorsTie from "../../assets/images/battle/scissorsTie.png";
 
 import "../../styles/battle-tab.scss";
 import RadioButton from "../../components/CustomRadio";
@@ -35,6 +34,7 @@ import RecordsPopup from "../Popups/RecordsPopup";
 import Slider from "../../components/Slider";
 import BattleRecords from "../Popups/BattleRecords";
 import { AppContext } from "../../AppContext";
+import mascot from "../../assets/images/battle/game-mascot.png";
 
 import {
   baseUrl,
@@ -56,6 +56,7 @@ const BattleTab = () => {
     dateStr,
     getBattleLbData,
   } = useContext(AppContext);
+  // debugger;
 
   const { battle, battlePrev } = giftingLbData;
   const { potInfo } = info;
@@ -92,21 +93,21 @@ const BattleTab = () => {
     if (animFinished) {
       if (selectedChar === "R" && rpsResult === 0) {
         console.log("rps 1");
-        setResultImage(rock0);
+        setResultImage(rockLost);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "R" && rpsResult === 1) {
         console.log("rps 2");
 
-        setResultImage(rock1);
+        setResultImage(rockWin);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "R" && rpsResult === 2) {
         console.log("rps 3");
 
-        setResultImage(rock2);
+        setResultImage(rockTie);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
@@ -116,21 +117,21 @@ const BattleTab = () => {
       else if (selectedChar === "P" && rpsResult === 0) {
         console.log("rps 3");
 
-        setResultImage(paper0);
+        setResultImage(paperLost);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "P" && rpsResult === 1) {
         console.log("rps 3");
 
-        setResultImage(paper1);
+        setResultImage(paperWin);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "P" && rpsResult === 2) {
         console.log("rps 3");
 
-        setResultImage(paper2);
+        setResultImage(paperTie);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
@@ -140,21 +141,21 @@ const BattleTab = () => {
       else if (selectedChar === "S" && rpsResult === 0) {
         console.log("rps 3");
 
-        setResultImage(scissors0);
+        setResultImage(scissorsLost);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "S" && rpsResult === 1) {
         console.log("rps 3");
 
-        setResultImage(scissors1);
+        setResultImage(scissorsWin);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
       } else if (selectedChar === "S" && rpsResult === 2) {
         console.log("rps 3");
 
-        setResultImage(scissors2);
+        setResultImage(scissorsTie);
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
@@ -164,18 +165,28 @@ const BattleTab = () => {
 
   const toggleGamepopup = () => {
     setGamePopUp((prevState) => !prevState);
-    setResultImage("");
+    // setResultImage("");
     setAnimFinished(false);
+    // setIsDisabled(false);
+    // setIsPlaying(false);
   };
 
   const handleRadioSelect = (name) => {
-    if (name === "Rock") setSelectedChar("R");
-    else if (name === "Paper") setSelectedChar("P");
-    else setSelectedChar("S");
+    if (name === "Rock") {
+      setSelectedChar("R");
+      setResultImage(rockTie);
+    } else if (name === "Paper") {
+      setSelectedChar("P");
+      setResultImage(paperTie);
+    } else {
+      setSelectedChar("S");
+      setResultImage(scissorsTie);
+    }
   };
 
   const playGame = () => {
     setIsDisabled(true);
+    setResultImage("");
     fetch(`${baseUrl}/api/activity/rps/rpsBattle?character=${selectedChar}`, {
       method: "POST",
       headers: {
@@ -204,15 +215,15 @@ const BattleTab = () => {
           setGameMsg(response?.msg);
           setTimeout(() => {
             setIsPlaying(false);
+            setIsDisabled(false);
             setGameErrCode(response.errorCode);
-            // setRpsResult(response?.data?.rpsResult);
             setRpsResult(rpsRes);
             // setGamePopUp(true);
             getInfo();
             getBattleLbData();
 
             getBattleRecords();
-            setIsDisabled(false);
+
             setAnimFinished(true);
           }, 3300);
         }
@@ -288,15 +299,16 @@ const BattleTab = () => {
           <span>My Game Points : {info?.gamePoints}</span>
         </div>
         <div className="battle-game">
-          {/* <img src={gameBg} /> */}
           <SvgaPlayer
             src={rpsSvga}
             start={isPlaying}
             rps={true}
             lucky={resultImage ? true : false}
           />
-          {resultImage ? <img src={resultImage} /> : ""}
-          {/* <img src={rock0} /> */}
+          {resultImage ? <img src={resultImage} className="result-img" /> : ""}
+
+          <img src={mascot} className="mascot-img" />
+          <div id="extraContent"></div>
         </div>
 
         <div className="play-btns">
@@ -306,13 +318,16 @@ const BattleTab = () => {
               { pic: paper, name: "Paper" },
               { pic: scissor, name: "Scissor" },
             ]}
-            handleRadioSelect={handleRadioSelect}
+            handleRadioSelect={
+              isPlaying || isDisabled ? () => {} : handleRadioSelect
+            }
             selectedChar={selectedChar}
+            disabled={isPlaying || isDisabled}
           />
         </div>
         <button
           className={`play-btn ${isDisabled && "blackNWhite"}`}
-          onClick={isDisabled ? () => {} : playGame}
+          onClick={isDisabled || isPlaying ? () => {} : playGame}
           disabled={isPlaying || isDisabled}
         />
         <span className="points-text">15K Pts Req</span>
@@ -325,7 +340,7 @@ const BattleTab = () => {
       <div className="battle-rewards-sec">
         <img src={rewardsHeading} className="rewards-heading" />
         <div style={{ position: "absolute", top: "7vw", left: "8vw" }}>
-          <Slider rewards={rewards} showRanks={true} showIndicators={false} />
+          <Slider rewards={rewards} showRanks={true} showIndicators={true} />
         </div>
 
         <div className="beansPot">
@@ -335,7 +350,11 @@ const BattleTab = () => {
 
         <div className="beans-pot-count d-flex j-center al-center">
           <img src={beanIcon} />
-          <span>{potInfo[dateStr]}</span>
+          {dateStr && Object.keys(potInfo) ? (
+            <span>{potInfo[dateStr]}</span>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <LeaderBoardComponent data={[battle, battlePrev]} showEstRewards={true} />

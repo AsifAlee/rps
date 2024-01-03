@@ -27,13 +27,15 @@ const TourGamePopup = ({
           {errorCode === 0 ? (
             <div className="success">
               <p className="p1">
-                You've successfully boarded your{" "}
+                You've successfully boarded your ship{" "}
                 <img src={ship} className="battle-icon" />
               </p>
 
               <div>
-                <p style={{ position: "relative", top: "3vw" }}>
-                  & You have won
+                <p
+                  style={{ position: "relative", top: "3vw", fontSize: "4vw" }}
+                >
+                  & have won
                 </p>
                 <div className="rew-section">
                   <GameRewardItem reward={rewardData} />

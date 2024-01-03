@@ -76,6 +76,7 @@ const EventGifting = ({ popUpHandler }) => {
             <GiftSlider
               rewards={rewTabs.talent ? talentRewards : userRewards}
               showTarget={rewTabs.talent ? true : false}
+              showIndicators={false}
             />
           </div>
         </div>

@@ -31,7 +31,7 @@ const ScratchGamePopup = ({
         <img src={errorCode === 0 ? congrats : oops} className="title" />
         <div className="rps-content">
           {errorCode === 0 ? (
-            <div className="success">
+            <div className={`success ${!rewardsList?.length && "no-rews"}`}>
               <p className="p1">
                 You have successfully scratched your card & your lucky number is
               </p>
@@ -57,7 +57,7 @@ const ScratchGamePopup = ({
                 The Lucky winner will be announced at: 00:00:00 GMT.
               </p>
             </div>
-          ) : errorCode === 10000004 ? (
+          ) : errorCode === 10000009 || errorCode === 10000004 ? (
             <div className="enough-points d-flex j-center al-center">
               <div>
                 You don’t have enough Game Points <img src={gameIcon} /> to play

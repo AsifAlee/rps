@@ -82,7 +82,9 @@ export function getRewardsImage(rewDesc) {
   } else if (rewDesc?.includes("Blessed room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/blessedRoomSkin2k23.png";
   } else if (rewDesc?.includes("Peacemaker Frame")) {
-    rewImg = baseUrl + "/streamkar/rewards/peaceMakerRoomSkin.png";
+    rewImg = baseUrl + "/streamkar/rewards/peacemakerFrame.png";
+  } else if (rewDesc?.includes("Peacemaker frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/peacemakerFrame.png";
   } else if (rewDesc?.includes("Maestro Frame")) {
     rewImg = baseUrl + "/streamkar/rewards/maestro.png";
   } else if (rewDesc?.includes("Hawk entrance")) {
@@ -96,6 +98,10 @@ export function getRewardsImage(rewDesc) {
   } else if (rewDesc?.includes("Fortune frame (New)")) {
     rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
   } else if (rewDesc?.includes("Fortune frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Fortune Frame")) {
+    rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
+  } else if (rewDesc?.includes("Fortune Frame (New)")) {
     rewImg = baseUrl + "/streamkar/rewards/fortuneFrame.png";
   } else if (rewDesc?.includes("Flaming Candle room skin")) {
     rewImg = baseUrl + "/streamkar/rewards/flamingCandleRoomskin.png";
@@ -182,7 +188,23 @@ export const getRewardDetails2 = (desc, count) => {
     ? (text = `${count}`)
     : desc === "gems"
     ? (text = `${count}`)
-    : (text = `${count > 1 ? `${count} days` : `${count} day`}`);
+    : (text = `${count > 1 ? `x${count} days` : `x${count} day`}`);
 
   return text;
+};
+
+export const RpsWinLoss = (score) => {
+  if (score >= 10 && score <= 12) {
+    if (score === 10) return "Loss";
+    else if (score === 11) return "Win";
+    else return "Tie";
+  } else if (score >= 20 && score <= 22) {
+    if (score === 20) return "Loss";
+    else if (score === 21) return "Win";
+    else return "Tie";
+  } else if (score >= 30 && score <= 32) {
+    if (score === 30) return "Loss";
+    else if (score === 31) return "Win";
+    else return "Tie";
+  }
 };

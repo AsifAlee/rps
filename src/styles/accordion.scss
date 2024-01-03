@@ -12,7 +12,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 16vw;
+      height: 14vw;
       background-size: 100% 100%;
       background-repeat: no-repeat;
       position: relative;
@@ -20,7 +20,7 @@
       font-size: 3vw;
       color: white;
 
-      width: 70vw;
+      width: 64vw;
       left: -9vw;
 
       .down-arrow {
@@ -65,7 +65,7 @@
       flex-direction: column;
       padding: 6vw 4vw 2vw 4vw;
       position: relative;
-      top: 5vw;
+      top: 3vw;
       // border: 1vw solid #fef0c4;
       color: black;
       background-image: url(../assets/images/guide/rectangle-5.png);

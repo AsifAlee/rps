@@ -22,8 +22,11 @@ import InfoPopUp from "../Popups/InfoPopUp";
 import { baseUrl, testToken, testUserId } from "../../constants";
 import ScratchGamePopup from "../Popups/ScratchGamePopup";
 import scratchSvga from "../../assets/animations/scratch-gold.svga";
+import starsSvga from "../../assets/animations/rps-ticket-stars.svga";
+
 import SvgaPlayer from "../../components/SvgaPlayer";
 import scratchWinText from "../../assets/images/lucky/scratch-win-text.png";
+import StarsSvga from "../../components/StarsSvga";
 const LuckyPlayer = () => {
   const {
     info,
@@ -219,8 +222,6 @@ const LuckyPlayer = () => {
             className="d-flex j-center al-center"
             style={{ position: "relative", top: "40vw", color: "white" }}
           >
-            {/* Animation Playing */}
-
             <SvgaPlayer start={isPlaying} src={scratchSvga} lucky={true} />
             {!luckyNumber ? (
               <img src={scratchWinText} />
@@ -237,7 +238,6 @@ const LuckyPlayer = () => {
             fontSize: "3vw",
           }}
         >
-          {/* <CommonButton btnImg={"scratch"} /> */}
           <button
             className={`play-btn ${isDisabled && "blackNWhite"}`}
             onClick={isDisabled ? () => {} : playGame}
@@ -246,15 +246,11 @@ const LuckyPlayer = () => {
           <p>50k game points required</p>
         </div>
         <div className="scratch-rem d-flex j-center al-center">
-          {/* <img src={battleWon} /> */}
           <span>Daily Scratch Remaining:{dailyScratchRemaining}</span>
         </div>
       </div>
-      <div
-        className="my-lucky-numbers-wrap"
-        style={{ minHeight: isScrtached ? "480vw" : "260vw" }}
-      >
-        <img src={luckyTitle} className="title" />
+      <div className="my-lucky-numbers-wrap">
+        <img src={luckyTitle} className="main-title" />
 
         {isScrtached === false ? (
           <div className="not-scratched">
@@ -264,10 +260,7 @@ const LuckyPlayer = () => {
             </p>
           </div>
         ) : (
-          <div
-            className="scratched"
-            style={{ position: "absolute", top: "10vw", right: 0, left: 0 }}
-          >
+          <div className="scratched">
             <div className="tabs d-flex j-center">
               <TabButton
                 handleClick={toggleNumberTabs}
@@ -313,119 +306,116 @@ const LuckyPlayer = () => {
           </div>
         )}
 
-        <div
-          className="rest-divs"
-          style={{ top: isScrtached ? "173vw" : "70vw" }}
-        >
-          <div className="special-rewards">
-            <img src={specialRewards} className="title" />
+        <div className="special-rewards">
+          <img src={specialRewards} className="spec-title" />
 
-            <div className="rewards-div d-flex j-sa al-center">
-              <div className="reward-item">
-                <img src={getRewardsImage("beansbag")} />
-                <span>100$ Beans</span>
-              </div>
-              <div className="reward-item">
-                <img src={getRewardsImage("Followers Card")} />
-                <span>Followers Card x1 day</span>
-              </div>
-              <div className="reward-item">
-                <img src={getRewardsImage("Fortune room skin")} />
-                <span>Fortune room skin (New) x 2 days</span>
-              </div>
+          <div className="rewards-div d-flex j-sa al-center">
+            <div className="reward-item">
+              <img src={getRewardsImage("beansbag")} />
+              <span>100$ Beans</span>
             </div>
-          </div>
-          <div className="lucky-numbers-appear-wrap">
-            <div className="tabs d-flex j-center">
-              <TabButton
-                handleClick={toggleTabs}
-                name="today"
-                btnImg={lbTabs.today ? "today-sel" : "today-sel blackNWhite"}
-                arrowImage={false}
-                showArrowImg={false}
-              />
-
-              <TabButton
-                handleClick={toggleTabs}
-                name="prev"
-                btnImg={lbTabs.prev ? "prev-sel" : "prev-sel blackNWhite"}
-                arrowImage={false}
-                showArrowImg={false}
-              />
+            <div className="reward-item">
+              <img src={getRewardsImage("Followers Card")} />
+              <span>Followers Card x1 day</span>
             </div>
-
-            <div className="lucky-number-appear">
-              {lbTabs.today ? (
-                <>
-                  <p style={{ marginTop: "7vw" }}>
-                    The Lucky Number will be revealed at 00:00:00 GMT
-                  </p>
-                  <div className="scratch-bg d-flex j-center al-center">
-                    <span style={{ fontSize: "7vw" }}>??????</span>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <p style={{ marginTop: "7vw" }}>Last Lucky Number revealed</p>
-                  <div className="scratch-bg d-flex j-center al-center">
-                    <span style={{ fontSize: "7vw" }}>{lastLuckyCard}</span>
-                  </div>
-                </>
-              )}
-            </div>
-
-            <div
-              className={`last-lucky-winners image-bg-100 no-repeat d-flex j-center al-center f-column ${
-                isScrtached && "last-winner-scratched"
-              }`}
-              style={{}}
-            >
-              {isScrtached === false ? (
-                <>
-                  <img className="title" src={lastLuckyWinnerTitle} />
-                  <img src={loadingMascot} className="mascot-img" />
-                  <p>Lucky winner will be announed at 00:00:00 GMT</p>
-                </>
-              ) : (
-                <>
-                  <div
-                    className={`last-lucky-rest-wins  ${
-                      seeMore === false ? "scroll" : ""
-                    }`}
-                    ref={divRef}
-                  >
-                    <img src={lastLuckyWinnerTitle} className="title" />
-
-                    {!lastLuckyWinners?.length ? (
-                      <div>No Data Found</div>
-                    ) : (
-                      lastLuckyWinners
-                        .sort((a, b) => a.day - b.day)
-                        ?.map((item, index) => (
-                          <LastWinnerLbItem
-                            item={item}
-                            index={index + 1}
-                            isLucky={true}
-                          />
-                        ))
-                    )}
-                  </div>
-                  {lastLuckyWinners?.length > 10 ? (
-                    <div className="seeMore">
-                      <CommonButton
-                        btnImg={seeMore ? "see-more" : "see-less"}
-                        seeMore={true}
-                        handleClick={toggleSeeMore}
-                      />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </>
-              )}
+            <div className="reward-item">
+              <img src={getRewardsImage("Fortune room skin")} />
+              <span>Fortune room skin (New) x 2 days</span>
             </div>
           </div>
         </div>
+        <div className="lucky-numbers-appear-wrap">
+          <div className="tabs d-flex j-center">
+            <TabButton
+              handleClick={toggleTabs}
+              name="today"
+              btnImg={lbTabs.today ? "today-sel" : "today-sel blackNWhite"}
+              arrowImage={false}
+              showArrowImg={false}
+            />
+
+            <TabButton
+              handleClick={toggleTabs}
+              name="prev"
+              btnImg={
+                lbTabs.prev && lastLuckyCard
+                  ? "prev-sel"
+                  : "prev-sel blackNWhite"
+              }
+              arrowImage={false}
+              showArrowImg={false}
+              disabled={!lastLuckyCard ? true : false}
+            />
+          </div>
+
+          <div className="lucky-number-appear">
+            {lbTabs.today ? (
+              <>
+                <p>The Lucky Number will be revealed at 00:00:00 GMT</p>
+                <div className="scratch-bg d-flex j-center al-center">
+                  <span style={{ fontSize: "7vw" }}>??????</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>Last Lucky Number revealed</p>
+                <div className="scratch-bg d-flex j-center al-center">
+                  <span style={{ fontSize: "7vw" }}>{lastLuckyCard}</span>
+                  <StarsSvga src={starsSvga} />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`last-lucky-winners image-bg-100 no-repeat d-flex j-center al-center f-column 
+        }`}
+      >
+        <img className="title" src={lastLuckyWinnerTitle} />
+        {!lastLuckyWinners.length ? (
+          <div className="no-winners">
+            <img src={loadingMascot} className="mascot-img" />
+            <p>Lucky winner will be announed at 00:00:00 GMT</p>
+          </div>
+        ) : (
+          <>
+            <div
+              className={`last-lucky-rest-wins  ${
+                seeMore === false ? "scroll" : ""
+              }`}
+              ref={divRef}
+            >
+              {/* <img src={lastLuckyWinnerTitle} className="title" /> */}
+
+              {!lastLuckyWinners?.length ? (
+                <div>No Data Found</div>
+              ) : (
+                lastLuckyWinners
+                  .sort((a, b) => a.day - b.day)
+                  ?.map((item, index) => (
+                    <LastWinnerLbItem
+                      item={item}
+                      index={index + 1}
+                      isLucky={true}
+                    />
+                  ))
+              )}
+            </div>
+            {lastLuckyWinners?.length > 10 ? (
+              <div className="seeMore">
+                <CommonButton
+                  btnImg={seeMore ? "see-more" : "see-less"}
+                  seeMore={true}
+                  handleClick={toggleSeeMore}
+                />
+              </div>
+            ) : (
+              ""
+            )}
+          </>
+        )}
       </div>
       {details && <LuckyDetails clickHandler={toggleDetails} />}
       {luckyInfo && <InfoPopUp clickHandler={toggleInfo} />}
@@ -442,9 +432,11 @@ const LuckyPlayer = () => {
       )}
       {/* <ScratchGamePopup
         clickHandler={toggleGamepopup}
-        errorCode={10000004}
+        errorCode={0}
         errorMsg={errorMsg}
-        rewardData={"Desert Knight room skin x 1 day"}
+        rewardData={""}
+        rewardsList={rewardsList}
+        luckyNumber={"12345"}
       /> */}
     </div>
   );

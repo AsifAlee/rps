@@ -21,7 +21,15 @@ const GameLeaderboartItem = ({ item, index, isGifting, isTalent }) => {
 
         <div className="user-details">
           <span className="name">{item?.nickname}</span>
-          <img src={getLevelImage(item?.userLevel)} />
+          <img
+            src={getLevelImage(
+              isTalent ? item?.actorLevel : item?.userLevel,
+              isTalent
+            )}
+            style={{
+              width: isTalent ? "7vw" : "",
+            }}
+          />
         </div>
       </div>
       {isGifting ? (

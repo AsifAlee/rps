@@ -37,7 +37,9 @@ const Slider = ({ rewards, showRanks, hideArrows, showIndicators, tag }) => {
       )}
       <div className="slider-content">
         {showRanks && (
-          <div style={{ fontSize: "3vw" }}>{rewards[currentIndex]?.rank}</div>
+          <div className=" rank-text golden-text">
+            {rewards[currentIndex]?.rank}
+          </div>
         )}
 
         <div className="rew-container">

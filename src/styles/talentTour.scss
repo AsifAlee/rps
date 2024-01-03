@@ -37,7 +37,7 @@
         color: white;
       }
     }
-    .game-sec {
+    .sat-game-sec {
       position: relative;
       top: 18vw;
       color: white;
@@ -478,6 +478,418 @@
         //   top: 13vw;
         //   right: 9vw;
         // }
+      }
+    }
+    .nep-game-sec {
+      position: relative;
+      top: 18vw;
+      color: white;
+      font-family: "PoppinsMedium";
+      p {
+        width: 56%;
+        margin: 0 auto;
+        font-size: 4vw;
+      }
+      .game-bg {
+        width: 80%;
+        min-height: 164vw;
+        background-image: url(../assets/images/tour/game-bg.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        position: relative;
+
+        .game-rewards {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 12vw;
+
+          .left-rewards {
+            display: flex;
+            flex-direction: column;
+            gap: 4vw;
+            position: relative;
+            top: 6vw;
+          }
+          .right-rewards {
+            display: flex;
+            flex-direction: column;
+            gap: 4vw;
+            position: relative;
+            top: 17vw;
+            left: 5vw;
+          }
+        }
+
+        .bottom-sec {
+    
+
+          position: absolute;
+          top: 138vw;
+          left: 3vw;
+          right: 0;
+          display: flex;
+          justify-content: flex-end;
+          gap: 2vw;
+          width: 80%;
+          align-items: center;
+          .moving-ship-nep {
+            width: 11vw;
+            position: relative;
+      
+          }
+          .travel-btn {
+            width: 21vw;
+            height: 9vw;
+            background-image: url(../assets/images/tour/travel-button.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          span {
+            font-size: 5vw;
+            font-family: "EvilEmpire";
+            color: white;
+            position: absolute;
+            top: 15vw;
+            left: 52vw;
+          }
+        }
+
+        .path1 {
+          width: 17vw;
+          position: absolute;
+          top: 116vw;
+          left: 32vw;
+        }
+        .path2 {
+          width: 17vw;
+          position: absolute;
+          top: 102vw;
+          left: 31vw;
+        }
+        .path3 {
+          width: 17vw;
+          position: absolute;
+          top: 93vw;
+          left: 31vw;
+        }
+        .path4 {
+          width: 17vw;
+          position: absolute;
+          top: 82vw;
+          left: 33vw;
+        }
+        .path5 {
+          width: 17vw;
+          position: absolute;
+          top: 70vw;
+          left: 31vw;
+        }
+
+        .path6 {
+          width: 17vw;
+          position: absolute;
+          top: 58vw;
+          left: 33vw;
+        }
+        .path7 {
+          width: 17vw;
+          position: absolute;
+          top: 45vw;
+          left: 32vw;
+        }
+        .path8 {
+          width: 17vw;
+          position: absolute;
+          top: 30vw;
+          left: 31vw;
+        }
+        .path9 {
+          width: 17vw;
+          position: absolute;
+          top: 20vw;
+          left: 31vw;
+        }
+
+        .nepfrom0To1 {
+          animation: nepzeroTo1Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .nepfrom1To2 {
+          animation: neponeTo2Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .nepfrom2To3 {
+          animation: neptwoTo3Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .nepfrom3To4 {
+          animation: nepthreeTo4Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .nepfrom4To5 {
+          animation: nepfourTo5Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .nepfrom5To6 {
+          animation: nepfiveTo6Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .nepfrom6To7 {
+          animation: nepsixTo7Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .nepfrom7To8 {
+          animation: nepsevenTo8Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+        .nepfrom8To9 {
+          animation: nepeightTo9Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .nepfrom9To10 {
+          animation: nepnineTo10Anim;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          // animation-fill-mode: forwards;
+        }
+
+        .onePos {
+          top: -24vw;
+        }
+
+        .twoPos {
+          top: -34vw;
+          left: -35vw;
+        }
+
+        .threePos {
+          top: -48vw;
+        }
+
+        .fourPos {
+          top: -59vw;
+          left: -35vw;
+        }
+        .fivePos {
+          top: -71vw;
+          left: 0vw;
+        }
+
+        .sixPos {
+          top: -83vw;
+          left: -36vw;
+        }
+        .sevenPos {
+         
+
+          top: -97vw;
+          left: -1vw;
+        }
+        .eightPos {
+          top: -106vw;
+          left: -35vw;
+        }
+        .ninePos {
+          top: -120vw;
+          left: -1vw;
+        }
+        .tenPos {
+          top: -131vw;
+          left: -35vw;
+        }
+
+        @keyframes nepzeroTo1Anim {
+          0% {
+            top: 0vw;
+          }
+          100% {
+            top: -24vw;
+          }
+        }
+
+        @keyframes neponeTo2Anim {
+          0% {
+            top: -24vw;
+            left: 0vw;
+            // transform: rotate(-78deg);
+            transform: rotate(-61deg);
+          }
+
+          80% {
+            transform: rotate(-61deg);
+          }
+
+          100% {
+            top: -34vw;
+            left: -35vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes neptwoTo3Anim {
+          0% {
+            // top: -34vw;
+            // left: -26vw;
+            // transform: rotate(-78deg);
+            transform: rotate(61deg);
+
+            top: -34vw;
+            left: -35vw;
+          }
+          80%{
+            transform: rotate(61deg);
+          }
+          100% {
+            top: -48vw;
+            left: 0;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepthreeTo4Anim {
+          0% {
+            top: -48vw;
+            left: 0vw;
+          
+            transform: rotate(-61deg);
+
+          }
+          80%{
+            transform: rotate(-61deg);
+
+          }
+          100% {
+            top: -59vw;
+            left: -35vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepfourTo5Anim {
+          0% {
+            top: -59vw;
+            left: -35vw;
+            transform: rotate(61deg);
+          }
+          80%{
+            transform: rotate(61deg);
+
+          }
+          100% {
+            top: -71vw;
+            left: 0vw;
+            transform: rotate(0deg);
+          }
+        }
+        @keyframes nepfiveTo6Anim {
+          0% {
+            top: -71vw;
+            left: 0vw;
+            // transform: rotate(78deg);
+            transform: rotate(-61deg);
+          }
+          80% {
+            transform: rotate(-61deg);
+          }
+
+          100% {
+            top: -83vw;
+            left: -36vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepsixTo7Anim {
+          0% {
+            top: -83vw;
+            left: -36vw;
+            transform: rotate(61deg);
+          }
+          80%{
+            transform: rotate(61deg);
+
+          }
+          100% {
+            top: -97vw;
+            left: -1vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepsevenTo8Anim {
+          0% {
+            top: -97vw;
+            left: -1vw;
+            transform: rotate(-61deg);
+          }
+          80% {
+            transform: rotate(-61deg);
+          }
+          100% {
+            top: -106vw;
+            left: -35vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepeightTo9Anim {
+          0% {
+            top: -106vw;
+            left: -35vw;
+            transform: rotate(61deg);
+          }
+          80% {
+            transform: rotate(61deg);
+          }
+          100% {
+            top: -120vw;
+            left: -1vw;
+            transform: rotate(0deg);
+          }
+        }
+
+        @keyframes nepnineTo10Anim {
+          0% {
+            top: -120vw;
+            left: -1vw;
+            transform: rotate(-61deg);
+          }
+          80% {
+            transform: rotate(-61deg);
+          }
+          100% {
+            top: -131vw;
+            left: -35vw;
+            transform: rotate(0deg);
+          }
+        }
+
+
       }
     }
   }

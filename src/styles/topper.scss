@@ -1,178 +1,149 @@
 .topper {
-    width: 30vw;
-    // height: 40vw;
-    .topper-images {
-      position: relative;
-      left: 5vw;
-      top: 0vw;
-      .rank {
-        left: -1.9vw;
-        width: 85%;
-        position: absolute;
-        z-index: 2;
-        top: -2vw;
-    
-      }
-      .rank2 {
-        top: 0vw;
-        width: 75%;
-        left:-2vw;
-        position: absolute;
-        z-index: 2;
-      }
-      .rank3 {
-        top: 0vw;
-        width: 75%;
-        left: -2vw;
-        position: absolute;
-        z-index: 2;
-      }
-  
-      .user {
-        top: 5vw;
-        left: 2vw;
-        width: 56%;
-        position: absolute;
-        border-radius: 100%;
-        z-index: 1;
-      }
-
-      .rank1-user{
-        top: 4vw;
-        left: 2vw;
-        width: 60%;
-        position: absolute;
-        border-radius: 100%;
-        z-index: 1;
-    
-      }
-    }
-  
-    .topper-details {
+  width: 30vw;
+  // height: 40vw;
+  .topper-images {
+    position: relative;
+    left: 5vw;
+    top: 0vw;
+    .rank {
+      left: -2.9vw;
       width: 85%;
-      left: 2vw;
-    //   background-image: url('../assets//images/battle/2nd-rank.png');
-      background-size: 100% 100%;
-     min-height: 38vw;
-      position: relative;
-      top: 13vw;
-      display: flex;
-      flex-direction: column;
-    //   justify-content: center;
-      align-items: center;
-      gap: 1vw;
-      padding: 12vw 1vw 1vw 0vw;
-      font-family: 'PoppinsMedium';
-      color: white;
-
-
-  
-      .name {
-        font-size: 2.5vw;
-        // height: 3vw;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 19vw;
-        text-align: center;
-      font-family: 'PoppinsMedium';
-
-        color: white;
-        // position: relative;
-        // top: 3vw;
-       
-      }
-      .levelImg {
-        width: 10vw;
-        display: block;
-        margin: 0 auto;
-        // position: relative;
-      // top: 2vw;
-      }
-
-      .battle-count-div{
-        width: 19vw;
-        height: 4vw;
-        border: .1vw solid white;
-        border-radius: 12vw;
-        background-color: red;
-        img{
-            width: 3vw;
-        }
-        span{
-            font-size: 2vw;
-            font-family: 'PoppinsMediumItalic';
-        }
-      }
-
-      .beans-gems-div{
-        width: 21vw;
-        height: 4.5vw;
-        border: .2vw solid white;
-        border-radius: 12vw;
-        background-color: red;
-        gap: 1vw;
-        img{
-            width: 4vw;
-        }
-        span{
-            font-size: 2vw;
-            font-family: 'PoppinsMediumItalic';
-        }
-      }
-      .estimatedBeans {
-        width: 80%;
-        display: flex;
-        border-radius: 3vw;
-        justify-content: center;
-        color: white;
-        align-items: center;
-        font-size: 2.2vw;
-        flex-direction: column;
-       
-        img {
-          width: 2.5vw;
-        }
-        span {
-        }
-      }
-
- 
-    //   .beans-spent {
-    //     width: 90%;
-    //     display: flex;
-    //     justify-content: center;
-    //     color: white;
-    //     align-items: center;
-    //     font-size: 2.5vw;
-    //     background-image: url('../assets/images/top-3-beans-bg.png');
-    //     background-size: 100% 100%;
-    //     background-repeat: no-repeat; 
-    //     padding: 0.5vw;
-    //     // position: relative;
-    //     // top: 1vw;
-    //     img {
-    //       width: 3vw;
-    //     }
-    //     span {
-    //     }
-    //   }
+      position: absolute;
+      z-index: 2;
+      top: -2vw;
     }
-    .rank1-detail-bg{
-        background-image: url('../assets//images/battle/1st-rank.png');
-        width: 100%;
-      }
-      .rank2-detail-bg{
-        background-image: url('../assets//images/battle/2nd-rank.png');
-        width: 90%;
+    .rank2 {
+      top: 0vw;
+      width: 75%;
+      left: -2vw;
+      position: absolute;
+      z-index: 2;
+    }
+    .rank3 {
+      top: 0vw;
+      width: 75%;
+      left: -2vw;
+      position: absolute;
+      z-index: 2;
+    }
 
-      }
+    .user {
+      top: 5vw;
+      left: 2vw;
+      width: 56%;
+      position: absolute;
+      border-radius: 100%;
+      z-index: 1;
+    }
 
-      .rank3-detail-bg{
-        background-image: url('../assets//images/battle/3rd-rank.png');
-        width: 90%;
-
-      }
-
+    .rank1-user {
+      top: 4vw;
+      left: 2vw;
+      width: 60%;
+      position: absolute;
+      border-radius: 100%;
+      z-index: 1;
+    }
   }
-  
+
+  .topper-details {
+    width: 85%;
+    left: 2vw;
+    background-size: 100% 100%;
+    min-height: 38vw;
+    position: relative;
+    top: 13vw;
+    display: flex;
+    flex-direction: column;
+    //   justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    padding: 12vw 1vw 1vw 0vw;
+    font-family: "PoppinsMedium";
+    color: white;
+
+    .name {
+      font-size: 2.5vw;
+      // height: 3vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 19vw;
+      text-align: center;
+      font-family: "PoppinsMedium";
+
+      color: white;
+      // position: relative;
+      // top: 3vw;
+    }
+    .levelImg {
+      width: 10vw;
+      display: block;
+      margin: 0 auto;
+      // position: relative;
+      // top: 2vw;
+    }
+
+    .battle-count-div {
+      width: 19vw;
+      height: 4vw;
+      border: 0.1vw solid white;
+      border-radius: 12vw;
+      background-color: red;
+      img {
+        width: 3vw;
+      }
+      span {
+        font-size: 2vw;
+        font-family: "PoppinsMediumItalic";
+      }
+    }
+
+    .beans-gems-div {
+      width: 21vw;
+      height: 4.5vw;
+      border: 0.2vw solid white;
+      border-radius: 12vw;
+      background-color: red;
+      gap: 1vw;
+      img {
+        width: 4vw;
+      }
+      span {
+        font-size: 2vw;
+        font-family: "PoppinsMediumItalic";
+      }
+    }
+    .estimatedBeans {
+      width: 100%;
+      display: flex;
+      border-radius: 3vw;
+      justify-content: center;
+      color: white;
+      align-items: center;
+      font-size: 2.2vw;
+      // flex-direction: column;
+
+      img {
+        width: 3vw;
+        vertical-align: middle;
+      }
+      span {
+        font-size: 2vw;
+      }
+    }
+  }
+  .rank1-detail-bg {
+    background-image: url("../assets//images/battle/1st-rank.png");
+    // width: 100%;
+  }
+  .rank2-detail-bg {
+    background-image: url("../assets//images/battle/2nd-rank.png");
+    // width: 90%;
+  }
+
+  .rank3-detail-bg {
+    background-image: url("../assets//images/battle/3rd-rank.png");
+    // width: 90%;
+  }
+}

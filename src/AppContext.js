@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { baseUrl, testUserId, userOverallPot } from "./constants";
+import { userOverallData } from "./testData";
 
 export const AppContext = createContext();
 
@@ -13,8 +14,10 @@ export const DataProvider = ({ children }) => {
   years = date.getUTCFullYear();
 
   day = day < 10 ? `0${day}` : day;
+  months = months < 10 ? `0${months}` : months;
   dateStr = years + "-" + months + "-" + day;
-  dateStrPrev = years + "-" + months + "-" + (day - 1);
+  dateStrPrev =
+    years + "-" + months + "-" + (day - 1 < 10 ? `0${day - 1}` : day);
   const [info, setInfo] = useState({
     isScrtached: true,
     gamePoints: 0,
@@ -50,10 +53,13 @@ export const DataProvider = ({ children }) => {
   const [lastLuckyWinners, setLastLuckyWinners] = useState([]);
   const [talentTourLbData, setTalentTourLbData] = useState([]);
   const [infoCalled, setInfoCalled] = useState(false);
+  const [toast, setToast] = useState(false);
   const changeLanguage = (index) => {
     setSelectedLng(index);
   };
-
+  const close = () => {
+    setToast(false);
+  };
   useEffect(() => {
     try {
       window.phone.getUserInfo(function (userInfo) {
@@ -166,30 +172,38 @@ export const DataProvider = ({ children }) => {
       .then((response) =>
         response.json().then((response) => {
           // debugger;
+          // setToast(true);
+          if (response.errorCode === 30000001) {
+            setToast(true);
+          } else {
+            setInfo({
+              ...info,
+              gamePoints: response?.data?.gamePoints,
+              // gamePoints: 0,
 
-          setInfo({
-            ...info,
-            gamePoints: response?.data?.gamePoints,
-            // gamePoints: 0,
-
-            battlesCount: response?.data?.battlesCount,
-            potInfo: response?.data?.potInfo,
-            lastLuckyCard: response?.data?.lastLuckyNumber,
-            dailyScratchRemaining: response?.data?.dailyScratchRemaining,
-            saturnUnlockRewardInfoList:
-              response?.data?.saturnUnlockRewardInfoList,
-            neptuneUnlockRewardInfoList:
-              response?.data?.neptuneUnlockRewardInfoList,
-            travelPlanetIndex: response?.data?.travelPlanetIndex,
-            todayLuckyTickets: response?.data?.todayLuckyTickets,
-            yestLuckyTickets: response?.data?.yesterdayLuckyTickets,
-            talentPoints: Math.floor(response?.data?.talentPoints / 20000),
-            travelPlanetIndex: response?.data?.travelPlanetIndex,
-          });
-          setInfoCalled(true);
+              battlesCount: response?.data?.battlesCount,
+              potInfo: response?.data?.potInfo,
+              lastLuckyCard: response?.data?.lastLuckyNumber,
+              dailyScratchRemaining: response?.data?.dailyScratchRemaining,
+              saturnUnlockRewardInfoList:
+                response?.data?.saturnUnlockRewardInfoList,
+              neptuneUnlockRewardInfoList:
+                response?.data?.neptuneUnlockRewardInfoList,
+              travelPlanetIndex: response?.data?.travelPlanetIndex,
+              todayLuckyTickets: response?.data?.todayLuckyTickets,
+              yestLuckyTickets: response?.data?.yesterdayLuckyTickets,
+              // todayLuckyTickets: [],
+              // yestLuckyTickets: [],
+              talentPoints: Math.floor(response?.data?.talentPoints / 20000),
+              travelPlanetIndex: response?.data?.travelPlanetIndex,
+            });
+            setInfoCalled(true);
+          }
         })
       )
-      .catch((error) => {});
+      .catch((error) => {
+        setToast(true);
+      });
   };
 
   const getBattleRecords = () => {
@@ -264,7 +278,10 @@ export const DataProvider = ({ children }) => {
     fetch(`${baseUrl}/api/activity/rps/getWinnerInfo`)
       .then((response) =>
         response.json().then((response) => {
+          // debugger;
           setLastLuckyWinners(response?.data || []);
+          // setLastLuckyWinners(userOverallData);
+          // setLastLuckyWinners([]);
         })
       )
       .catch((error) => {
@@ -318,6 +335,8 @@ export const DataProvider = ({ children }) => {
         getBattleLbData,
         calculateEstRewards,
         infoCalled,
+        toast,
+        close,
       }}
     >
       {children}

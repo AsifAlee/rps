@@ -19,15 +19,9 @@ const LuckyDetails = ({ clickHandler }) => {
         <div className="details-content">
           <table>
             <tr className="head">
-              <td colSpan={1} style={{ width: "10%" }}>
-                Button Name
-              </td>
-              <td colSpan={1} style={{ width: "10%" }}>
-                Gaming Points Required{" "}
-              </td>
-              <td colSpan={1} style={{ width: "80%" }}>
-                Rewards
-              </td>
+              <td style={{ width: "5%" }}>Button Name</td>
+              <td style={{ width: "5%" }}>Gaming Points Required </td>
+              <td style={{ width: "90%" }}>Rewards</td>
             </tr>
             <tr className="reward-row">
               <td>Play</td>

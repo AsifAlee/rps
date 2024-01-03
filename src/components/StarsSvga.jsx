@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import SVGA from "svgaplayerweb";
 
-const SvgaPlayer = ({ src, start, rps, lucky }) => {
+const StarsSvga = ({ src, snookerTable, stick, crane, foosball, start }) => {
   const playerRef = useRef(null);
   var player, parser;
   useEffect(() => {
-    player = new SVGA.Player("#rpsSvga");
-    parser = new SVGA.Parser("#rpsSvga");
+    player = new SVGA.Player("#travelSvga");
+    parser = new SVGA.Parser("#travelSvga");
     parser.load(src, function (videoItem) {
       player.setVideoItem(videoItem);
+      playerRef.current.startAnimation();
     });
     playerRef.current = player;
     return () => {
@@ -19,6 +20,7 @@ const SvgaPlayer = ({ src, start, rps, lucky }) => {
     playerRef.current.startAnimation();
   };
   const handleStopClick = () => {
+    // console.log("stop animation calledd");
     playerRef.current.stopAnimation();
     initializeSVGAPlayer();
   };
@@ -30,13 +32,9 @@ const SvgaPlayer = ({ src, start, rps, lucky }) => {
     }
   }, [start]);
 
-  useEffect(() => {
-    initializeSVGAPlayer();
-  }, [lucky]);
-
   const initializeSVGAPlayer = () => {
-    player = new SVGA.Player("#rpsSvga");
-    parser = new SVGA.Parser("#rpsSvga");
+    player = new SVGA.Player("#travelSvga");
+    parser = new SVGA.Parser("#travelSvga");
     parser.load(src, function (videoItem) {
       player.setVideoItem(videoItem);
     });
@@ -45,22 +43,9 @@ const SvgaPlayer = ({ src, start, rps, lucky }) => {
 
   return (
     <>
-      <div
-        // className={
-        //   (snookerTable && "snooker-table") ||
-        //   (stick && "snooker-stick") ||
-        //   (crane && "crane") ||
-        //   (foosball && "foosball-svg")
-        // }
-        className={rps ? "rpsSvga-wrap" : lucky ? "lucky-game-wrap" : ""}
-        id="rpsSvga"
-        style={{
-          // display: lucky && !start ? "none" : "block",
-          display: !start ? "none" : "block",
-        }}
-      ></div>
+      <div id="travelSvga" className="stars-svga"></div>
     </>
   );
 };
 
-export default SvgaPlayer;
+export default StarsSvga;

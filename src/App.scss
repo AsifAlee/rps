@@ -4,11 +4,14 @@
 .App {
   text-align: center;
   background-image: url("../src/assets/images/battle/bg.jpg");
+  background-size: cover;
 
   .guideNGifting {
     top: 87vw;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    z-index: 3;
+
   }
 
   .main-tabs {
@@ -42,19 +45,20 @@
       // left: -3vw;
   
     }
-    // .rank11-20 {
-    //   width: 31vw;
-    //   height: 11vw;
-    //   background-image: url("../assets//images/diwali-dhamka/rank-11-20.png");
-    //   background-repeat: no-repeat;
-    //   background-size: 100% 100%;
-    // }
-    // .rank21-30 {
-    //   width: 30vw;
-    //   height: 11vw;
-    //   background-image: url("../assets//images/diwali-dhamka/rank21-20.png");
-    //   background-repeat: no-repeat;
-    //   background-size: 100% 100%;
-    // }
+
+  }
+  .guide-btn-wrap{
+    width: 22vw;
+    position: fixed;
+    left: 0vw;
+    top: 48vw;
+    z-index: 3;
+  }
+  .event-gifting-wrap{
+    width: 22vw;
+    position: fixed;
+    right: 5vw;
+    top: 48vw;
+    z-index: 3;
   }
 }

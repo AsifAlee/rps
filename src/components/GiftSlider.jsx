@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import leftArrow from "../assets/images/battle/left-arrow.png";
 import { getRewardsImage } from "../functions";
 import "../styles/slider.scss";
+import SliderDot from "./SliderDot";
 
-const GiftSlider = ({ rewards, showTarget }) => {
+const GiftSlider = ({ rewards, showTarget, showIndicators }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   let intervalId = null;
   const nextSlide = () => {
@@ -59,40 +60,13 @@ const GiftSlider = ({ rewards, showTarget }) => {
           );
         })}
       </div>
-      {/* {!hideArrows && (
-        <img className="left-arrow" src={leftArrow} onClick={prevSlide} />
-      )}
-      <div className="slider-content">
-        {showRanks && (
-          <div style={{ fontSize: "3vw" }}>{rewards[currentIndex]?.rank}</div>
-        )}
-
-        <div className="rew-container">
-          {rewards[currentIndex]?.pageRewards?.map((singleRew, index) => {
-            return (
-              <div className="reward-item" key={index}>
-                <img
-                  src={getRewardsImage(singleRew.name)}
-                  className="reward-img"
-                />
-
-                <p className="center">{singleRew.desc}</p>
-              </div>
-            );
-          })}
+      {showIndicators && (
+        <div className="indicators">
+          {rewards.map((item, index) => (
+            <SliderDot isActive={index === currentIndex} />
+          ))}
         </div>
-
-        {showIndicators && (
-          <div className="indicators">
-            {rewards.map((item, index) => (
-              <SliderDot isActive={index === currentIndex} />
-            ))}
-          </div>
-        )}
-      </div>
-      {!hideArrows && (
-        <img className="right-arrow flip" src={leftArrow} onClick={nextSlide} />
-      )} */}
+      )}
     </div>
   );
 };
