@@ -55,61 +55,72 @@ const BattleRecords = ({ clickHandler }) => {
 
         <div className="records-content m-auto">
           {!rps?.length ? (
-            <div>No Records Found</div>
+            <div
+              style={{
+                position: "relative",
+                top: "29vw",
+              }}
+            >
+              No Records Found
+            </div>
           ) : (
-            <table className="m-auto">
-              <tr className="head">
-                <td colSpan={1} style={{ width: "40%" }}>
-                  Time(GMT)
-                </td>
-                <td colSpan={1} style={{ width: "15%" }}>
-                  <span style={{ position: "relative", right: "1vw" }}>
-                    Element
-                  </span>
-                </td>
-                <td colSpan={1} style={{ width: "15%" }}>
-                  Result
-                </td>
-                <td colSpan={1} style={{ width: "30%" }}>
-                  Rewards
-                </td>
-              </tr>
-              {rps.map((rec) => {
-                const dateArr = new Date(rec?.time)
-                  ?.toLocaleString()
-                  ?.split(",");
-                return (
-                  <tr className="bat-rec-rows">
-                    <td>
-                      {
-                        <div>
-                          <p style={{ fontSize: "2.5vw" }}>{dateArr[0]}</p>
-                          <p style={{ fontSize: "2.5vw" }}>{dateArr[1]}</p>
+            <div className="table-wrap">
+              <table className="m-auto">
+                <tr className="head">
+                  <td colSpan={1} style={{ width: "40%" }}>
+                    Time
+                  </td>
+                  <td colSpan={1} style={{ width: "15%" }}>
+                    <span style={{ position: "relative", right: "1vw" }}>
+                      Element
+                    </span>
+                  </td>
+                  <td colSpan={1} style={{ width: "15%" }}>
+                    Result
+                  </td>
+                  <td colSpan={1} style={{ width: "30%" }}>
+                    Rewards
+                  </td>
+                </tr>
+                {rps.map((rec) => {
+                  const dateArr = new Date(rec?.time)
+                    ?.toLocaleString()
+                    ?.split(",");
+                  return (
+                    <tr className="bat-rec-rows">
+                      <td style={{ fontWeight: "bold" }}>
+                        {
+                          <div>
+                            <p style={{ fontSize: "2.5vw" }}>{dateArr[0]}</p>
+                            <p style={{ fontSize: "2.5vw" }}>{dateArr[1]}</p>
+                          </div>
+                        }
+                      </td>
+                      <td style={{ fontWeight: "bold" }}>
+                        {rec?.score >= 20 && rec?.score <= 22
+                          ? "Rock"
+                          : rec?.score >= 30 && rec?.score <= 32
+                          ? "Paper"
+                          : rec?.score >= 10 && rec?.score <= 12
+                          ? "Scissor"
+                          : ""}
+                      </td>
+                      <td style={{ fontWeight: "bold" }}>
+                        {RpsWinLoss(rec?.score)}
+                      </td>
+                      <td>
+                        <div
+                          // style={{ position: "relative", top: "-3vw" }}
+                          className="d-flex j-center al-center"
+                        >
+                          <RecordRewardItem item={rec?.rewardDTOList[0]} />
                         </div>
-                      }
-                    </td>
-                    <td>
-                      {rec?.score >= 20 && rec?.score <= 22
-                        ? "Rock"
-                        : rec?.score >= 30 && rec?.score <= 32
-                        ? "Paper"
-                        : rec?.score >= 10 && rec?.score <= 12
-                        ? "Scissor"
-                        : ""}
-                    </td>
-                    <td>{RpsWinLoss(rec?.score)}</td>
-                    <td>
-                      <div
-                        // style={{ position: "relative", top: "-3vw" }}
-                        className="d-flex j-center al-center"
-                      >
-                        <RecordRewardItem item={rec?.rewardDTOList[0]} />
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </table>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
           )}
         </div>
       </div>

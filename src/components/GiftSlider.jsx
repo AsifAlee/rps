@@ -34,7 +34,7 @@ const GiftSlider = ({ rewards, showTarget, showIndicators }) => {
     <div className={`gift-slider`}>
       <div className="arrowsNRank">
         <img className="left-arrow" src={leftArrow} onClick={prevSlide} />
-        <span className="rank">{`TOP ${rewards[currentIndex].rank}`}</span>
+        <span className="golden-text rank">{`TOP ${rewards[currentIndex].rank}`}</span>
         <img className="right-arrow flip" src={leftArrow} onClick={nextSlide} />
       </div>
 

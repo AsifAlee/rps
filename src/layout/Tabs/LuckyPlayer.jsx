@@ -245,7 +245,11 @@ const LuckyPlayer = () => {
           />
           <p>50k game points required</p>
         </div>
-        <div className="scratch-rem d-flex j-center al-center">
+        <div
+          className={`scratch-rem d-flex j-center al-center ${
+            !dailyScratchRemaining && "blackNWhite"
+          }`}
+        >
           <span>Daily Scratch Remaining:{dailyScratchRemaining}</span>
         </div>
       </div>
@@ -353,7 +357,7 @@ const LuckyPlayer = () => {
               <>
                 <p>The Lucky Number will be revealed at 00:00:00 GMT</p>
                 <div className="scratch-bg d-flex j-center al-center">
-                  <span style={{ fontSize: "7vw" }}>??????</span>
+                  <span style={{ fontSize: "7vw" }}>?????</span>
                 </div>
               </>
             ) : (

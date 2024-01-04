@@ -19,7 +19,7 @@
       display: flex;
       // justify-content: center;
       align-items: center;
-      gap: 2vw;
+      // gap: 2vw;
   
       .index {
         font-family: "HiJack";
@@ -39,6 +39,8 @@
         border-radius: 100%;
   
         z-index: 0;
+        position: relative;
+        left: 1vw;
       }
   
       .user-details {
@@ -46,7 +48,7 @@
         flex-direction: column;
         font-family: "Helvetica";
         position: relative;
-        left: -1.5vw;
+        left: 1.5vw;
         font-size: 2.5vw;
         .name {
           font-size: 2.7vw;

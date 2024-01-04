@@ -296,6 +296,7 @@ export const DataProvider = ({ children }) => {
       .then((response) =>
         response.json().then((response) => {
           setTalentTourLbData(response?.data?.list || []);
+          // setTalentTourLbData(userOverallData);
         })
       )
       .catch((error) => {

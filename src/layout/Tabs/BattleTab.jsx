@@ -167,8 +167,8 @@ const BattleTab = () => {
     setGamePopUp((prevState) => !prevState);
     // setResultImage("");
     setAnimFinished(false);
-    // setIsDisabled(false);
-    // setIsPlaying(false);
+    setIsDisabled(false);
+    setIsPlaying(false);
   };
 
   const handleRadioSelect = (name) => {
@@ -214,8 +214,8 @@ const BattleTab = () => {
           setIsPlaying(true);
           setGameMsg(response?.msg);
           setTimeout(() => {
-            setIsPlaying(false);
-            setIsDisabled(false);
+            // setIsPlaying(false);
+            // setIsDisabled(false);
             setGameErrCode(response.errorCode);
             setRpsResult(rpsRes);
             // setGamePopUp(true);
@@ -237,7 +237,7 @@ const BattleTab = () => {
 
   return (
     <div className="battle-tab">
-      <div style={{ position: "relative", top: "-21vw" }}>
+      <div style={{ position: "absolute", top: "-21vw", width: "100%" }}>
         <Marquee play={true}>
           {battle?.slice(0, 3).map((item) => {
             return (
@@ -304,6 +304,7 @@ const BattleTab = () => {
             start={isPlaying}
             rps={true}
             lucky={resultImage ? true : false}
+            animFinished={animFinished}
           />
           {resultImage ? <img src={resultImage} className="result-img" /> : ""}
 
@@ -331,7 +332,10 @@ const BattleTab = () => {
           disabled={isPlaying || isDisabled}
         />
         <span className="points-text">15K Pts Req</span>
-        <div className="battles-won-count d-flex j-center al-center">
+        <div
+          className="battles-won-count d-flex j-center al-center"
+          style={{ filter: !info?.battlesCount ? "grayScale(1)" : "" }}
+        >
           <img src={battleWon} />
           <span>Battles Won : {info?.battlesCount}</span>
         </div>

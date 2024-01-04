@@ -142,6 +142,7 @@ button {
   position: relative;
   font-size: 4.7vw;
   font-family: "EvilEmpire";
+  margin-top: 2vw;
 }
 
 .p-rel {
@@ -328,4 +329,8 @@ button {
 
   visibility: hidden;
   top: 0px;
+}
+.colorFull{
+  filter: grayscale(0);
+
 }

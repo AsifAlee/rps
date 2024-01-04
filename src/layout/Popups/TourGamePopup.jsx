@@ -27,7 +27,7 @@ const TourGamePopup = ({
           {errorCode === 0 ? (
             <div className="success">
               <p className="p1">
-                You've successfully boarded your ship{" "}
+                You've successfully boarded your spaceship{" "}
                 <img src={ship} className="battle-icon" />
               </p>
 

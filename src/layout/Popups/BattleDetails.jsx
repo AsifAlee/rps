@@ -15,13 +15,13 @@ const BattleDetails = ({ clickHandler }) => {
         <div className="details-content">
           <table>
             <tr className="head">
-              <td colSpan={1} style={{ width: "10%" }}>
+              <td colSpan={1} style={{ width: "10%", color: "white" }}>
                 Button Name
               </td>
-              <td colSpan={1} style={{ width: "10%" }}>
+              <td colSpan={1} style={{ width: "10%", color: "white" }}>
                 Gaming Points Required{" "}
               </td>
-              <td colSpan={1} style={{ width: "80%" }}>
+              <td colSpan={1} style={{ width: "80%", color: "white" }}>
                 Rewards
               </td>
             </tr>

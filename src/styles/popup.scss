@@ -49,8 +49,6 @@
       width: 69vw;
       left: 12vw;
       top: -17vw;
-
-      
     }
     .guide-content {
       width: 93%;
@@ -84,7 +82,6 @@
           color: white;
           position: relative;
           top: -5vw;
-      
         }
         .gifts-container {
           display: flex;
@@ -350,6 +347,7 @@
       overflow-y: auto;
       // height: 92vw;
       padding: 4vw;
+
       table {
         border: 0.4vw solid white;
 
@@ -358,9 +356,10 @@
         width: 86%;
         font-size: 3vw;
 
-        border-collapse: collapse;
+        // border-collapse: collapse;
         border-spacing: 0;
         border-radius: 2vw;
+        overflow: hidden;
 
         position: relative;
         top: 3vw;
@@ -379,14 +378,11 @@
           border-right: none;
         }
         tr td {
-          color: white;
-          border-right: 0.4vw solid white;
+          color: #6a579a;
+          border: 0.4vw solid white;
           padding: 0.7vw;
           text-align: center;
-
-          border-bottom: none;
-          border-left: none;
-          border-top: none;
+          font-weight: bold;
         }
 
         tr td:last-child {
@@ -395,6 +391,7 @@
 
         .reward-row {
           // height: 41vw;
+          background-color: #d3c1ff;
         }
       }
     }
@@ -428,31 +425,38 @@
       position: relative;
       top: 14vw;
       color: white;
-
-      table {
-        width: 95%;
-        // border: 1vw solid #fae8bb;
-        border-radius: 0.2vw;
-        border-spacing: 0;
-        table-layout: fixed;
-
-        border-collapse: collapse;
+      .table-wrap {
+        border: 0.5vw solid #fae8bb;
+        width: 100%;
         border-radius: 4vw;
         overflow: hidden;
 
-        .head td {
-          background-color: #645194;
-          padding: 2vw;
-          border: 0.5vw solid #fae8bb;
-          font-size: 2vw;
-        }
+        table {
+          width: 100%;
+          // border: 1vw solid #fae8bb;
+          // border-spacing: 0;
+          table-layout: fixed;
 
-        tr td {
-          border: 0.5vw solid #fae8bb;
-          font-size: 2.5vw;
-        }
-        .bat-rec-rows {
-          height: 22vw;
+          border-collapse: collapse;
+          border-radius: 4vw;
+
+          .head td {
+            background-color: #645194;
+            padding: 2vw;
+            // border: 0.5vw solid #fae8bb;
+            font-size: 2vw;
+            color: white;
+          }
+
+          tr td {
+            border: 0.5vw solid #fae8bb;
+            font-size: 2.5vw;
+            color: #645194;
+          }
+          .bat-rec-rows {
+            height: 22vw;
+            background-color: #d3c1ff;
+          }
         }
       }
     }
@@ -477,7 +481,7 @@
     }
     .records-content {
       font-family: "PoppinsMedium";
-      width: 95%;
+      width: 100%;
       height: 72vw;
       // margin: 4vw auto 0 auto;
       overflow-y: auto;
@@ -487,41 +491,42 @@
       top: 14vw;
       color: white;
       overflow-x: hidden;
-
-      table {
-        width: 100%;
-        // border: 1vw solid #fae8bb;
-        // border-collapse: collapse;
-        // border-radius: 0.2vw;
-        table-layout: fixed;
-
-        border-radius: 0.2vw;
-        border-spacing: 0;
-        table-layout: fixed;
-
-        border-collapse: collapse;
+      .tour-table-wrap {
+        border: 0.5vw solid #fae8bb;
+        width: 95%;
         border-radius: 4vw;
         overflow: hidden;
+    
+        margin: 0 auto;
+        table {
+          width: 100%;
 
-        .head td {
-          background-color: #645194;
-          padding: 3vw;
-          border: 0.5vw solid #fae8bb;
-          font-size: 2vw;
-        }
+          table-layout: fixed;
 
-        tr td {
-          // padding: 1vw;
-          border: 0.5vw solid #fae8bb;
-          font-size: 2.5vw;
+          border-collapse: collapse;
+       
+          margin: 0 auto;
 
-          // border-bottom: none;
-          // border-left: none;
-          // border-top: none;
-        }
+          .head td {
+            background-color: #645194;
+            padding: 3vw;
+            font-size: 2vw;
+            color: white;
+          }
 
-        .tal-rec-rows {
-          // height: 22vw;
+          tr td {
+         
+            border: 0.5vw solid #fae8bb;
+            font-size: 2.5vw;
+            color: #645194;
+
+        
+          }
+
+          .tal-rec-rows {
+          
+            background-color: #d3c1ff;
+          }
         }
       }
     }
@@ -635,7 +640,7 @@
       // border: 1px solid;
       width: 90%;
       left: 3vw;
-      .no-rews{
+      .no-rews {
         position: relative;
         top: 14vw;
       }
@@ -645,7 +650,6 @@
         align-items: center;
         flex-direction: column;
 
- 
         .p1 {
           font-size: 4vw;
           width: 80%;
@@ -758,7 +762,6 @@
 
           margin-left: 1vw;
           margin-right: 1vw;
-          
         }
       }
 

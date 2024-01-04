@@ -896,7 +896,7 @@
 
   .tour-lb {
     width: 90%;
-    min-height: 184vw;
+    // min-height: 184vw;
     position: relative;
     width: 95%;
     background-size: 100% 100%;
@@ -907,16 +907,17 @@
 
     .title {
       width: 84%;
-      position: absolute;
-      left: 7vw;
+      position: relative;
+      // left: 7vw;
       top: -19vw;
     }
 
     .lb-restWinners {
       overflow: hidden;
-      height: 151vw;
+      // height: 151vw;
+      max-height: 151vw;
       position: relative;
-      top: 15vw;
+      top: -19vw;
       width: 90%;
       left: 3vw;
     }
@@ -944,7 +945,7 @@
     }
     .seeMore {
       position: relative;
-      top: 14vw;
+      top: -13vw;
     }
   }
 }

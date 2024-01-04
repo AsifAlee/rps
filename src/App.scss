@@ -5,6 +5,7 @@
   text-align: center;
   background-image: url("../src/assets/images/battle/bg.jpg");
   background-size: cover;
+  padding-bottom: 4vw;
 
   .guideNGifting {
     top: 87vw;
@@ -51,14 +52,14 @@
     width: 22vw;
     position: fixed;
     left: 0vw;
-    top: 48vw;
+    top: 80vw;
     z-index: 3;
   }
   .event-gifting-wrap{
     width: 22vw;
     position: fixed;
     right: 5vw;
-    top: 48vw;
+    top: 80vw;
     z-index: 3;
   }
 }

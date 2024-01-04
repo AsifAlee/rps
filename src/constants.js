@@ -1,10 +1,10 @@
 export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
-// export const testUserId = 596492373;
+export const testUserId = 596492373;
 
-export const testUserId = 502184258;
+// export const testUserId = 502184258;
 
-export const testToken = "A1792F68B8A7D74BD0A75C5A35D6461110";
+export const testToken = "A1E23471404BD34B319B0D3A86F8111108";
 
 export const errorCodes = {
   succes: 0,

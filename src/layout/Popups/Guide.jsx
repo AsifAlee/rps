@@ -32,10 +32,10 @@ const Guide = ({ clickHandler }) => {
             <div className="howToPlaySec">
               {/* <p className="howTitle golden-text"> HOW TO PLAY?</p> */}
               <div className="acc-section">
-                <div style={{}}>
+                <div>
                   <Accordion headerTxt={1}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           When you send event gifts, you will get Game Points.{" "}
                           <span className="highlight">
@@ -43,11 +43,10 @@ const Guide = ({ clickHandler }) => {
                           </span>
                         </li>
                         <li>
-                          In this part of the event, you will be able to
-                          “Scratch” only 10 Lucky Cards daily, and at the end of
-                          the day 1 (random user) Lucky winner will be announced
-                          and will get 3 special rewards.
+                          With these Game points you will be able to play Rock,
+                          Paper and Scissors Battle
                         </li>
+
                         <li>
                           You have to select any one of the 3 images and then
                           tap on the “PLAY” button to play the RPS Battle.
@@ -86,7 +85,7 @@ const Guide = ({ clickHandler }) => {
                 <div style={{ position: "relative", top: "-1vw" }}>
                   <Accordion headerTxt={2}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           When you send event gifts, you will get Game Points.{" "}
                           <span className="highlight">
@@ -152,9 +151,7 @@ const Guide = ({ clickHandler }) => {
                           rewards
                         </li>
                         <li>
-                          <p className="highlight">
-                            All stats will refresh at 00:00:00 GMT Daily.
-                          </p>
+                          <p>All stats will refresh at 00:00:00 GMT Daily.</p>
                         </li>
                       </ol>
                     </div>
@@ -163,7 +160,7 @@ const Guide = ({ clickHandler }) => {
                 <div>
                   <Accordion headerTxt={3}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           When you receive event gifts of 20,000 beans, you will
                           get 1 spaceship ticket.{" "}
@@ -227,69 +224,47 @@ const Guide = ({ clickHandler }) => {
                 <div>
                   <Accordion headerTxt={4}>
                     <div className="body-item">
-                      <div className="d-flex f-column text-left">
-                        <span className="e-title text-left highlight">
-                          {" "}
-                          For Users:
-                        </span>
-                        <ol>
-                          <li>
-                            In the total ranking, the top 3 users will be
-                            rewarded.
-                          </li>
-                          <li>
-                            Rewards will be sent after 7 working days of the
-                            event end date.
-                          </li>
-                        </ol>
-                      </div>
-                      <div className="d-flex f-column text-left">
-                        <span className="e-title text-left highlight">
-                          {" "}
-                          For Talents:
-                        </span>
-                        <ol>
-                          <li>
-                            In the total ranking, the top 3 talents will be
-                            rewarded.
-                          </li>
-                          <li>
-                            Rewards will be sent after 7 working days of the
-                            event end date.
-                          </li>
-                        </ol>
+                      <div
+                        className="list-div"
+                        style={{ paddingTop: "3vw", height: "34vw" }}
+                      >
+                        <div className="d-flex f-column text-left">
+                          <span className="e-title text-left highlight">
+                            {" "}
+                            For Users:
+                          </span>
+                          <ol>
+                            <li>
+                              In the total ranking, the top 3 users will be
+                              rewarded.
+                            </li>
+                            <li>
+                              Rewards will be sent after 7 working days of the
+                              event end date.
+                            </li>
+                          </ol>
+                        </div>
+                        <div className="d-flex f-column text-left">
+                          <span className="e-title text-left highlight">
+                            {" "}
+                            For Talents:
+                          </span>
+                          <ol>
+                            <li>
+                              In the total ranking, the top 3 talents will be
+                              rewarded.
+                            </li>
+                            <li>
+                              Rewards will be sent after 7 working days of the
+                              event end date.
+                            </li>
+                          </ol>
+                        </div>
                       </div>
                     </div>
                   </Accordion>
                 </div>
               </div>
-              {/* <div className="event-gft-cont">
-                <h2 className="e-title">Event Gifting</h2>
-                <div className="d-flex f-column text-left">
-                  <span className="e-title text-left"> For Users:</span>
-                  <ol>
-                    <li>
-                      In the total ranking, the top 3 users will be rewarded.
-                    </li>
-                    <li>
-                      Rewards will be sent after 7 working days of the event end
-                      date.
-                    </li>
-                  </ol>
-                </div>
-                <div className="d-flex f-column text-left">
-                  <span className="e-title text-left"> For Talents:</span>
-                  <ol>
-                    <li>
-                      In the total ranking, the top 3 talents will be rewarded.
-                    </li>
-                    <li>
-                      Rewards will be sent after 7 working days of the event end
-                      date.
-                    </li>
-                  </ol>
-                </div>
-              </div> */}
             </div>
           ) : (
             <div className="howToPlaySec">
@@ -298,7 +273,7 @@ const Guide = ({ clickHandler }) => {
                 <div>
                   <Accordion headerTxt={1}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           Jab aap event gifts bhejen gy, tou aap haasil karen gy
                           Game Points.{" "}
@@ -340,7 +315,7 @@ const Guide = ({ clickHandler }) => {
                             Event gifts par kharch hone wale beans ka 0.5% beans
                             pot mein collect hoga aur collect kiye gaye Beans ko
                             leaderboard k top 3 rankers k beech har roz
-                            distribute kiya jae ga
+                            distribute kiya jae ga.
                           </p>
                         </li>
                       </ol>
@@ -350,7 +325,7 @@ const Guide = ({ clickHandler }) => {
                 <div style={{ position: "relative", top: "-1vw" }}>
                   <Accordion headerTxt={2}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           Jab aap event gifts bhejen gy, tou aap haasil karen gy
                           Game Points.{" "}
@@ -421,73 +396,11 @@ const Guide = ({ clickHandler }) => {
                     </div>
                   </Accordion>
                 </div>
-                <div>
-                  <Accordion headerTxt={3}>
-                    <div className="body-item">
-                      <ol>
-                        <li>
-                          Jab aap 20,000 beans kay event gifts haasil karte
-                          hain, tou aap ko 1 spaceship ticket mile ga.
-                          <span className="highlight">
-                            Event gifts of 20,000 beans = 1 Spaceship Ticket.
-                          </span>
-                        </li>
-                        <li>
-                          Webpage par “My Spaceship Tickets” ka counter hai.
-                        </li>
-                        <li>
-                          Event kay is hissay mein aap do alag alag planets par
-                          safar karne ka mouqa payenge aur inaam hasil karen gy.
-                        </li>
-                        <li>Webpage par 2 planets (Saturn aur Neptune) hain</li>
-                        <li>
-                          Saturn planet unlock hai aur Neptune planet lock hai.
-                        </li>
-                        <li>
-                          Dono Saturn aur Neptune mein 10 inaam grid ki surat
-                          mein majood hain.
-                        </li>
-                        <li> Webpage par aik "Travel" button hai.</li>
-                        <li>
-                          <p className="highlight">
-                            Har bar safar karne ke liye aapko 1 Spaceship Ticket
-                            ki zarurat hogi.
-                          </p>
-                        </li>
-                        <li>
-                          Jab aap "Travel" button par kamiyabi se tap karte
-                          hain, tou aap ko inaam mile ga
-                        </li>
-
-                        <li>
-                          Jab aap tamam 10 inaam kamiyabi se hasil karte hain,
-                          tou agla planet yani Neptune unlock ho jayega.
-                        </li>
-
-                        <li>
-                          Aapko pehle planet Saturn ka safar pura karna zaruri
-                          hai phir aap agle planet Neptune ka safar shuru kar
-                          sakte hain
-                        </li>
-                        <li>
-                          Agar tamam safar kamiyabi se mukammal hote hain, tou
-                          aap dono planets mein se kisi bhi aik par dobara inaam
-                          hasil karne ja sakte hain.
-                        </li>
-                        <li>
-                          <p className="highlight">
-                            Dono planets mein safar k alag alag inaam hain
-                          </p>
-                        </li>
-                      </ol>
-                    </div>
-                  </Accordion>
-                </div>
 
                 <div>
                   <Accordion headerTxt={3}>
                     <div className="body-item">
-                      <ol>
+                      <ol className="list-div">
                         <li>
                           Jab aap 20,000 beans kay event gifts haasil karte
                           hain, tou aap ko 1 spaceship ticket mile ga.
@@ -550,69 +463,47 @@ const Guide = ({ clickHandler }) => {
                 <div>
                   <Accordion headerTxt={4}>
                     <div className="body-item">
-                      <div className="d-flex f-column text-left">
-                        <span className="e-title text-left highlight">
-                          {" "}
-                          For Users:
-                        </span>
-                        <ol>
-                          <li>
-                            Total ranking mein, top 3 users ko rewards milein
-                            gay.
-                          </li>
-                          <li>
-                            Rewards event khatam honay k 7 din baad tak send
-                            kiye jayen gay.
-                          </li>
-                        </ol>
-                      </div>
-                      <div className="d-flex f-column text-left">
-                        <span className="e-title text-left highlight">
-                          {" "}
-                          For Talents:
-                        </span>
-                        <ol>
-                          <li>
-                            Total ranking mein, top 3 talents ko rewards milein
-                            gay.
-                          </li>
-                          <li>
-                            Rewards event khatam honay k 7 din baad tak send
-                            kiye jayen gay.
-                          </li>
-                        </ol>
+                      <div
+                        className="list-div"
+                        style={{ paddingTop: "3vw", height: "34vw" }}
+                      >
+                        <div className="d-flex f-column text-left">
+                          <span className="e-title text-left highlight">
+                            {" "}
+                            For Users:
+                          </span>
+                          <ol>
+                            <li>
+                              Total ranking mein, top 3 users ko rewards milein
+                              gay.
+                            </li>
+                            <li>
+                              Rewards event khatam honay k 7 din baad tak send
+                              kiye jayen gay.
+                            </li>
+                          </ol>
+                        </div>
+                        <div className="d-flex f-column text-left">
+                          <span className="e-title text-left highlight">
+                            {" "}
+                            For Talents:
+                          </span>
+                          <ol>
+                            <li>
+                              Total ranking mein, top 3 talents ko rewards
+                              milein gay.
+                            </li>
+                            <li>
+                              Rewards event khatam honay k 7 din baad tak send
+                              kiye jayen gay.
+                            </li>
+                          </ol>
+                        </div>
                       </div>
                     </div>
                   </Accordion>
                 </div>
               </div>
-              {/* <div className="event-gft-cont">
-                <h2 className="e-title">Event Gifting</h2>
-                <div className="d-flex f-column text-left">
-                  <span className="e-title text-left"> For Users:</span>
-                  <ol>
-                    <li>
-                      Total ranking mein, top 3 users ko rewards milein gay.
-                    </li>
-                    <li>
-                      Rewards event khatam honay k 7 din baad tak send kiye
-                      jayen gay.
-                    </li>
-                  </ol>
-                </div>
-                <div className="d-flex f-column text-left">
-                  <span className="e-title text-left"> For Talents:</span>
-                  <ol>
-                    <li>
-                      Total ranking mein, top 3 talents ko rewards milein gay.
-                    </li>
-                    <li>
-                      Rewards event khatam honay k 7 din baad tak send kiye
-                      jayen gay.
-                    </li>
-                  </ol>
-                </div>
-              </div> */}
             </div>
           )}
         </div>

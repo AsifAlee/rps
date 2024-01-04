@@ -45,7 +45,7 @@ const EventGifting = ({ popUpHandler }) => {
       <div className="gifting-content">
         <img src={giftingTitle} className="title" />
         <div className="gifts-sec">
-          <p className="gift-title"> GIFTS</p>
+          <p className="gift-title golden-text">EVENT GIFTS</p>
 
           <div className="gifts-container">
             {gifts.map((item) => (

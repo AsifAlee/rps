@@ -31,7 +31,7 @@ const TalentTour = () => {
     infoCalled,
     getTourRecords,
   } = useContext(AppContext);
-  console.log("info callled:", infoCalled);
+  // console.log("info callled:", infoCalled);
   // debugger;
   const divRef = useRef(null);
   const [destination, setDestination] = useState(0);
@@ -143,18 +143,19 @@ const TalentTour = () => {
 
   const changePlanetIndex = (index) => {
     if (selectedPlanet === 2) {
+      // debugger;
       setSelectedPlanet(1);
     } else {
+      // debugger;
       setSelectedPlanet(2);
     }
-    console.log("index is :", index);
+    // console.log("index is :", index);
   };
   const playGame = () => {
+    console.log("selected planet:", selectedPlanet);
     setIsDisabled(true);
     fetch(
-      `${baseUrl}/api/activity/rps/talentTour?planetIndex=${
-        travelPlanetIndex === 0 ? selectedPlanet : travelPlanetIndex
-      }`,
+      `${baseUrl}/api/activity/rps/talentTour?planetIndex=${selectedPlanet}`,
       {
         method: "POST",
         headers: {
@@ -231,40 +232,130 @@ const TalentTour = () => {
               <div className="game-rewards">
                 <div className="left-rewards">
                   <div className="reward10">
-                    <TourComponent rew={saturnRewards.ten} />
+                    <TourComponent
+                      rew={saturnRewards.ten}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 10
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward8">
-                    <TourComponent rew={saturnRewards.eight} />
+                    <TourComponent
+                      rew={saturnRewards.eight}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 8
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward6">
-                    <TourComponent rew={saturnRewards.six} />
+                    <TourComponent
+                      rew={saturnRewards.six}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 6
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward4">
-                    <TourComponent rew={saturnRewards.four} />
+                    <TourComponent
+                      rew={saturnRewards.four}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 4
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward2">
-                    <TourComponent rew={saturnRewards.two} />
+                    <TourComponent
+                      rew={saturnRewards.two}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 2
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                 </div>
 
                 <div className="right-rewards">
                   <div className="reward9">
-                    <TourComponent rew={saturnRewards.nine} />
+                    <TourComponent
+                      rew={saturnRewards.nine}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 9
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward7">
-                    <TourComponent rew={saturnRewards.seven} />
+                    <TourComponent
+                      rew={saturnRewards.seven}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 7
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward5">
-                    <TourComponent rew={saturnRewards.five} />
+                    <TourComponent
+                      rew={saturnRewards.five}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 5
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward3">
-                    <TourComponent rew={saturnRewards.three} />
+                    <TourComponent
+                      rew={saturnRewards.three}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 3
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward1">
-                    <TourComponent rew={saturnRewards.one} />
+                    <TourComponent
+                      rew={saturnRewards.one}
+                      isAchieved={
+                        saturnUnlockRewardInfoList?.length === 10
+                          ? false
+                          : saturnUnlockRewardInfoList?.length >= 1
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                 </div>
 
@@ -357,40 +448,130 @@ const TalentTour = () => {
               <div className="game-rewards">
                 <div className="left-rewards">
                   <div className="reward10">
-                    <TourComponent rew={neptuneRewards.ten} />
+                    <TourComponent
+                      rew={neptuneRewards.ten}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 10
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward8">
-                    <TourComponent rew={neptuneRewards.eight} />
+                    <TourComponent
+                      rew={neptuneRewards.eight}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 8
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward6">
-                    <TourComponent rew={neptuneRewards.six} />
+                    <TourComponent
+                      rew={neptuneRewards.six}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 6
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward4">
-                    <TourComponent rew={neptuneRewards.four} />
+                    <TourComponent
+                      rew={neptuneRewards.four}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 4
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward2">
-                    <TourComponent rew={neptuneRewards.two} />
+                    <TourComponent
+                      rew={neptuneRewards.two}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 2
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                 </div>
 
                 <div className="right-rewards">
                   <div className="reward9">
-                    <TourComponent rew={neptuneRewards.nine} />
+                    <TourComponent
+                      rew={neptuneRewards.nine}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 9
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward7">
-                    <TourComponent rew={neptuneRewards.seven} />
+                    <TourComponent
+                      rew={neptuneRewards.seven}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 7
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward5">
-                    <TourComponent rew={neptuneRewards.five} />
+                    <TourComponent
+                      rew={neptuneRewards.five}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 5
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                   <div className="reward3">
-                    <TourComponent rew={neptuneRewards.three} />
+                    <TourComponent
+                      rew={neptuneRewards.three}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 3
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
 
                   <div className="reward1">
-                    <TourComponent rew={neptuneRewards.one} />
+                    <TourComponent
+                      rew={neptuneRewards.one}
+                      isAchieved={
+                        neptuneUnlockRewardInfoList?.length === 10
+                          ? false
+                          : neptuneUnlockRewardInfoList?.length >= 1
+                          ? true
+                          : false
+                      }
+                    />
                   </div>
                 </div>
 
@@ -502,13 +683,17 @@ const TalentTour = () => {
             </div>
           )}
         </div>
-        <div className="seeMore">
-          <CommonButton
-            btnImg={seeMore ? "see-more" : "see-less"}
-            seeMore={true}
-            handleClick={toggleSeeMore}
-          />
-        </div>
+        {talentTourLbData?.length > 10 ? (
+          <div className="seeMore">
+            <CommonButton
+              btnImg={seeMore ? "see-more" : "see-less"}
+              seeMore={true}
+              handleClick={toggleSeeMore}
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       {records && <TalentRecords clickHandler={toggleRecords} />}
       {gamePopUp && (

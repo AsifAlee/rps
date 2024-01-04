@@ -17,33 +17,35 @@ const LuckyDetails = ({ clickHandler }) => {
         <img src={closeBtn} className="closeBtn" onClick={clickHandler} />
         <img src={detailsTitle} className="title" />
         <div className="details-content">
-          <table>
-            <tr className="head">
-              <td style={{ width: "5%" }}>Button Name</td>
-              <td style={{ width: "5%" }}>Gaming Points Required </td>
-              <td style={{ width: "90%" }}>Rewards</td>
-            </tr>
-            <tr className="reward-row">
-              <td>Play</td>
-              <td>50,000</td>
-              <td>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.5vw",
-                    paddingLeft: "1vw",
-                    justifyContent: "space-around",
-                    alignContent: "center",
-                  }}
-                >
-                  {luckyDetailsRewards.map((item) => (
-                    <RewardItem item={item} />
-                  ))}
-                </div>
-              </td>
-            </tr>
-          </table>
+          <div className="lucky-details-tb-wrap">
+            <table>
+              <tr className="head">
+                <td style={{ width: "5%" }}>Button Name</td>
+                <td style={{ width: "5%" }}>Gaming Points Required </td>
+                <td style={{ width: "90%" }}>Rewards</td>
+              </tr>
+              <tr className="reward-row">
+                <td>Play</td>
+                <td>50,000</td>
+                <td>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "0.5vw",
+                      paddingLeft: "1vw",
+                      justifyContent: "space-around",
+                      alignContent: "center",
+                    }}
+                  >
+                    {luckyDetailsRewards.map((item) => (
+                      <RewardItem item={item} />
+                    ))}
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </PopUp>
