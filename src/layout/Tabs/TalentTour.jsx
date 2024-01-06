@@ -144,10 +144,10 @@ const TalentTour = () => {
       {
         method: "POST",
         headers: {
-          userId: user.userId,
-          token: user.token,
-          // userId: testUserId,
-          // token: testToken,
+          // userId: user.userId,
+          // token: user.token,
+          userId: testUserId,
+          token: testToken,
           "Content-Type": "application/json",
         },
       }
@@ -174,6 +174,7 @@ const TalentTour = () => {
           setGameMsg(response?.msg);
           geTalentTourLbData();
           getTourRecords();
+
           getInfo();
 
           setTimeout(() => {

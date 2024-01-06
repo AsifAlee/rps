@@ -4,7 +4,7 @@ export const testUserId = 596492373;
 
 // export const testUserId = 502184260;
 
-export const testToken = "A18016AB141E7546148BA1BD7FBEC6E8BD";
+export const testToken = "A1D3C8A3973A784F099DDDF22667B03E68";
 
 export const errorCodes = {
   succes: 0,

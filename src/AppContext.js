@@ -172,7 +172,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const getInfo = () => {
-    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${user.userId}`)
+    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${testUserId}`)
       .then((response) =>
         response.json().then((response) => {
           // debugger;
