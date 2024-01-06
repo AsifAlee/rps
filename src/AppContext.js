@@ -30,6 +30,7 @@ export const DataProvider = ({ children }) => {
     neptuneUnlockRewardInfoList: [],
     travelPlanetIndex: 0,
     travelPlanetIndex: 0,
+    avatar: "",
   });
 
   const [user, setUser] = useState({
@@ -59,6 +60,9 @@ export const DataProvider = ({ children }) => {
   };
   const close = () => {
     setToast(false);
+  };
+  const handleInfoCalled = (value) => {
+    setInfoCalled(value);
   };
   useEffect(() => {
     try {
@@ -196,8 +200,9 @@ export const DataProvider = ({ children }) => {
               // yestLuckyTickets: [],
               talentPoints: Math.floor(response?.data?.talentPoints / 20000),
               travelPlanetIndex: response?.data?.travelPlanetIndex,
+              avatar: response?.data?.portrait,
             });
-            setInfoCalled(true);
+            handleInfoCalled(true);
           }
         })
       )
@@ -304,12 +309,14 @@ export const DataProvider = ({ children }) => {
       });
   };
 
-  const calculateEstRewards = (index) => {
+  const calculateEstRewards = (index, isPrev) => {
     // console.log("the est index is:", index);
     // const potCount = info.potInfo[dateStr];
     // debugger;
     const percent = userOverallPot.find((item) => item.rank === index).percent;
-    const result = Math.floor((percent / 100) * info.potInfo[dateStr]);
+    const result = Math.floor(
+      (percent / 100) * info.potInfo[!isPrev ? dateStr : dateStrPrev]
+    );
 
     return result;
   };
@@ -336,6 +343,7 @@ export const DataProvider = ({ children }) => {
         getBattleLbData,
         calculateEstRewards,
         infoCalled,
+        handleInfoCalled,
         toast,
         close,
       }}
