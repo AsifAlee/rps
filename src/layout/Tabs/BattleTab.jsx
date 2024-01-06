@@ -45,7 +45,10 @@ import {
 } from "../../constants";
 import rpsSvga from "../../assets/animations/rpsmovement.svga";
 import SvgaPlayer from "../../components/SvgaPlayer";
-import RpsGamePopup from "../Popups/RpsGamePopup.";
+import RpsGamePopup from "../Popups/RpsGamePopup..jsx";
+import mascotDp from "../../assets/images/battle/mascot-dp.png";
+import vsGif from "../../assets/images/battle/vs-anim.gif";
+import userFrame from "../../assets/images/battle/userFrame.png";
 const BattleTab = () => {
   const {
     info,
@@ -59,7 +62,7 @@ const BattleTab = () => {
   // debugger;
 
   const { battle, battlePrev } = giftingLbData;
-  const { potInfo } = info;
+  const { potInfo, avatar } = info;
 
   // debugger;
   const [rewards, setRewards] = useState(battleLbRewards);
@@ -177,10 +180,10 @@ const BattleTab = () => {
       setResultImage(rockTie);
     } else if (name === "Paper") {
       setSelectedChar("P");
-      setResultImage(paperTie);
+      setResultImage(paperWin);
     } else {
       setSelectedChar("S");
-      setResultImage(scissorsTie);
+      setResultImage(scissorsLost);
     }
   };
 
@@ -299,6 +302,18 @@ const BattleTab = () => {
           <span>My Game Points : {info?.gamePoints}</span>
         </div>
         <div className="battle-game">
+          <div className="meVsOpp">
+            <div className="mascot-withFrame">
+              <img src={userFrame} className="mascotFrame" />
+              <img src={mascotDp} className="mascot-dp" />
+            </div>
+
+            <img src={vsGif} className="vsGif" />
+            <div className="user-withFrame">
+              <img src={userFrame} className="userFrame" />
+              <img src={avatar ? avatar : unknown} className="user-dp" />
+            </div>
+          </div>
           <SvgaPlayer
             src={rpsSvga}
             start={isPlaying}

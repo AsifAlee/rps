@@ -11,12 +11,23 @@ import gems from "../assets/images/common/gems.png";
 import "../styles/topper.scss";
 import { getLevelImage, gotoProfile } from "../functions";
 import { AppContext } from "../AppContext";
-const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
+const Topper = ({
+  index,
+  user,
+  isGifting,
+  isTalent,
+  showEstRewards,
+  isPrev,
+}) => {
   // debugger;
   const { calculateEstRewards } = useContext(AppContext);
   return (
     <div className="topper">
-      <div className="topper-images" onClick={() => gotoProfile(user?.userId)}>
+      <div
+        className="topper-images"
+        onClick={() => gotoProfile(user?.userId)}
+        style={{ left: !isGifting ? "6vw" : "5vw" }}
+      >
         <img
           src={index === 1 ? frame1 : index === 2 ? frame2 : frame3}
           className={index === 1 ? "rank" : index === 2 ? "rank2" : "rank3"}
@@ -34,6 +45,9 @@ const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
             ? "rank2-detail-bg"
             : "rank3-detail-bg"
         }`}
+        style={{
+          width: !isGifting ? "92%" : "",
+        }}
       >
         <div
           className="d-flex j-center al-center f-column"
@@ -75,7 +89,7 @@ const Topper = ({ index, user, isGifting, isTalent, showEstRewards }) => {
           )}
           {showEstRewards ? (
             <div className="estimatedBeans">
-              {`Est Beans:${calculateEstRewards(index)}`}
+              {`Est Beans:${calculateEstRewards(index, isPrev)}`}
               <img src={bean} />
             </div>
           ) : (

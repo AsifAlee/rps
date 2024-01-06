@@ -12,7 +12,7 @@
   align-items: center;
   padding-left: 4vw;
   margin-top: 2vw;
-  font-family: 'PoppinsMedium';
+  font-family: "PoppinsMedium";
   margin: 0 auto;
 
   .leftDiv {
@@ -26,8 +26,8 @@
       font-size: 3vw;
       width: 6vw;
       text-align: center;
-      span{
-        font-family: 'PoppinsMedium';
+      span {
+        font-family: "PoppinsMedium";
       }
     }
     .border-img {
@@ -57,13 +57,10 @@
         white-space: nowrap;
         overflow: hidden;
         text-align: left;
-   
-
       }
       img {
         width: 11vw;
       }
-
     }
   }
   .middleDiv {
@@ -103,18 +100,15 @@
     border-radius: 2vw;
     border: 1px solid;
     justify-content: center;
- 
-
 
     img {
       width: 5vw;
     }
     span {
       font-size: 3vw;
-      font-family: 'PoppinsMediumItalic';
+      font-family: "PoppinsMediumItalic";
       position: relative;
       left: 1vw;
-
     }
   }
 
@@ -132,13 +126,20 @@
     padding: 1vw;
     // gap: 1vw;
 
+    // .gem-img {
+    //   width: 3vw;
+    // }
+    // .bean-img {
+    //   width: 4vw;
+    // }
     img {
-      width: 5vw;
+      width: 4vw;
     }
     span {
       font-size: 2.5vw;
-      font-family: 'PoppinsMediumItalic';
-
+      font-family: "PoppinsMediumItalic";
+      position: relative;
+      left: 0.7vw;
     }
   }
 }

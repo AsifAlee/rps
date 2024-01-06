@@ -32,7 +32,6 @@ const LuckyDetails = ({ clickHandler }) => {
                     style={{
                       display: "flex",
                       flexWrap: "wrap",
-                      gap: "0.5vw",
                       paddingLeft: "1vw",
                       justifyContent: "space-around",
                       alignContent: "center",

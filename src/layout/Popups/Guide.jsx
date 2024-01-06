@@ -268,7 +268,7 @@ const Guide = ({ clickHandler }) => {
             </div>
           ) : (
             <div className="howToPlaySec">
-              <p className="howTitle"> HOW TO PLAY?</p>
+              {/* <p className="howTitle"> HOW TO PLAY?</p> */}
               <div className="acc-section">
                 <div>
                   <Accordion headerTxt={1}>

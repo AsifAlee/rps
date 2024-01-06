@@ -496,7 +496,7 @@
         width: 95%;
         border-radius: 4vw;
         overflow: hidden;
-    
+
         margin: 0 auto;
         table {
           width: 100%;
@@ -504,7 +504,7 @@
           table-layout: fixed;
 
           border-collapse: collapse;
-       
+
           margin: 0 auto;
 
           .head td {
@@ -515,16 +515,12 @@
           }
 
           tr td {
-         
             border: 0.5vw solid #fae8bb;
             font-size: 2.5vw;
             color: #645194;
-
-        
           }
 
           .tal-rec-rows {
-          
             background-color: #d3c1ff;
           }
         }
@@ -538,8 +534,8 @@
     height: 100%;
     .closeBtn {
       position: absolute;
-      left: 66vw;
-      top: -13vw;
+      left: 70vw;
+      top: -17vw;
       width: 8vw;
       z-index: 1;
     }
@@ -589,9 +585,10 @@
         }
       }
       .not-selected {
-        width: 100%;
+        width: 85%;
         height: 100%;
         font-size: 5vw;
+        margin: 0 auto;
         div {
           img {
             width: 7vw;
@@ -619,8 +616,8 @@
     height: 100%;
     .closeBtn {
       position: absolute;
-      left: 66vw;
-      top: -13vw;
+      left: 70vw;
+      top: -17vw;
       width: 8vw;
       z-index: 1;
     }
@@ -704,8 +701,8 @@
     height: 100%;
     .closeBtn {
       position: absolute;
-      left: 66vw;
-      top: -13vw;
+      left: 70vw;
+      top: -17vw;
       width: 8vw;
       z-index: 1;
     }

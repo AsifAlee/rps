@@ -55,6 +55,10 @@ const TourGamePopup = ({
                 off in no time. Keep up the fantastic work!
               </div>
             </div>
+          ) : errorCode === 10000002 ? (
+            <div className="w-100 h-100 d-flex j-center al-center">
+              You need to travel in Neptune planet first.
+            </div>
           ) : (
             <div className="w-100 h-100 d-flex j-center al-center">
               {errorMsg}

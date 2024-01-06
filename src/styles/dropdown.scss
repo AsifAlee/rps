@@ -1,55 +1,68 @@
-.dropDownWrap{
-    width: 18vw;
-    position: absolute;
-    top: 1vw;
-    z-index: 2;
-    font-family: 'Helvetica';
-    color: white;
-    right: 2vw;
-    .dropdown-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1vw;
-        font-size: 2vw;
-        border-radius: .5vw;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        background-color: #072c84;
-        .selected-language {
-          flex: 1;
-          margin-right: 1vw
-        }
-      
-        .dropdown-icon {
-          width: 3vw;
-          height: 3vw;
-          fill: white;
-          transition: transform 0.2s ease-in-out;
-        }
-      
-        &.open .dropdown-icon {
-          transform: rotate(180deg);
-        }
+.dropDownWrap {
+  // width: 20vw;
+  position: absolute;
+  top: 1vw;
+  z-index: 2;
 
-      }
+  color: white;
+  right: 5vw;
+  .dropdown-box {
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4vw;
+    font-size: 2vw;
+    border-radius: 0.5vw;
+    // border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #a82196;
+    height: 5vw;
+    border-radius: 3vw;
+    .selected-language {
+      // border: 1px solid;
+      background-color: #191f3d;
+      border-radius: 2vw 0 0 2vw;
+      width: 16vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.4vw;
+      font-family: "PoppinsMedium";
+      font-size: 1.8vw;
+      padding: 1vw;
+    }
 
-      .dropdown-menu {
-    
-        z-index: 1;
-        background-color: #fff;
-        border-radius: .5vw;
-        border: 1px solid #ccc;
-        
-        .dropdown-item {
-          padding: 1vw;
-          cursor: pointer;
-          background-color: #072c84;
-          font-size: 2vw;
-      
-          &:hover {
-            background-color: #eee;
-          }
-        }
+    .dropdown-icon {
+      width: 4vw;
+      // height: 3vw;
+      fill: white;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &.open .dropdown-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown-menu {
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 0.5vw;
+    border: 1px solid #ccc;
+    width: 17vw;
+    position: relative;
+    left: 1vw;
+
+    .dropdown-item {
+      padding: 1vw;
+      cursor: pointer;
+      background-color: #191f3d;
+      font-size: 1.8vw;
+
+      &:hover {
+        background-color: #eee;
       }
+    }
+  }
 }

@@ -22,6 +22,7 @@ const LanguageDropdown = (props) => {
         <div className="selected-language">
           {languageOptions[selectedLanguage]}
         </div>
+
         <svg className="dropdown-icon" viewBox="0 0 24 24">
           <path d="M7 10l5 5 5-5z" />
         </svg>

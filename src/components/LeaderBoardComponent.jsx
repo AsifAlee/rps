@@ -208,6 +208,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
                       isGifting={isGifting}
                       isTalent={false}
                       showEstRewards={showEstRewards}
+                      isPrev={lbTabs.prev}
                     />
                   )}
                 </div>
@@ -220,6 +221,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
                       isGifting={isGifting}
                       isTalent={false}
                       showEstRewards={showEstRewards}
+                      isPrev={lbTabs.prev}
                     />
                   )}
                 </div>
@@ -232,6 +234,7 @@ const LeaderBoardComponent = ({ isPopup, data, isGifting, showEstRewards }) => {
                       isGifting={isGifting}
                       isTalent={false}
                       showEstRewards={showEstRewards}
+                      isPrev={lbTabs.prev}
                     />
                   )}
                 </div>

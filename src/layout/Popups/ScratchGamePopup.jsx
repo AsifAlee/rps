@@ -4,6 +4,8 @@ import PopUp from "../../components/Popup";
 import bg from "../../assets/images/popup/lucky-pop-bg.png";
 
 import congrats from "../../assets/images/popup/congrats.png";
+import congratulations from "../../assets/images/popup/congratulations.png";
+
 import oops from "../../assets/images/popup/oops.png";
 import cross from "../../assets/images/event-gifting/cross-btn.png";
 
@@ -28,7 +30,16 @@ const ScratchGamePopup = ({
     <PopUp bg={bg} scratchGame={true}>
       <div className="scratch-game-popup">
         <img src={cross} className="closeBtn" onClick={clickHandler} />
-        <img src={errorCode === 0 ? congrats : oops} className="title" />
+        <img
+          src={
+            errorCode === 0 && rewardsList?.length
+              ? congratulations
+              : errorCode === 0 && !rewardsList?.length
+              ? congrats
+              : oops
+          }
+          className="title"
+        />
         <div className="rps-content">
           {errorCode === 0 ? (
             <div className={`success ${!rewardsList?.length && "no-rews"}`}>

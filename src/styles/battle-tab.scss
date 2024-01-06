@@ -112,6 +112,58 @@
       margin: 0 auto;
       top: 12vw;
 
+      .meVsOpp {
+        position: absolute;
+        display: flex;
+        justify-content: space-evenly;
+        width: 68vw;
+        align-items: center;
+        // border: 1px solid red;
+        left: 3vw;
+        top: 1vw;
+        .mascot-withFrame {
+          // width: 14vw;
+          position: relative;
+          left: -7vw;
+          z-index: 1;
+          .mascotFrame {
+            width: 16vw;
+            position: absolute;
+            z-index: 1;
+          }
+          .mascot-dp {
+            width: 12vw;
+            position: absolute;
+            top: 2vw;
+            left: 2vw;
+          }
+        }
+
+        .vsGif {
+          width: 11vw;
+          position: relative;
+          top: 6vw;
+          left: 4vw;
+        }
+        .user-withFrame {
+          // width: 14vw;
+          position: relative;
+          left: -4vw;
+          z-index: 1;
+          .userFrame {
+            width: 16vw;
+            position: absolute;
+            z-index: 1;
+          }
+          .user-dp {
+            width: 12vw;
+            position: absolute;
+            top: 2vw;
+            left: 2vw;
+          }
+        }
+      }
+
       .rpsSvga-wrap {
         // width: 75vw;
         // height: 69vw;
@@ -123,7 +175,7 @@
         width: 68vw;
         height: 45vw;
         position: absolute;
-        top: 8vw;
+        top: 20vw;
         left: 6vw;
         overflow: hidden;
       }
@@ -135,12 +187,11 @@
         left: 9vw;
         top: 7vw;
       }
-      .mascot-img{
+      .mascot-img {
         width: 20vw;
         position: absolute;
         top: 42vw;
         right: 2vw;
-    
       }
     }
 
@@ -204,19 +255,18 @@
       }
     }
 
-    .points-text{
+    .points-text {
       position: relative;
       color: white;
       top: 28vw;
       left: -14vw;
       font-size: 3vw;
-  
     }
   }
   .rec-details-btn {
     width: 100%;
     position: relative;
-    top: 39vw;
+    top: 49vw;
     z-index: 2;
   }
 

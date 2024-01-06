@@ -30,6 +30,7 @@ const TalentTour = () => {
     user,
     infoCalled,
     getTourRecords,
+    handleInfoCalled,
   } = useContext(AppContext);
   // console.log("info callled:", infoCalled);
   // debugger;
@@ -88,34 +89,20 @@ const TalentTour = () => {
   }, [seeMore]);
 
   useEffect(() => {
-    if (travelPlanetIndex === 1) {
+    if (selectedPlanet === 1) {
       if (saturnUnlockRewardInfoList?.length === 10) {
         setCurrentPos(0);
       } else {
         setCurrentPos(saturnUnlockRewardInfoList?.length);
       }
-    } else if (travelPlanetIndex === 2) {
+    } else if (selectedPlanet === 2) {
       if (neptuneUnlockRewardInfoList?.length === 10) {
         setCurrentPosNep(0);
       } else {
         setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
       }
-    } else {
-      if (selectedPlanet === 1) {
-        if (saturnUnlockRewardInfoList?.length === 10) {
-          setCurrentPos(0);
-        } else {
-          setCurrentPos(saturnUnlockRewardInfoList?.length);
-        }
-      } else {
-        if (neptuneUnlockRewardInfoList?.length === 10) {
-          setCurrentPosNep(0);
-        } else {
-          setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
-        }
-      }
     }
-  }, [info]);
+  }, [info, saturnUnlockRewardInfoList, neptuneUnlockRewardInfoList]);
 
   useEffect(() => {
     if (selectedPlanet === 1) {
@@ -143,16 +130,14 @@ const TalentTour = () => {
 
   const changePlanetIndex = (index) => {
     if (selectedPlanet === 2) {
-      // debugger;
       setSelectedPlanet(1);
     } else {
-      // debugger;
       setSelectedPlanet(2);
     }
-    // console.log("index is :", index);
   };
   const playGame = () => {
-    console.log("selected planet:", selectedPlanet);
+    handleInfoCalled(false);
+    // console.log("selected planet:", selectedPlanet);
     setIsDisabled(true);
     fetch(
       `${baseUrl}/api/activity/rps/talentTour?planetIndex=${selectedPlanet}`,
@@ -176,6 +161,7 @@ const TalentTour = () => {
           setGamePopUp(true);
           setIsDisabled(false);
           setErrorMsg(response?.msg);
+          handleInfoCalled(true);
         } else {
           setIsPlaying(true);
           setRewardData(response?.data?.rewardContent);
@@ -188,11 +174,13 @@ const TalentTour = () => {
           setGameMsg(response?.msg);
           geTalentTourLbData();
           getTourRecords();
+          getInfo();
+
           setTimeout(() => {
             setIsPlaying(false);
             setGameErrCode(response.errorCode);
             setGamePopUp(true);
-            getInfo();
+            // getInfo();
             setIsDisabled(false);
           }, 5000);
         }
@@ -201,6 +189,8 @@ const TalentTour = () => {
         console.error("Api error:", error.message);
         setIsPlaying(false);
         setGamePopUp(false);
+        handleInfoCalled(true);
+        setIsDisabled(false);
       });
   };
 
@@ -372,17 +362,23 @@ const TalentTour = () => {
 
               <div className="bottom-sec">
                 <button
+                  // className={`travel-btn ${
+                  //   isDisabled || !infoCalled ? "blackNWhite" : ""
+                  // }`}
+                  // onClick={isDisabled || !infoCalled ? () => {} : playGame}
+                  // disabled={isPlaying || isDisabled || !infoCalled}
                   className={`travel-btn ${
-                    isDisabled || infoCalled === false ? "blackNWhite" : ""
+                    !infoCalled
+                      ? "blackNWhite"
+                      : isDisabled
+                      ? "blackNWhite"
+                      : ""
                   }`}
-                  // onClick={travel}
-                  onClick={
-                    isDisabled || infoCalled === false ? () => {} : playGame
-                  }
-                  disabled={isPlaying || isDisabled || infoCalled === false}
+                  onClick={!infoCalled ? () => {} : isDisabled ? {} : playGame}
+                  disabled={!infoCalled ? true : isDisabled ? true : false}
                 />
                 <img
-                  className={` moving-ship ${
+                  className={`moving-ship ${
                     currentPos === 0
                       ? "zeroPos"
                       : currentPos === 1
@@ -428,7 +424,7 @@ const TalentTour = () => {
                     ? "from8To9"
                     : destination === 10 && isPlaying
                     ? "from9To10"
-                    : "zeroDes"
+                    : ""
                 }
                 
                 
@@ -588,14 +584,24 @@ const TalentTour = () => {
 
               <div className="bottom-sec">
                 <button
+                  // className={`travel-btn ${
+                  //   isDisabled || infoCalled === false ? "blackNWhite" : ""
+                  // }`}
+
+                  // onClick={
+                  //   isDisabled || infoCalled === false ? () => {} : playGame
+                  // }
+                  // disabled={isPlaying || isDisabled || infoCalled === false}
+
                   className={`travel-btn ${
-                    isDisabled || infoCalled === false ? "blackNWhite" : ""
+                    !infoCalled
+                      ? "blackNWhite"
+                      : isDisabled
+                      ? "blackNWhite"
+                      : ""
                   }`}
-                  // onClick={travel}
-                  onClick={
-                    isDisabled || infoCalled === false ? () => {} : playGame
-                  }
-                  disabled={isPlaying || isDisabled || infoCalled === false}
+                  onClick={!infoCalled ? () => {} : isDisabled ? {} : playGame}
+                  disabled={!infoCalled ? true : isDisabled ? true : false}
                 />
                 <img
                   className={`moving-ship-nep ${

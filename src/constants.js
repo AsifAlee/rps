@@ -2,9 +2,9 @@ export const baseUrl = "http://test.streamkar.tv";
 // export const baseUrl = "https://www.streamkar.net";
 export const testUserId = 596492373;
 
-// export const testUserId = 502184258;
+// export const testUserId = 502184260;
 
-export const testToken = "A1E23471404BD34B319B0D3A86F8111108";
+export const testToken = "A18016AB141E7546148BA1BD7FBEC6E8BD";
 
 export const errorCodes = {
   succes: 0,
@@ -116,8 +116,8 @@ export const talentRewards = [
         desc: "Battle Master room skin x1 day (New)",
       },
       {
-        name: "Battle Master frame x1 (New)",
-        desc: "Battle Master frame x1 (New)",
+        name: "Battle Master frame x1 day (New)",
+        desc: "Battle Master frame x1 day (New)",
       },
     ],
   },
@@ -134,7 +134,7 @@ export const gifts = [
     name: "Duel Master",
     price: "30k",
     desc: "duel",
-    id: "40001665",
+    id: "40011780",
   },
   {
     name: "On Fire",
@@ -319,10 +319,10 @@ export const lastLuckyWinnerRewards = [
   },
   {
     name: "Followers Card",
-    count: "1day",
+    count: "x1 day",
   },
   {
     name: "Fortune room skin(New)",
-    count: "2 days",
+    count: "x2 days",
   },
 ];

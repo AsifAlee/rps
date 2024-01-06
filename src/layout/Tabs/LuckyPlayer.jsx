@@ -239,9 +239,11 @@ const LuckyPlayer = () => {
           }}
         >
           <button
-            className={`play-btn ${isDisabled && "blackNWhite"}`}
-            onClick={isDisabled ? () => {} : playGame}
-            disabled={isPlaying || isDisabled}
+            className={`play-btn ${
+              (isDisabled || !dailyScratchRemaining) && "blackNWhite"
+            }`}
+            onClick={isDisabled || !dailyScratchRemaining ? () => {} : playGame}
+            disabled={isPlaying || isDisabled || !dailyScratchRemaining}
           />
           <p>50k game points required</p>
         </div>
@@ -313,7 +315,10 @@ const LuckyPlayer = () => {
         <div className="special-rewards">
           <img src={specialRewards} className="spec-title" />
 
-          <div className="rewards-div d-flex j-sa al-center">
+          <div
+            className="rewards-div d-flex j-sa al-center"
+            style={{ width: "80%", margin: "0 auto" }}
+          >
             <div className="reward-item">
               <img src={getRewardsImage("beansbag")} />
               <span>100$ Beans</span>

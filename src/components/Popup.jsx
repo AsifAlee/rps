@@ -41,7 +41,7 @@ const PopUp = (props) => {
               : isRewardHist
               ? "100vw"
               : details
-              ? "106vw"
+              ? "108vw"
               : scratchGame
               ? "95vw"
               : ""

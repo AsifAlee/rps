@@ -43,7 +43,7 @@
       color: white;
       font-family: "PoppinsMedium";
       p {
-        width: 56%;
+        width: 60%;
         margin: 0 auto;
         font-size: 4vw;
       }
@@ -322,7 +322,7 @@
             top: -34vw;
             left: -35vw;
           }
-          80%{
+          80% {
             transform: rotate(61deg);
           }
           100% {
@@ -336,13 +336,11 @@
           0% {
             top: -48vw;
             left: 0vw;
-          
-            transform: rotate(-61deg);
 
+            transform: rotate(-61deg);
           }
-          80%{
+          80% {
             transform: rotate(-61deg);
-
           }
           100% {
             top: -59vw;
@@ -357,9 +355,8 @@
             left: -35vw;
             transform: rotate(61deg);
           }
-          80%{
+          80% {
             transform: rotate(61deg);
-
           }
           100% {
             top: -71vw;
@@ -391,9 +388,8 @@
             left: -36vw;
             transform: rotate(61deg);
           }
-          80%{
+          80% {
             transform: rotate(61deg);
-
           }
           100% {
             top: -97vw;
@@ -486,7 +482,7 @@
       color: white;
       font-family: "PoppinsMedium";
       p {
-        width: 56%;
+        width: 60%;
         margin: 0 auto;
         font-size: 4vw;
       }
@@ -523,8 +519,6 @@
         }
 
         .bottom-sec {
-    
-
           position: absolute;
           top: 138vw;
           left: 3vw;
@@ -537,7 +531,6 @@
           .moving-ship-nep {
             width: 11vw;
             position: relative;
-      
           }
           .travel-btn {
             width: 21vw;
@@ -705,8 +698,6 @@
           left: -36vw;
         }
         .sevenPos {
-         
-
           top: -97vw;
           left: -1vw;
         }
@@ -761,7 +752,7 @@
             top: -34vw;
             left: -35vw;
           }
-          80%{
+          80% {
             transform: rotate(61deg);
           }
           100% {
@@ -775,13 +766,11 @@
           0% {
             top: -48vw;
             left: 0vw;
-          
-            transform: rotate(-61deg);
 
+            transform: rotate(-61deg);
           }
-          80%{
+          80% {
             transform: rotate(-61deg);
-
           }
           100% {
             top: -59vw;
@@ -796,9 +785,8 @@
             left: -35vw;
             transform: rotate(61deg);
           }
-          80%{
+          80% {
             transform: rotate(61deg);
-
           }
           100% {
             top: -71vw;
@@ -830,9 +818,8 @@
             left: -36vw;
             transform: rotate(61deg);
           }
-          80%{
+          80% {
             transform: rotate(61deg);
-
           }
           100% {
             top: -97vw;
@@ -888,8 +875,6 @@
             transform: rotate(0deg);
           }
         }
-
-
       }
     }
   }
