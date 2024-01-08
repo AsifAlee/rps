@@ -30,7 +30,7 @@ import potImg from "../../assets/images/battle/beans-pot.png";
 import beanIcon from "../../assets/images/battle/bean-icon.png";
 import LeaderBoardComponent from "../../components/LeaderBoardComponent";
 import BattleDetails from "../Popups/BattleDetails";
-import RecordsPopup from "../Popups/RecordsPopup";
+// import RecordsPopup from "../Popups/RecordsPopup";
 import Slider from "../../components/Slider";
 import BattleRecords from "../Popups/BattleRecords";
 import { AppContext } from "../../AppContext";
@@ -369,7 +369,13 @@ const BattleTab = () => {
 
         <div className="beans-pot-count d-flex j-center al-center">
           <img src={beanIcon} />
-          {dateStr && Object.keys(potInfo) ? (
+          {/* {dateStr && Object.keys(potInfo) ? (
+            <span>{potInfo[dateStr]}</span>
+          ) : (
+            ""
+          )} */}
+
+          {dateStr && potInfo && Object.keys(potInfo) ? (
             <span>{potInfo[dateStr]}</span>
           ) : (
             ""

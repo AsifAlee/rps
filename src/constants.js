@@ -1,10 +1,10 @@
-export const baseUrl = "http://test.streamkar.tv";
-// export const baseUrl = "https://www.streamkar.net";
-export const testUserId = 596492373;
+// export const baseUrl = "http://test.streamkar.tv";
+export const baseUrl = "https://www.streamkar.net";
+// export const testUserId = 596492373;
 
-// export const testUserId = 502184260;
+export const testUserId = 502184256;
 
-export const testToken = "A1D3C8A3973A784F099DDDF22667B03E68";
+export const testToken = "A11D3BE6A92C8F4E8791A434A5439D9EDE";
 
 export const errorCodes = {
   succes: 0,
@@ -245,7 +245,7 @@ export const battleLbRewards = [
     pageRewards: [
       {
         name: "beansbag",
-        desc: "50% of beanspot",
+        desc: "50% of beans pot",
       },
     ],
   },
@@ -255,7 +255,7 @@ export const battleLbRewards = [
     pageRewards: [
       {
         name: "beansbag",
-        desc: "30% of beanspot",
+        desc: "30% of beans pot",
       },
     ],
   },
@@ -265,7 +265,7 @@ export const battleLbRewards = [
     pageRewards: [
       {
         name: "beansbag",
-        desc: "20% of beanspot",
+        desc: "20% of beans pot",
       },
     ],
   },

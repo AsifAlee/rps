@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import gamePoints from "../../assets/images/battle/game-points-icon.png";
 import beanIcon from "../../assets/images/common/bean-icon.png";
 // import infoBtn from "../../assets/images/lucky/in";
-import cards from "../../assets/images/lucky/cards.png";
+// import cards from "../../assets/images/lucky/cards.png";
 import "../../styles/lucky-player.scss";
 import CommonButton from "../../components/CommonButton";
 import infoBtn from "../../assets/images/lucky/info-btn.png";

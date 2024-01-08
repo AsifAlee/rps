@@ -7,6 +7,10 @@ import { getLevelImage, gotoProfile } from "../functions";
 import "../styles/game-lb-item.scss";
 
 const GameLeaderboartItem = ({ item, index, isGifting, isTalent }) => {
+  const captureImageError = (event) => {
+    event.target.src = unknown;
+    // return true;
+  };
   return (
     <div className="game-board-item">
       <div className="leftDiv">
@@ -17,6 +21,7 @@ const GameLeaderboartItem = ({ item, index, isGifting, isTalent }) => {
           className="user-avatar"
           src={item?.portrait ? item?.portrait : unknown}
           onClick={() => gotoProfile(item?.userId)}
+          onError={captureImageError}
         />
 
         <div className="user-details">

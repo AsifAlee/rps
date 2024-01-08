@@ -35,10 +35,11 @@ const LuckyDetails = ({ clickHandler }) => {
                       paddingLeft: "1vw",
                       justifyContent: "space-around",
                       alignContent: "center",
+                      gap: "1vw",
                     }}
                   >
                     {luckyDetailsRewards.map((item) => (
-                      <RewardItem item={item} />
+                      <RewardItem item={item} luckyDetails={true} />
                     ))}
                   </div>
                 </td>

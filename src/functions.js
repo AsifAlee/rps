@@ -166,6 +166,8 @@ export const getRewardDetails = (desc, count) => {
     ? (text = `${count} Beans`)
     : desc === "gems"
     ? (text = `${count} Gems`)
+    : desc === "Gems"
+    ? (text = `${count} Gems`)
     : desc === "Wildcards"
     ? (text = `${count} Wildcards`)
     : desc === "Trophies"
@@ -187,6 +189,8 @@ export const getRewardDetails2 = (desc, count) => {
   desc === "Beans"
     ? (text = `${count}`)
     : desc === "gems"
+    ? (text = `${count}`)
+    : desc === "Gems"
     ? (text = `${count}`)
     : (text = `${count > 1 ? `x${count} days` : `x${count} day`}`);
 

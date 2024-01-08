@@ -23,7 +23,7 @@ const Guide = ({ clickHandler }) => {
 
             <div className="gifts-container">
               {gifts.map((item) => (
-                <Gift item={item} />
+                <Gift item={item} isGuide={true} />
               ))}
             </div>
           </div>

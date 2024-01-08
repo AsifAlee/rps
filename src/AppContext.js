@@ -55,6 +55,12 @@ export const DataProvider = ({ children }) => {
   const [talentTourLbData, setTalentTourLbData] = useState([]);
   const [infoCalled, setInfoCalled] = useState(false);
   const [toast, setToast] = useState(false);
+  const [disableAll, setDisableAll] = useState(false);
+
+  const handleDisableAll = (value) => {
+    setDisableAll(value);
+  };
+
   const changeLanguage = (index) => {
     setSelectedLng(index);
   };
@@ -172,7 +178,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const getInfo = () => {
-    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${testUserId}`)
+    fetch(`${baseUrl}/api/activity/rps/getUserEventInfo?userId=${user.userId}`)
       .then((response) =>
         response.json().then((response) => {
           // debugger;
@@ -188,6 +194,8 @@ export const DataProvider = ({ children }) => {
               battlesCount: response?.data?.battlesCount,
               potInfo: response?.data?.potInfo,
               lastLuckyCard: response?.data?.lastLuckyNumber,
+              // lastLuckyCard: "12345",
+
               dailyScratchRemaining: response?.data?.dailyScratchRemaining,
               saturnUnlockRewardInfoList:
                 response?.data?.saturnUnlockRewardInfoList,
@@ -346,6 +354,8 @@ export const DataProvider = ({ children }) => {
         handleInfoCalled,
         toast,
         close,
+        disableAll,
+        handleDisableAll,
       }}
     >
       {children}

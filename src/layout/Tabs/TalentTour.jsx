@@ -31,6 +31,8 @@ const TalentTour = () => {
     infoCalled,
     getTourRecords,
     handleInfoCalled,
+
+    handleDisableAll,
   } = useContext(AppContext);
   // console.log("info callled:", infoCalled);
   // debugger;
@@ -49,6 +51,8 @@ const TalentTour = () => {
   const [rewardData, setRewardData] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedPlanet, setSelectedPlanet] = useState(1);
+  const [satReset, setSatReset] = useState(false);
+  const [nepREset, setNepReset] = useState(false);
 
   const {
     talentPoints,
@@ -88,19 +92,27 @@ const TalentTour = () => {
     }
   }, [seeMore]);
 
+  // useEffect(() => {
+  //   if (selectedPlanet === 1) {
+  //     if (saturnUnlockRewardInfoList?.length === 10) {
+  //       setCurrentPos(0);
+  //     } else {
+  //       setCurrentPos(saturnUnlockRewardInfoList?.length);
+  //     }
+  //   } else if (selectedPlanet === 2) {
+  //     if (neptuneUnlockRewardInfoList?.length === 10) {
+  //       setCurrentPosNep(0);
+  //     } else {
+  //       setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
+  //     }
+  //   }
+  // }, [info, saturnUnlockRewardInfoList, neptuneUnlockRewardInfoList]);
+
   useEffect(() => {
     if (selectedPlanet === 1) {
-      if (saturnUnlockRewardInfoList?.length === 10) {
-        setCurrentPos(0);
-      } else {
-        setCurrentPos(saturnUnlockRewardInfoList?.length);
-      }
+      setCurrentPos(saturnUnlockRewardInfoList?.length);
     } else if (selectedPlanet === 2) {
-      if (neptuneUnlockRewardInfoList?.length === 10) {
-        setCurrentPosNep(0);
-      } else {
-        setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
-      }
+      setCurrentPosNep(neptuneUnlockRewardInfoList?.length);
     }
   }, [info, saturnUnlockRewardInfoList, neptuneUnlockRewardInfoList]);
 
@@ -120,11 +132,34 @@ const TalentTour = () => {
     }
   }, [selectedPlanet]);
 
+  useEffect(() => {
+    if (saturnUnlockRewardInfoList?.length === 10) {
+      setTimeout(() => {
+        setSatReset(true);
+        setCurrentPos(0);
+      }, 5000);
+    } else {
+      setSatReset(false);
+    }
+  }, [saturnUnlockRewardInfoList]);
+
+  useEffect(() => {
+    if (neptuneUnlockRewardInfoList?.length === 10) {
+      setTimeout(() => {
+        setNepReset(true);
+        setCurrentPosNep(0);
+      }, 5000);
+    } else {
+      setNepReset(false);
+    }
+  }, [neptuneUnlockRewardInfoList]);
+
   const travel = () => {
     setDestination(7);
   };
 
   const toggleGamePopup = () => {
+    handleDisableAll(false);
     setGamePopUp((prevState) => !prevState);
   };
 
@@ -137,6 +172,7 @@ const TalentTour = () => {
   };
   const playGame = () => {
     handleInfoCalled(false);
+    handleDisableAll(true);
     // console.log("selected planet:", selectedPlanet);
     setIsDisabled(true);
     fetch(
@@ -144,10 +180,10 @@ const TalentTour = () => {
       {
         method: "POST",
         headers: {
-          // userId: user.userId,
-          // token: user.token,
-          userId: testUserId,
-          token: testToken,
+          userId: user.userId,
+          token: user.token,
+          // userId: testUserId,
+          // token: testToken,
           "Content-Type": "application/json",
         },
       }
@@ -183,6 +219,7 @@ const TalentTour = () => {
             setGamePopUp(true);
             // getInfo();
             setIsDisabled(false);
+            handleDisableAll(false);
           }, 5000);
         }
       })
@@ -192,6 +229,7 @@ const TalentTour = () => {
         setGamePopUp(false);
         handleInfoCalled(true);
         setIsDisabled(false);
+        handleDisableAll(false);
       });
   };
 
@@ -207,7 +245,7 @@ const TalentTour = () => {
       <div className="space-game">
         <div className="space-ticket-count d-flex j-center al-center">
           <img src={shipIcon} />
-          <span>{`My Spaceship tickets : ${talentPoints}`}</span>
+          <span>{`My SpaceShip Tickets : ${talentPoints}`}</span>
         </div>
         <div style={{ position: "relative", top: "9vw" }}>
           <TourSlider
@@ -225,8 +263,15 @@ const TalentTour = () => {
                   <div className="reward10">
                     <TourComponent
                       rew={saturnRewards.ten}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 10
+                      //     ? true
+                      //     : false
+                      // }
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 10
                           ? true
@@ -237,8 +282,16 @@ const TalentTour = () => {
                   <div className="reward8">
                     <TourComponent
                       rew={saturnRewards.eight}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 8
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 8
                           ? true
@@ -249,8 +302,16 @@ const TalentTour = () => {
                   <div className="reward6">
                     <TourComponent
                       rew={saturnRewards.six}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 6
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 6
                           ? true
@@ -261,8 +322,15 @@ const TalentTour = () => {
                   <div className="reward4">
                     <TourComponent
                       rew={saturnRewards.four}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 4
+                      //     ? true
+                      //     : false
+                      // }
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 4
                           ? true
@@ -273,8 +341,16 @@ const TalentTour = () => {
                   <div className="reward2">
                     <TourComponent
                       rew={saturnRewards.two}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 2
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 2
                           ? true
@@ -288,8 +364,16 @@ const TalentTour = () => {
                   <div className="reward9">
                     <TourComponent
                       rew={saturnRewards.nine}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 9
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 9
                           ? true
@@ -301,8 +385,16 @@ const TalentTour = () => {
                   <div className="reward7">
                     <TourComponent
                       rew={saturnRewards.seven}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 7
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 7
                           ? true
@@ -314,8 +406,16 @@ const TalentTour = () => {
                   <div className="reward5">
                     <TourComponent
                       rew={saturnRewards.five}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 5
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 5
                           ? true
@@ -326,8 +426,15 @@ const TalentTour = () => {
                   <div className="reward3">
                     <TourComponent
                       rew={saturnRewards.three}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 3
+                      //     ? true
+                      //     : false
+                      // }
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 3
                           ? true
@@ -339,8 +446,16 @@ const TalentTour = () => {
                   <div className="reward1">
                     <TourComponent
                       rew={saturnRewards.one}
+                      // isAchieved={
+                      //   saturnUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : saturnUnlockRewardInfoList?.length >= 1
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        saturnUnlockRewardInfoList?.length === 10
+                        satReset
                           ? false
                           : saturnUnlockRewardInfoList?.length >= 1
                           ? true
@@ -447,8 +562,15 @@ const TalentTour = () => {
                   <div className="reward10">
                     <TourComponent
                       rew={neptuneRewards.ten}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 10
+                      //     ? true
+                      //     : false
+                      // }
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 10
                           ? true
@@ -459,8 +581,16 @@ const TalentTour = () => {
                   <div className="reward8">
                     <TourComponent
                       rew={neptuneRewards.eight}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 8
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 8
                           ? true
@@ -471,8 +601,16 @@ const TalentTour = () => {
                   <div className="reward6">
                     <TourComponent
                       rew={neptuneRewards.six}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 6
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 6
                           ? true
@@ -483,8 +621,16 @@ const TalentTour = () => {
                   <div className="reward4">
                     <TourComponent
                       rew={neptuneRewards.four}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 4
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 4
                           ? true
@@ -495,8 +641,16 @@ const TalentTour = () => {
                   <div className="reward2">
                     <TourComponent
                       rew={neptuneRewards.two}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 2
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 2
                           ? true
@@ -510,8 +664,16 @@ const TalentTour = () => {
                   <div className="reward9">
                     <TourComponent
                       rew={neptuneRewards.nine}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 9
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 9
                           ? true
@@ -523,8 +685,16 @@ const TalentTour = () => {
                   <div className="reward7">
                     <TourComponent
                       rew={neptuneRewards.seven}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 7
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 7
                           ? true
@@ -536,8 +706,16 @@ const TalentTour = () => {
                   <div className="reward5">
                     <TourComponent
                       rew={neptuneRewards.five}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 5
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 5
                           ? true
@@ -548,8 +726,16 @@ const TalentTour = () => {
                   <div className="reward3">
                     <TourComponent
                       rew={neptuneRewards.three}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 3
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 3
                           ? true
@@ -561,8 +747,16 @@ const TalentTour = () => {
                   <div className="reward1">
                     <TourComponent
                       rew={neptuneRewards.one}
+                      // isAchieved={
+                      //   neptuneUnlockRewardInfoList?.length === 10
+                      //     ? false
+                      //     : neptuneUnlockRewardInfoList?.length >= 1
+                      //     ? true
+                      //     : false
+                      // }
+
                       isAchieved={
-                        neptuneUnlockRewardInfoList?.length === 10
+                        nepREset
                           ? false
                           : neptuneUnlockRewardInfoList?.length >= 1
                           ? true

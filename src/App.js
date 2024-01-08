@@ -14,7 +14,7 @@ import { AppContext } from "./AppContext";
 import ToastMessage from "./components/ToastMessage";
 
 function App() {
-  const { user, toast, close } = useContext(AppContext);
+  const { user, toast, close, disableAll } = useContext(AppContext);
   const [mainTabs, setMainTabs] = useState({
     battle: true,
     luckyPlayer: false,
@@ -93,24 +93,31 @@ function App() {
         <div className="main-tabs">
           <button
             className={`main-tab-button ${!mainTabs.battle && "hide"}`}
-            onClick={() => toggleMainTabs("battle")}
+            onClick={disableAll ? () => {} : () => toggleMainTabs("battle")}
             style={{ left: "-3vw" }}
+            disabled={disableAll}
           >
             RPS BATTLE
           </button>
 
           <button
             className={`main-tab-button ${!mainTabs.luckyPlayer && "hide"}`}
-            onClick={() => toggleMainTabs("lucky-player")}
+            onClick={
+              disableAll ? () => {} : () => toggleMainTabs("lucky-player")
+            }
             style={{ left: "2vw" }}
+            disabled={disableAll}
           >
             LUCKY PLAYER
           </button>
 
           <button
             className={`main-tab-button ${!mainTabs.talentTour && "hide"}`}
-            onClick={() => toggleMainTabs("talent-tour")}
+            onClick={
+              disableAll ? () => {} : () => toggleMainTabs("talent-tour")
+            }
             style={{ left: "3vw" }}
+            disabled={disableAll}
           >
             TALENT TOUR
           </button>
@@ -132,11 +139,11 @@ function App() {
       {guide && <Guide clickHandler={toggleGuide} />}
       {/* {guide && <GuidePopup clickHandler={toggleGuide} />} */}
 
-      <ToastMessage
+      {/* <ToastMessage
         isVisible={toast}
         message={"Info Api Error"}
         close={close}
-      />
+      /> */}
     </div>
   );
 }
