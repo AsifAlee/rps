@@ -21,11 +21,11 @@ function App() {
     talentTour: false,
   });
 
-  useEffect(() => {
-    if (user.token) {
-      alert(user.token);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.token) {
+  //     alert(user.token);
+  //   }
+  // }, [user]);
 
   const [eventGifting, setEventGifting] = useState(false);
   const [guide, setGuide] = useState(false);

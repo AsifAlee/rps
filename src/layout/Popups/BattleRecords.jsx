@@ -16,7 +16,11 @@ import HistorySliderItem from "../../components/HistorySliderItem";
 import SliderItem from "../../components/LeaderboardSliderItem";
 import "../../styles/leaderboard-slider.scss";
 import RecordRewardItem from "../../components/RecordRewardItem";
-import { RpsWinLoss } from "../../functions";
+import {
+  RpsWinLoss,
+  getRewardDetails2,
+  getRewardsImage,
+} from "../../functions";
 
 const BattleRecords = ({ clickHandler }) => {
   const { records } = useContext(AppContext);
@@ -67,7 +71,7 @@ const BattleRecords = ({ clickHandler }) => {
             <div className="table-wrap">
               <table className="m-auto">
                 <tr className="head">
-                  <td colSpan={1} style={{ width: "40%" }}>
+                  <td colSpan={1} style={{ width: "20%" }}>
                     Time
                   </td>
                   <td colSpan={1} style={{ width: "15%" }}>
@@ -78,7 +82,7 @@ const BattleRecords = ({ clickHandler }) => {
                   <td colSpan={1} style={{ width: "15%" }}>
                     Result
                   </td>
-                  <td colSpan={1} style={{ width: "30%" }}>
+                  <td colSpan={1} style={{ width: "50%" }}>
                     Rewards
                   </td>
                 </tr>
@@ -110,10 +114,18 @@ const BattleRecords = ({ clickHandler }) => {
                       </td>
                       <td>
                         <div
-                          // style={{ position: "relative", top: "-3vw" }}
+                          style={{ flexWrap: "wrap", gap: "1vw" }}
                           className="d-flex j-center al-center"
                         >
-                          <RecordRewardItem item={rec?.rewardDTOList[0]} />
+                          {/* <RecordRewardItem item={rec?.rewardDTOList[0]} /> */}
+                          {rec?.rewardDTOList?.map((rew) => (
+                            <div className="battle-rec-item">
+                              <img src={getRewardsImage(rew?.desc)} />
+                              <span>
+                                {getRewardDetails2(rew?.desc, rew?.count)}
+                              </span>
+                            </div>
+                          ))}
                         </div>
                       </td>
                     </tr>

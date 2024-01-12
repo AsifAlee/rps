@@ -457,6 +457,19 @@
             height: 22vw;
             background-color: #d3c1ff;
           }
+
+          .battle-rec-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 5vw;
+            }
+            span {
+              font-size: 1.8vw;
+            }
+          }
         }
       }
     }
@@ -578,10 +591,51 @@
         .rew-section {
           margin-top: 3vw;
         }
+        .rew-section-mul {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          border: 1px solid;
+        }
         .bottom-text {
           position: relative;
           top: 9vw;
           font-size: 4vw;
+        }
+      }
+
+      .multiple-play {
+        .p1 {
+          font-size: 3vw;
+          position: relative;
+          top: 7vw;
+
+          .battle-icon {
+            width: 7vw;
+            display: inline-block;
+
+            vertical-align: middle;
+          }
+        }
+        .multiple-rews {
+          width: 100%;
+          // border: 1px solid;
+          height: 47vw;
+          overflow-y: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          margin: 0 auto;
+          position: relative;
+          top: 3vw;
+        }
+        .bottom-text {
+          position: relative;
+          top: 9vw;
+          font-size: 3vw;
         }
       }
       .not-selected {

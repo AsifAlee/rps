@@ -74,7 +74,7 @@
 
   .battle-game-frame {
     background-image: url(../assets/images/battle/reward-section-bg.png);
-    min-height: 145vw;
+    min-height: 162vw;
     position: relative;
     width: 95%;
     background-size: 100% 100%;
@@ -224,6 +224,38 @@
       left: 11vw;
       gap: 5vw;
     }
+
+    .input-sec {
+      position: relative;
+      top: 24vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      // overflow: hidden;
+      width: 90%;
+      margin: 0 auto;
+      height: 14vw;
+
+      .battle-input {
+        width: 22vw;
+        background-color: #0f0c30;
+        padding: 2vw;
+        // height: 9vw;
+        border-radius: 3vw;
+        color: white;
+        border: 0.4vw solid #d7ba81;
+        text-align: center;
+        // -webkit-tap-highlight-color: transparent;
+
+        // margin: 0;
+        // padding: 0;
+        // overflow: hidden;
+      }
+      .input-info {
+        font-size: 3vw;
+      }
+    }
     .play-btn {
       background-size: 100% 100%;
       background-repeat: no-repeat;
@@ -233,7 +265,7 @@
       height: 10vw;
       background-image: url(../assets/images/battle/play-btn.png);
       position: relative;
-      top: 24vw;
+      top: 27vw;
       left: 8vw;
     }
     .battles-won-count {
@@ -258,7 +290,7 @@
     .points-text {
       position: relative;
       color: white;
-      top: 28vw;
+      top: 30vw;
       left: -14vw;
       font-size: 3vw;
     }

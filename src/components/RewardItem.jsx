@@ -17,7 +17,8 @@ const RewardItem = ({ item, luckyDetails }) => {
         className="text"
         style={{
           fontSize: luckyDetails && "1.5vw",
-          width: luckyDetails && "100%",
+          width: luckyDetails && "85%",
+          wordWrap: luckyDetails && "break-word",
         }}
       >
         {item}

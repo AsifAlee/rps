@@ -212,3 +212,12 @@ export const RpsWinLoss = (score) => {
     else return "Tie";
   }
 };
+
+export const formatData = (originalArray) => {
+  const newArray = [];
+  for (let i = 0; i < originalArray?.length; i += 3) {
+    newArray?.push(originalArray?.slice(i, i + 3));
+  }
+
+  return newArray;
+};

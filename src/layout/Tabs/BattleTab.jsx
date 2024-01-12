@@ -81,6 +81,11 @@ const BattleTab = () => {
 
   const [resultImage, setResultImage] = useState("");
   const [animFinished, setAnimFinished] = useState(false);
+  const [isInputZero, setIsInputZero] = useState(false);
+
+  const [winCount, setWinCount] = useState(0);
+  const [lostCount, setLostCount] = useState(0);
+  const [tieCount, setTieCount] = useState(0);
 
   const toggleDetails = () => {
     setDetails((prevState) => !prevState);
@@ -162,6 +167,21 @@ const BattleTab = () => {
         setTimeout(() => {
           setGamePopUp(true);
         }, 3300);
+      } else if (selectedChar === "R") {
+        setResultImage(rockWin);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "P") {
+        setResultImage(paperWin);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
+      } else if (selectedChar === "S") {
+        setResultImage(scissorsWin);
+        setTimeout(() => {
+          setGamePopUp(true);
+        }, 3300);
       }
     }
   }, [animFinished]);
@@ -172,6 +192,7 @@ const BattleTab = () => {
     setAnimFinished(false);
     setIsDisabled(false);
     setIsPlaying(false);
+    setInputValue(1);
   };
 
   const handleRadioSelect = (name) => {
@@ -188,54 +209,147 @@ const BattleTab = () => {
   };
 
   const playGame = () => {
+    if (selectedChar === "") {
+      setGamePopUp(true);
+      return;
+    }
     setIsDisabled(true);
     setResultImage("");
-    fetch(`${baseUrl}/api/activity/rps/rpsBattle?character=${selectedChar}`, {
-      method: "POST",
-      headers: {
-        userId: user.userId,
-        token: user.token,
-        // userId: testUserId,
-        // token: testToken,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        let rpsRes;
-        // debugger;
-        if (response.errorCode !== 0) {
-          setGameErrCode(response.errorCode);
-          setIsPlaying(false);
-          setGamePopUp(true);
-          setIsDisabled(false);
-          setErrorMsg(response?.msg);
-        } else {
-          rpsRes = response?.data?.rpsResult;
 
-          setRewardData(response?.data?.rewardContent);
-          setIsPlaying(true);
-          setGameMsg(response?.msg);
-          setTimeout(() => {
-            // setIsPlaying(false);
-            // setIsDisabled(false);
-            setGameErrCode(response.errorCode);
-            setRpsResult(rpsRes);
-            // setGamePopUp(true);
-            getInfo();
-            getBattleLbData();
+    {
+      inputValue <= 1
+        ? fetch(
+            `${baseUrl}/api/activity/rps/rpsBattle?character=${selectedChar}`,
+            {
+              method: "POST",
+              headers: {
+                userId: user.userId,
+                token: user.token,
+                // userId: testUserId,
+                // token: testToken,
+                "Content-Type": "application/json",
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              let rpsRes;
+              // debugger;
+              if (response.errorCode !== 0) {
+                setGameErrCode(response.errorCode);
+                setIsPlaying(false);
+                setGamePopUp(true);
+                setIsDisabled(false);
+                setErrorMsg(response?.msg);
+              } else {
+                rpsRes = response?.data?.rpsResult;
 
-            getBattleRecords();
+                setRewardData(response?.data?.rewardContent);
+                setIsPlaying(true);
+                setGameMsg(response?.msg);
+                setTimeout(() => {
+                  // setIsPlaying(false);
+                  // setIsDisabled(false);
+                  setGameErrCode(response.errorCode);
+                  setRpsResult(rpsRes);
+                  // setGamePopUp(true);
+                  getInfo();
+                  getBattleLbData();
 
-            setAnimFinished(true);
-          }, 3300);
-        }
-      })
-      .catch((error) => {
-        console.error("Api error:", error.message);
-        setIsPlaying(false);
-        setGamePopUp(false);
-      });
+                  getBattleRecords();
+
+                  setAnimFinished(true);
+                }, 3300);
+              }
+            })
+            .catch((error) => {
+              console.error("Api error:", error.message);
+              setIsPlaying(false);
+              setGamePopUp(false);
+            })
+        : fetch(
+            `${baseUrl}/api/activity/rps/rpsBattleMultiple?playCount=${inputValue}`,
+            {
+              method: "POST",
+              headers: {
+                userId: user.userId,
+                token: user.token,
+                // userId: testUserId,
+                // token: testToken,
+                "Content-Type": "application/json",
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              let rpsRes;
+              // debugger;
+              if (response.errorCode !== 0) {
+                setGameErrCode(response.errorCode);
+                setIsPlaying(false);
+                setGamePopUp(true);
+                setIsDisabled(false);
+                setErrorMsg(response?.msg);
+                // setInputValue(1);
+              } else {
+                // rpsRes = response?.data?.rpsResult;
+
+                setRewardData(response?.data?.rewardContent);
+                setIsPlaying(true);
+                setGameMsg(response?.msg);
+                setWinCount(response?.data?.winCount);
+                setLostCount(response?.data?.lostCount);
+                setTieCount(response?.data?.tieCount);
+
+                setTimeout(() => {
+                  // setIsPlaying(false);
+                  // setIsDisabled(false);
+                  setGameErrCode(response.errorCode);
+                  // setRpsResult(rpsRes);
+                  // setGamePopUp(true);
+                  getInfo();
+                  getBattleLbData();
+
+                  getBattleRecords();
+
+                  setAnimFinished(true);
+                  // setInputValue(1);
+                }, 3300);
+              }
+            })
+            .catch((error) => {
+              console.error("Api error:", error.message);
+              setIsPlaying(false);
+              setGamePopUp(false);
+              // setInputValue(1);
+            });
+    }
+  };
+
+  const onUpCheck = (e) => {
+    let max;
+    if (/[+-.]/.test(e.key)) {
+      setInputValue("");
+    } else {
+      // let max = info?.gamePoints < 99 ?  userInfo.throwsLeft : 99;
+      if (info?.gamePoints <= 99 && info?.gamePoints > 0) {
+        max = info?.gamePoints;
+      } else if (info?.gamePoints > 99) {
+        max = 99;
+      } else if (info?.gamePoints === 0) {
+        max = 1;
+      }
+      let number = inputValue > max ? max : inputValue <= 0 ? "" : inputValue;
+      setInputValue(parseInt(number));
+    }
+  };
+  const onChangeHandle = (event) => {
+    if (!event.target.value) {
+      setIsInputZero(true);
+    } else {
+      setIsInputZero(false);
+    }
+    setInputValue(parseInt(event.target.value));
   };
 
   return (
@@ -341,9 +455,25 @@ const BattleTab = () => {
             disabled={isPlaying || isDisabled}
           />
         </div>
+        <div className="input-sec">
+          <input
+            className="battle-input"
+            type="number"
+            value={inputValue}
+            min={1}
+            max={99}
+            onChange={onChangeHandle}
+            onKeyUp={onUpCheck}
+            pattern="[0-9]*"
+            style={{ border: isInputZero ? "1px solid red" : "" }}
+          />
+          <span className="input-info">Max value = 99</span>
+        </div>
         <button
-          className={`play-btn ${isDisabled && "blackNWhite"}`}
-          onClick={isDisabled || isPlaying ? () => {} : playGame}
+          className={`play-btn ${
+            isDisabled ? "blackNWhite" : !inputValue ? "blackNWhite" : ""
+          }`}
+          onClick={isDisabled || isPlaying || !inputValue ? () => {} : playGame}
           disabled={isPlaying || isDisabled}
         />
         <span className="points-text">15K Pts Req</span>
@@ -394,6 +524,10 @@ const BattleTab = () => {
           notSelected={selectedChar === "" ? true : false}
           errorMsg={errorMsg}
           rewardData={rewardData}
+          isMultiple={inputValue > 1}
+          winCount={winCount}
+          lostCount={lostCount}
+          tieCount={tieCount}
         />
       )}
     </div>

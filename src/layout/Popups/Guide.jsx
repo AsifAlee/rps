@@ -57,6 +57,11 @@ const Guide = ({ clickHandler }) => {
                           </p>
                         </li>
                         <li>
+                          You can enter any value the number of times you want
+                          to play in the text input box. The default value of
+                          the text input box is “1” & maximum value is “99”.
+                        </li>
+                        <li>
                           When you tap on the “PLAY” button successfully, Game
                           points will be deducted and you will get a reward.
                         </li>
@@ -294,6 +299,12 @@ const Guide = ({ clickHandler }) => {
                           <p className="highlight">
                             "PLAY" button par aik baar tap = 15k Game Points.
                           </p>
+                        </li>
+
+                        <li>
+                          Aap jitni bar play karna chahty hai text input box
+                          main value daal sakte hain. Text input box ki default
+                          value "1" hogi aur maximum value "99" hai.
                         </li>
                         <li>
                           Jab aap "PLAY" button par successfully tap karen gy,

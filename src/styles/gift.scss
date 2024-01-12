@@ -60,3 +60,29 @@
     font-family: "PoppinsMedium";
   }
 }
+
+.game-reward-item-mul {
+  width: 17vw;
+  height: 17vw;
+  background-image: url(../assets//images/lucky/reward-box.png);
+  background-size: 100% 100%;
+  position: relative;
+
+  .reward-img {
+    position: absolute;
+    width: 8vw;
+    top: 4vw;
+    left: 5vw;
+  }
+
+  .text {
+    left: 1vw;
+    // border: 1px solid;
+    width: 20vw;
+    position: absolute;
+    font-size: 2.5vw;
+    color: white;
+    top: 24vw;
+    font-family: "PoppinsMedium";
+  }
+}

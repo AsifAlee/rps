@@ -17,7 +17,7 @@ export const DataProvider = ({ children }) => {
   months = months < 10 ? `0${months}` : months;
   dateStr = years + "-" + months + "-" + day;
   dateStrPrev =
-    years + "-" + months + "-" + (day - 1 < 10 ? `0${day - 1}` : day);
+    years + "-" + months + "-" + (day - 1 < 10 ? `0${day - 1}` : day - 1);
   const [info, setInfo] = useState({
     isScrtached: true,
     gamePoints: 0,
@@ -225,6 +225,7 @@ export const DataProvider = ({ children }) => {
     )
       .then((response) =>
         response.json().then((response) => {
+          console.log("battle rec res:", response);
           setRecords((prevState) => ({
             ...prevState,
             rps: response?.data?.list || [],

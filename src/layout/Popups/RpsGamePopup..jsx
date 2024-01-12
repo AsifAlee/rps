@@ -7,6 +7,8 @@ import victory from "../../assets/images/popup/victory.png";
 
 import unlucky from "../../assets/images/popup/unlucky.png";
 import congrats from "../../assets/images/popup/congrats.png";
+import congratulations from "../../assets/images/popup/congratulations.png";
+
 import element from "../../assets/images/popup/element.png";
 import oops from "../../assets/images/popup/oops.png";
 import cross from "../../assets/images/event-gifting/cross-btn.png";
@@ -18,6 +20,9 @@ import gameIcon from "../../assets/images/battle/game-points-icon.png";
 
 import RewardItem from "../../components/RewardItem";
 import GameRewardItem from "../../components/GameRewardItem";
+import GameRewardItemMul from "../../components/GameRewardItemMul";
+import { formatData } from "../../functions";
+import PopUpRewardsSlider from "../../components/PopUpRewardsSlider";
 
 const RpsGamePopup = ({
   clickHandler,
@@ -26,30 +31,51 @@ const RpsGamePopup = ({
   errorMsg,
   rpsResult,
   rewardData,
+  isMultiple = false,
+  winCount = 0,
+  lostCount = 0,
+  tieCount = 0,
 }) => {
+  // const [formattedData]
   // debugger;
+  let formatedRewData;
+  if (isMultiple && rewardData?.length) {
+    formatedRewData = formatData(rewardData?.split("+"));
+  }
+
+  console.log("formated data:", formatedRewData);
   return (
     <PopUp bg={bg} game={true}>
       <div className="rps-game-popup">
         <img src={cross} className="closeBtn" onClick={clickHandler} />
-        <img
-          src={
-            errorCode === 0
-              ? rpsResult === 0
-                ? unlucky
-                : rpsResult === 2
-                ? tie
-                : victory
-              : errorCode === 10000004
-              ? oops
-              : notSelected === true
-              ? element
-              : oops
-          }
-          className="title"
-        />
+        {!isMultiple ? (
+          <img
+            src={
+              errorCode === 0
+                ? rpsResult === 0
+                  ? unlucky
+                  : rpsResult === 2
+                  ? tie
+                  : victory
+                : errorCode === 10000004
+                ? oops
+                : notSelected === true
+                ? element
+                : oops
+            }
+            className="title"
+          />
+        ) : (
+          <img
+            src={
+              errorCode === 0 ? congratulations : notSelected ? element : oops
+            }
+            className="title"
+          />
+        )}
+
         <div className="rps-content">
-          {errorCode === 0 ? (
+          {errorCode === 0 && !isMultiple ? (
             <div className="success">
               {rpsResult === 1 ? (
                 <div className="p1">
@@ -72,12 +98,36 @@ const RpsGamePopup = ({
               <div className="rew-section">
                 <GameRewardItem reward={rewardData} />
               </div>
+
               <p className="bottom-text">
                 {rpsResult === 1
                   ? "Play again to win more amazing rewards."
                   : rpsResult === 2
                   ? "Play again to win this time & get amazing rewards."
                   : "Play again to win this time & get amazing rewards."}
+              </p>
+            </div>
+          ) : errorCode === 0 && isMultiple ? (
+            <div className="multiple-play">
+              <p className="p1">
+                You have successfully won this battle {winCount} times, lost{" "}
+                {lostCount} times, Tie {tieCount} times
+                <img src={battleIcon} className="battle-icon" /> & your reward
+                is
+              </p>
+              <div className="multiple-rews">
+                {/* {formatedRewData?.map((item) => (
+                  <GameRewardItemMul reward={item} />
+                ))} */}
+                <PopUpRewardsSlider
+                  rewards={formatedRewData}
+                  hideArrows={true}
+                  showRanks={false}
+                  showIndicators={formatedRewData?.length <= 1 ? false : true}
+                />
+              </div>
+              <p className="bottom-text">
+                Play again to win more amazing rewards
               </p>
             </div>
           ) : errorCode === 10000004 ? (
@@ -101,10 +151,6 @@ const RpsGamePopup = ({
               {errorMsg}
             </div>
           )}
-
-          {/* {errorCode === 0 && <div className="rps-content">
-            
-            </div>} */}
         </div>
       </div>
     </PopUp>
